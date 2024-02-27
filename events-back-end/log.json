@@ -1,0 +1,818 @@
+[
+  {
+    "id": 1,
+    "datetime": "2024-02-25 13:11:12.857476",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "1",
+    "func_output": "<Users 1>"
+  },
+  {
+    "id": 2,
+    "datetime": "2024-02-25 13:12:16.462618",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "1",
+    "func_output": "<Users 1>"
+  },
+  {
+    "id": 3,
+    "datetime": "2024-02-25 13:12:18.834955",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_all",
+    "func_input": "None",
+    "func_output": "[<Users 1>, <Users 2>]"
+  },
+  {
+    "id": 4,
+    "datetime": "2024-02-25 13:30:09.168858",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "1",
+    "func_output": "<Users 1>"
+  },
+  {
+    "id": 5,
+    "datetime": "2024-02-25 13:30:09.369402",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_all",
+    "func_input": "None",
+    "func_output": "[<Users 1>, <Users 2>]"
+  },
+  {
+    "id": 6,
+    "datetime": "2024-02-25 13:34:17.764970",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "1",
+    "func_output": "<Users 1>"
+  },
+  {
+    "id": 7,
+    "datetime": "2024-02-25 13:35:21.839695",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_all",
+    "func_input": "None",
+    "func_output": "[<Users 1>, <Users 2>]"
+  },
+  {
+    "id": 8,
+    "datetime": "2024-02-25 13:35:22.326616",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "add",
+    "func_input": "<Users 1>",
+    "func_output": "Added"
+  },
+  {
+    "id": 9,
+    "datetime": "2024-02-25 13:35:22.608006",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "add",
+    "func_input": "<Users 1>",
+    "func_output": "Added"
+  },
+  {
+    "id": 10,
+    "datetime": "2024-02-25 13:35:22.709061",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "1",
+    "func_output": "<Users 1>"
+  },
+  {
+    "id": 11,
+    "datetime": "2024-02-25 13:35:22.725322",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "update",
+    "func_input": "(1, {'Username': 'updated_user'})",
+    "func_output": "Updated"
+  },
+  {
+    "id": 12,
+    "datetime": "2024-02-25 13:35:22.966816",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "add",
+    "func_input": "<Users 1>",
+    "func_output": "Added"
+  },
+  {
+    "id": 13,
+    "datetime": "2024-02-25 13:35:22.979816",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "1",
+    "func_output": "<Users 1>"
+  },
+  {
+    "id": 14,
+    "datetime": "2024-02-25 13:35:22.995814",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "remove",
+    "func_input": "1",
+    "func_output": "Removed"
+  },
+  {
+    "id": 15,
+    "datetime": "2024-02-25 19:33:39.597519",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "check_if_user_exists",
+    "func_input": "{'username': 'elisheva1', 'email': 'elisheva@gmail.com'}",
+    "func_output": "Working outside of application context.\n\nThis typically means that you attempted to use functionality that needed\nthe current application. To solve this, set up an application context\nwith app.app_context(). See the documentation for more information."
+  },
+  {
+    "id": 16,
+    "datetime": "2024-02-25 19:34:44.873068",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "check_if_user_exists",
+    "func_input": "{'username': 'elisheva1', 'email': 'elisheva@gmail.com'}",
+    "func_output": "None Found"
+  },
+  {
+    "id": 17,
+    "datetime": "2024-02-25 19:34:45.098937",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "add",
+    "func_input": "<Users 1>",
+    "func_output": "Added"
+  },
+  {
+    "id": 18,
+    "datetime": "2024-02-25 19:35:34.891765",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "check_if_user_exists",
+    "func_input": "{'username': 'elisheva1', 'email': 'elisheva@gmail.com'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 19,
+    "datetime": "2024-02-25 19:52:04.619422",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'elisheva1'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 20,
+    "datetime": "2024-02-25 19:52:04.628975",
+    "class-name": "BackendBase",
+    "func_name": "login",
+    "func_input": "('elisheva1', 'Elisheva1')",
+    "func_output": "BackendBase._check_password() takes 2 positional arguments but 3 were given"
+  },
+  {
+    "id": 21,
+    "datetime": "2024-02-25 19:54:37.334220",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'elisheva1'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 22,
+    "datetime": "2024-02-25 19:54:37.334641",
+    "class-name": "BackendBase",
+    "func_name": "login",
+    "func_input": "('elisheva1', 'Elisheva1')",
+    "func_output": "BackendBase._check_password() takes 2 positional arguments but 3 were given"
+  },
+  {
+    "id": 23,
+    "datetime": "2024-02-25 19:57:30.090580",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'elisheva1'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 24,
+    "datetime": "2024-02-25 19:57:30.305326",
+    "class-name": "BackendBase",
+    "func_name": "_check_password",
+    "func_input": "('$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'Elisheva1')",
+    "func_output": "True"
+  },
+  {
+    "id": 25,
+    "datetime": "2024-02-25 19:57:30.305326",
+    "class-name": "BackendBase",
+    "func_name": "login",
+    "func_input": "('elisheva1', 'Elisheva1')",
+    "func_output": "'tuple' object has no attribute 'values'"
+  },
+  {
+    "id": 26,
+    "datetime": "2024-02-25 19:59:54.030851",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'elisheva1'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 27,
+    "datetime": "2024-02-25 19:59:54.257033",
+    "class-name": "BackendBase",
+    "func_name": "_check_password",
+    "func_input": "('$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'Elisheva1')",
+    "func_output": "True"
+  },
+  {
+    "id": 28,
+    "datetime": "2024-02-25 19:59:54.257033",
+    "class-name": "BackendBase",
+    "func_name": "login",
+    "func_input": "('elisheva1', 'Elisheva1')",
+    "func_output": "'tuple' object has no attribute 'values'"
+  },
+  {
+    "id": 29,
+    "datetime": "2024-02-25 20:00:56.272416",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'elisheva1'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 30,
+    "datetime": "2024-02-25 20:00:56.477427",
+    "class-name": "BackendBase",
+    "func_name": "_check_password",
+    "func_input": "('$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'Elisheva1')",
+    "func_output": "True"
+  },
+  {
+    "id": 31,
+    "datetime": "2024-02-25 20:00:56.493052",
+    "class-name": "BackendBase",
+    "func_name": "login",
+    "func_input": "('elisheva1', 'Elisheva1')",
+    "func_output": "'tuple' object has no attribute 'values'"
+  },
+  {
+    "id": 32,
+    "datetime": "2024-02-25 20:02:11.940733",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'elisheva1'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 33,
+    "datetime": "2024-02-25 20:02:12.157616",
+    "class-name": "BackendBase",
+    "func_name": "_check_password",
+    "func_input": "('$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'Elisheva1')",
+    "func_output": "True"
+  },
+  {
+    "id": 34,
+    "datetime": "2024-02-25 20:02:12.167407",
+    "class-name": "BackendBase",
+    "func_name": "login",
+    "func_input": "('elisheva1', 'Elisheva1')",
+    "func_output": "'tuple' object has no attribute 'values'"
+  },
+  {
+    "id": 35,
+    "datetime": "2024-02-25 20:03:28.649108",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'elisheva1'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 36,
+    "datetime": "2024-02-25 20:03:28.864792",
+    "class-name": "BackendBase",
+    "func_name": "_check_password",
+    "func_input": "('$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'Elisheva1')",
+    "func_output": "True"
+  },
+  {
+    "id": 37,
+    "datetime": "2024-02-25 20:03:28.873803",
+    "class-name": "BackendBase",
+    "func_name": "login",
+    "func_input": "('elisheva1', 'Elisheva1')",
+    "func_output": "'tuple' object has no attribute 'values'"
+  },
+  {
+    "id": 38,
+    "datetime": "2024-02-25 20:06:35.239500",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'elisheva1'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 39,
+    "datetime": "2024-02-25 20:06:35.453525",
+    "class-name": "BackendBase",
+    "func_name": "_check_password",
+    "func_input": "('$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'Elisheva1')",
+    "func_output": "True"
+  },
+  {
+    "id": 40,
+    "datetime": "2024-02-25 20:06:35.462546",
+    "class-name": "BackendBase",
+    "func_name": "login",
+    "func_input": "('elisheva1', 'Elisheva1')",
+    "func_output": "'tuple' object has no attribute 'values'"
+  },
+  {
+    "id": 41,
+    "datetime": "2024-02-25 20:07:02.406091",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'elisheva1'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 42,
+    "datetime": "2024-02-25 20:07:02.618285",
+    "class-name": "BackendBase",
+    "func_name": "_check_password",
+    "func_input": "('$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'Elisheva1')",
+    "func_output": "True"
+  },
+  {
+    "id": 43,
+    "datetime": "2024-02-25 20:07:02.618285",
+    "class-name": "BackendBase",
+    "func_name": "login",
+    "func_input": "('elisheva1', 'Elisheva1')",
+    "func_output": "'function' object has no attribute 'config'"
+  },
+  {
+    "id": 44,
+    "datetime": "2024-02-26 13:01:51.743258",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'elisheva1'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 45,
+    "datetime": "2024-02-26 13:01:52.233410",
+    "class-name": "BackendBase",
+    "func_name": "_check_password",
+    "func_input": "('$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'Elisheva1')",
+    "func_output": "True"
+  },
+  {
+    "id": 46,
+    "datetime": "2024-02-26 13:01:52.249100",
+    "class-name": "BackendBase",
+    "func_name": "login",
+    "func_input": "('elisheva1', 'Elisheva1')",
+    "func_output": "'function' object has no attribute 'config'"
+  },
+  {
+    "id": 47,
+    "datetime": "2024-02-26 13:11:59.464335",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'elisheva1'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 48,
+    "datetime": "2024-02-26 13:11:59.968355",
+    "class-name": "BackendBase",
+    "func_name": "_check_password",
+    "func_input": "('$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'Elisheva1')",
+    "func_output": "True"
+  },
+  {
+    "id": 49,
+    "datetime": "2024-02-26 15:47:45.390045",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'elisheva1'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 50,
+    "datetime": "2024-02-26 15:47:45.884439",
+    "class-name": "BackendBase",
+    "func_name": "_check_password",
+    "func_input": "('$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'Elisheva1')",
+    "func_output": "True"
+  },
+  {
+    "id": 51,
+    "datetime": "2024-02-26 15:47:45.910193",
+    "class-name": "BackendBase",
+    "func_name": "login",
+    "func_input": "('elisheva1', 'Elisheva1')",
+    "func_output": "UserBackend.__init__() missing 1 required positional argument: 'token'"
+  },
+  {
+    "id": 52,
+    "datetime": "2024-02-26 15:48:53.012230",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'elisheva1'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 53,
+    "datetime": "2024-02-26 15:48:53.501213",
+    "class-name": "BackendBase",
+    "func_name": "_check_password",
+    "func_input": "('$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'Elisheva1')",
+    "func_output": "True"
+  },
+  {
+    "id": 54,
+    "datetime": "2024-02-26 15:52:30.882972",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'elisheva1'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 55,
+    "datetime": "2024-02-26 15:52:31.370484",
+    "class-name": "BackendBase",
+    "func_name": "_check_password",
+    "func_input": "$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u",
+    "func_output": "True"
+  },
+  {
+    "id": 56,
+    "datetime": "2024-02-26 15:52:31.402025",
+    "class-name": "BackendBase",
+    "func_name": "login",
+    "func_input": "elisheva1",
+    "func_output": "regular user logged in"
+  },
+  {
+    "id": 57,
+    "datetime": "2024-02-26 16:14:37.657458",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'elisheva1'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 58,
+    "datetime": "2024-02-26 16:14:38.144862",
+    "class-name": "BackendBase",
+    "func_name": "_check_password",
+    "func_input": "$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u",
+    "func_output": "True"
+  },
+  {
+    "id": 59,
+    "datetime": "2024-02-26 16:30:43.558615",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'elisheva1'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 60,
+    "datetime": "2024-02-26 16:30:44.030166",
+    "class-name": "BackendBase",
+    "func_name": "_check_password",
+    "func_input": "$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u",
+    "func_output": "True"
+  },
+  {
+    "id": 61,
+    "datetime": "2024-02-26 16:31:20.683423",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'elisheva1'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 62,
+    "datetime": "2024-02-26 16:31:21.211797",
+    "class-name": "BackendBase",
+    "func_name": "_check_password",
+    "func_input": "$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u",
+    "func_output": "True"
+  },
+  {
+    "id": 63,
+    "datetime": "2024-02-26 16:33:05.629767",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'elisheva1'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 64,
+    "datetime": "2024-02-26 16:33:06.128870",
+    "class-name": "BackendBase",
+    "func_name": "_check_password",
+    "func_input": "$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u",
+    "func_output": "True"
+  },
+  {
+    "id": 65,
+    "datetime": "2024-02-26 16:35:18.498165",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'elisheva1'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 66,
+    "datetime": "2024-02-26 16:35:19.001625",
+    "class-name": "BackendBase",
+    "func_name": "_check_password",
+    "func_input": "$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u",
+    "func_output": "True"
+  },
+  {
+    "id": 67,
+    "datetime": "2024-02-26 16:35:29.592845",
+    "class-name": "BackendBase",
+    "func_name": "logout",
+    "func_input": "None",
+    "func_output": "logout sucsess"
+  },
+  {
+    "id": 68,
+    "datetime": "2024-02-26 16:36:08.785110",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'elisheva1'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 69,
+    "datetime": "2024-02-26 16:36:09.280484",
+    "class-name": "BackendBase",
+    "func_name": "_check_password",
+    "func_input": "$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u",
+    "func_output": "True"
+  },
+  {
+    "id": 70,
+    "datetime": "2024-02-26 16:39:18.829921",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'elisheva1'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 71,
+    "datetime": "2024-02-26 16:39:19.310044",
+    "class-name": "BackendBase",
+    "func_name": "_check_password",
+    "func_input": "$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u",
+    "func_output": "True"
+  },
+  {
+    "id": 72,
+    "datetime": "2024-02-26 16:41:12.322366",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'elisheva1'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 73,
+    "datetime": "2024-02-26 16:41:12.802013",
+    "class-name": "BackendBase",
+    "func_name": "_check_password",
+    "func_input": "$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u",
+    "func_output": "True"
+  },
+  {
+    "id": 74,
+    "datetime": "2024-02-26 16:41:17.844152",
+    "class-name": "BackendBase",
+    "func_name": "login",
+    "func_input": "elisheva1",
+    "func_output": "regular user logged in"
+  },
+  {
+    "id": 75,
+    "datetime": "2024-02-26 16:41:17.859825",
+    "class-name": "BackendBase",
+    "func_name": "logout",
+    "func_input": "None",
+    "func_output": "logout sucsess"
+  },
+  {
+    "id": 76,
+    "datetime": "2024-02-26 16:46:49.413992",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'elisheva1'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 77,
+    "datetime": "2024-02-26 16:46:49.920840",
+    "class-name": "BackendBase",
+    "func_name": "_check_password",
+    "func_input": "$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u",
+    "func_output": "True"
+  },
+  {
+    "id": 78,
+    "datetime": "2024-02-26 16:46:49.952074",
+    "class-name": "BackendBase",
+    "func_name": "login",
+    "func_input": "elisheva1",
+    "func_output": "regular user logged in"
+  },
+  {
+    "id": 79,
+    "datetime": "2024-02-26 16:46:49.983323",
+    "class-name": "BackendBase",
+    "func_name": "logout",
+    "func_input": "None",
+    "func_output": "logout sucsess"
+  },
+  {
+    "id": 80,
+    "datetime": "2024-02-26 18:25:03.794811",
+    "class-name": "<class 'modules.events.Events'>",
+    "func_name": "get_by_id",
+    "func_input": "1",
+    "func_output": "None found"
+  },
+  {
+    "id": 81,
+    "datetime": "2024-02-26 18:25:03.820819",
+    "class-name": "BackendBase",
+    "func_name": "get_event_by_id",
+    "func_input": "1",
+    "func_output": "none found"
+  },
+  {
+    "id": 82,
+    "datetime": "2024-02-26 18:25:03.861818",
+    "class-name": "<class 'modules.events.Events'>",
+    "func_name": "get_event_by_params",
+    "func_input": "{'title': 1, 'organiser': 1, 'date': 1, 'location': 1, 'type': 1}",
+    "func_output": "None Found"
+  },
+  {
+    "id": 83,
+    "datetime": "2024-02-26 18:25:03.885816",
+    "class-name": "BackendBase",
+    "func_name": "get_event_by_params",
+    "func_input": "(1, 1, 1, 1, 1)",
+    "func_output": "none found"
+  },
+  {
+    "id": 84,
+    "datetime": "2024-02-26 20:42:51.922103",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'elisheva1'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 85,
+    "datetime": "2024-02-26 20:42:52.440272",
+    "class-name": "BackendBase",
+    "func_name": "_check_password",
+    "func_input": "$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u",
+    "func_output": "True"
+  },
+  {
+    "id": 86,
+    "datetime": "2024-02-26 20:42:53.017366",
+    "class-name": "BackendBase",
+    "func_name": "login",
+    "func_input": "elisheva1",
+    "func_output": "regular user logged in"
+  },
+  {
+    "id": 87,
+    "datetime": "2024-02-26 20:42:53.557461",
+    "class-name": "UserBackend",
+    "func_name": "_get_authentication",
+    "func_input": "$2b$12$4FOyRy6zxhaFMy/0f4pkbuyCkYAqXJomJzjK31iuE1JcYSdkyVsli",
+    "func_output": "True"
+  },
+  {
+    "id": 88,
+    "datetime": "2024-02-26 20:42:53.602458",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "1",
+    "func_output": "<Users 1>"
+  },
+  {
+    "id": 89,
+    "datetime": "2024-02-26 20:42:53.628465",
+    "class-name": "UserBackend",
+    "func_name": "get_user",
+    "func_input": "1",
+    "func_output": "<Users 1>"
+  },
+  {
+    "id": 90,
+    "datetime": "2024-02-26 20:43:22.712567",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'elisheva1'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 91,
+    "datetime": "2024-02-26 20:43:23.206895",
+    "class-name": "BackendBase",
+    "func_name": "_check_password",
+    "func_input": "$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u",
+    "func_output": "True"
+  },
+  {
+    "id": 92,
+    "datetime": "2024-02-26 20:43:23.700047",
+    "class-name": "BackendBase",
+    "func_name": "login",
+    "func_input": "elisheva1",
+    "func_output": "regular user logged in"
+  },
+  {
+    "id": 93,
+    "datetime": "2024-02-26 20:43:24.201499",
+    "class-name": "UserBackend",
+    "func_name": "_get_authentication",
+    "func_input": "$2b$12$LgvM9udol9Gf/5NJ0jUIiej2zmGUkQZqL3zQnGGFq6sQFk4vpEhJ.",
+    "func_output": "True"
+  },
+  {
+    "id": 94,
+    "datetime": "2024-02-26 20:43:24.237491",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "1",
+    "func_output": "<Users 1>"
+  },
+  {
+    "id": 95,
+    "datetime": "2024-02-26 20:43:24.263499",
+    "class-name": "UserBackend",
+    "func_name": "get_user",
+    "func_input": "1",
+    "func_output": "<Users 1>"
+  },
+  {
+    "id": 96,
+    "datetime": "2024-02-26 20:43:44.620720",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'elisheva1'}",
+    "func_output": "[(1, 'elisheva1', '$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u', 'elisheva@gmail.com', 'Elisheva Cohen', 'I like to party', datetime.datetime(2024, 2, 25, 19, 34, 45, 83000), True, False)]"
+  },
+  {
+    "id": 97,
+    "datetime": "2024-02-26 20:43:45.112393",
+    "class-name": "BackendBase",
+    "func_name": "_check_password",
+    "func_input": "$2b$12$i4PxpfFtNhP9C1KG9OPoyuERpyJMcHOsZj4/sGpjibj.03oVjnn8u",
+    "func_output": "True"
+  },
+  {
+    "id": 98,
+    "datetime": "2024-02-26 20:43:45.619396",
+    "class-name": "BackendBase",
+    "func_name": "login",
+    "func_input": "elisheva1",
+    "func_output": "regular user logged in"
+  },
+  {
+    "id": 99,
+    "datetime": "2024-02-26 20:43:46.119382",
+    "class-name": "UserBackend",
+    "func_name": "_get_authentication",
+    "func_input": "$2b$12$r5iljJ6ScDW23TU9oecu5eEJuURicNqKCQqMn/0ZgkI7jyr/IC5s2",
+    "func_output": "True"
+  },
+  {
+    "id": 100,
+    "datetime": "2024-02-26 20:43:46.157624",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "1",
+    "func_output": "<Users 1>"
+  },
+  {
+    "id": 101,
+    "datetime": "2024-02-26 20:43:46.177605",
+    "class-name": "UserBackend",
+    "func_name": "get_user",
+    "func_input": "1",
+    "func_output": "<Users 1>"
+  },
+  {
+    "id": 102,
+    "datetime": "2024-02-26 20:43:46.200607",
+    "class-name": "BackendBase",
+    "func_name": "logout",
+    "func_input": "None",
+    "func_output": "logout sucsess"
+  }
+]

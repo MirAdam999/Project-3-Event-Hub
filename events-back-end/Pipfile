@@ -6,6 +6,11 @@ name = "pypi"
 [packages]
 flask = "*"
 flask-sqlalchemy = "*"
+pyodbc = "*"
+pytest = "*"
+flask-migrate = "*"
+pyjwt = "*"
+flask-bcrypt = "*"
 
 [dev-packages]
 
