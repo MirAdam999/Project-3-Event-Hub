@@ -10,7 +10,7 @@ class Registrations(db.Model):
     EventID= db.Column(db.BigInteger, db.ForeignKey('Events.EventID'), nullable=False)
     UserID =  db.Column(db.BigInteger, db.ForeignKey('Users.UserID'), nullable=False)
     RegistrationDateTime = db.Column(db.DateTime, nullable=False)
-    Status = db.Column(db.String(10))
+    Status = db.Column(db.String(50))
     
 
     

@@ -11,7 +11,7 @@ class Users(db.Model):
     PasswordHash = db.Column(db.String(80), nullable=False)
     Email = db.Column(db.String(50), nullable=False, unique=True)
     FullName = db.Column(db.String(100), nullable=False) 
-    ProfileDescription=db.Column(db.String(300)) 
+    ProfileDescription=db.Column(db.String(1000)) 
     CreatedAt=db.Column(db.DateTime)
     IsActive = db.Column(db.Boolean, default=True)
     IsMasterUser = db.Column(db.Boolean, default=False)

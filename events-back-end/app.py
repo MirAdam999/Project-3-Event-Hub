@@ -32,14 +32,11 @@ if __name__ == "__main__":
         
         from backend_logic.backend_base import BackendBase      
         backend=BackendBase()
-        #backend.add_user(username='elisheva1', password='Elisheva1', email='elisheva@gmail.com',
-                #name='Elisheva Cohen', description='I like to party')
-        facade, err, front_end_token = backend.login(username="elisheva1",password='Elisheva1')
-        print(facade.get_user(front_end_token))
-        backend.logout()
-        #print (backend.get_event_by_id(1))
-        #print (backend.get_event_by_params(title=1, organiser=1, date=1, location=1, type=1))
 
+        facade, err, front_end_token = backend.login(username="elisheva1",password='Elisheva2')
+                
+
+        backend.logout()
         
     app.run(debug=app.config['DEBUG'], use_reloader=app.config['USE_RELOADER'], port=5000)
     

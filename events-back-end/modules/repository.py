@@ -32,7 +32,7 @@ class Repository:
         Mir Shukhman
         Getting entity by entity's ID
         Input: entity ID (int)
-        Output: entity (db.model object); None if entity not found; Err str if err
+        Output: entity (db.model object); None if not found or err;
         ;logging of action
         """
         try:
@@ -46,7 +46,7 @@ class Repository:
         
         except Exception as e:
             logger.log(self.class_name,'get_by_id', entity_id, str(e))
-            return str(e)
+            return None
 
 
     def get_all(self):
@@ -55,7 +55,7 @@ class Repository:
         Mir Shukhman
         Getting all entities of certain table in db(class db.model)
         Input: None
-        Output: all class objects al list of db.model obj; None if none found; Err str if err
+        Output: all class objects al list of db.model obj; None if not found or err;
         ;logging of action
         """
         try:
@@ -69,7 +69,7 @@ class Repository:
             
         except Exception as e:
             logger.log(self.class_name,'get_all', 'None', str(e))
-            return str(e)
+            return None
 
 
     def add(self, entity):
@@ -79,7 +79,7 @@ class Repository:
         Adding new entity to certain table in db (class db.model)
         Input: entity to add as in 
                 Users(Username='x', Password='y', Email='z', UserRole=1)
-        Output: True if action sucsess; Err str if err
+        Output: True if action sucsess; None if err;
         ;logging of action
         """
         try:
@@ -91,7 +91,7 @@ class Repository:
         except Exception as e:
             db.session.rollback()
             logger.log(self.class_name,'add', entity, str(e))
-            return str(e)
+            return None
 
 
     def update(self, entity_id, new_info):
@@ -103,7 +103,7 @@ class Repository:
             then if entity found updates.
         Input: entity_id (int),
             new_info - Dictionary of parameter names and values as in {'Username': 'new_username'}
-        Output: True is sucsess; None if entity not found; Err str if err
+        Output: True is sucsess; None if not found or err;
         ;logging of action
         """
         try:
@@ -123,7 +123,7 @@ class Repository:
         except Exception as e:
             db.session.rollback()
             logger.log(self.class_name,'update', (entity_id, new_info), str(e))
-            return str(e) 
+            return None
         
 
     def remove(self, entity_id):
@@ -134,7 +134,7 @@ class Repository:
         First calls get_by_id func from the class to find the entity,
             then if entity found deletes.
         Input: entity ID (int)
-        Output: True if found and delted; None if not found; Err str if err
+        Output: True if found and delted; None if not found or err;
         ;logging of action
         """
         try:
@@ -153,7 +153,7 @@ class Repository:
         except Exception as e:
             db.session.rollback()
             logger.log(self.class_name,'remove', entity_id, str(e))
-            return str(e)
+            return None
 
 
     # Func calling for pre-created Stored Procedurs in SQL db
@@ -165,7 +165,7 @@ class Repository:
         Universal function for executing stored procedures in the db
         Input: sp_name - Name of the stored procedure (str)
             parameters - Dictionary of parameter names and values as in {"UserID":345}
-        Output: returns stored procedure's output; None if not found; Err str if err
+        Output: returns stored procedure's output; None if not found or err;
         ;logging of action
         """
         try:
@@ -183,5 +183,5 @@ class Repository:
 
         except Exception as e:
             logger.log(self.class_name, sp_name, parameters, str(e))
-            return str(e)
+            return None
         

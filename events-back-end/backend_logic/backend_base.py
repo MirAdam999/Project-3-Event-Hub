@@ -41,6 +41,7 @@ class BackendBase:
 
 
     def login (self,*, username, password):
+        err_msg = None
         try:
             # look for user by username(SP)
             user=self.users_repo.get_stored_procedure(
@@ -55,53 +56,23 @@ class BackendBase:
                 if self._check_password(db_pass, password):
                     if is_active==True:
         
-                        if is_master_user == True:  
-                            self.lt_instance.token_data = (user_ID,name,is_master_user) # using setter
-                            token, front_end_token = self.lt_instance.login_token # getting token path & encrypted token for front end
-                            
-                            if token and front_end_token:
-                                from backend_logic.master_backend import MasterBackend
-                                self.logger.log(self.class_name,'login', username, 'master user logged in')
-                                facade=MasterBackend(token) 
-                                return (facade, None, front_end_token)  # returning correct facade with the token path in init & encrypted token for front end
-
-                            else:
-                                self.logger.log(self.class_name,'login', username, 'err generating token')
-                                return (None, 'err generating token')
-                                
-                        if is_master_user == False:
-                            self.lt_instance.token_data = (user_ID,name,is_master_user) # using setter
-                            token, front_end_token = self.lt_instance.login_token # getting token path & encrypted token for front end
-                            
-                            if token and front_end_token:
-                                from backend_logic.user_backend import UserBackend
-                                self.logger.log(self.class_name,'login', username, 'regular user logged in')
-                                facade=UserBackend(token) 
-                                return (facade, None, front_end_token) # returning correct facade with the token path in init & encrypted token for front end
-
-                            else:
-                                self.logger.log(self.class_name,'login', username, 'err generating token')
-                                return (None, 'err generating token')
-                            
-                        else:
-                            self.logger.log(self.class_name,'login', username, 'err role')
-                            return (None, 'err role')
+                        self.lt_instance.token_data = (user_ID,name,is_master_user) # using setter
+                        token, front_end_token = self.lt_instance.login_token # getting token path & encrypted token for front end
                         
-                    else:
-                        self.logger.log(self.class_name,'login', username, 'inactive user')
-                        return (None, 'user inactive')
-                    
-                else:
-                    self.logger.log(self.class_name,'login', username, 'wrong pass')
-                    return (None, 'wrong pass')
+                        if token and front_end_token:
+                            from backend_logic.user_backend import UserBackend
+                            self.logger.log(self.class_name,'login', username, 'logged in')
+                            facade=UserBackend(token) 
+                            return (facade, err_msg, front_end_token)  # returning facade with the token path in init & encrypted token for front end
                 
             else:
-                self.logger.log(self.class_name,'login', username, 'no user by username')
-                return (None, 'no user by username')
+                self.logger.log(self.class_name,'login', username, err_msg)
+                err_msg= 'Wrong Username/Passwod'
+                return (None, err_msg, None)
             
         except Exception as e:
             self.logger.log(self.class_name,'login', username, str(e))
-            return (None, str(e))
+            return (None, str(e), None)
         
     
     def logout(self):
@@ -117,9 +88,11 @@ class BackendBase:
             
     def add_user(self,*,username, password, email,
                  name, description):
+        err_msg = None
         try:
             if self.users_repo.get_stored_procedure('check_if_user_exists',{'username':username, 'email':email}):
-                return (False,'user exists')
+                err_msg = 'User with given email/username exists. Pick differernt email/username.'
+                return (False,err_msg)
             
             else:
                 hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
@@ -129,17 +102,30 @@ class BackendBase:
                                                     ProfileDescription=description, CreatedAt=current_datetime))
                 if new_user:    # creation user sucsess
                     self.logger.log(self.class_name,'add_user', (username, email, name, description), True)
-                    return (True, None) 
+                    return (True, err_msg) 
                         
                 else:   #user creation err
-                    self.logger.log(self.class_name,'add_user', (username, email, name, description), 'user sreation err')
-                    return (False, 'user sreation err')
+                    self.logger.log(self.class_name,'add_user', (username, email, name, description), err_msg)
+                    err_msg = 'Error Signing Up. Try Again Later.'
+                    return (False, err_msg)
                 
         except Exception as e:
             self.logger.log(self.class_name,'add_user', (username, email, name, description), str(e))
-            return (None,str(e))
+            return (False,str(e))
     
     
+    def format_datetime(self, date, time):
+        combined_datetime_str = f"{date} {time}"
+        try:
+            formated_datetime = datetime.strptime(combined_datetime_str, '%d-%m-%Y %H:%M')
+            self.logger.log(self.class_name,'format_datetime', (date,time), formated_datetime)
+            return formated_datetime
+        
+        except Exception as e:
+            self.logger.log(self.class_name,'format_datetime', (date,time), str(e))
+            return None         
+        
+        
     def get_event_by_id (self, event_id):
         try:
             event=self.events_repo.get_by_id(event_id)
@@ -158,9 +144,10 @@ class BackendBase:
     
     def get_event_by_params (self, *, title, organiser, date, location, type):
         try:
+            formatted_date= self.format_datetime(date,"00:00")
             events=self.events_repo.get_stored_procedure('get_event_by_params',{'title':title,
                                                                                 'organiser':organiser,
-                                                                                'date':date,
+                                                                                'date':formatted_date,
                                                                                 'location':location,
                                                                                 'type':type})
             if events:
@@ -174,3 +161,51 @@ class BackendBase:
         except Exception as e:
             self.logger.log(self.class_name,'get_event_by_id', (title, organiser, date, location, type), str(e))
             return None 
+        
+                
+    def get_feedback_by_event (self, event_id):
+        try:
+            feedbacks=self.feedback_repo.get_stored_procedure('get_feedback_by_event',{'eventID':event_id})
+            if feedbacks:
+                self.logger.log(self.class_name,'get_feedback_by_event', event_id, feedbacks)
+                return feedbacks
+            
+            else:
+                self.logger.log(self.class_name,'get_feedback_by_event', event_id, 'none found')
+                return None
+            
+        except Exception as e:
+            self.logger.log(self.class_name,'get_feedback_by_event', event_id, str(e))
+            return None 
+        
+
+    def get_images_by_event (self, event_id):
+        try:
+            images=self.feedback_repo.get_stored_procedure('get_images_by_event',{'eventID':event_id})
+            if images:
+                self.logger.log(self.class_name,'get_images_by_event', event_id, images)
+                return images
+            
+            else:
+                self.logger.log(self.class_name,'get_images_by_event',event_id, 'none found')
+                return None
+            
+        except Exception as e:
+            self.logger.log(self.class_name,'get_images_by_event', event_id, str(e))
+            return None         
+
+    
+    def get_all_event_categories(self):
+        try:
+            categories= self.categories_repo.get_all()
+            if categories:
+                self.logger.log(self.class_name,'get_all_event_categories', None, categories)
+                return categories
+            
+            else:
+                self.logger.log(self.class_name,'get_all_event_categories', None, 'none found')
+                return None
+            
+        except Exception as e:
+            self.logger.log(self.class_name,'get_all_event_categories', None, str(e))
+            return None
