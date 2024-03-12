@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_migrate import Migrate
 from flask_bcrypt import Bcrypt
+from flask_cors import CORS
 
 from modules import db
 from modules.event_categories import EventCategories
@@ -13,11 +14,16 @@ from modules.users import Users
 bcrypt = Bcrypt()
 
 def create_app():
+    from routes import Routes
     app = Flask(__name__)
     app.config.from_pyfile('.config')
     db.init_app(app)
+    CORS(app, resources={r"/*": {"origins": "*"}})
     migrate = Migrate(app, db)
     bcrypt.init_app(app)
+    
+    routes_blueprint = Routes('routes', __name__)
+    app.register_blueprint(routes_blueprint)
 
     return app
 
@@ -30,13 +36,6 @@ if __name__ == "__main__":
     
         # are we gonna cry?
         
-        from backend_logic.backend_base import BackendBase      
-        backend=BackendBase()
-
-        facade, err, front_end_token = backend.login(username="elisheva1",password='Elisheva2')
-                
-
-        backend.logout()
         
     app.run(debug=app.config['DEBUG'], use_reloader=app.config['USE_RELOADER'], port=5000)
     

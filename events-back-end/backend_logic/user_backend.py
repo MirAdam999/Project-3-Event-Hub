@@ -603,6 +603,23 @@ class UserBackend(BackendBase):
         except Exception as e:
             self.logger.log(self.class_name,'reactivate_user', (self.id,front_end_token), str(e))
             return False 
+      
+      
+    def get_user_by_id(self,front_end_token, user_id):
+        try:
+            ok = self._get_authentication(front_end_token)
+            if ok and self.is_master:
+                user= self.users_repo.get_by_id(user_id)
+                if user:
+                    self.logger.log(self.class_name,'get_user_by_id', (self.id,front_end_token,user_id), user)
+                    return user             
+            else:
+                self.logger.log(self.class_name,'get_user_by_id', (self.id,front_end_token,user_id), 'authentication fail/none found')
+                return None
+            
+        except Exception as e:
+            self.logger.log(self.class_name,'get_user_by_id', (self.id,front_end_token), str(e))
+            return None 
         
           
     def get_all_events(self,front_end_token):

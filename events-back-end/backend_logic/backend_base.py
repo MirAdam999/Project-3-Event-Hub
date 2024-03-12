@@ -64,7 +64,10 @@ class BackendBase:
                             self.logger.log(self.class_name,'login', username, 'logged in')
                             facade=UserBackend(token) 
                             return (facade, err_msg, front_end_token)  # returning facade with the token path in init & encrypted token for front end
-                
+                    else:
+                        self.logger.log(self.class_name,'login', username, err_msg)
+                        err_msg= 'Your User Has Been Disactivated. Contact Customer Support For More Information.'
+                        return (None, err_msg, None)
             else:
                 self.logger.log(self.class_name,'login', username, err_msg)
                 err_msg= 'Wrong Username/Passwod'
@@ -208,4 +211,20 @@ class BackendBase:
             
         except Exception as e:
             self.logger.log(self.class_name,'get_all_event_categories', None, str(e))
+            return None
+        
+        
+    def get_category_by_id(self, category_id):
+        try:
+            category= self.categories_repo.get_by_id(category_id)
+            if category:
+                self.logger.log(self.class_name,'get_category_by_id', None, category)
+                return category
+            
+            else:
+                self.logger.log(self.class_name,'get_category_by_id', None, 'none found')
+                return None
+            
+        except Exception as e:
+            self.logger.log(self.class_name,'get_category_by_id', None, str(e))
             return None
