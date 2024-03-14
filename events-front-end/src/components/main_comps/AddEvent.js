@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useRef } from "react";
-import useToken from "../Token";
+import { useToken } from '../Token';
 import Spinner from "../Loading"
 
 const AddEvent = () => {
@@ -14,7 +14,8 @@ const AddEvent = () => {
     const location = useRef();
     const date = useRef();
     const time = useRef();
-    const image = useRef();
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [fileError, setFileError] = useState('');
     const [category, setCategory] = useState([]);
     const [selectedValue, setSelectedValue] = useState('');
     const [isPrivate, setIsPrivate] = useState(false);
@@ -47,6 +48,36 @@ const AddEvent = () => {
         setSelectedValue(event.target.value);
     };
 
+    const handleFileChange = async (event) => {
+        const file = event.target.files[0];
+        setSelectedFile(file);
+        setFileError('');
+
+        const allowedFormats = ['.jpg', '.jpeg', '.png', '.gif'];
+        const fileExtension = file.name.split('.').pop().toLowerCase();
+        if (!allowedFormats.includes(`.${fileExtension}`)) {
+            setFileError("Wrong file format. Allowed Formats: '.jpg', '.jpeg', '.png', '.gif'.");
+            return;
+        }
+
+        const base64Image = await convertFileToBase64(file);
+        setSelectedFile(base64Image);
+    }
+
+    const convertFileToBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result.split(',')[1]);
+            reader.onerror = (error) => reject(error);
+        });
+    };
+
+    const handleClearFile = () => {
+        setSelectedFile(null);
+        setFileError('');
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true)
@@ -59,9 +90,8 @@ const AddEvent = () => {
             formData.append("date", date.current.value);
             formData.append("time", time.current.value);
 
-            const imageInput = image.current;
-            if (imageInput.files.length > 0) {
-                formData.append("image", imageInput.files[0]);
+            if (selectedFile) {
+                formData.append('image', selectedFile);
             }
 
             formData.append("category", selectedValue);
@@ -71,8 +101,6 @@ const AddEvent = () => {
             formData.forEach((value, key) => {
                 formDataObject[key] = value;
             });
-
-            console.log(formDataObject)
 
             const result = await fetch("http://127.0.0.1:5000/add_event", {
                 method: 'POST',
@@ -120,7 +148,9 @@ const AddEvent = () => {
                     <label htmlFor="time">Time:</label>
                     <input type="time" id="time" ref={time} required /><br />
                     <label for="image">Upload Image:</label>
-                    <input type="file" id="image" ref={image} /><br />
+                    <input type="file" id="image" accept=".jpg, .jpeg, .png, .gif" onChange={handleFileChange} /><br />
+                    {fileError && <p className="error-message">{fileError}</p>}
+                    <button onClick={handleClearFile}>Clear File</button>
 
                     <span>Is This a Private Event?</span><br />
                     <span>If the event is marked private, each registration for the event will require your approval.</span><br />
@@ -154,7 +184,9 @@ const AddEvent = () => {
 
     else {
         return (
-            <Spinner />
+            <div>
+                {errorMessage && <p>{errorMessage}</p>}
+            </div>
         )
     }
 

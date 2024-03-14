@@ -1,12 +1,11 @@
 
-import { useRef } from "react";
-import { useState } from "react";
-import useToken from "./Token";
+import { useRef, useState } from "react";
+import { useToken } from "./Token";
 
 const LoginPopUp = (props) => {
     const username = useRef();
     const password = useRef();
-    const { setToken, setName, setIsMaster } = useToken();
+    const { setToken, setName, setIsMasterPermission } = useToken();
     const [errorMessage, setErrorMessage] = useState('');
 
     function openSignUp() {
@@ -46,7 +45,7 @@ const LoginPopUp = (props) => {
                 const recevedMasterPrem = data.is_master;
                 setToken(receivedToken);
                 setName(receivedName);
-                setIsMaster(recevedMasterPrem);
+                setIsMasterPermission(recevedMasterPrem);
                 props.onClose();
                 e.target.reset();
             }

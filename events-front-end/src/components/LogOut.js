@@ -1,9 +1,9 @@
 
 import { useState } from "react";
-import useToken from "./Token";
+import { useToken } from "./Token";
 
 const LogOutPopUp = (props) => {
-    const { setToken, getToken, setName } = useToken();
+    const { setToken, setName, setIsMasterPermission } = useToken();
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleLogout = async (e) => {
@@ -29,6 +29,7 @@ const LogOutPopUp = (props) => {
             else {
                 setToken(null);
                 setName(null);
+                setIsMasterPermission(false);
                 props.onClose();
                 if (e.target && e.target.form) {
                     e.target.form.reset();

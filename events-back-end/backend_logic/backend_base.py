@@ -120,7 +120,7 @@ class BackendBase:
     def format_datetime(self, date, time):
         combined_datetime_str = f"{date} {time}"
         try:
-            formated_datetime = datetime.strptime(combined_datetime_str, '%d-%m-%Y %H:%M')
+            formated_datetime = datetime.strptime(combined_datetime_str, '%Y-%m-%d %H:%M')
             self.logger.log(self.class_name,'format_datetime', (date,time), formated_datetime)
             return formated_datetime
         
@@ -145,24 +145,32 @@ class BackendBase:
             return None
 
     
-    def get_event_by_params (self, *, title, organiser, date, location, type):
+    def get_event_by_params (self, *, event_id, title, organiser, date, location, type):
         try:
             formatted_date= self.format_datetime(date,"00:00")
-            events=self.events_repo.get_stored_procedure('get_event_by_params',{'title':title,
+            if event_id:
+                title, organiser, date, location,type = None
+            else:
+                params=(event_id, title, organiser, date, location, type)
+                params = [param if param else None for param in params]
+                print (params)
+                
+            events=self.events_repo.get_stored_procedure('get_event_by_params',{'event_id':event_id,
+                                                                                'title':title,
                                                                                 'organiser':organiser,
                                                                                 'date':formatted_date,
                                                                                 'location':location,
                                                                                 'type':type})
             if events:
-                self.logger.log(self.class_name,'get_event_by_params', (title, organiser, date, location, type), events)
+                self.logger.log(self.class_name,'get_event_by_params', (event_id,title, organiser, date, location, type), events)
                 return events
             
             else:
-                self.logger.log(self.class_name,'get_event_by_params', (title, organiser, date, location, type), 'none found')
+                self.logger.log(self.class_name,'get_event_by_params', (event_id,title, organiser, date, location, type), 'none found')
                 return None
             
         except Exception as e:
-            self.logger.log(self.class_name,'get_event_by_id', (title, organiser, date, location, type), str(e))
+            self.logger.log(self.class_name,'get_event_by_params', (event_id,title, organiser, date, location, type), str(e))
             return None 
         
                 
@@ -228,3 +236,18 @@ class BackendBase:
         except Exception as e:
             self.logger.log(self.class_name,'get_category_by_id', None, str(e))
             return None
+        
+        
+    def get_user_by_id(self, user_id):
+        try:
+            user= self.users_repo.get_by_id(user_id)
+            if user:
+                self.logger.log(self.class_name,'get_user_by_id', (user_id), user)
+                return user             
+            else:
+                self.logger.log(self.class_name,'get_user_by_id', (user_id), 'none found')
+                return None
+            
+        except Exception as e:
+            self.logger.log(self.class_name,'get_user_by_id', (user_id), str(e))
+            return None 

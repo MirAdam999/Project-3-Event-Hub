@@ -167,11 +167,14 @@ class UserBackend(BackendBase):
         try:
             ok = self._get_authentication(front_end_token)
             if ok:
+                print (date, time)
                 datetime=self.format_datetime(date,time)
+                print (datetime)
+                private = 1 if is_private else 0
                 new_event= self.events_repo.add(Events(Title=title,Description=description,
                                                        Location=location,EventDateTime=datetime,
                                                        EventImage=image,OrganizerID=self.id,
-                                                       CategoryID=cathegory_id,IsPrivate=is_private))
+                                                       CategoryID=cathegory_id,IsPrivate=private))
                 if new_event:
                     self.logger.log(self.class_name,'add_event', (front_end_token, title, description, 
                   location, date, time, image, cathegory_id, is_private), 'event added')
@@ -276,6 +279,28 @@ class UserBackend(BackendBase):
             
         except Exception as e:
             self.logger.log(self.class_name,'my_registrations', (self.id,front_end_token), str(e))
+            return False 
+            
+            
+    def my_attended_events(self, front_end_token):
+        try:
+            ok = self._get_authentication(front_end_token)
+            if ok:
+                attended=self.events_repo.get_stored_procedure('get_my_attended',{'atendieeID':self.id})
+                if attended:
+                    self.logger.log(self.class_name,'my_attended_events', (self.id,front_end_token), attended)
+                    return attended
+                
+                else:
+                    self.logger.log(self.class_name,'my_attended_events', (self.id,front_end_token), 'None found')
+                    return None
+            
+            else:
+                self.logger.log(self.class_name,'my_attended_events', (self.id,front_end_token), 'authentication fail')
+                return False
+            
+        except Exception as e:
+            self.logger.log(self.class_name,'my_attended_events', (self.id,front_end_token), str(e))
             return False 
             
        
@@ -603,23 +628,6 @@ class UserBackend(BackendBase):
         except Exception as e:
             self.logger.log(self.class_name,'reactivate_user', (self.id,front_end_token), str(e))
             return False 
-      
-      
-    def get_user_by_id(self,front_end_token, user_id):
-        try:
-            ok = self._get_authentication(front_end_token)
-            if ok and self.is_master:
-                user= self.users_repo.get_by_id(user_id)
-                if user:
-                    self.logger.log(self.class_name,'get_user_by_id', (self.id,front_end_token,user_id), user)
-                    return user             
-            else:
-                self.logger.log(self.class_name,'get_user_by_id', (self.id,front_end_token,user_id), 'authentication fail/none found')
-                return None
-            
-        except Exception as e:
-            self.logger.log(self.class_name,'get_user_by_id', (self.id,front_end_token), str(e))
-            return None 
         
           
     def get_all_events(self,front_end_token):

@@ -2,6 +2,8 @@
 from flask import Flask, Blueprint, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from base64 import b64decode
+import base64
 
 from backend_logic.backend_base import BackendBase
 from backend_logic.user_backend import UserBackend
@@ -12,6 +14,7 @@ class Routes(Blueprint):
         self.route('/login', methods=['POST'])(self.login)
         self.route('/signup', methods=['POST'])(self.signup)
         self.route('/logout', methods=['POST'])(self.logout)
+        self.route('/search_event', methods=['POST'])(self.search_event)
         self.route('/my_events', methods=['POST'])(self.my_events)
         self.route('/add_event', methods=['POST'])(self.add_event)
         self.route('/get_categories', methods=['GET'])(self.get_categories)
@@ -94,7 +97,52 @@ class Routes(Blueprint):
 
         except Exception as e:
             return jsonify({'error':str(e)}), 500
-        
+    
+    
+    def search_event(self):
+        try:
+            data= request.json
+            if not data:
+                return jsonify({'error': 'Incomplete or no data provided'}), 400
+            
+            event_id = data.get('event_id')
+            title = data.get('title')
+            organiser = data.get('organiser')
+            location = data.get('location')
+            date = data.get('date')
+            category = data.get('category')
+
+            events_found = self.backend_base.get_event_by_params(event_id=event_id,title=title, organiser=organiser,
+                                                                 date=date, location=location, type=category)
+            if events_found: 
+                converted_events = []
+                for event in events_found:
+                    image_data = event[5]
+                    organizer = self.backend_base.get_user_by_id(event[6])
+                    categoty_name = self.backend_base.get_category_by_id(event[7]) 
+                    converted_events.append({
+                        'event_id': event[0],
+                        'title': event[1],
+                        'description': event[2],
+                        'location': event[3],
+                        'date': event[4].strftime('%Y-%m-%d') if event[4] is not None else None,
+                        'time': event[4].strftime('%H:%M:%S') if event[4] is not None else None,
+                        'image':  base64.b64encode(image_data).decode('utf-8') if image_data is not None else None,
+                        'organizer_id': event[6],
+                        'organizer_name': organizer.FullName,
+                        'category': categoty_name.EventCategory,
+                        'is_private': True if event[8]==1 else False,
+                        'is_canceled': True if event[9]==1 else False
+                    })  
+                    
+                return jsonify({'found_events':converted_events}), 201
+            
+            else:
+                return jsonify({'found_events':None}), 201
+
+        except Exception as e:
+           return jsonify({'error':str(e)}), 500 
+    
     
     def my_events(self):
         try:
@@ -110,6 +158,8 @@ class Routes(Blueprint):
             if my_events: 
                 converted_events = []
                 for event in my_events:
+                    categoty_name = self.backend_base.get_category_by_id(event[7])
+                    image_data = event[5] 
                     converted_events.append({
                         'event_id': event[0],
                         'title': event[1],
@@ -117,10 +167,10 @@ class Routes(Blueprint):
                         'location': event[3],
                         'date': event[4].strftime('%Y-%m-%d') if event[4] is not None else None,
                         'time': event[4].strftime('%H:%M:%S') if event[4] is not None else None,
-                        'image': event[5].isoformat() if event[5] is not None else None,
+                        'image':  base64.b64encode(image_data).decode('utf-8') if image_data is not None else None,
                         'organizer': event[6],
-                        'category': event[7],
-                        'is_private': event[8],
+                        'category': categoty_name.EventCategory,
+                        'is_private': True if event[8]==1 else False,
                         'is_canceled': event[9]
                     })  
                     
@@ -152,9 +202,11 @@ class Routes(Blueprint):
             category = data.get('category')
             is_private = data.get('isPrivate')
             
+            event_image_binary = b64decode(image)
+            
             add = self.facade.add_event(front_end_token=front_end_token, title=title, 
                                         description=description, location=location,
-                                        date=date, time=time, image=image, 
+                                        date=date, time=time, image=event_image_binary, 
                                         cathegory_id=category, is_private=is_private)
             
             if add:  
@@ -204,7 +256,7 @@ class Routes(Blueprint):
                 converted_events = []
                 for event in all_events:
                     categoty_name = self.backend_base.get_category_by_id(event.CategoryID)
-                    organizer = self.facade.get_user_by_id(front_end_token,event.OrganizerID)
+                    organizer = self.backend_base.get_user_by_id(event.OrganizerID)
                     converted_events.append({
                         'event_id': event.EventID,
                         'title': event.Title,

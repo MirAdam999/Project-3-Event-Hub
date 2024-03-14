@@ -1,47 +1,43 @@
+import React, { createContext, useState, useContext } from 'react';
 
-import { useState, useEffect } from 'react';
+// Create a context
+const TokenContext = createContext();
 
-let token = null;
-let name = null;
-let isMaster = false;
-
-const useToken = () => {
-    const [storedToken, setStoredToken] = useState(token);
-    const [usersName, setUsersName] = useState(name);
-    const [isMasterUser, setIsMasterUser] = useState(isMaster);
+// Provider component
+const TokenProvider = ({ children }) => {
+    const [storedToken, setStoredToken] = useState(null);
+    const [usersName, setUsersName] = useState('');
+    const [isMasterUser, setIsMaster] = useState(false);
 
     const setToken = (newToken) => {
-        token = newToken;
         setStoredToken(newToken);
-        return
-    };
-
-    const getToken = () => {
-        return storedToken;
     };
 
     const setName = (newName) => {
-        name = newName;
         setUsersName(newName);
-        return
     };
 
-    const getName = () => {
-        return usersName;
+    const setIsMasterPermission = (masterPermission) => {
+        setIsMaster(masterPermission);
     };
 
-    const setIsMaster = (masterPremission) => {
-        isMaster = masterPremission;
-        setIsMasterUser(masterPremission);
-        return
-    };
-
-    const getIsMaster = () => {
-        return isMasterUser;
-    };
-
-    return { setToken, getToken, setName, getName, setIsMaster, getIsMaster };
+    return (
+        <TokenContext.Provider
+            value={{
+                storedToken,
+                setToken,
+                usersName,
+                setName,
+                isMasterUser,
+                setIsMasterPermission,
+            }}
+        >
+            {children}
+        </TokenContext.Provider>
+    );
 };
 
-export default useToken;
+// Custom hooks to access the token context
+const useToken = () => useContext(TokenContext);
 
+export { TokenProvider, useToken };

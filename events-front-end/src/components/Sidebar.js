@@ -1,31 +1,16 @@
 
 import '@fortawesome/fontawesome-free/css/all.css';
 import { useState, useEffect } from "react";
-import useToken from "./Token";
+import { useToken } from "./Token";
 
 const Sidebar = (props) => {
-    const { getToken, getName, getIsMaster } = useToken();
+    const { storedToken, usersName, isMasterUser } = useToken();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [isMaster, setIsMaster] = useState(false);
-    const users_name = getName()
-
-    function setMaster() {
-        if (getIsMaster()) {
-            setIsMaster(true);
-        } else {
-            setIsMaster(false);
-        }
-    }
 
     useEffect(() => {
-        const token = getToken();
-        setIsLoggedIn(!!token); // Set isLoggedIn to true if token exists, otherwise false
-        setMaster();
-    }, [getToken]);
-
-    useEffect(() => {
-        props.onLoggedInChange(isLoggedIn);
-    }, [isLoggedIn]);
+        setIsLoggedIn(!!storedToken); // Set isLoggedIn to true if token exists, otherwise false
+        console.log(storedToken)
+    }, [storedToken]);
 
     return (
         <div className="sidebar">
@@ -34,12 +19,12 @@ const Sidebar = (props) => {
                     <div>
                         <div className="sidebar-top">
                             <div><p>Welcome</p>
-                                <p>{users_name}!</p></div>
+                                <p>{usersName}!</p></div>
                             <div id="close-sidebar"><button onClick={props.onClose}>X</button></div>
                         </div>
                         <div className="sidebar-buttons">
                             <div className="sidebar-buttons-wrapper">
-                                <button> <i class="fa-solid fa-magnifying-glass"></i> Search Event </button>
+                                <button onClick={() => { props.onChangeMainComp('search_event'); props.onClose(); }}> <i class="fa-solid fa-magnifying-glass"></i> Search Event </button>
                                 <button onClick={() => { props.onChangeMainComp('add_event'); props.onClose(); }}><i class="fa-solid fa-plus"></i> Add Event </button>
                                 <button onClick={() => { props.onChangeMainComp('my_events'); props.onClose(); }}><i class="fa-solid fa-calendar-days"></i> My Events </button>
                             </div>
@@ -51,7 +36,7 @@ const Sidebar = (props) => {
                                 <button><i class="fa-solid fa-user"></i> My Profile </button>
                                 <button onClick={() => { props.onLogOut(); props.onClose(); }}><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out </button>
                             </div>
-                            {isMaster ? (
+                            {isMasterUser ? (
                                 <div className='sidebar-buttons-wrapper'>
                                     <button onClick={() => { props.onChangeMainComp('all_events'); props.onClose(); }}><i class="fa-solid fa-globe"></i> Show All Events </button>
                                     <button> <i class="fa-solid fa-list-check"></i> Category Managment </button>
@@ -69,7 +54,7 @@ const Sidebar = (props) => {
                         </div>
                         <div className="sidebar-buttons">
                             <div className="sidebar-buttons-wrapper">
-                                <button> <i class="fa-solid fa-magnifying-glass"></i> Search Event </button>
+                                <button onClick={() => { props.onChangeMainComp('search_event'); props.onClose(); }}> <i class="fa-solid fa-magnifying-glass"></i> Search Event </button>
                             </div>
                             <div className="sidebar-buttons-wrapper">
                                 <button onClick={() => { props.onLogIn(); props.onClose(); }}> <i class="fa-solid fa-right-to-bracket"></i> Log In </button>

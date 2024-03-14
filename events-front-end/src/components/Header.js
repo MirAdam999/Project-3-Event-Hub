@@ -1,18 +1,21 @@
 
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from '../images/logo.png'
+import { useToken } from './Token';
 
 const Header = (props) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const { storedToken } = useToken();
 
     useEffect(() => {
-        if (props.refreshTrigger == true) {
+        if (storedToken != null) {
             setIsLoggedIn(true)
         }
         else {
             setIsLoggedIn(false)
         }
-    }, [props.refreshTrigger]);
+        console.log(storedToken)
+    }, [storedToken]);
 
     return (
         <div className="header">

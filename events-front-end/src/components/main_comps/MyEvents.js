@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import useToken from "../Token";
+import { useToken } from '../Token';
 import Spinner from "../Loading";
 
 const MyEvents = () => {
@@ -66,7 +66,11 @@ const MyEvents = () => {
                     {events.map(event => (
                         <button>
                             <div className="event-on-grid" key={event.event_id}>
-                                <img src={event.image} />
+                                <img
+                                    src={`data:image/png;base64,${event.image}`}
+                                    alt={event.title}
+                                    className="event-image"
+                                />
                                 <p className="event-title">{event.title}</p>
                                 <p className="event-date">{event.date}</p>
                                 <p className="event-time">{event.time}</p>

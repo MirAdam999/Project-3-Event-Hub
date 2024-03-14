@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import useToken from "../Token";
+import { useToken } from '../Token';
 import Spinner from "../Loading";
 
 const AllEvents = () => {

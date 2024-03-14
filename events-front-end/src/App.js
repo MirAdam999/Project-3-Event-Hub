@@ -1,6 +1,7 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './App.css';
+import { TokenProvider } from './components/Token';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar'
@@ -10,20 +11,11 @@ import LogOutPopUp from './components/LogOut';
 import Main from './components/Main';
 
 function App() {
-  const [headerRefreshTrigger, setHeaderRefreshTrigger] = useState(false);
   const [sidebarIsOpen, setSIdebarIsOpen] = useState(false);
   const [loginPopUpIsOpen, setloginPopUpIsOpen] = useState(false);
   const [signUpPopUpIsOpen, setsignUpPopUpIsOpen] = useState(false);
   const [logOutIsOpen, setLogOutIsOpen] = useState(false);
   const [mainComp, setMainComp] = useState(['homepage']);
-
-  function hadleHeaderRefresh(isLoggedIn) {
-    if (isLoggedIn) {
-      setHeaderRefreshTrigger(true);
-    } else {
-      setHeaderRefreshTrigger(false);
-    }
-  }
 
   function openSidebar() {
     setSIdebarIsOpen(true);
@@ -62,15 +54,17 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Header refreshTrigger={headerRefreshTrigger} onLogOut={openLogOut} onSignUp={openSignUp} onLogIn={openLogin} openSidebar={openSidebar} onChangeMainComp={setMainCompValue} />
-      {sidebarIsOpen && <Sidebar onLoggedInChange={hadleHeaderRefresh} onClose={closeSidebar} onLogOut={openLogOut} onSignUp={openSignUp} onLogIn={openLogin} onChangeMainComp={setMainCompValue} />}
-      {signUpPopUpIsOpen && <SignUpPopUp onClose={closeSignUp} onOpenLogin={openLogin} />}
-      {loginPopUpIsOpen && <LoginPopUp onClose={closeLogin} onClickSignUp={openSignUp} />}
-      {logOutIsOpen && <LogOutPopUp onClose={closeLogOut} />}
-      <Main main={mainComp} />
-      <Footer />
-    </div>
+    <TokenProvider>
+      <div className="App">
+        <Header onLogOut={openLogOut} onSignUp={openSignUp} onLogIn={openLogin} openSidebar={openSidebar} onChangeMainComp={setMainCompValue} />
+        {sidebarIsOpen && <Sidebar onClose={closeSidebar} onLogOut={openLogOut} onSignUp={openSignUp} onLogIn={openLogin} onChangeMainComp={setMainCompValue} />}
+        {signUpPopUpIsOpen && <SignUpPopUp onClose={closeSignUp} onOpenLogin={openLogin} />}
+        {loginPopUpIsOpen && <LoginPopUp onClose={closeLogin} onClickSignUp={openSignUp} />}
+        {logOutIsOpen && <LogOutPopUp onClose={closeLogOut} />}
+        <Main main={mainComp} />
+        <Footer />
+      </div>
+    </TokenProvider>
   );
 }
 
