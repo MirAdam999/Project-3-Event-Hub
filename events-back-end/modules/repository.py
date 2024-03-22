@@ -184,4 +184,45 @@ class Repository:
         except Exception as e:
             logger.log(self.class_name, sp_name, parameters, str(e))
             return None
+      
         
+    # Func creating and executing custom search strings in SQL db
+       
+    def custom_search(self, table, parameters_and_columns):
+        """
+        18.03.24
+        Mir Shukhman
+        Universal function for creating and executing custom search strings in the DB
+        Input: table - Name of the table in db
+            parameters_and_columns - Dictionary of column names and values as in {"UserID":345}
+        Output: returnssearch output (list of tupples); None if not found or err;
+        ;logging of action
+        """
+        try:
+            conditions = []
+            for column, param in parameters_and_columns.items():
+                if param is not None:
+                    conditions.append({column: param})
+                    
+            where_clauses = []
+            for condition in conditions:
+                for column, param in condition.items():
+                    where_clauses.append(f"t.{column} = :{column}")
+            
+            where_clause = " AND ".join(where_clauses)
+            query = text(f"SELECT * FROM {table} t WHERE {where_clause}")
+            
+            result = db.session.execute(query, parameters_and_columns)
+            result_set = result.fetchall()
+            
+            if result_set:
+                logger.log(self.class_name, 'custom_search', (table, parameters_and_columns), result_set)
+                return result_set
+            
+            else:
+                logger.log(self.class_name, 'custom_search', (table, parameters_and_columns), 'None Found')
+                return None
+
+        except Exception as e:
+            logger.log(self.class_name, 'custom_search', (table, parameters_and_columns), str(e))
+            return None

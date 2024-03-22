@@ -1,11 +1,17 @@
 
 import React, { useEffect, useState } from 'react';
-import logo from '../images/logo.png'
+import { useNavigate } from 'react-router-dom';
 import { useToken } from './Token';
 
 const Header = (props) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const { storedToken } = useToken();
+    const navigate = useNavigate();
+
+    const handleNavigation = (path) => {
+        navigate(path);
+    };
+
 
     useEffect(() => {
         if (storedToken != null) {
@@ -14,13 +20,12 @@ const Header = (props) => {
         else {
             setIsLoggedIn(false)
         }
-        console.log(storedToken)
     }, [storedToken]);
 
     return (
         <div className="header">
-            <div id='logo' onClick={() => props.onChangeMainComp('homepage')}>
-                <img src={logo} />
+            <div id='logo' onClick={() => handleNavigation('/')}>
+                <h1> EventHub </h1>
             </div>
             <div className='header-elements'>
                 <div className="header-buttons" id='open-sidebar'><button onClick={props.openSidebar}><i class="fa-solid fa-bars"></i> Menu </button></div>

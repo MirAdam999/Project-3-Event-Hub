@@ -1,2018 +1,2458 @@
 [
   {
     "id": 1,
-    "datetime": "2024-03-12 14:01:12.742979",
+    "datetime": "2024-03-21 23:25:16.130376",
+    "class-name": "UserBackend",
+    "func_name": "get_all_admins",
+    "func_input": "(2, '$2b$12$JRgvGYmvRXIM4fpTrjGJ5.G7Y3/fEwn3WDvqGV1kzhhdX03kRQgW.')",
+    "func_output": "[<Users 2>]"
+  },
+  {
+    "id": 2,
+    "datetime": "2024-03-21 23:25:16.165776",
     "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_my_events",
-    "func_input": "{'organiserID': 2}",
-    "func_output": "[(1, \"Elisheva's sweet 30'th\", 'Elishevas Birthday Party', 'Elishevas House', datetime.datetime(2023, 8, 1, 19, 0), None, 2, 17, True, False), (25, 'test', '', 'test', datetime.datetime(2024, 3, 21, 13, 47), None, 2, 3, True, False), (26, 'test', '', 'test', datetime.datetime(2024, 3, 13, 14, 2), b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01\\x00\\x01\\x00\\x00\\xff\\xdb\\x00\\x84\\x00\\x06\\x06\\x06\\x06\\x07\\x06\\x07\\x08\\x08\\x07\\n\\x0b\\n\\x0b\\n\\x0f\\x ... (576741 characters truncated) ... 06b\\r\\x97\\x12Q\\x19\\xc7yA\\xa7QG1\\xde1:\\xb4\\xc6\\xcb\\x11i\\x16\\xc8\\xb0\\xd6a-\\xb0\\x1f\\x88\\xa1\\x82\\xa2\\xbb\\x9a\\x90i\\x84%)1\\xa1.\\xddJr\\x18\\x1d\\x10:O\\xff\\xd9', 2, 4, True, False)]"
+    "func_name": "get_all",
+    "func_input": "None",
+    "func_output": "[<Events 1>, <Events 2>, <Events 5>, <Events 6>, <Events 7>, <Events 8>, <Events 9>, <Events 10>, <Events 11>, <Events 12>, <Events 13>, <Events 14>, <Events 15>, <Events 16>, <Events 17>, <Events 18>, <Events 19>, <Events 25>, <Events 26>, <Events 27>, <Events 28>]"
   },
   {
-    "id": 2,
-    "datetime": "2024-03-12 14:01:12.782864",
+    "id": 3,
+    "datetime": "2024-03-21 23:25:16.175140",
     "class-name": "UserBackend",
-    "func_name": "my_events",
-    "func_input": "(2, '$2b$12$DJsWrN6c/spAxTY.BTz99uCYMhdT9j44a6XWyO/Ae3iC7/x0ptJe6')",
-    "func_output": "[(1, \"Elisheva's sweet 30'th\", 'Elishevas Birthday Party', 'Elishevas House', datetime.datetime(2023, 8, 1, 19, 0), None, 2, 17, True, False), (25, 'test', '', 'test', datetime.datetime(2024, 3, 21, 13, 47), None, 2, 3, True, False), (26, 'test', '', 'test', datetime.datetime(2024, 3, 13, 14, 2), b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01\\x00\\x01\\x00\\x00\\xff\\xdb\\x00\\x84\\x00\\x06\\x06\\x06\\x06\\x07\\x06\\x07\\x08\\x08\\x07\\n\\x0b\\n\\x0b\\n\\x0f\\x ... (576741 characters truncated) ... 06b\\r\\x97\\x12Q\\x19\\xc7yA\\xa7QG1\\xde1:\\xb4\\xc6\\xcb\\x11i\\x16\\xc8\\xb0\\xd6a-\\xb0\\x1f\\x88\\xa1\\x82\\xa2\\xbb\\x9a\\x90i\\x84%)1\\xa1.\\xddJr\\x18\\x1d\\x10:O\\xff\\xd9', 2, 4, True, False)]"
-  },
-  {
-    "id": 2,
-    "datetime": "2024-03-12 14:01:12.782864",
-    "class-name": "UserBackend",
-    "func_name": "my_events",
-    "func_input": "(2, '$2b$12$DJsWrN6c/spAxTY.BTz99uCYMhdT9j44a6XWyO/Ae3iC7/x0ptJe6')",
-    "func_output": "[(1, \"Elisheva's sweet 30'th\", 'Elishevas Birthday Party', 'Elishevas House', datetime.datetime(2023, 8, 1, 19, 0), None, 2, 17, True, False), (25, 'test', '', 'test', datetime.datetime(2024, 3, 21, 13, 47), None, 2, 3, True, False), (26, 'test', '', 'test', datetime.datetime(2024, 3, 13, 14, 2), b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01\\x00\\x01\\x00\\x00\\xff\\xdb\\x00\\x84\\x00\\x06\\x06\\x06\\x06\\x07\\x06\\x07\\x08\\x08\\x07\\n\\x0b\\n\\x0b\\n\\x0f\\x ... (576741 characters truncated) ... 06b\\r\\x97\\x12Q\\x19\\xc7yA\\xa7QG1\\xde1:\\xb4\\xc6\\xcb\\x11i\\x16\\xc8\\xb0\\xd6a-\\xb0\\x1f\\x88\\xa1\\x82\\xa2\\xbb\\x9a\\x90i\\x84%)1\\xa1.\\xddJr\\x18\\x1d\\x10:O\\xff\\xd9', 2, 4, True, False)]"
+    "func_name": "get_all_events",
+    "func_input": "(2, '$2b$12$JRgvGYmvRXIM4fpTrjGJ5.G7Y3/fEwn3WDvqGV1kzhhdX03kRQgW.')",
+    "func_output": "[<Events 1>, <Events 2>, <Events 5>, <Events 6>, <Events 7>, <Events 8>, <Events 9>, <Events 10>, <Events 11>, <Events 12>, <Events 13>, <Events 14>, <Events 15>, <Events 16>, <Events 17>, <Events 18>, <Events 19>, <Events 25>, <Events 26>, <Events 27>, <Events 28>]"
   },
   {
     "id": 4,
-    "datetime": "2024-03-12 14:04:14.435379",
-    "class-name": "<class 'modules.users.Users'>",
-    "func_name": "get_user_by_username",
-    "func_input": "{'username': 'elisheva1'}",
-    "func_output": "[(2, 'elisheva1', '$2b$12$H5.841uLPvq89a2OcqNQDOkzWrcJl.kgGZDKwt76MAlJkhJXqTNOq', 'elisheva@gmail.com', 'Elisheva Cohen', 'I realyyy like to party', datetime.datetime(2024, 2, 27, 23, 4, 30, 217000), True, True)]"
+    "datetime": "2024-03-21 23:25:16.202502",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "17",
+    "func_output": "<EventCategories 17>"
   },
   {
     "id": 5,
-    "datetime": "2024-03-12 14:04:14.915020",
+    "datetime": "2024-03-21 23:25:16.216906",
     "class-name": "BackendBase",
-    "func_name": "_check_password",
-    "func_input": "$2b$12$H5.841uLPvq89a2OcqNQDOkzWrcJl.kgGZDKwt76MAlJkhJXqTNOq",
-    "func_output": "True"
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 17>"
   },
   {
     "id": 6,
-    "datetime": "2024-03-12 14:04:15.408882",
-    "class-name": "BackendBase",
-    "func_name": "login",
-    "func_input": "elisheva1",
-    "func_output": "logged in"
+    "datetime": "2024-03-21 23:25:16.234637",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
   },
   {
     "id": 7,
-    "datetime": "2024-03-12 14:04:17.477551",
-    "class-name": "UserBackend",
-    "func_name": "_get_authentication",
-    "func_input": "$2b$12$TCMyrkos5XUemMQK2qFJdu43LNbKqtHYQUUxkBF/zM/brKeD/3ewW",
-    "func_output": "True"
+    "datetime": "2024-03-21 23:25:16.245179",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
   },
   {
     "id": 8,
-    "datetime": "2024-03-12 14:04:17.492843",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_my_events",
-    "func_input": "{'organiserID': 2}",
-    "func_output": "[(1, \"Elisheva's sweet 30'th\", 'Elishevas Birthday Party', 'Elishevas House', datetime.datetime(2023, 8, 1, 19, 0), None, 2, 17, True, False), (25, 'test', '', 'test', datetime.datetime(2024, 3, 21, 13, 47), None, 2, 3, True, False), (26, 'test', '', 'test', datetime.datetime(2024, 3, 13, 14, 2), b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01\\x00\\x01\\x00\\x00\\xff\\xdb\\x00\\x84\\x00\\x06\\x06\\x06\\x06\\x07\\x06\\x07\\x08\\x08\\x07\\n\\x0b\\n\\x0b\\n\\x0f\\x ... (576741 characters truncated) ... 06b\\r\\x97\\x12Q\\x19\\xc7yA\\xa7QG1\\xde1:\\xb4\\xc6\\xcb\\x11i\\x16\\xc8\\xb0\\xd6a-\\xb0\\x1f\\x88\\xa1\\x82\\xa2\\xbb\\x9a\\x90i\\x84%)1\\xa1.\\xddJr\\x18\\x1d\\x10:O\\xff\\xd9', 2, 4, True, False)]"
+    "datetime": "2024-03-21 23:25:16.264669",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "12",
+    "func_output": "<EventCategories 12>"
   },
   {
     "id": 9,
-    "datetime": "2024-03-12 14:04:17.517697",
-    "class-name": "UserBackend",
-    "func_name": "my_events",
-    "func_input": "(2, '$2b$12$TCMyrkos5XUemMQK2qFJdu43LNbKqtHYQUUxkBF/zM/brKeD/3ewW')",
-    "func_output": "[(1, \"Elisheva's sweet 30'th\", 'Elishevas Birthday Party', 'Elishevas House', datetime.datetime(2023, 8, 1, 19, 0), None, 2, 17, True, False), (25, 'test', '', 'test', datetime.datetime(2024, 3, 21, 13, 47), None, 2, 3, True, False), (26, 'test', '', 'test', datetime.datetime(2024, 3, 13, 14, 2), b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01\\x00\\x01\\x00\\x00\\xff\\xdb\\x00\\x84\\x00\\x06\\x06\\x06\\x06\\x07\\x06\\x07\\x08\\x08\\x07\\n\\x0b\\n\\x0b\\n\\x0f\\x ... (576741 characters truncated) ... 06b\\r\\x97\\x12Q\\x19\\xc7yA\\xa7QG1\\xde1:\\xb4\\xc6\\xcb\\x11i\\x16\\xc8\\xb0\\xd6a-\\xb0\\x1f\\x88\\xa1\\x82\\xa2\\xbb\\x9a\\x90i\\x84%)1\\xa1.\\xddJr\\x18\\x1d\\x10:O\\xff\\xd9', 2, 4, True, False)]"
+    "datetime": "2024-03-21 23:25:16.283891",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 12>"
   },
   {
-    "id": 9,
-    "datetime": "2024-03-12 14:04:17.517697",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_my_events",
-    "func_input": "{'organiserID': 2}",
-    "func_output": "[(1, \"Elisheva's sweet 30'th\", 'Elishevas Birthday Party', 'Elishevas House', datetime.datetime(2023, 8, 1, 19, 0), None, 2, 17, True, False), (25, 'test', '', 'test', datetime.datetime(2024, 3, 21, 13, 47), None, 2, 3, True, False), (26, 'test', '', 'test', datetime.datetime(2024, 3, 13, 14, 2), b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01\\x00\\x01\\x00\\x00\\xff\\xdb\\x00\\x84\\x00\\x06\\x06\\x06\\x06\\x07\\x06\\x07\\x08\\x08\\x07\\n\\x0b\\n\\x0b\\n\\x0f\\x ... (576741 characters truncated) ... 06b\\r\\x97\\x12Q\\x19\\xc7yA\\xa7QG1\\xde1:\\xb4\\xc6\\xcb\\x11i\\x16\\xc8\\xb0\\xd6a-\\xb0\\x1f\\x88\\xa1\\x82\\xa2\\xbb\\x9a\\x90i\\x84%)1\\xa1.\\xddJr\\x18\\x1d\\x10:O\\xff\\xd9', 2, 4, True, False)]"
+    "id": 10,
+    "datetime": "2024-03-21 23:25:16.305129",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "3",
+    "func_output": "<Users 3>"
   },
   {
     "id": 11,
-    "datetime": "2024-03-12 14:04:17.542032",
-    "class-name": "UserBackend",
-    "func_name": "my_events",
-    "func_input": "(2, '$2b$12$TCMyrkos5XUemMQK2qFJdu43LNbKqtHYQUUxkBF/zM/brKeD/3ewW')",
-    "func_output": "[(1, \"Elisheva's sweet 30'th\", 'Elishevas Birthday Party', 'Elishevas House', datetime.datetime(2023, 8, 1, 19, 0), None, 2, 17, True, False), (25, 'test', '', 'test', datetime.datetime(2024, 3, 21, 13, 47), None, 2, 3, True, False), (26, 'test', '', 'test', datetime.datetime(2024, 3, 13, 14, 2), b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01\\x00\\x01\\x00\\x00\\xff\\xdb\\x00\\x84\\x00\\x06\\x06\\x06\\x06\\x07\\x06\\x07\\x08\\x08\\x07\\n\\x0b\\n\\x0b\\n\\x0f\\x ... (576741 characters truncated) ... 06b\\r\\x97\\x12Q\\x19\\xc7yA\\xa7QG1\\xde1:\\xb4\\xc6\\xcb\\x11i\\x16\\xc8\\xb0\\xd6a-\\xb0\\x1f\\x88\\xa1\\x82\\xa2\\xbb\\x9a\\x90i\\x84%)1\\xa1.\\xddJr\\x18\\x1d\\x10:O\\xff\\xd9', 2, 4, True, False)]"
+    "datetime": "2024-03-21 23:25:16.323924",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "3",
+    "func_output": "<Users 3>"
   },
   {
     "id": 12,
-    "datetime": "2024-03-12 14:05:44.071238",
-    "class-name": "UserBackend",
-    "func_name": "_get_authentication",
-    "func_input": "$2b$12$TCMyrkos5XUemMQK2qFJdu43LNbKqtHYQUUxkBF/zM/brKeD/3ewW",
-    "func_output": "True"
+    "datetime": "2024-03-21 23:25:16.337160",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "1",
+    "func_output": "<EventCategories 1>"
   },
   {
     "id": 13,
-    "datetime": "2024-03-12 14:05:44.112060",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_my_events",
-    "func_input": "{'organiserID': 2}",
-    "func_output": "[(1, \"Elisheva's sweet 30'th\", 'Elishevas Birthday Party', 'Elishevas House', datetime.datetime(2023, 8, 1, 19, 0), None, 2, 17, True, False), (25, 'test', '', 'test', datetime.datetime(2024, 3, 21, 13, 47), None, 2, 3, True, False), (26, 'test', '', 'test', datetime.datetime(2024, 3, 13, 14, 2), b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01\\x00\\x01\\x00\\x00\\xff\\xdb\\x00\\x84\\x00\\x06\\x06\\x06\\x06\\x07\\x06\\x07\\x08\\x08\\x07\\n\\x0b\\n\\x0b\\n\\x0f\\x ... (576741 characters truncated) ... 06b\\r\\x97\\x12Q\\x19\\xc7yA\\xa7QG1\\xde1:\\xb4\\xc6\\xcb\\x11i\\x16\\xc8\\xb0\\xd6a-\\xb0\\x1f\\x88\\xa1\\x82\\xa2\\xbb\\x9a\\x90i\\x84%)1\\xa1.\\xddJr\\x18\\x1d\\x10:O\\xff\\xd9', 2, 4, True, False)]"
+    "datetime": "2024-03-21 23:25:16.354272",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 1>"
   },
   {
     "id": 14,
-    "datetime": "2024-03-12 14:05:44.128398",
-    "class-name": "UserBackend",
-    "func_name": "my_events",
-    "func_input": "(2, '$2b$12$TCMyrkos5XUemMQK2qFJdu43LNbKqtHYQUUxkBF/zM/brKeD/3ewW')",
-    "func_output": "[(1, \"Elisheva's sweet 30'th\", 'Elishevas Birthday Party', 'Elishevas House', datetime.datetime(2023, 8, 1, 19, 0), None, 2, 17, True, False), (25, 'test', '', 'test', datetime.datetime(2024, 3, 21, 13, 47), None, 2, 3, True, False), (26, 'test', '', 'test', datetime.datetime(2024, 3, 13, 14, 2), b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01\\x00\\x01\\x00\\x00\\xff\\xdb\\x00\\x84\\x00\\x06\\x06\\x06\\x06\\x07\\x06\\x07\\x08\\x08\\x07\\n\\x0b\\n\\x0b\\n\\x0f\\x ... (576741 characters truncated) ... 06b\\r\\x97\\x12Q\\x19\\xc7yA\\xa7QG1\\xde1:\\xb4\\xc6\\xcb\\x11i\\x16\\xc8\\xb0\\xd6a-\\xb0\\x1f\\x88\\xa1\\x82\\xa2\\xbb\\x9a\\x90i\\x84%)1\\xa1.\\xddJr\\x18\\x1d\\x10:O\\xff\\xd9', 2, 4, True, False)]"
+    "datetime": "2024-03-21 23:25:16.375460",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "4",
+    "func_output": "<Users 4>"
   },
   {
     "id": 15,
-    "datetime": "2024-03-12 14:06:00.059933",
-    "class-name": "<class 'modules.users.Users'>",
-    "func_name": "get_user_by_username",
-    "func_input": "{'username': 'elisheva1'}",
-    "func_output": "[(2, 'elisheva1', '$2b$12$H5.841uLPvq89a2OcqNQDOkzWrcJl.kgGZDKwt76MAlJkhJXqTNOq', 'elisheva@gmail.com', 'Elisheva Cohen', 'I realyyy like to party', datetime.datetime(2024, 2, 27, 23, 4, 30, 217000), True, True)]"
+    "datetime": "2024-03-21 23:25:16.395285",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "4",
+    "func_output": "<Users 4>"
   },
   {
     "id": 16,
-    "datetime": "2024-03-12 14:06:00.533474",
-    "class-name": "BackendBase",
-    "func_name": "_check_password",
-    "func_input": "$2b$12$H5.841uLPvq89a2OcqNQDOkzWrcJl.kgGZDKwt76MAlJkhJXqTNOq",
-    "func_output": "True"
+    "datetime": "2024-03-21 23:25:16.410755",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "4",
+    "func_output": "<EventCategories 4>"
   },
   {
     "id": 17,
-    "datetime": "2024-03-12 14:06:01.027552",
+    "datetime": "2024-03-21 23:25:16.425577",
     "class-name": "BackendBase",
-    "func_name": "login",
-    "func_input": "elisheva1",
-    "func_output": "logged in"
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 4>"
   },
   {
     "id": 18,
-    "datetime": "2024-03-12 14:06:02.982757",
-    "class-name": "UserBackend",
-    "func_name": "_get_authentication",
-    "func_input": "$2b$12$SQy4yq3kLDQ3aL.2DsPpVOF5PNTHwLr4I8qwR1V3dvHWe5kuhL12C",
-    "func_output": "True"
+    "datetime": "2024-03-21 23:25:16.443824",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "30",
+    "func_output": "<Users 30>"
   },
   {
     "id": 19,
-    "datetime": "2024-03-12 14:06:02.996578",
-    "class-name": "UserBackend",
-    "func_name": "_get_authentication",
-    "func_input": "$2b$12$SQy4yq3kLDQ3aL.2DsPpVOF5PNTHwLr4I8qwR1V3dvHWe5kuhL12C",
-    "func_output": "True"
+    "datetime": "2024-03-21 23:25:16.455906",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "30",
+    "func_output": "<Users 30>"
   },
   {
     "id": 20,
-    "datetime": "2024-03-12 14:06:03.036201",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_my_events",
-    "func_input": "{'organiserID': 2}",
-    "func_output": "[(1, \"Elisheva's sweet 30'th\", 'Elishevas Birthday Party', 'Elishevas House', datetime.datetime(2023, 8, 1, 19, 0), None, 2, 17, True, False), (25, 'test', '', 'test', datetime.datetime(2024, 3, 21, 13, 47), None, 2, 3, True, False), (26, 'test', '', 'test', datetime.datetime(2024, 3, 13, 14, 2), b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01\\x00\\x01\\x00\\x00\\xff\\xdb\\x00\\x84\\x00\\x06\\x06\\x06\\x06\\x07\\x06\\x07\\x08\\x08\\x07\\n\\x0b\\n\\x0b\\n\\x0f\\x ... (576741 characters truncated) ... 06b\\r\\x97\\x12Q\\x19\\xc7yA\\xa7QG1\\xde1:\\xb4\\xc6\\xcb\\x11i\\x16\\xc8\\xb0\\xd6a-\\xb0\\x1f\\x88\\xa1\\x82\\xa2\\xbb\\x9a\\x90i\\x84%)1\\xa1.\\xddJr\\x18\\x1d\\x10:O\\xff\\xd9', 2, 4, True, False)]"
+    "datetime": "2024-03-21 23:25:16.475294",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "6",
+    "func_output": "<EventCategories 6>"
   },
   {
     "id": 21,
-    "datetime": "2024-03-12 14:06:03.062939",
-    "class-name": "UserBackend",
-    "func_name": "my_events",
-    "func_input": "(2, '$2b$12$SQy4yq3kLDQ3aL.2DsPpVOF5PNTHwLr4I8qwR1V3dvHWe5kuhL12C')",
-    "func_output": "[(1, \"Elisheva's sweet 30'th\", 'Elishevas Birthday Party', 'Elishevas House', datetime.datetime(2023, 8, 1, 19, 0), None, 2, 17, True, False), (25, 'test', '', 'test', datetime.datetime(2024, 3, 21, 13, 47), None, 2, 3, True, False), (26, 'test', '', 'test', datetime.datetime(2024, 3, 13, 14, 2), b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01\\x00\\x01\\x00\\x00\\xff\\xdb\\x00\\x84\\x00\\x06\\x06\\x06\\x06\\x07\\x06\\x07\\x08\\x08\\x07\\n\\x0b\\n\\x0b\\n\\x0f\\x ... (576741 characters truncated) ... 06b\\r\\x97\\x12Q\\x19\\xc7yA\\xa7QG1\\xde1:\\xb4\\xc6\\xcb\\x11i\\x16\\xc8\\xb0\\xd6a-\\xb0\\x1f\\x88\\xa1\\x82\\xa2\\xbb\\x9a\\x90i\\x84%)1\\xa1.\\xddJr\\x18\\x1d\\x10:O\\xff\\xd9', 2, 4, True, False)]"
+    "datetime": "2024-03-21 23:25:16.494226",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 6>"
   },
   {
     "id": 22,
-    "datetime": "2024-03-12 14:12:12.823664",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-21 23:25:16.514140",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "31",
+    "func_output": "<Users 31>"
   },
   {
     "id": 23,
-    "datetime": "2024-03-12 14:12:12.838522",
+    "datetime": "2024-03-21 23:25:16.526079",
     "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "func_name": "get_user_by_id",
+    "func_input": "31",
+    "func_output": "<Users 31>"
   },
   {
     "id": 24,
-    "datetime": "2024-03-12 14:12:12.864658",
+    "datetime": "2024-03-21 23:25:16.548559",
     "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "func_name": "get_by_id",
+    "func_input": "15",
+    "func_output": "<EventCategories 15>"
   },
   {
     "id": 25,
-    "datetime": "2024-03-12 14:12:12.877291",
+    "datetime": "2024-03-21 23:25:16.565294",
     "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
+    "func_name": "get_category_by_id",
     "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "func_output": "<EventCategories 15>"
   },
   {
     "id": 26,
-    "datetime": "2024-03-12 14:12:39.461212",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-21 23:25:16.585461",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "32",
+    "func_output": "<Users 32>"
   },
   {
     "id": 27,
-    "datetime": "2024-03-12 14:12:39.473864",
+    "datetime": "2024-03-21 23:25:16.604265",
     "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "func_name": "get_user_by_id",
+    "func_input": "32",
+    "func_output": "<Users 32>"
   },
   {
     "id": 28,
-    "datetime": "2024-03-12 19:06:02.593508",
-    "class-name": "<class 'modules.users.Users'>",
-    "func_name": "get_user_by_username",
-    "func_input": "{'username': 'elisheva1'}",
-    "func_output": "[(2, 'elisheva1', '$2b$12$H5.841uLPvq89a2OcqNQDOkzWrcJl.kgGZDKwt76MAlJkhJXqTNOq', 'elisheva@gmail.com', 'Elisheva Cohen', 'I realyyy like to party', datetime.datetime(2024, 2, 27, 23, 4, 30, 217000), True, True)]"
+    "datetime": "2024-03-21 23:25:16.623791",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "18",
+    "func_output": "<EventCategories 18>"
   },
   {
     "id": 29,
-    "datetime": "2024-03-12 19:06:03.084619",
+    "datetime": "2024-03-21 23:25:16.641811",
     "class-name": "BackendBase",
-    "func_name": "_check_password",
-    "func_input": "$2b$12$H5.841uLPvq89a2OcqNQDOkzWrcJl.kgGZDKwt76MAlJkhJXqTNOq",
-    "func_output": "True"
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 18>"
   },
   {
     "id": 30,
-    "datetime": "2024-03-12 19:06:03.588715",
-    "class-name": "BackendBase",
-    "func_name": "login",
-    "func_input": "elisheva1",
-    "func_output": "logged in"
+    "datetime": "2024-03-21 23:25:16.655859",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "33",
+    "func_output": "<Users 33>"
   },
   {
     "id": 31,
-    "datetime": "2024-03-12 19:06:05.760477",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-21 23:25:16.674107",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "33",
+    "func_output": "<Users 33>"
   },
   {
     "id": 32,
-    "datetime": "2024-03-12 19:06:05.774800",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-21 23:25:16.695596",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "18",
+    "func_output": "<EventCategories 18>"
   },
   {
     "id": 33,
-    "datetime": "2024-03-12 19:06:05.804603",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
+    "datetime": "2024-03-21 23:25:16.715877",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
     "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "func_output": "<EventCategories 18>"
   },
   {
     "id": 34,
-    "datetime": "2024-03-12 19:06:05.825333",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-21 23:25:16.733190",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "33",
+    "func_output": "<Users 33>"
   },
   {
     "id": 35,
-    "datetime": "2024-03-12 19:06:24.605039",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-21 23:25:16.754204",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "33",
+    "func_output": "<Users 33>"
   },
   {
     "id": 36,
-    "datetime": "2024-03-12 19:06:24.623616",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-21 23:25:16.773867",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "18",
+    "func_output": "<EventCategories 18>"
   },
   {
     "id": 37,
-    "datetime": "2024-03-12 19:06:34.804593",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
+    "datetime": "2024-03-21 23:25:16.795457",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
     "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "func_output": "<EventCategories 18>"
   },
   {
     "id": 38,
-    "datetime": "2024-03-12 19:06:34.823194",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-21 23:25:16.816317",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "33",
+    "func_output": "<Users 33>"
   },
   {
     "id": 39,
-    "datetime": "2024-03-12 19:06:36.574518",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_by_id",
-    "func_input": "1",
-    "func_output": "<Events 1>"
+    "datetime": "2024-03-21 23:25:16.832584",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "33",
+    "func_output": "<Users 33>"
   },
   {
     "id": 40,
-    "datetime": "2024-03-12 19:06:36.591701",
-    "class-name": "BackendBase",
-    "func_name": "get_event_by_id",
-    "func_input": "1",
-    "func_output": "<Events 1>"
+    "datetime": "2024-03-21 23:25:16.855472",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "2",
+    "func_output": "<EventCategories 2>"
   },
   {
     "id": 41,
-    "datetime": "2024-03-12 19:06:40.863154",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_by_id",
-    "func_input": "1",
-    "func_output": "<Events 1>"
+    "datetime": "2024-03-21 23:25:16.883914",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 2>"
   },
   {
     "id": 42,
-    "datetime": "2024-03-12 19:06:40.874822",
-    "class-name": "BackendBase",
-    "func_name": "get_event_by_id",
-    "func_input": "1",
-    "func_output": "<Events 1>"
+    "datetime": "2024-03-21 23:25:16.905780",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
   },
   {
     "id": 43,
-    "datetime": "2024-03-12 19:14:55.543619",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-21 23:25:16.923146",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
   },
   {
     "id": 44,
-    "datetime": "2024-03-12 19:14:55.563980",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-21 23:25:16.945595",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "2",
+    "func_output": "<EventCategories 2>"
   },
   {
     "id": 45,
-    "datetime": "2024-03-12 19:14:55.592825",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
+    "datetime": "2024-03-21 23:25:16.963953",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
     "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "func_output": "<EventCategories 2>"
   },
   {
     "id": 46,
-    "datetime": "2024-03-12 19:14:55.616108",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-21 23:25:16.985313",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
   },
   {
     "id": 47,
-    "datetime": "2024-03-12 19:14:59.048809",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_by_id",
-    "func_input": "1",
-    "func_output": "<Events 1>"
+    "datetime": "2024-03-21 23:25:17.002730",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
   },
   {
     "id": 48,
-    "datetime": "2024-03-12 19:14:59.066178",
-    "class-name": "BackendBase",
-    "func_name": "get_event_by_id",
-    "func_input": "1",
-    "func_output": "<Events 1>"
+    "datetime": "2024-03-21 23:25:17.024422",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "2",
+    "func_output": "<EventCategories 2>"
   },
   {
     "id": 49,
-    "datetime": "2024-03-12 19:23:49.546589",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
+    "datetime": "2024-03-21 23:25:17.045529",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
     "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "func_output": "<EventCategories 2>"
   },
   {
     "id": 50,
-    "datetime": "2024-03-12 19:23:49.565766",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-21 23:25:17.065609",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
   },
   {
     "id": 51,
-    "datetime": "2024-03-12 19:23:49.605700",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-21 23:25:17.085446",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
   },
   {
     "id": 52,
-    "datetime": "2024-03-12 19:23:49.633372",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-21 23:25:17.105756",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "2",
+    "func_output": "<EventCategories 2>"
   },
   {
     "id": 53,
-    "datetime": "2024-03-12 19:23:52.884444",
+    "datetime": "2024-03-21 23:25:17.122521",
     "class-name": "BackendBase",
-    "func_name": "format_datetime",
-    "func_input": "('', '00:00')",
-    "func_output": "time data ' 00:00' does not match format '%Y-%m-%d %H:%M'"
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 2>"
   },
   {
     "id": 54,
-    "datetime": "2024-03-12 19:23:52.956040",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_event_by_params",
-    "func_input": "{'event_id': '1', 'title': '', 'organiser': '', 'date': None, 'location': '', 'type': ''}",
-    "func_output": "[(1, \"Elisheva's sweet 30'th\", 'Elishevas Birthday Party', 'Elishevas House', datetime.datetime(2023, 8, 1, 19, 0), None, 2, 17, True, False)]"
+    "datetime": "2024-03-21 23:25:17.145488",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
   },
   {
     "id": 55,
-    "datetime": "2024-03-12 19:23:52.979573",
+    "datetime": "2024-03-21 23:25:17.154532",
     "class-name": "BackendBase",
-    "func_name": "get_event_by_params",
-    "func_input": "('1', '', '', '', '', '')",
-    "func_output": "[(1, \"Elisheva's sweet 30'th\", 'Elishevas Birthday Party', 'Elishevas House', datetime.datetime(2023, 8, 1, 19, 0), None, 2, 17, True, False)]"
+    "func_name": "get_user_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
   },
   {
     "id": 56,
-    "datetime": "2024-03-12 19:23:53.011188",
-    "class-name": "<class 'modules.users.Users'>",
+    "datetime": "2024-03-21 23:25:17.175471",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
     "func_name": "get_by_id",
     "func_input": "2",
-    "func_output": "<Users 2>"
+    "func_output": "<EventCategories 2>"
   },
   {
     "id": 57,
-    "datetime": "2024-03-12 19:23:53.032274",
+    "datetime": "2024-03-21 23:25:17.195191",
     "class-name": "BackendBase",
-    "func_name": "get_user_by_id",
-    "func_input": "2",
-    "func_output": "<Users 2>"
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 2>"
   },
   {
     "id": 58,
-    "datetime": "2024-03-12 19:23:53.051718",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "datetime": "2024-03-21 23:25:17.215495",
+    "class-name": "<class 'modules.users.Users'>",
     "func_name": "get_by_id",
-    "func_input": "17",
-    "func_output": "<EventCategories 17>"
+    "func_input": "34",
+    "func_output": "<Users 34>"
   },
   {
     "id": 59,
-    "datetime": "2024-03-12 19:23:53.074424",
+    "datetime": "2024-03-21 23:25:17.235621",
     "class-name": "BackendBase",
-    "func_name": "get_category_by_id",
-    "func_input": "None",
-    "func_output": "<EventCategories 17>"
+    "func_name": "get_user_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
   },
   {
     "id": 60,
-    "datetime": "2024-03-12 19:24:51.162711",
+    "datetime": "2024-03-21 23:25:17.254278",
     "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "func_name": "get_by_id",
+    "func_input": "17",
+    "func_output": "<EventCategories 17>"
   },
   {
     "id": 61,
-    "datetime": "2024-03-12 19:24:51.180079",
+    "datetime": "2024-03-21 23:25:17.275420",
     "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
+    "func_name": "get_category_by_id",
     "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "func_output": "<EventCategories 17>"
   },
   {
     "id": 62,
-    "datetime": "2024-03-12 19:24:51.226770",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-21 23:25:17.295678",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
   },
   {
     "id": 63,
-    "datetime": "2024-03-12 19:24:51.254464",
+    "datetime": "2024-03-21 23:25:17.314763",
     "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "func_name": "get_user_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
   },
   {
     "id": 64,
-    "datetime": "2024-03-12 19:24:53.848901",
-    "class-name": "BackendBase",
-    "func_name": "format_datetime",
-    "func_input": "('', '00:00')",
-    "func_output": "time data ' 00:00' does not match format '%Y-%m-%d %H:%M'"
+    "datetime": "2024-03-21 23:25:17.337684",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "10",
+    "func_output": "<EventCategories 10>"
   },
   {
     "id": 65,
-    "datetime": "2024-03-12 19:24:53.880558",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_event_by_params",
-    "func_input": "{'event_id': '1', 'title': '', 'organiser': '', 'date': None, 'location': '', 'type': ''}",
-    "func_output": "[(1, \"Elisheva's sweet 30'th\", 'Elishevas Birthday Party', 'Elishevas House', datetime.datetime(2023, 8, 1, 19, 0), None, 2, 17, True, False)]"
+    "datetime": "2024-03-21 23:25:17.352874",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 10>"
   },
   {
     "id": 66,
-    "datetime": "2024-03-12 19:24:53.905806",
-    "class-name": "BackendBase",
-    "func_name": "get_event_by_params",
-    "func_input": "('1', '', '', '', '', '')",
-    "func_output": "[(1, \"Elisheva's sweet 30'th\", 'Elishevas Birthday Party', 'Elishevas House', datetime.datetime(2023, 8, 1, 19, 0), None, 2, 17, True, False)]"
+    "datetime": "2024-03-21 23:25:17.375272",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "35",
+    "func_output": "<Users 35>"
   },
   {
     "id": 67,
-    "datetime": "2024-03-12 19:24:53.932725",
-    "class-name": "<class 'modules.users.Users'>",
-    "func_name": "get_by_id",
-    "func_input": "2",
-    "func_output": "<Users 2>"
+    "datetime": "2024-03-21 23:25:17.392803",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "35",
+    "func_output": "<Users 35>"
   },
   {
     "id": 68,
-    "datetime": "2024-03-12 19:24:53.956077",
-    "class-name": "BackendBase",
-    "func_name": "get_user_by_id",
-    "func_input": "2",
-    "func_output": "<Users 2>"
+    "datetime": "2024-03-21 23:25:17.413855",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "10",
+    "func_output": "<EventCategories 10>"
   },
   {
     "id": 69,
-    "datetime": "2024-03-12 19:24:53.984974",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_by_id",
-    "func_input": "17",
-    "func_output": "<EventCategories 17>"
+    "datetime": "2024-03-21 23:25:17.432212",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 10>"
   },
   {
     "id": 70,
-    "datetime": "2024-03-12 19:24:54.005299",
-    "class-name": "BackendBase",
-    "func_name": "get_category_by_id",
-    "func_input": "None",
-    "func_output": "<EventCategories 17>"
+    "datetime": "2024-03-21 23:25:17.443346",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "35",
+    "func_output": "<Users 35>"
   },
   {
     "id": 71,
-    "datetime": "2024-03-12 19:26:13.614131",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-21 23:25:17.465333",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "35",
+    "func_output": "<Users 35>"
   },
   {
     "id": 72,
-    "datetime": "2024-03-12 19:26:13.635493",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-21 23:25:17.485321",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "3",
+    "func_output": "<EventCategories 3>"
   },
   {
     "id": 73,
-    "datetime": "2024-03-12 19:26:15.613665",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
+    "datetime": "2024-03-21 23:25:17.495074",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
     "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "func_output": "<EventCategories 3>"
   },
   {
     "id": 74,
-    "datetime": "2024-03-12 19:26:15.644318",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-21 23:25:17.515090",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
   },
   {
     "id": 75,
-    "datetime": "2024-03-12 19:29:37.526489",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-21 23:25:17.535246",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
   },
   {
     "id": 76,
-    "datetime": "2024-03-12 19:29:37.545677",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-21 23:25:17.555855",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "4",
+    "func_output": "<EventCategories 4>"
   },
   {
     "id": 77,
-    "datetime": "2024-03-12 19:29:37.583963",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
+    "datetime": "2024-03-21 23:25:17.573410",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
     "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "func_output": "<EventCategories 4>"
   },
   {
     "id": 78,
-    "datetime": "2024-03-12 19:29:37.623964",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-21 23:25:17.593702",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
   },
   {
     "id": 79,
-    "datetime": "2024-03-12 19:29:40.645303",
+    "datetime": "2024-03-21 23:25:17.603842",
     "class-name": "BackendBase",
-    "func_name": "format_datetime",
-    "func_input": "('', '00:00')",
-    "func_output": "time data ' 00:00' does not match format '%Y-%m-%d %H:%M'"
+    "func_name": "get_user_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
   },
   {
     "id": 80,
-    "datetime": "2024-03-12 19:29:40.691237",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_event_by_params",
-    "func_input": "{'event_id': '1', 'title': '', 'organiser': '', 'date': None, 'location': '', 'type': ''}",
-    "func_output": "[(1, \"Elisheva's sweet 30'th\", 'Elishevas Birthday Party', 'Elishevas House', datetime.datetime(2023, 8, 1, 19, 0), None, 2, 17, True, False)]"
+    "datetime": "2024-03-21 23:25:17.625212",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "8",
+    "func_output": "<EventCategories 8>"
   },
   {
     "id": 81,
-    "datetime": "2024-03-12 19:29:40.707266",
+    "datetime": "2024-03-21 23:25:17.645782",
     "class-name": "BackendBase",
-    "func_name": "get_event_by_params",
-    "func_input": "('1', '', '', '', '', '')",
-    "func_output": "[(1, \"Elisheva's sweet 30'th\", 'Elishevas Birthday Party', 'Elishevas House', datetime.datetime(2023, 8, 1, 19, 0), None, 2, 17, True, False)]"
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 8>"
   },
   {
     "id": 82,
-    "datetime": "2024-03-12 19:29:40.741870",
+    "datetime": "2024-03-21 23:25:17.669415",
     "class-name": "<class 'modules.users.Users'>",
     "func_name": "get_by_id",
-    "func_input": "2",
-    "func_output": "<Users 2>"
+    "func_input": "34",
+    "func_output": "<Users 34>"
   },
   {
     "id": 83,
-    "datetime": "2024-03-12 19:29:40.763277",
+    "datetime": "2024-03-21 23:25:17.685638",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
+  },
+  {
+    "id": 84,
+    "datetime": "2024-03-21 23:25:17.704229",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "15",
+    "func_output": "<EventCategories 15>"
+  },
+  {
+    "id": 85,
+    "datetime": "2024-03-21 23:25:17.725259",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 15>"
+  },
+  {
+    "id": 86,
+    "datetime": "2024-03-21 23:25:17.742873",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
+  },
+  {
+    "id": 87,
+    "datetime": "2024-03-21 23:25:17.765137",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
+  },
+  {
+    "id": 88,
+    "datetime": "2024-03-21 23:25:38.132755",
+    "class-name": "UserBackend",
+    "func_name": "_get_authentication",
+    "func_input": "$2b$12$JRgvGYmvRXIM4fpTrjGJ5.G7Y3/fEwn3WDvqGV1kzhhdX03kRQgW.",
+    "func_output": "True"
+  },
+  {
+    "id": 89,
+    "datetime": "2024-03-21 23:25:38.154287",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_all",
+    "func_input": "None",
+    "func_output": "[<Users 2>, <Users 3>, <Users 4>, <Users 8>, <Users 10>, <Users 13>, <Users 23>, <Users 30>, <Users 31>, <Users 32>, <Users 33>, <Users 34>, <Users 35>]"
+  },
+  {
+    "id": 90,
+    "datetime": "2024-03-21 23:25:38.184281",
+    "class-name": "UserBackend",
+    "func_name": "get_all_admins",
+    "func_input": "(2, '$2b$12$JRgvGYmvRXIM4fpTrjGJ5.G7Y3/fEwn3WDvqGV1kzhhdX03kRQgW.')",
+    "func_output": "[<Users 2>]"
+  },
+  {
+    "id": 91,
+    "datetime": "2024-03-21 23:25:40.945343",
+    "class-name": "UserBackend",
+    "func_name": "_get_authentication",
+    "func_input": "$2b$12$JRgvGYmvRXIM4fpTrjGJ5.G7Y3/fEwn3WDvqGV1kzhhdX03kRQgW.",
+    "func_output": "True"
+  },
+  {
+    "id": 92,
+    "datetime": "2024-03-21 23:25:40.987572",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "custom_search",
+    "func_input": "('Users', {'UserID': 3, 'Username': None, 'Email': None, 'FullName': None})",
+    "func_output": "[(3, 'kintting123', '$2b$12$5aJSb8ASmslWej2DmQIqJ.vN66sNZd3jQj3FSSYLEq1QgEbfR6Jba', 'knitters_association@gmail.com', \"Israeli Knitter's association\", 'We like to knit', datetime.datetime(2024, 2, 29, 13, 41, 44, 473000), True, False)]"
+  },
+  {
+    "id": 93,
+    "datetime": "2024-03-21 23:25:41.005939",
+    "class-name": "UserBackend",
+    "func_name": "get_user_by_params",
+    "func_input": "('$2b$12$JRgvGYmvRXIM4fpTrjGJ5.G7Y3/fEwn3WDvqGV1kzhhdX03kRQgW.', 3, None, None, None)",
+    "func_output": "[(3, 'kintting123', '$2b$12$5aJSb8ASmslWej2DmQIqJ.vN66sNZd3jQj3FSSYLEq1QgEbfR6Jba', 'knitters_association@gmail.com', \"Israeli Knitter's association\", 'We like to knit', datetime.datetime(2024, 2, 29, 13, 41, 44, 473000), True, False)]"
+  },
+  {
+    "id": 94,
+    "datetime": "2024-03-21 23:25:42.955898",
+    "class-name": "UserBackend",
+    "func_name": "_get_authentication",
+    "func_input": "$2b$12$JRgvGYmvRXIM4fpTrjGJ5.G7Y3/fEwn3WDvqGV1kzhhdX03kRQgW.",
+    "func_output": "True"
+  },
+  {
+    "id": 95,
+    "datetime": "2024-03-21 23:25:42.984074",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "3",
+    "func_output": "<Users 3>"
+  },
+  {
+    "id": 96,
+    "datetime": "2024-03-21 23:25:43.024450",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "update",
+    "func_input": "(3, {'IsMasterUser': True})",
+    "func_output": "Updated"
+  },
+  {
+    "id": 97,
+    "datetime": "2024-03-21 23:25:43.044706",
+    "class-name": "UserBackend",
+    "func_name": "add_master_user",
+    "func_input": "(2, '$2b$12$JRgvGYmvRXIM4fpTrjGJ5.G7Y3/fEwn3WDvqGV1kzhhdX03kRQgW.', 3)",
+    "func_output": "sucsess"
+  },
+  {
+    "id": 98,
+    "datetime": "2024-03-21 23:25:46.964103",
+    "class-name": "UserBackend",
+    "func_name": "_get_authentication",
+    "func_input": "$2b$12$JRgvGYmvRXIM4fpTrjGJ5.G7Y3/fEwn3WDvqGV1kzhhdX03kRQgW.",
+    "func_output": "True"
+  },
+  {
+    "id": 99,
+    "datetime": "2024-03-21 23:25:46.985370",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_all",
+    "func_input": "None",
+    "func_output": "[<Users 2>, <Users 3>, <Users 4>, <Users 8>, <Users 10>, <Users 13>, <Users 23>, <Users 30>, <Users 31>, <Users 32>, <Users 33>, <Users 34>, <Users 35>]"
+  },
+  {
+    "id": 100,
+    "datetime": "2024-03-21 23:25:47.004416",
+    "class-name": "UserBackend",
+    "func_name": "get_all_admins",
+    "func_input": "(2, '$2b$12$JRgvGYmvRXIM4fpTrjGJ5.G7Y3/fEwn3WDvqGV1kzhhdX03kRQgW.')",
+    "func_output": "[<Users 2>, <Users 3>]"
+  },
+  {
+    "id": 101,
+    "datetime": "2024-03-21 23:25:48.716087",
+    "class-name": "UserBackend",
+    "func_name": "_get_authentication",
+    "func_input": "$2b$12$JRgvGYmvRXIM4fpTrjGJ5.G7Y3/fEwn3WDvqGV1kzhhdX03kRQgW.",
+    "func_output": "True"
+  },
+  {
+    "id": 102,
+    "datetime": "2024-03-21 23:25:48.734588",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_all",
+    "func_input": "None",
+    "func_output": "[<Users 2>, <Users 3>, <Users 4>, <Users 8>, <Users 10>, <Users 13>, <Users 23>, <Users 30>, <Users 31>, <Users 32>, <Users 33>, <Users 34>, <Users 35>]"
+  },
+  {
+    "id": 103,
+    "datetime": "2024-03-21 23:25:48.755646",
+    "class-name": "UserBackend",
+    "func_name": "get_all_admins",
+    "func_input": "(2, '$2b$12$JRgvGYmvRXIM4fpTrjGJ5.G7Y3/fEwn3WDvqGV1kzhhdX03kRQgW.')",
+    "func_output": "[<Users 2>, <Users 3>]"
+  },
+  {
+    "id": 104,
+    "datetime": "2024-03-21 23:25:49.433545",
+    "class-name": "UserBackend",
+    "func_name": "_get_authentication",
+    "func_input": "$2b$12$JRgvGYmvRXIM4fpTrjGJ5.G7Y3/fEwn3WDvqGV1kzhhdX03kRQgW.",
+    "func_output": "True"
+  },
+  {
+    "id": 105,
+    "datetime": "2024-03-21 23:25:49.455904",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "3",
+    "func_output": "<Users 3>"
+  },
+  {
+    "id": 106,
+    "datetime": "2024-03-21 23:25:49.474905",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "update",
+    "func_input": "(3, {'IsMasterUser': False})",
+    "func_output": "Updated"
+  },
+  {
+    "id": 107,
+    "datetime": "2024-03-21 23:25:49.495307",
+    "class-name": "UserBackend",
+    "func_name": "remove_master_user",
+    "func_input": "(2, '$2b$12$JRgvGYmvRXIM4fpTrjGJ5.G7Y3/fEwn3WDvqGV1kzhhdX03kRQgW.', 3)",
+    "func_output": "sucsess"
+  },
+  {
+    "id": 108,
+    "datetime": "2024-03-21 23:25:50.006077",
+    "class-name": "UserBackend",
+    "func_name": "_get_authentication",
+    "func_input": "$2b$12$JRgvGYmvRXIM4fpTrjGJ5.G7Y3/fEwn3WDvqGV1kzhhdX03kRQgW.",
+    "func_output": "True"
+  },
+  {
+    "id": 109,
+    "datetime": "2024-03-21 23:25:50.032992",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_all",
+    "func_input": "None",
+    "func_output": "[<Users 2>, <Users 3>, <Users 4>, <Users 8>, <Users 10>, <Users 13>, <Users 23>, <Users 30>, <Users 31>, <Users 32>, <Users 33>, <Users 34>, <Users 35>]"
+  },
+  {
+    "id": 110,
+    "datetime": "2024-03-21 23:25:50.054851",
+    "class-name": "UserBackend",
+    "func_name": "get_all_admins",
+    "func_input": "(2, '$2b$12$JRgvGYmvRXIM4fpTrjGJ5.G7Y3/fEwn3WDvqGV1kzhhdX03kRQgW.')",
+    "func_output": "[<Users 2>]"
+  },
+  {
+    "id": 111,
+    "datetime": "2024-03-21 23:25:55.015531",
+    "class-name": "UserBackend",
+    "func_name": "_get_authentication",
+    "func_input": "$2b$12$JRgvGYmvRXIM4fpTrjGJ5.G7Y3/fEwn3WDvqGV1kzhhdX03kRQgW.",
+    "func_output": "True"
+  },
+  {
+    "id": 112,
+    "datetime": "2024-03-21 23:25:55.044307",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_all",
+    "func_input": "None",
+    "func_output": "[<Users 2>, <Users 3>, <Users 4>, <Users 8>, <Users 10>, <Users 13>, <Users 23>, <Users 30>, <Users 31>, <Users 32>, <Users 33>, <Users 34>, <Users 35>]"
+  },
+  {
+    "id": 113,
+    "datetime": "2024-03-21 23:25:55.065230",
+    "class-name": "UserBackend",
+    "func_name": "get_all_admins",
+    "func_input": "(2, '$2b$12$JRgvGYmvRXIM4fpTrjGJ5.G7Y3/fEwn3WDvqGV1kzhhdX03kRQgW.')",
+    "func_output": "[<Users 2>]"
+  },
+  {
+    "id": 114,
+    "datetime": "2024-03-21 23:26:33.767983",
+    "class-name": "UserBackend",
+    "func_name": "_get_authentication",
+    "func_input": "$2b$12$JRgvGYmvRXIM4fpTrjGJ5.G7Y3/fEwn3WDvqGV1kzhhdX03kRQgW.",
+    "func_output": "True"
+  },
+  {
+    "id": 115,
+    "datetime": "2024-03-21 23:26:33.806634",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_all",
+    "func_input": "None",
+    "func_output": "[<Users 2>, <Users 3>, <Users 4>, <Users 8>, <Users 10>, <Users 13>, <Users 23>, <Users 30>, <Users 31>, <Users 32>, <Users 33>, <Users 34>, <Users 35>]"
+  },
+  {
+    "id": 116,
+    "datetime": "2024-03-21 23:26:33.829329",
+    "class-name": "UserBackend",
+    "func_name": "get_all_admins",
+    "func_input": "(2, '$2b$12$JRgvGYmvRXIM4fpTrjGJ5.G7Y3/fEwn3WDvqGV1kzhhdX03kRQgW.')",
+    "func_output": "[<Users 2>]"
+  },
+  {
+    "id": 117,
+    "datetime": "2024-03-21 23:26:44.794373",
+    "class-name": "UserBackend",
+    "func_name": "_get_authentication",
+    "func_input": "$2b$12$JRgvGYmvRXIM4fpTrjGJ5.G7Y3/fEwn3WDvqGV1kzhhdX03kRQgW.",
+    "func_output": "True"
+  },
+  {
+    "id": 118,
+    "datetime": "2024-03-21 23:26:44.835790",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_all",
+    "func_input": "None",
+    "func_output": "[<Users 2>, <Users 3>, <Users 4>, <Users 8>, <Users 10>, <Users 13>, <Users 23>, <Users 30>, <Users 31>, <Users 32>, <Users 33>, <Users 34>, <Users 35>]"
+  },
+  {
+    "id": 119,
+    "datetime": "2024-03-21 23:26:44.870482",
+    "class-name": "UserBackend",
+    "func_name": "get_all_admins",
+    "func_input": "(2, '$2b$12$JRgvGYmvRXIM4fpTrjGJ5.G7Y3/fEwn3WDvqGV1kzhhdX03kRQgW.')",
+    "func_output": "[<Users 2>]"
+  },
+  {
+    "id": 120,
+    "datetime": "2024-03-21 23:36:38.070419",
+    "class-name": "<class 'modules.events.Events'>",
+    "func_name": "get_by_id",
+    "func_input": "5",
+    "func_output": "<Events 5>"
+  },
+  {
+    "id": 121,
+    "datetime": "2024-03-21 23:36:38.093596",
+    "class-name": "BackendBase",
+    "func_name": "get_event_by_id",
+    "func_input": "5",
+    "func_output": "<Events 5>"
+  },
+  {
+    "id": 122,
+    "datetime": "2024-03-21 23:36:38.124926",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "1",
+    "func_output": "<EventCategories 1>"
+  },
+  {
+    "id": 123,
+    "datetime": "2024-03-21 23:36:38.148920",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 1>"
+  },
+  {
+    "id": 124,
+    "datetime": "2024-03-21 23:36:38.178200",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "4",
+    "func_output": "<Users 4>"
+  },
+  {
+    "id": 125,
+    "datetime": "2024-03-21 23:36:38.200195",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "4",
+    "func_output": "<Users 4>"
+  },
+  {
+    "id": 126,
+    "datetime": "2024-03-22 00:17:03.174555",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_all",
+    "func_input": "None",
+    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 17>, <EventCategories 18>]"
+  },
+  {
+    "id": 127,
+    "datetime": "2024-03-22 00:17:03.204696",
+    "class-name": "BackendBase",
+    "func_name": "get_all_event_categories",
+    "func_input": "None",
+    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 17>, <EventCategories 18>]"
+  },
+  {
+    "id": 128,
+    "datetime": "2024-03-22 00:17:09.423565",
+    "class-name": "<class 'modules.events.Events'>",
+    "func_name": "custom_search",
+    "func_input": "('Events', {'EventID': 5, 'Title': None, 'OrganizerID': None, 'EventDateTime': None, 'Location': None, 'CategoryID': None})",
+    "func_output": "[(5, 'Accounting Conference', \"Join the Accounting Insights Summit 2024, a gathering of finance professionals and industry leaders. Explore trends, international standards, and inn ... (145 characters truncated) ... t offers a unique opportunity to stay informed, connect with experts, and advance your career. Don't miss out on the Accounting Insights Summit 2024!\", 'Tel Aviv', datetime.datetime(2024, 4, 1, 11, 0), None, 4, 1, True, False)]"
+  },
+  {
+    "id": 129,
+    "datetime": "2024-03-22 00:17:09.444386",
+    "class-name": "BackendBase",
+    "func_name": "get_event_by_params",
+    "func_input": "(5, None, None, None, None, None)",
+    "func_output": "[(5, 'Accounting Conference', \"Join the Accounting Insights Summit 2024, a gathering of finance professionals and industry leaders. Explore trends, international standards, and inn ... (145 characters truncated) ... t offers a unique opportunity to stay informed, connect with experts, and advance your career. Don't miss out on the Accounting Insights Summit 2024!\", 'Tel Aviv', datetime.datetime(2024, 4, 1, 11, 0), None, 4, 1, True, False)]"
+  },
+  {
+    "id": 130,
+    "datetime": "2024-03-22 00:17:09.483212",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "4",
+    "func_output": "<Users 4>"
+  },
+  {
+    "id": 131,
+    "datetime": "2024-03-22 00:17:09.507168",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "4",
+    "func_output": "<Users 4>"
+  },
+  {
+    "id": 132,
+    "datetime": "2024-03-22 00:17:09.543542",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "1",
+    "func_output": "<EventCategories 1>"
+  },
+  {
+    "id": 133,
+    "datetime": "2024-03-22 00:17:09.565531",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 1>"
+  },
+  {
+    "id": 134,
+    "datetime": "2024-03-22 00:17:10.324509",
+    "class-name": "<class 'modules.events.Events'>",
+    "func_name": "get_by_id",
+    "func_input": "5",
+    "func_output": "<Events 5>"
+  },
+  {
+    "id": 135,
+    "datetime": "2024-03-22 00:17:10.348513",
+    "class-name": "BackendBase",
+    "func_name": "get_event_by_id",
+    "func_input": "5",
+    "func_output": "<Events 5>"
+  },
+  {
+    "id": 136,
+    "datetime": "2024-03-22 00:17:10.374537",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "1",
+    "func_output": "<EventCategories 1>"
+  },
+  {
+    "id": 137,
+    "datetime": "2024-03-22 00:17:10.401483",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 1>"
+  },
+  {
+    "id": 138,
+    "datetime": "2024-03-22 00:17:10.429045",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "4",
+    "func_output": "<Users 4>"
+  },
+  {
+    "id": 139,
+    "datetime": "2024-03-22 00:17:10.451964",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "4",
+    "func_output": "<Users 4>"
+  },
+  {
+    "id": 140,
+    "datetime": "2024-03-22 00:17:15.604969",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "4",
+    "func_output": "<Users 4>"
+  },
+  {
+    "id": 141,
+    "datetime": "2024-03-22 00:17:15.633704",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "4",
+    "func_output": "<Users 4>"
+  },
+  {
+    "id": 142,
+    "datetime": "2024-03-22 00:17:41.309739",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'Elisheva1'}",
+    "func_output": "[(2, 'Elisheva1', '$2b$12$5BrqcL/08Ed9a6YS35p0Z.2AsVgIeXfqLvuwWqJV3xCbYABKe6oVC', 'elisheva@gmail.com', 'Elisheva Cohen', 'I realyyy like to party!!', datetime.datetime(2024, 2, 27, 23, 4, 30, 217000), True, True)]"
+  },
+  {
+    "id": 143,
+    "datetime": "2024-03-22 00:17:41.804470",
+    "class-name": "BackendBase",
+    "func_name": "_check_password",
+    "func_input": "$2b$12$5BrqcL/08Ed9a6YS35p0Z.2AsVgIeXfqLvuwWqJV3xCbYABKe6oVC",
+    "func_output": "True"
+  },
+  {
+    "id": 144,
+    "datetime": "2024-03-22 00:17:42.362063",
+    "class-name": "BackendBase",
+    "func_name": "login",
+    "func_input": "Elisheva1",
+    "func_output": "logged in"
+  },
+  {
+    "id": 145,
+    "datetime": "2024-03-22 00:17:49.515063",
+    "class-name": "UserBackend",
+    "func_name": "_get_authentication",
+    "func_input": "$2b$12$Q0ByHEHLy9Ra5LIzRrV/9.xOjkzfRsd9tlVqqc.r5RS4Rzg/89U8a",
+    "func_output": "True"
+  },
+  {
+    "id": 146,
+    "datetime": "2024-03-22 00:17:49.554860",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_all",
+    "func_input": "None",
+    "func_output": "[<Users 2>, <Users 3>, <Users 4>, <Users 8>, <Users 10>, <Users 13>, <Users 23>, <Users 30>, <Users 31>, <Users 32>, <Users 33>, <Users 34>, <Users 35>]"
+  },
+  {
+    "id": 147,
+    "datetime": "2024-03-22 00:17:49.584832",
+    "class-name": "UserBackend",
+    "func_name": "get_all_admins",
+    "func_input": "(2, '$2b$12$Q0ByHEHLy9Ra5LIzRrV/9.xOjkzfRsd9tlVqqc.r5RS4Rzg/89U8a')",
+    "func_output": "[<Users 2>]"
+  },
+  {
+    "id": 148,
+    "datetime": "2024-03-22 00:17:51.811264",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
+  },
+  {
+    "id": 149,
+    "datetime": "2024-03-22 00:17:51.835189",
     "class-name": "BackendBase",
     "func_name": "get_user_by_id",
     "func_input": "2",
     "func_output": "<Users 2>"
   },
   {
-    "id": 84,
-    "datetime": "2024-03-12 19:29:40.785399",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_by_id",
-    "func_input": "17",
-    "func_output": "<EventCategories 17>"
-  },
-  {
-    "id": 85,
-    "datetime": "2024-03-12 19:29:40.805603",
-    "class-name": "BackendBase",
-    "func_name": "get_category_by_id",
-    "func_input": "None",
-    "func_output": "<EventCategories 17>"
-  },
-  {
-    "id": 86,
-    "datetime": "2024-03-12 19:30:00.325386",
-    "class-name": "BackendBase",
-    "func_name": "format_datetime",
-    "func_input": "('', '00:00')",
-    "func_output": "time data ' 00:00' does not match format '%Y-%m-%d %H:%M'"
-  },
-  {
-    "id": 87,
-    "datetime": "2024-03-12 19:30:00.370856",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_event_by_params",
-    "func_input": "{'event_id': '', 'title': '', 'organiser': '', 'date': None, 'location': 'Herzlya', 'type': ''}",
-    "func_output": "None Found"
-  },
-  {
-    "id": 88,
-    "datetime": "2024-03-12 19:30:00.396334",
-    "class-name": "BackendBase",
-    "func_name": "get_event_by_params",
-    "func_input": "('', '', '', '', 'Herzlya', '')",
-    "func_output": "none found"
-  },
-  {
-    "id": 89,
-    "datetime": "2024-03-12 19:31:31.208603",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
-  },
-  {
-    "id": 90,
-    "datetime": "2024-03-12 19:31:31.235038",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
-  },
-  {
-    "id": 91,
-    "datetime": "2024-03-12 19:31:31.263060",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
-  },
-  {
-    "id": 92,
-    "datetime": "2024-03-12 19:31:31.285637",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
-  },
-  {
-    "id": 93,
-    "datetime": "2024-03-12 19:31:34.816297",
-    "class-name": "BackendBase",
-    "func_name": "format_datetime",
-    "func_input": "('', '00:00')",
-    "func_output": "time data ' 00:00' does not match format '%Y-%m-%d %H:%M'"
-  },
-  {
-    "id": 94,
-    "datetime": "2024-03-12 19:31:34.865809",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_event_by_params",
-    "func_input": "{'event_id': '', 'title': '', 'organiser': '', 'date': None, 'location': 'Herzlya', 'type': ''}",
-    "func_output": "None Found"
-  },
-  {
-    "id": 95,
-    "datetime": "2024-03-12 19:31:34.883903",
-    "class-name": "BackendBase",
-    "func_name": "get_event_by_params",
-    "func_input": "('', '', '', '', 'Herzlya', '')",
-    "func_output": "none found"
-  },
-  {
-    "id": 96,
-    "datetime": "2024-03-12 19:31:51.715840",
-    "class-name": "BackendBase",
-    "func_name": "format_datetime",
-    "func_input": "('', '00:00')",
-    "func_output": "time data ' 00:00' does not match format '%Y-%m-%d %H:%M'"
-  },
-  {
-    "id": 97,
-    "datetime": "2024-03-12 19:31:51.754555",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_event_by_params",
-    "func_input": "{'event_id': '', 'title': '', 'organiser': 'Max Vol', 'date': None, 'location': '', 'type': ''}",
-    "func_output": "[(12, '\"Rythmical\" Tour', \"Get ready to immerse yourself in the soul-stirring world of music with Max Vol's tour, 'Rhythmical'! Join Max on a rhythmic journey through the diver ... (596 characters truncated) ... nd together, let's dive into the transformative power of music, where every note is a journey, and every song is a piece of Max Vol's heart and soul.\", 'Tveria', datetime.datetime(2024, 6, 18, 21, 0), None, 34, 2, False, False), (13, '\"Rythmical\" Tour', \"Get ready to immerse yourself in the soul-stirring world of music with Max Vol's tour, 'Rhythmical'! Join Max on a rhythmic journey through the diver ... (596 characters truncated) ... nd together, let's dive into the transformative power of music, where every note is a journey, and every song is a piece of Max Vol's heart and soul.\", 'Afula', datetime.datetime(2024, 6, 19, 21, 0), None, 34, 2, False, False), (14, '\"Rythmical\" Tour', \"Get ready to immerse yourself in the soul-stirring world of music with Max Vol's tour, 'Rhythmical'! Join Max on a rhythmic journey through the diver ... (596 characters truncated) ... nd together, let's dive into the transformative power of music, where every note is a journey, and every song is a piece of Max Vol's heart and soul.\", 'Beit Shean', datetime.datetime(2024, 6, 20, 21, 0), None, 34, 2, False, False), (15, '\"Rythmical\" Tour', \"Get ready to immerse yourself in the soul-stirring world of music with Max Vol's tour, 'Rhythmical'! Join Max on a rhythmic journey through the diver ... (596 characters truncated) ... nd together, let's dive into the transformative power of music, where every note is a journey, and every song is a piece of Max Vol's heart and soul.\", 'Netivot', datetime.datetime(2024, 6, 22, 21, 0), None, 34, 2, False, False), (16, '\"Rythmical\" Tour', \"Get ready to immerse yourself in the soul-stirring world of music with Max Vol's tour, 'Rhythmical'! Join Max on a rhythmic journey through the diver ... (596 characters truncated) ... nd together, let's dive into the transformative power of music, where every note is a journey, and every song is a piece of Max Vol's heart and soul.\", 'Ofakim', datetime.datetime(2024, 6, 23, 21, 0), None, 34, 2, False, False), (17, 'Max Celebrates 47th Birthday', \"Let's Goooo\", 'Forum Club Beer Sheva', datetime.datetime(2024, 10, 12, 23, 0), None, 34, 17, True, False)]"
-  },
-  {
-    "id": 98,
-    "datetime": "2024-03-12 19:31:51.794103",
-    "class-name": "BackendBase",
-    "func_name": "get_event_by_params",
-    "func_input": "('', '', 'Max Vol', '', '', '')",
-    "func_output": "[(12, '\"Rythmical\" Tour', \"Get ready to immerse yourself in the soul-stirring world of music with Max Vol's tour, 'Rhythmical'! Join Max on a rhythmic journey through the diver ... (596 characters truncated) ... nd together, let's dive into the transformative power of music, where every note is a journey, and every song is a piece of Max Vol's heart and soul.\", 'Tveria', datetime.datetime(2024, 6, 18, 21, 0), None, 34, 2, False, False), (13, '\"Rythmical\" Tour', \"Get ready to immerse yourself in the soul-stirring world of music with Max Vol's tour, 'Rhythmical'! Join Max on a rhythmic journey through the diver ... (596 characters truncated) ... nd together, let's dive into the transformative power of music, where every note is a journey, and every song is a piece of Max Vol's heart and soul.\", 'Afula', datetime.datetime(2024, 6, 19, 21, 0), None, 34, 2, False, False), (14, '\"Rythmical\" Tour', \"Get ready to immerse yourself in the soul-stirring world of music with Max Vol's tour, 'Rhythmical'! Join Max on a rhythmic journey through the diver ... (596 characters truncated) ... nd together, let's dive into the transformative power of music, where every note is a journey, and every song is a piece of Max Vol's heart and soul.\", 'Beit Shean', datetime.datetime(2024, 6, 20, 21, 0), None, 34, 2, False, False), (15, '\"Rythmical\" Tour', \"Get ready to immerse yourself in the soul-stirring world of music with Max Vol's tour, 'Rhythmical'! Join Max on a rhythmic journey through the diver ... (596 characters truncated) ... nd together, let's dive into the transformative power of music, where every note is a journey, and every song is a piece of Max Vol's heart and soul.\", 'Netivot', datetime.datetime(2024, 6, 22, 21, 0), None, 34, 2, False, False), (16, '\"Rythmical\" Tour', \"Get ready to immerse yourself in the soul-stirring world of music with Max Vol's tour, 'Rhythmical'! Join Max on a rhythmic journey through the diver ... (596 characters truncated) ... nd together, let's dive into the transformative power of music, where every note is a journey, and every song is a piece of Max Vol's heart and soul.\", 'Ofakim', datetime.datetime(2024, 6, 23, 21, 0), None, 34, 2, False, False), (17, 'Max Celebrates 47th Birthday', \"Let's Goooo\", 'Forum Club Beer Sheva', datetime.datetime(2024, 10, 12, 23, 0), None, 34, 17, True, False)]"
-  },
-  {
-    "id": 99,
-    "datetime": "2024-03-12 19:31:51.823315",
-    "class-name": "<class 'modules.users.Users'>",
-    "func_name": "get_by_id",
-    "func_input": "34",
-    "func_output": "<Users 34>"
-  },
-  {
-    "id": 100,
-    "datetime": "2024-03-12 19:31:51.854427",
-    "class-name": "BackendBase",
-    "func_name": "get_user_by_id",
-    "func_input": "34",
-    "func_output": "<Users 34>"
-  },
-  {
-    "id": 101,
-    "datetime": "2024-03-12 19:31:51.875629",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_by_id",
-    "func_input": "2",
-    "func_output": "<EventCategories 2>"
-  },
-  {
-    "id": 102,
-    "datetime": "2024-03-12 19:31:51.905602",
-    "class-name": "BackendBase",
-    "func_name": "get_category_by_id",
-    "func_input": "None",
-    "func_output": "<EventCategories 2>"
-  },
-  {
-    "id": 103,
-    "datetime": "2024-03-12 19:31:51.926167",
-    "class-name": "<class 'modules.users.Users'>",
-    "func_name": "get_by_id",
-    "func_input": "34",
-    "func_output": "<Users 34>"
-  },
-  {
-    "id": 104,
-    "datetime": "2024-03-12 19:31:51.943142",
-    "class-name": "BackendBase",
-    "func_name": "get_user_by_id",
-    "func_input": "34",
-    "func_output": "<Users 34>"
-  },
-  {
-    "id": 105,
-    "datetime": "2024-03-12 19:31:51.972238",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_by_id",
-    "func_input": "2",
-    "func_output": "<EventCategories 2>"
-  },
-  {
-    "id": 106,
-    "datetime": "2024-03-12 19:31:51.996140",
-    "class-name": "BackendBase",
-    "func_name": "get_category_by_id",
-    "func_input": "None",
-    "func_output": "<EventCategories 2>"
-  },
-  {
-    "id": 107,
-    "datetime": "2024-03-12 19:31:52.012724",
-    "class-name": "<class 'modules.users.Users'>",
-    "func_name": "get_by_id",
-    "func_input": "34",
-    "func_output": "<Users 34>"
-  },
-  {
-    "id": 108,
-    "datetime": "2024-03-12 19:31:52.035817",
-    "class-name": "BackendBase",
-    "func_name": "get_user_by_id",
-    "func_input": "34",
-    "func_output": "<Users 34>"
-  },
-  {
-    "id": 109,
-    "datetime": "2024-03-12 19:31:52.063806",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_by_id",
-    "func_input": "2",
-    "func_output": "<EventCategories 2>"
-  },
-  {
-    "id": 110,
-    "datetime": "2024-03-12 19:31:52.090880",
-    "class-name": "BackendBase",
-    "func_name": "get_category_by_id",
-    "func_input": "None",
-    "func_output": "<EventCategories 2>"
-  },
-  {
-    "id": 111,
-    "datetime": "2024-03-12 19:31:52.113054",
-    "class-name": "<class 'modules.users.Users'>",
-    "func_name": "get_by_id",
-    "func_input": "34",
-    "func_output": "<Users 34>"
-  },
-  {
-    "id": 112,
-    "datetime": "2024-03-12 19:31:52.135897",
-    "class-name": "BackendBase",
-    "func_name": "get_user_by_id",
-    "func_input": "34",
-    "func_output": "<Users 34>"
-  },
-  {
-    "id": 113,
-    "datetime": "2024-03-12 19:31:52.152333",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_by_id",
-    "func_input": "2",
-    "func_output": "<EventCategories 2>"
-  },
-  {
-    "id": 114,
-    "datetime": "2024-03-12 19:31:52.183786",
-    "class-name": "BackendBase",
-    "func_name": "get_category_by_id",
-    "func_input": "None",
-    "func_output": "<EventCategories 2>"
-  },
-  {
-    "id": 115,
-    "datetime": "2024-03-12 19:31:52.204332",
-    "class-name": "<class 'modules.users.Users'>",
-    "func_name": "get_by_id",
-    "func_input": "34",
-    "func_output": "<Users 34>"
-  },
-  {
-    "id": 116,
-    "datetime": "2024-03-12 19:31:52.235577",
-    "class-name": "BackendBase",
-    "func_name": "get_user_by_id",
-    "func_input": "34",
-    "func_output": "<Users 34>"
-  },
-  {
-    "id": 117,
-    "datetime": "2024-03-12 19:31:52.265543",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_by_id",
-    "func_input": "2",
-    "func_output": "<EventCategories 2>"
-  },
-  {
-    "id": 118,
-    "datetime": "2024-03-12 19:31:52.294179",
-    "class-name": "BackendBase",
-    "func_name": "get_category_by_id",
-    "func_input": "None",
-    "func_output": "<EventCategories 2>"
-  },
-  {
-    "id": 119,
-    "datetime": "2024-03-12 19:31:52.321821",
-    "class-name": "<class 'modules.users.Users'>",
-    "func_name": "get_by_id",
-    "func_input": "34",
-    "func_output": "<Users 34>"
-  },
-  {
-    "id": 120,
-    "datetime": "2024-03-12 19:31:52.345788",
-    "class-name": "BackendBase",
-    "func_name": "get_user_by_id",
-    "func_input": "34",
-    "func_output": "<Users 34>"
-  },
-  {
-    "id": 121,
-    "datetime": "2024-03-12 19:31:52.375791",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_by_id",
-    "func_input": "17",
-    "func_output": "<EventCategories 17>"
-  },
-  {
-    "id": 122,
-    "datetime": "2024-03-12 19:31:52.395577",
-    "class-name": "BackendBase",
-    "func_name": "get_category_by_id",
-    "func_input": "None",
-    "func_output": "<EventCategories 17>"
-  },
-  {
-    "id": 123,
-    "datetime": "2024-03-12 19:32:22.235302",
-    "class-name": "BackendBase",
-    "func_name": "format_datetime",
-    "func_input": "('', '00:00')",
-    "func_output": "time data ' 00:00' does not match format '%Y-%m-%d %H:%M'"
-  },
-  {
-    "id": 124,
-    "datetime": "2024-03-12 19:32:22.303277",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_event_by_params",
-    "func_input": "{'event_id': '', 'title': '', 'organiser': '', 'date': None, 'location': '', 'type': '18'}",
-    "func_output": "[(9, 'Digital Mastery Series: Navigating the Tech Landscape', 'Join industry experts in this comprehensive webinar series exploring the latest trends and technologies shaping the digital landscape. From artificia ... (24 characters truncated) ... ecurity, each session will unravel the complexities of the digital world, empowering you to navigate with confidence and stay ahead in the tech game.', 'Online', datetime.datetime(2024, 6, 18, 19, 0), None, 33, 18, False, False), (10, 'Creative Expressions Workshop: Unleashing Your Artistic Potential', \"Discover the artist within in this interactive webinar series led by accomplished creatives. From mastering the fundamentals of drawing to exploring  ... (40 characters truncated) ... lock your creative potential. Whether you're a seasoned artist or a curious beginner, join us on a journey of self-expression and artistic discovery.\", 'Online', datetime.datetime(2024, 7, 18, 19, 0), None, 33, 18, False, True), (11, 'Future-Proof Your Career: Professional Development Bootcamp', \"Prepare for the future job market with our exclusive Professional Development Bootcamp. In these webinars, industry leaders will share insights on in ... (67 characters truncated) ... ment tips. Equip yourself with the knowledge and tools needed to thrive in a rapidly evolving professional landscape. Don't just keep up, stay ahead!\", 'Online', datetime.datetime(2024, 8, 18, 19, 0), None, 33, 18, False, False)]"
-  },
-  {
-    "id": 125,
-    "datetime": "2024-03-12 19:32:22.335475",
-    "class-name": "BackendBase",
-    "func_name": "get_event_by_params",
-    "func_input": "('', '', '', '', '', '18')",
-    "func_output": "[(9, 'Digital Mastery Series: Navigating the Tech Landscape', 'Join industry experts in this comprehensive webinar series exploring the latest trends and technologies shaping the digital landscape. From artificia ... (24 characters truncated) ... ecurity, each session will unravel the complexities of the digital world, empowering you to navigate with confidence and stay ahead in the tech game.', 'Online', datetime.datetime(2024, 6, 18, 19, 0), None, 33, 18, False, False), (10, 'Creative Expressions Workshop: Unleashing Your Artistic Potential', \"Discover the artist within in this interactive webinar series led by accomplished creatives. From mastering the fundamentals of drawing to exploring  ... (40 characters truncated) ... lock your creative potential. Whether you're a seasoned artist or a curious beginner, join us on a journey of self-expression and artistic discovery.\", 'Online', datetime.datetime(2024, 7, 18, 19, 0), None, 33, 18, False, True), (11, 'Future-Proof Your Career: Professional Development Bootcamp', \"Prepare for the future job market with our exclusive Professional Development Bootcamp. In these webinars, industry leaders will share insights on in ... (67 characters truncated) ... ment tips. Equip yourself with the knowledge and tools needed to thrive in a rapidly evolving professional landscape. Don't just keep up, stay ahead!\", 'Online', datetime.datetime(2024, 8, 18, 19, 0), None, 33, 18, False, False)]"
-  },
-  {
-    "id": 126,
-    "datetime": "2024-03-12 19:32:22.373991",
-    "class-name": "<class 'modules.users.Users'>",
-    "func_name": "get_by_id",
-    "func_input": "33",
-    "func_output": "<Users 33>"
-  },
-  {
-    "id": 127,
-    "datetime": "2024-03-12 19:32:22.435198",
-    "class-name": "BackendBase",
-    "func_name": "get_user_by_id",
-    "func_input": "33",
-    "func_output": "<Users 33>"
-  },
-  {
-    "id": 128,
-    "datetime": "2024-03-12 19:32:22.486106",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_by_id",
-    "func_input": "18",
-    "func_output": "<EventCategories 18>"
-  },
-  {
-    "id": 129,
-    "datetime": "2024-03-12 19:32:22.522652",
-    "class-name": "BackendBase",
-    "func_name": "get_category_by_id",
-    "func_input": "None",
-    "func_output": "<EventCategories 18>"
-  },
-  {
-    "id": 130,
-    "datetime": "2024-03-12 19:32:22.541331",
-    "class-name": "<class 'modules.users.Users'>",
-    "func_name": "get_by_id",
-    "func_input": "33",
-    "func_output": "<Users 33>"
-  },
-  {
-    "id": 131,
-    "datetime": "2024-03-12 19:32:22.574290",
-    "class-name": "BackendBase",
-    "func_name": "get_user_by_id",
-    "func_input": "33",
-    "func_output": "<Users 33>"
-  },
-  {
-    "id": 132,
-    "datetime": "2024-03-12 19:32:22.600781",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_by_id",
-    "func_input": "18",
-    "func_output": "<EventCategories 18>"
-  },
-  {
-    "id": 133,
-    "datetime": "2024-03-12 19:32:22.625522",
-    "class-name": "BackendBase",
-    "func_name": "get_category_by_id",
-    "func_input": "None",
-    "func_output": "<EventCategories 18>"
-  },
-  {
-    "id": 134,
-    "datetime": "2024-03-12 19:32:22.655202",
-    "class-name": "<class 'modules.users.Users'>",
-    "func_name": "get_by_id",
-    "func_input": "33",
-    "func_output": "<Users 33>"
-  },
-  {
-    "id": 135,
-    "datetime": "2024-03-12 19:32:22.675843",
-    "class-name": "BackendBase",
-    "func_name": "get_user_by_id",
-    "func_input": "33",
-    "func_output": "<Users 33>"
-  },
-  {
-    "id": 136,
-    "datetime": "2024-03-12 19:32:22.705634",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_by_id",
-    "func_input": "18",
-    "func_output": "<EventCategories 18>"
-  },
-  {
-    "id": 137,
-    "datetime": "2024-03-12 19:32:22.734403",
-    "class-name": "BackendBase",
-    "func_name": "get_category_by_id",
-    "func_input": "None",
-    "func_output": "<EventCategories 18>"
-  },
-  {
-    "id": 138,
-    "datetime": "2024-03-12 19:32:50.884558",
-    "class-name": "<class 'modules.users.Users'>",
-    "func_name": "get_user_by_username",
-    "func_input": "{'username': 'elisheva1'}",
-    "func_output": "[(2, 'elisheva1', '$2b$12$H5.841uLPvq89a2OcqNQDOkzWrcJl.kgGZDKwt76MAlJkhJXqTNOq', 'elisheva@gmail.com', 'Elisheva Cohen', 'I realyyy like to party', datetime.datetime(2024, 2, 27, 23, 4, 30, 217000), True, True)]"
-  },
-  {
-    "id": 139,
-    "datetime": "2024-03-12 19:32:51.384425",
-    "class-name": "BackendBase",
-    "func_name": "_check_password",
-    "func_input": "$2b$12$H5.841uLPvq89a2OcqNQDOkzWrcJl.kgGZDKwt76MAlJkhJXqTNOq",
-    "func_output": "True"
-  },
-  {
-    "id": 140,
-    "datetime": "2024-03-12 19:32:51.889125",
-    "class-name": "BackendBase",
-    "func_name": "login",
-    "func_input": "elisheva1",
-    "func_output": "logged in"
-  },
-  {
-    "id": 141,
-    "datetime": "2024-03-12 19:36:28.168010",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
-  },
-  {
-    "id": 142,
-    "datetime": "2024-03-12 19:36:28.188907",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
-  },
-  {
-    "id": 143,
-    "datetime": "2024-03-12 19:36:28.220498",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
-  },
-  {
-    "id": 144,
-    "datetime": "2024-03-12 19:36:28.252543",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
-  },
-  {
-    "id": 145,
-    "datetime": "2024-03-12 19:36:53.050039",
-    "class-name": "BackendBase",
-    "func_name": "format_datetime",
-    "func_input": "('', '00:00')",
-    "func_output": "time data ' 00:00' does not match format '%Y-%m-%d %H:%M'"
-  },
-  {
-    "id": 146,
-    "datetime": "2024-03-12 19:36:53.102908",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_event_by_params",
-    "func_input": "{'event_id': '', 'title': '', 'organiser': 'Max Vol', 'date': None, 'location': 'Beit Shean', 'type': ''}",
-    "func_output": "[(12, '\"Rythmical\" Tour', \"Get ready to immerse yourself in the soul-stirring world of music with Max Vol's tour, 'Rhythmical'! Join Max on a rhythmic journey through the diver ... (596 characters truncated) ... nd together, let's dive into the transformative power of music, where every note is a journey, and every song is a piece of Max Vol's heart and soul.\", 'Tveria', datetime.datetime(2024, 6, 18, 21, 0), None, 34, 2, False, False), (13, '\"Rythmical\" Tour', \"Get ready to immerse yourself in the soul-stirring world of music with Max Vol's tour, 'Rhythmical'! Join Max on a rhythmic journey through the diver ... (596 characters truncated) ... nd together, let's dive into the transformative power of music, where every note is a journey, and every song is a piece of Max Vol's heart and soul.\", 'Afula', datetime.datetime(2024, 6, 19, 21, 0), None, 34, 2, False, False), (14, '\"Rythmical\" Tour', \"Get ready to immerse yourself in the soul-stirring world of music with Max Vol's tour, 'Rhythmical'! Join Max on a rhythmic journey through the diver ... (596 characters truncated) ... nd together, let's dive into the transformative power of music, where every note is a journey, and every song is a piece of Max Vol's heart and soul.\", 'Beit Shean', datetime.datetime(2024, 6, 20, 21, 0), None, 34, 2, False, False), (15, '\"Rythmical\" Tour', \"Get ready to immerse yourself in the soul-stirring world of music with Max Vol's tour, 'Rhythmical'! Join Max on a rhythmic journey through the diver ... (596 characters truncated) ... nd together, let's dive into the transformative power of music, where every note is a journey, and every song is a piece of Max Vol's heart and soul.\", 'Netivot', datetime.datetime(2024, 6, 22, 21, 0), None, 34, 2, False, False), (16, '\"Rythmical\" Tour', \"Get ready to immerse yourself in the soul-stirring world of music with Max Vol's tour, 'Rhythmical'! Join Max on a rhythmic journey through the diver ... (596 characters truncated) ... nd together, let's dive into the transformative power of music, where every note is a journey, and every song is a piece of Max Vol's heart and soul.\", 'Ofakim', datetime.datetime(2024, 6, 23, 21, 0), None, 34, 2, False, False), (17, 'Max Celebrates 47th Birthday', \"Let's Goooo\", 'Forum Club Beer Sheva', datetime.datetime(2024, 10, 12, 23, 0), None, 34, 17, True, False)]"
-  },
-  {
-    "id": 147,
-    "datetime": "2024-03-12 19:36:53.134267",
-    "class-name": "BackendBase",
-    "func_name": "get_event_by_params",
-    "func_input": "('', '', 'Max Vol', '', 'Beit Shean', '')",
-    "func_output": "[(12, '\"Rythmical\" Tour', \"Get ready to immerse yourself in the soul-stirring world of music with Max Vol's tour, 'Rhythmical'! Join Max on a rhythmic journey through the diver ... (596 characters truncated) ... nd together, let's dive into the transformative power of music, where every note is a journey, and every song is a piece of Max Vol's heart and soul.\", 'Tveria', datetime.datetime(2024, 6, 18, 21, 0), None, 34, 2, False, False), (13, '\"Rythmical\" Tour', \"Get ready to immerse yourself in the soul-stirring world of music with Max Vol's tour, 'Rhythmical'! Join Max on a rhythmic journey through the diver ... (596 characters truncated) ... nd together, let's dive into the transformative power of music, where every note is a journey, and every song is a piece of Max Vol's heart and soul.\", 'Afula', datetime.datetime(2024, 6, 19, 21, 0), None, 34, 2, False, False), (14, '\"Rythmical\" Tour', \"Get ready to immerse yourself in the soul-stirring world of music with Max Vol's tour, 'Rhythmical'! Join Max on a rhythmic journey through the diver ... (596 characters truncated) ... nd together, let's dive into the transformative power of music, where every note is a journey, and every song is a piece of Max Vol's heart and soul.\", 'Beit Shean', datetime.datetime(2024, 6, 20, 21, 0), None, 34, 2, False, False), (15, '\"Rythmical\" Tour', \"Get ready to immerse yourself in the soul-stirring world of music with Max Vol's tour, 'Rhythmical'! Join Max on a rhythmic journey through the diver ... (596 characters truncated) ... nd together, let's dive into the transformative power of music, where every note is a journey, and every song is a piece of Max Vol's heart and soul.\", 'Netivot', datetime.datetime(2024, 6, 22, 21, 0), None, 34, 2, False, False), (16, '\"Rythmical\" Tour', \"Get ready to immerse yourself in the soul-stirring world of music with Max Vol's tour, 'Rhythmical'! Join Max on a rhythmic journey through the diver ... (596 characters truncated) ... nd together, let's dive into the transformative power of music, where every note is a journey, and every song is a piece of Max Vol's heart and soul.\", 'Ofakim', datetime.datetime(2024, 6, 23, 21, 0), None, 34, 2, False, False), (17, 'Max Celebrates 47th Birthday', \"Let's Goooo\", 'Forum Club Beer Sheva', datetime.datetime(2024, 10, 12, 23, 0), None, 34, 17, True, False)]"
-  },
-  {
-    "id": 148,
-    "datetime": "2024-03-12 19:36:53.181535",
-    "class-name": "<class 'modules.users.Users'>",
-    "func_name": "get_by_id",
-    "func_input": "34",
-    "func_output": "<Users 34>"
-  },
-  {
-    "id": 149,
-    "datetime": "2024-03-12 19:36:53.208573",
-    "class-name": "BackendBase",
-    "func_name": "get_user_by_id",
-    "func_input": "34",
-    "func_output": "<Users 34>"
-  },
-  {
     "id": 150,
-    "datetime": "2024-03-12 19:36:53.238422",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "datetime": "2024-03-22 00:19:16.406915",
+    "class-name": "<class 'modules.users.Users'>",
     "func_name": "get_by_id",
     "func_input": "2",
-    "func_output": "<EventCategories 2>"
+    "func_output": "<Users 2>"
   },
   {
     "id": 151,
-    "datetime": "2024-03-12 19:36:53.254094",
+    "datetime": "2024-03-22 00:19:16.437450",
     "class-name": "BackendBase",
-    "func_name": "get_category_by_id",
-    "func_input": "None",
-    "func_output": "<EventCategories 2>"
+    "func_name": "get_user_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
   },
   {
     "id": 152,
-    "datetime": "2024-03-12 19:36:53.285358",
-    "class-name": "<class 'modules.users.Users'>",
-    "func_name": "get_by_id",
-    "func_input": "34",
-    "func_output": "<Users 34>"
-  },
-  {
-    "id": 153,
-    "datetime": "2024-03-12 19:36:53.300965",
-    "class-name": "BackendBase",
-    "func_name": "get_user_by_id",
-    "func_input": "34",
-    "func_output": "<Users 34>"
-  },
-  {
-    "id": 154,
-    "datetime": "2024-03-12 19:36:53.332185",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_by_id",
-    "func_input": "2",
-    "func_output": "<EventCategories 2>"
-  },
-  {
-    "id": 155,
-    "datetime": "2024-03-12 19:36:53.347840",
-    "class-name": "BackendBase",
-    "func_name": "get_category_by_id",
-    "func_input": "None",
-    "func_output": "<EventCategories 2>"
-  },
-  {
-    "id": 156,
-    "datetime": "2024-03-12 19:36:53.379109",
-    "class-name": "<class 'modules.users.Users'>",
-    "func_name": "get_by_id",
-    "func_input": "34",
-    "func_output": "<Users 34>"
-  },
-  {
-    "id": 157,
-    "datetime": "2024-03-12 19:36:53.394685",
-    "class-name": "BackendBase",
-    "func_name": "get_user_by_id",
-    "func_input": "34",
-    "func_output": "<Users 34>"
-  },
-  {
-    "id": 158,
-    "datetime": "2024-03-12 19:36:53.425948",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_by_id",
-    "func_input": "2",
-    "func_output": "<EventCategories 2>"
-  },
-  {
-    "id": 159,
-    "datetime": "2024-03-12 19:36:53.441589",
-    "class-name": "BackendBase",
-    "func_name": "get_category_by_id",
-    "func_input": "None",
-    "func_output": "<EventCategories 2>"
-  },
-  {
-    "id": 160,
-    "datetime": "2024-03-12 19:36:53.475929",
-    "class-name": "<class 'modules.users.Users'>",
-    "func_name": "get_by_id",
-    "func_input": "34",
-    "func_output": "<Users 34>"
-  },
-  {
-    "id": 161,
-    "datetime": "2024-03-12 19:36:53.504437",
-    "class-name": "BackendBase",
-    "func_name": "get_user_by_id",
-    "func_input": "34",
-    "func_output": "<Users 34>"
-  },
-  {
-    "id": 162,
-    "datetime": "2024-03-12 19:36:53.529603",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_by_id",
-    "func_input": "2",
-    "func_output": "<EventCategories 2>"
-  },
-  {
-    "id": 163,
-    "datetime": "2024-03-12 19:36:53.555924",
-    "class-name": "BackendBase",
-    "func_name": "get_category_by_id",
-    "func_input": "None",
-    "func_output": "<EventCategories 2>"
-  },
-  {
-    "id": 164,
-    "datetime": "2024-03-12 19:36:53.583016",
-    "class-name": "<class 'modules.users.Users'>",
-    "func_name": "get_by_id",
-    "func_input": "34",
-    "func_output": "<Users 34>"
-  },
-  {
-    "id": 165,
-    "datetime": "2024-03-12 19:36:53.609096",
-    "class-name": "BackendBase",
-    "func_name": "get_user_by_id",
-    "func_input": "34",
-    "func_output": "<Users 34>"
-  },
-  {
-    "id": 166,
-    "datetime": "2024-03-12 19:36:53.639899",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_by_id",
-    "func_input": "2",
-    "func_output": "<EventCategories 2>"
-  },
-  {
-    "id": 167,
-    "datetime": "2024-03-12 19:36:53.686795",
-    "class-name": "BackendBase",
-    "func_name": "get_category_by_id",
-    "func_input": "None",
-    "func_output": "<EventCategories 2>"
-  },
-  {
-    "id": 168,
-    "datetime": "2024-03-12 19:36:53.702424",
-    "class-name": "<class 'modules.users.Users'>",
-    "func_name": "get_by_id",
-    "func_input": "34",
-    "func_output": "<Users 34>"
-  },
-  {
-    "id": 169,
-    "datetime": "2024-03-12 19:36:53.733690",
-    "class-name": "BackendBase",
-    "func_name": "get_user_by_id",
-    "func_input": "34",
-    "func_output": "<Users 34>"
-  },
-  {
-    "id": 170,
-    "datetime": "2024-03-12 19:36:53.765090",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_by_id",
-    "func_input": "17",
-    "func_output": "<EventCategories 17>"
-  },
-  {
-    "id": 171,
-    "datetime": "2024-03-12 19:36:53.780566",
-    "class-name": "BackendBase",
-    "func_name": "get_category_by_id",
-    "func_input": "None",
-    "func_output": "<EventCategories 17>"
-  },
-  {
-    "id": 172,
-    "datetime": "2024-03-14 15:55:25.423837",
-    "class-name": "<class 'modules.users.Users'>",
-    "func_name": "get_user_by_username",
-    "func_input": "{'username': 'elisheva1'}",
-    "func_output": "[(2, 'elisheva1', '$2b$12$H5.841uLPvq89a2OcqNQDOkzWrcJl.kgGZDKwt76MAlJkhJXqTNOq', 'elisheva@gmail.com', 'Elisheva Cohen', 'I realyyy like to party', datetime.datetime(2024, 2, 27, 23, 4, 30, 217000), True, True)]"
-  },
-  {
-    "id": 173,
-    "datetime": "2024-03-14 15:55:25.934007",
-    "class-name": "BackendBase",
-    "func_name": "_check_password",
-    "func_input": "$2b$12$H5.841uLPvq89a2OcqNQDOkzWrcJl.kgGZDKwt76MAlJkhJXqTNOq",
+    "datetime": "2024-03-22 00:19:36.614797",
+    "class-name": "UserBackend",
+    "func_name": "_get_authentication",
+    "func_input": "$2b$12$Q0ByHEHLy9Ra5LIzRrV/9.xOjkzfRsd9tlVqqc.r5RS4Rzg/89U8a",
     "func_output": "True"
   },
   {
-    "id": 174,
-    "datetime": "2024-03-14 15:55:26.454987",
+    "id": 153,
+    "datetime": "2024-03-22 00:19:36.664497",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_all",
+    "func_input": "None",
+    "func_output": "[<Users 2>, <Users 3>, <Users 4>, <Users 8>, <Users 10>, <Users 13>, <Users 23>, <Users 30>, <Users 31>, <Users 32>, <Users 33>, <Users 34>, <Users 35>]"
+  },
+  {
+    "id": 154,
+    "datetime": "2024-03-22 00:19:36.681875",
+    "class-name": "UserBackend",
+    "func_name": "get_all_users",
+    "func_input": "(2, '$2b$12$Q0ByHEHLy9Ra5LIzRrV/9.xOjkzfRsd9tlVqqc.r5RS4Rzg/89U8a')",
+    "func_output": "[<Users 2>, <Users 3>, <Users 4>, <Users 8>, <Users 10>, <Users 13>, <Users 23>, <Users 30>, <Users 31>, <Users 32>, <Users 33>, <Users 34>, <Users 35>]"
+  },
+  {
+    "id": 155,
+    "datetime": "2024-03-22 00:19:37.215132",
+    "class-name": "UserBackend",
+    "func_name": "_get_authentication",
+    "func_input": "$2b$12$Q0ByHEHLy9Ra5LIzRrV/9.xOjkzfRsd9tlVqqc.r5RS4Rzg/89U8a",
+    "func_output": "True"
+  },
+  {
+    "id": 156,
+    "datetime": "2024-03-22 00:19:37.255045",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_all",
+    "func_input": "None",
+    "func_output": "[<Users 2>, <Users 3>, <Users 4>, <Users 8>, <Users 10>, <Users 13>, <Users 23>, <Users 30>, <Users 31>, <Users 32>, <Users 33>, <Users 34>, <Users 35>]"
+  },
+  {
+    "id": 157,
+    "datetime": "2024-03-22 00:19:37.290354",
+    "class-name": "UserBackend",
+    "func_name": "get_all_users",
+    "func_input": "(2, '$2b$12$Q0ByHEHLy9Ra5LIzRrV/9.xOjkzfRsd9tlVqqc.r5RS4Rzg/89U8a')",
+    "func_output": "[<Users 2>, <Users 3>, <Users 4>, <Users 8>, <Users 10>, <Users 13>, <Users 23>, <Users 30>, <Users 31>, <Users 32>, <Users 33>, <Users 34>, <Users 35>]"
+  },
+  {
+    "id": 158,
+    "datetime": "2024-03-22 00:19:38.799301",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
+  },
+  {
+    "id": 159,
+    "datetime": "2024-03-22 00:19:38.822104",
     "class-name": "BackendBase",
-    "func_name": "login",
-    "func_input": "elisheva1",
-    "func_output": "logged in"
+    "func_name": "get_user_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
+  },
+  {
+    "id": 160,
+    "datetime": "2024-03-22 00:19:48.049261",
+    "class-name": "UserBackend",
+    "func_name": "_get_authentication",
+    "func_input": "$2b$12$Q0ByHEHLy9Ra5LIzRrV/9.xOjkzfRsd9tlVqqc.r5RS4Rzg/89U8a",
+    "func_output": "True"
+  },
+  {
+    "id": 161,
+    "datetime": "2024-03-22 00:19:48.079533",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
+  },
+  {
+    "id": 162,
+    "datetime": "2024-03-22 00:19:48.115161",
+    "class-name": "UserBackend",
+    "func_name": "get_user",
+    "func_input": "2",
+    "func_output": "<Users 2>"
+  },
+  {
+    "id": 163,
+    "datetime": "2024-03-22 00:19:50.974984",
+    "class-name": "UserBackend",
+    "func_name": "_get_authentication",
+    "func_input": "$2b$12$Q0ByHEHLy9Ra5LIzRrV/9.xOjkzfRsd9tlVqqc.r5RS4Rzg/89U8a",
+    "func_output": "True"
+  },
+  {
+    "id": 164,
+    "datetime": "2024-03-22 00:19:51.004046",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_all",
+    "func_input": "None",
+    "func_output": "[<Users 2>, <Users 3>, <Users 4>, <Users 8>, <Users 10>, <Users 13>, <Users 23>, <Users 30>, <Users 31>, <Users 32>, <Users 33>, <Users 34>, <Users 35>]"
+  },
+  {
+    "id": 165,
+    "datetime": "2024-03-22 00:19:51.033610",
+    "class-name": "UserBackend",
+    "func_name": "get_all_admins",
+    "func_input": "(2, '$2b$12$Q0ByHEHLy9Ra5LIzRrV/9.xOjkzfRsd9tlVqqc.r5RS4Rzg/89U8a')",
+    "func_output": "[<Users 2>]"
+  },
+  {
+    "id": 166,
+    "datetime": "2024-03-22 00:19:53.050632",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
+  },
+  {
+    "id": 167,
+    "datetime": "2024-03-22 00:19:53.073479",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
+  },
+  {
+    "id": 168,
+    "datetime": "2024-03-22 00:20:14.822920",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
+  },
+  {
+    "id": 169,
+    "datetime": "2024-03-22 00:20:14.854841",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
+  },
+  {
+    "id": 170,
+    "datetime": "2024-03-22 00:20:32.732926",
+    "class-name": "UserBackend",
+    "func_name": "_get_authentication",
+    "func_input": "$2b$12$Q0ByHEHLy9Ra5LIzRrV/9.xOjkzfRsd9tlVqqc.r5RS4Rzg/89U8a",
+    "func_output": "True"
+  },
+  {
+    "id": 171,
+    "datetime": "2024-03-22 00:20:32.781993",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_all",
+    "func_input": "None",
+    "func_output": "[<Users 2>, <Users 3>, <Users 4>, <Users 8>, <Users 10>, <Users 13>, <Users 23>, <Users 30>, <Users 31>, <Users 32>, <Users 33>, <Users 34>, <Users 35>]"
+  },
+  {
+    "id": 172,
+    "datetime": "2024-03-22 00:20:32.804300",
+    "class-name": "UserBackend",
+    "func_name": "get_all_admins",
+    "func_input": "(2, '$2b$12$Q0ByHEHLy9Ra5LIzRrV/9.xOjkzfRsd9tlVqqc.r5RS4Rzg/89U8a')",
+    "func_output": "[<Users 2>]"
+  },
+  {
+    "id": 173,
+    "datetime": "2024-03-22 00:20:38.774828",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
+  },
+  {
+    "id": 174,
+    "datetime": "2024-03-22 00:20:38.809325",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
   },
   {
     "id": 175,
-    "datetime": "2024-03-14 17:02:09.559686",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-22 00:20:58.125386",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
   },
   {
     "id": 176,
-    "datetime": "2024-03-14 17:02:09.569066",
+    "datetime": "2024-03-22 00:20:58.153735",
     "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "func_name": "get_user_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
   },
   {
     "id": 177,
-    "datetime": "2024-03-14 17:02:09.593937",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-22 00:21:06.105144",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
   },
   {
     "id": 178,
-    "datetime": "2024-03-14 17:02:09.606808",
+    "datetime": "2024-03-22 00:21:06.131695",
     "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "func_name": "get_user_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
   },
   {
     "id": 179,
-    "datetime": "2024-03-14 17:17:24.983680",
-    "class-name": "BackendBase",
-    "func_name": "format_datetime",
-    "func_input": "('', '00:00')",
-    "func_output": "time data ' 00:00' does not match format '%Y-%m-%d %H:%M'"
-  },
-  {
-    "id": 180,
-    "datetime": "2024-03-14 17:17:25.029512",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_event_by_params",
-    "func_input": "{'event_id': '', 'title': '', 'organiser': 'Max Vol', 'date': None, 'location': 'Beit Shean', 'type': ''}",
-    "func_output": "(pyodbc.DataError) ('22018', \"[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value '%' to data type int. (245) (SQLExecDirectW)\")\n[SQL: EXEC get_event_by_params ?, ?, ?, ?, ?, ?]\n[parameters: ('', '', 'Max Vol', None, 'Beit Shean', '')]\n(Background on this error at: https://sqlalche.me/e/20/9h9h)"
-  },
-  {
-    "id": 181,
-    "datetime": "2024-03-14 17:17:25.037037",
-    "class-name": "BackendBase",
-    "func_name": "get_event_by_params",
-    "func_input": "('', '', 'Max Vol', '', 'Beit Shean', '')",
-    "func_output": "none found"
-  },
-  {
-    "id": 182,
-    "datetime": "2024-03-14 17:17:28.906958",
-    "class-name": "BackendBase",
-    "func_name": "format_datetime",
-    "func_input": "('', '00:00')",
-    "func_output": "time data ' 00:00' does not match format '%Y-%m-%d %H:%M'"
-  },
-  {
-    "id": 183,
-    "datetime": "2024-03-14 17:17:28.920054",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_event_by_params",
-    "func_input": "{'event_id': '', 'title': '', 'organiser': 'Max Vol', 'date': None, 'location': 'Beit Shean', 'type': ''}",
-    "func_output": "(pyodbc.DataError) ('22018', \"[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value '%' to data type int. (245) (SQLExecDirectW)\")\n[SQL: EXEC get_event_by_params ?, ?, ?, ?, ?, ?]\n[parameters: ('', '', 'Max Vol', None, 'Beit Shean', '')]\n(Background on this error at: https://sqlalche.me/e/20/9h9h)"
-  },
-  {
-    "id": 184,
-    "datetime": "2024-03-14 17:17:28.932890",
-    "class-name": "BackendBase",
-    "func_name": "get_event_by_params",
-    "func_input": "('', '', 'Max Vol', '', 'Beit Shean', '')",
-    "func_output": "none found"
-  },
-  {
-    "id": 185,
-    "datetime": "2024-03-14 17:17:29.493509",
-    "class-name": "BackendBase",
-    "func_name": "format_datetime",
-    "func_input": "('', '00:00')",
-    "func_output": "time data ' 00:00' does not match format '%Y-%m-%d %H:%M'"
-  },
-  {
-    "id": 186,
-    "datetime": "2024-03-14 17:17:29.506748",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_event_by_params",
-    "func_input": "{'event_id': '', 'title': '', 'organiser': 'Max Vol', 'date': None, 'location': 'Beit Shean', 'type': ''}",
-    "func_output": "(pyodbc.DataError) ('22018', \"[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value '%' to data type int. (245) (SQLExecDirectW)\")\n[SQL: EXEC get_event_by_params ?, ?, ?, ?, ?, ?]\n[parameters: ('', '', 'Max Vol', None, 'Beit Shean', '')]\n(Background on this error at: https://sqlalche.me/e/20/9h9h)"
-  },
-  {
-    "id": 187,
-    "datetime": "2024-03-14 17:17:29.519927",
-    "class-name": "BackendBase",
-    "func_name": "get_event_by_params",
-    "func_input": "('', '', 'Max Vol', '', 'Beit Shean', '')",
-    "func_output": "none found"
-  },
-  {
-    "id": 188,
-    "datetime": "2024-03-14 17:17:32.506509",
-    "class-name": "BackendBase",
-    "func_name": "format_datetime",
-    "func_input": "('', '00:00')",
-    "func_output": "time data ' 00:00' does not match format '%Y-%m-%d %H:%M'"
-  },
-  {
-    "id": 189,
-    "datetime": "2024-03-14 17:17:32.522510",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_event_by_params",
-    "func_input": "{'event_id': '', 'title': '', 'organiser': 'Max Vol', 'date': None, 'location': '', 'type': ''}",
-    "func_output": "(pyodbc.DataError) ('22018', \"[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value '%' to data type int. (245) (SQLExecDirectW)\")\n[SQL: EXEC get_event_by_params ?, ?, ?, ?, ?, ?]\n[parameters: ('', '', 'Max Vol', None, '', '')]\n(Background on this error at: https://sqlalche.me/e/20/9h9h)"
-  },
-  {
-    "id": 190,
-    "datetime": "2024-03-14 17:17:32.535526",
-    "class-name": "BackendBase",
-    "func_name": "get_event_by_params",
-    "func_input": "('', '', 'Max Vol', '', '', '')",
-    "func_output": "none found"
-  },
-  {
-    "id": 191,
-    "datetime": "2024-03-14 17:17:33.229271",
-    "class-name": "BackendBase",
-    "func_name": "format_datetime",
-    "func_input": "('', '00:00')",
-    "func_output": "time data ' 00:00' does not match format '%Y-%m-%d %H:%M'"
-  },
-  {
-    "id": 192,
-    "datetime": "2024-03-14 17:17:33.267675",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_event_by_params",
-    "func_input": "{'event_id': '', 'title': '', 'organiser': 'Max Vol', 'date': None, 'location': '', 'type': ''}",
-    "func_output": "(pyodbc.DataError) ('22018', \"[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value '%' to data type int. (245) (SQLExecDirectW)\")\n[SQL: EXEC get_event_by_params ?, ?, ?, ?, ?, ?]\n[parameters: ('', '', 'Max Vol', None, '', '')]\n(Background on this error at: https://sqlalche.me/e/20/9h9h)"
-  },
-  {
-    "id": 193,
-    "datetime": "2024-03-14 17:17:33.280344",
-    "class-name": "BackendBase",
-    "func_name": "get_event_by_params",
-    "func_input": "('', '', 'Max Vol', '', '', '')",
-    "func_output": "none found"
-  },
-  {
-    "id": 194,
-    "datetime": "2024-03-14 17:17:37.630660",
+    "datetime": "2024-03-22 00:21:08.724567",
     "class-name": "BackendBase",
     "func_name": "logout",
     "func_input": "None",
     "func_output": "logout sucsess"
   },
   {
-    "id": 195,
-    "datetime": "2024-03-14 17:17:42.333216",
+    "id": 180,
+    "datetime": "2024-03-23 00:57:22.317312",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_user_by_username",
+    "func_input": "{'username': 'Elisheva1'}",
+    "func_output": "[(2, 'Elisheva1', '$2b$12$5BrqcL/08Ed9a6YS35p0Z.2AsVgIeXfqLvuwWqJV3xCbYABKe6oVC', 'elisheva@gmail.com', 'Elisheva Cohen', 'I realyyy like to party!!', datetime.datetime(2024, 2, 27, 23, 4, 30, 217000), True, True)]"
+  },
+  {
+    "id": 181,
+    "datetime": "2024-03-23 00:57:22.565145",
+    "class-name": "BackendBase",
+    "func_name": "_check_password",
+    "func_input": "$2b$12$5BrqcL/08Ed9a6YS35p0Z.2AsVgIeXfqLvuwWqJV3xCbYABKe6oVC",
+    "func_output": "True"
+  },
+  {
+    "id": 182,
+    "datetime": "2024-03-23 00:57:22.842795",
+    "class-name": "BackendBase",
+    "func_name": "login",
+    "func_input": "Elisheva1",
+    "func_output": "logged in"
+  },
+  {
+    "id": 183,
+    "datetime": "2024-03-23 00:57:28.562503",
     "class-name": "<class 'modules.event_categories.EventCategories'>",
     "func_name": "get_all",
     "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 17>, <EventCategories 18>]"
+  },
+  {
+    "id": 184,
+    "datetime": "2024-03-23 00:57:28.576510",
+    "class-name": "BackendBase",
+    "func_name": "get_all_event_categories",
+    "func_input": "None",
+    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 17>, <EventCategories 18>]"
+  },
+  {
+    "id": 185,
+    "datetime": "2024-03-23 00:57:30.419525",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_all",
+    "func_input": "None",
+    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 17>, <EventCategories 18>]"
+  },
+  {
+    "id": 186,
+    "datetime": "2024-03-23 00:57:30.431536",
+    "class-name": "BackendBase",
+    "func_name": "get_all_event_categories",
+    "func_input": "None",
+    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 17>, <EventCategories 18>]"
+  },
+  {
+    "id": 187,
+    "datetime": "2024-03-23 00:57:32.101089",
+    "class-name": "UserBackend",
+    "func_name": "_get_authentication",
+    "func_input": "$2b$12$GVLq3ljkbG/Db/2L3k7fjuidQhCuG38nS6wLnzPzyztzfIL1BYs/C",
+    "func_output": "True"
+  },
+  {
+    "id": 188,
+    "datetime": "2024-03-23 00:57:32.134241",
+    "class-name": "<class 'modules.events.Events'>",
+    "func_name": "get_my_events",
+    "func_input": "{'organiserID': 2}",
+    "func_output": "[(1, \"Elisheva's sweet 30'th\", 'Elishevas Birthday Party', 'Elishevas House', datetime.datetime(2023, 8, 1, 19, 0), None, 2, 17, True, False), (25, 'test', '', 'test', datetime.datetime(2024, 3, 21, 13, 47), None, 2, 3, True, False), (26, 'test', '', 'test', datetime.datetime(2024, 3, 13, 14, 2), b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01\\x00\\x01\\x00\\x00\\xff\\xdb\\x00\\x84\\x00\\x06\\x06\\x06\\x06\\x07\\x06\\x07\\x08\\x08\\x07\\n\\x0b\\n\\x0b\\n\\x0f\\x ... (576741 characters truncated) ... 06b\\r\\x97\\x12Q\\x19\\xc7yA\\xa7QG1\\xde1:\\xb4\\xc6\\xcb\\x11i\\x16\\xc8\\xb0\\xd6a-\\xb0\\x1f\\x88\\xa1\\x82\\xa2\\xbb\\x9a\\x90i\\x84%)1\\xa1.\\xddJr\\x18\\x1d\\x10:O\\xff\\xd9', 2, 4, True, False)]"
+  },
+  {
+    "id": 189,
+    "datetime": "2024-03-23 00:57:32.151649",
+    "class-name": "UserBackend",
+    "func_name": "my_events",
+    "func_input": "(2, '$2b$12$GVLq3ljkbG/Db/2L3k7fjuidQhCuG38nS6wLnzPzyztzfIL1BYs/C')",
+    "func_output": "[(1, \"Elisheva's sweet 30'th\", 'Elishevas Birthday Party', 'Elishevas House', datetime.datetime(2023, 8, 1, 19, 0), None, 2, 17, True, False), (25, 'test', '', 'test', datetime.datetime(2024, 3, 21, 13, 47), None, 2, 3, True, False), (26, 'test', '', 'test', datetime.datetime(2024, 3, 13, 14, 2), b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01\\x00\\x01\\x00\\x00\\xff\\xdb\\x00\\x84\\x00\\x06\\x06\\x06\\x06\\x07\\x06\\x07\\x08\\x08\\x07\\n\\x0b\\n\\x0b\\n\\x0f\\x ... (576741 characters truncated) ... 06b\\r\\x97\\x12Q\\x19\\xc7yA\\xa7QG1\\xde1:\\xb4\\xc6\\xcb\\x11i\\x16\\xc8\\xb0\\xd6a-\\xb0\\x1f\\x88\\xa1\\x82\\xa2\\xbb\\x9a\\x90i\\x84%)1\\xa1.\\xddJr\\x18\\x1d\\x10:O\\xff\\xd9', 2, 4, True, False)]"
+  },
+  {
+    "id": 190,
+    "datetime": "2024-03-23 00:57:32.178365",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "17",
+    "func_output": "<EventCategories 17>"
+  },
+  {
+    "id": 191,
+    "datetime": "2024-03-23 00:57:32.185170",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 17>"
+  },
+  {
+    "id": 192,
+    "datetime": "2024-03-23 00:57:32.201134",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "3",
+    "func_output": "<EventCategories 3>"
+  },
+  {
+    "id": 193,
+    "datetime": "2024-03-23 00:57:32.218399",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 3>"
+  },
+  {
+    "id": 194,
+    "datetime": "2024-03-23 00:57:32.235319",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "4",
+    "func_output": "<EventCategories 4>"
+  },
+  {
+    "id": 195,
+    "datetime": "2024-03-23 00:57:32.252128",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 4>"
   },
   {
     "id": 196,
-    "datetime": "2024-03-14 17:17:42.346469",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-23 00:57:47.159732",
+    "class-name": "<class 'modules.events.Events'>",
+    "func_name": "get_by_id",
+    "func_input": "26",
+    "func_output": "<Events 26>"
   },
   {
     "id": 197,
-    "datetime": "2024-03-14 17:17:42.368403",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-23 00:57:47.176067",
+    "class-name": "BackendBase",
+    "func_name": "get_event_by_id",
+    "func_input": "26",
+    "func_output": "<Events 26>"
   },
   {
     "id": 198,
-    "datetime": "2024-03-14 17:17:42.383255",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-23 00:57:47.182487",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "4",
+    "func_output": "<EventCategories 4>"
   },
   {
     "id": 199,
-    "datetime": "2024-03-14 17:17:46.114287",
+    "datetime": "2024-03-23 00:57:47.199354",
     "class-name": "BackendBase",
-    "func_name": "format_datetime",
-    "func_input": "('', '00:00')",
-    "func_output": "time data ' 00:00' does not match format '%Y-%m-%d %H:%M'"
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 4>"
   },
   {
     "id": 200,
-    "datetime": "2024-03-14 17:17:46.135233",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_event_by_params",
-    "func_input": "{'event_id': '', 'title': '', 'organiser': 'Max Vol', 'date': None, 'location': 'Beit Shean', 'type': ''}",
-    "func_output": "(pyodbc.DataError) ('22018', \"[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value '%' to data type int. (245) (SQLExecDirectW)\")\n[SQL: EXEC get_event_by_params ?, ?, ?, ?, ?, ?]\n[parameters: ('', '', 'Max Vol', None, 'Beit Shean', '')]\n(Background on this error at: https://sqlalche.me/e/20/9h9h)"
+    "datetime": "2024-03-23 00:57:47.215974",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
   },
   {
     "id": 201,
-    "datetime": "2024-03-14 17:17:46.140589",
+    "datetime": "2024-03-23 00:57:47.232947",
     "class-name": "BackendBase",
-    "func_name": "get_event_by_params",
-    "func_input": "('', '', 'Max Vol', '', 'Beit Shean', '')",
-    "func_output": "none found"
+    "func_name": "get_user_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
   },
   {
     "id": 202,
-    "datetime": "2024-03-14 17:17:46.965574",
-    "class-name": "BackendBase",
-    "func_name": "format_datetime",
-    "func_input": "('', '00:00')",
-    "func_output": "time data ' 00:00' does not match format '%Y-%m-%d %H:%M'"
+    "datetime": "2024-03-23 00:57:47.466371",
+    "class-name": "UserBackend",
+    "func_name": "_get_authentication",
+    "func_input": "$2b$12$GVLq3ljkbG/Db/2L3k7fjuidQhCuG38nS6wLnzPzyztzfIL1BYs/C",
+    "func_output": "True"
   },
   {
     "id": 203,
-    "datetime": "2024-03-14 17:17:46.979196",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_event_by_params",
-    "func_input": "{'event_id': '', 'title': '', 'organiser': 'Max Vol', 'date': None, 'location': 'Beit Shean', 'type': ''}",
-    "func_output": "(pyodbc.DataError) ('22018', \"[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value '%' to data type int. (245) (SQLExecDirectW)\")\n[SQL: EXEC get_event_by_params ?, ?, ?, ?, ?, ?]\n[parameters: ('', '', 'Max Vol', None, 'Beit Shean', '')]\n(Background on this error at: https://sqlalche.me/e/20/9h9h)"
+    "datetime": "2024-03-23 00:57:47.703286",
+    "class-name": "UserBackend",
+    "func_name": "_get_authentication",
+    "func_input": "$2b$12$GVLq3ljkbG/Db/2L3k7fjuidQhCuG38nS6wLnzPzyztzfIL1BYs/C",
+    "func_output": "True"
   },
   {
     "id": 204,
-    "datetime": "2024-03-14 17:17:46.992586",
-    "class-name": "BackendBase",
-    "func_name": "get_event_by_params",
-    "func_input": "('', '', 'Max Vol', '', 'Beit Shean', '')",
-    "func_output": "none found"
+    "datetime": "2024-03-23 00:57:47.715733",
+    "class-name": "<class 'modules.events.Events'>",
+    "func_name": "get_my_events",
+    "func_input": "{'organiserID': 2}",
+    "func_output": "[(1, \"Elisheva's sweet 30'th\", 'Elishevas Birthday Party', 'Elishevas House', datetime.datetime(2023, 8, 1, 19, 0), None, 2, 17, True, False), (25, 'test', '', 'test', datetime.datetime(2024, 3, 21, 13, 47), None, 2, 3, True, False), (26, 'test', '', 'test', datetime.datetime(2024, 3, 13, 14, 2), b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01\\x00\\x01\\x00\\x00\\xff\\xdb\\x00\\x84\\x00\\x06\\x06\\x06\\x06\\x07\\x06\\x07\\x08\\x08\\x07\\n\\x0b\\n\\x0b\\n\\x0f\\x ... (576741 characters truncated) ... 06b\\r\\x97\\x12Q\\x19\\xc7yA\\xa7QG1\\xde1:\\xb4\\xc6\\xcb\\x11i\\x16\\xc8\\xb0\\xd6a-\\xb0\\x1f\\x88\\xa1\\x82\\xa2\\xbb\\x9a\\x90i\\x84%)1\\xa1.\\xddJr\\x18\\x1d\\x10:O\\xff\\xd9', 2, 4, True, False)]"
   },
   {
     "id": 205,
-    "datetime": "2024-03-14 17:18:42.340311",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-23 00:57:47.732583",
+    "class-name": "UserBackend",
+    "func_name": "my_events",
+    "func_input": "(2, '$2b$12$GVLq3ljkbG/Db/2L3k7fjuidQhCuG38nS6wLnzPzyztzfIL1BYs/C')",
+    "func_output": "[(1, \"Elisheva's sweet 30'th\", 'Elishevas Birthday Party', 'Elishevas House', datetime.datetime(2023, 8, 1, 19, 0), None, 2, 17, True, False), (25, 'test', '', 'test', datetime.datetime(2024, 3, 21, 13, 47), None, 2, 3, True, False), (26, 'test', '', 'test', datetime.datetime(2024, 3, 13, 14, 2), b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01\\x00\\x01\\x00\\x00\\xff\\xdb\\x00\\x84\\x00\\x06\\x06\\x06\\x06\\x07\\x06\\x07\\x08\\x08\\x07\\n\\x0b\\n\\x0b\\n\\x0f\\x ... (576741 characters truncated) ... 06b\\r\\x97\\x12Q\\x19\\xc7yA\\xa7QG1\\xde1:\\xb4\\xc6\\xcb\\x11i\\x16\\xc8\\xb0\\xd6a-\\xb0\\x1f\\x88\\xa1\\x82\\xa2\\xbb\\x9a\\x90i\\x84%)1\\xa1.\\xddJr\\x18\\x1d\\x10:O\\xff\\xd9', 2, 4, True, False)]"
   },
   {
     "id": 206,
-    "datetime": "2024-03-14 17:18:42.353243",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-23 00:57:47.749569",
+    "class-name": "UserBackend",
+    "func_name": "check_affiliation_to_event",
+    "func_input": "('$2b$12$GVLq3ljkbG/Db/2L3k7fjuidQhCuG38nS6wLnzPzyztzfIL1BYs/C', 26)",
+    "func_output": "Organiser"
   },
   {
     "id": 207,
-    "datetime": "2024-03-14 17:18:42.372775",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
-  },
-  {
-    "id": 208,
-    "datetime": "2024-03-14 17:18:42.386776",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
-  },
-  {
-    "id": 209,
-    "datetime": "2024-03-14 17:18:47.594902",
-    "class-name": "BackendBase",
-    "func_name": "format_datetime",
-    "func_input": "('', '00:00')",
-    "func_output": "time data ' 00:00' does not match format '%Y-%m-%d %H:%M'"
-  },
-  {
-    "id": 210,
-    "datetime": "2024-03-14 17:18:47.616581",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_event_by_params",
-    "func_input": "{'event_id': '', 'title': '', 'organiser': 'Max Vol', 'date': None, 'location': '', 'type': ''}",
+    "datetime": "2024-03-23 00:57:47.806370",
+    "class-name": "<class 'modules.feedback.Feedback'>",
+    "func_name": "get_feedback_by_event",
+    "func_input": "{'eventID': 26}",
     "func_output": "None Found"
   },
   {
-    "id": 211,
-    "datetime": "2024-03-14 17:18:47.628935",
+    "id": 208,
+    "datetime": "2024-03-23 00:57:47.823117",
     "class-name": "BackendBase",
-    "func_name": "get_event_by_params",
-    "func_input": "('', '', 'Max Vol', '', '', '')",
+    "func_name": "get_feedback_by_event",
+    "func_input": "26",
     "func_output": "none found"
   },
   {
+    "id": 209,
+    "datetime": "2024-03-23 00:57:48.007350",
+    "class-name": "UserBackend",
+    "func_name": "_get_authentication",
+    "func_input": "$2b$12$GVLq3ljkbG/Db/2L3k7fjuidQhCuG38nS6wLnzPzyztzfIL1BYs/C",
+    "func_output": "True"
+  },
+  {
+    "id": 210,
+    "datetime": "2024-03-23 00:57:48.238420",
+    "class-name": "UserBackend",
+    "func_name": "_get_authentication",
+    "func_input": "$2b$12$GVLq3ljkbG/Db/2L3k7fjuidQhCuG38nS6wLnzPzyztzfIL1BYs/C",
+    "func_output": "True"
+  },
+  {
+    "id": 211,
+    "datetime": "2024-03-23 00:57:48.248871",
+    "class-name": "<class 'modules.events.Events'>",
+    "func_name": "get_my_events",
+    "func_input": "{'organiserID': 2}",
+    "func_output": "[(1, \"Elisheva's sweet 30'th\", 'Elishevas Birthday Party', 'Elishevas House', datetime.datetime(2023, 8, 1, 19, 0), None, 2, 17, True, False), (25, 'test', '', 'test', datetime.datetime(2024, 3, 21, 13, 47), None, 2, 3, True, False), (26, 'test', '', 'test', datetime.datetime(2024, 3, 13, 14, 2), b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01\\x00\\x01\\x00\\x00\\xff\\xdb\\x00\\x84\\x00\\x06\\x06\\x06\\x06\\x07\\x06\\x07\\x08\\x08\\x07\\n\\x0b\\n\\x0b\\n\\x0f\\x ... (576741 characters truncated) ... 06b\\r\\x97\\x12Q\\x19\\xc7yA\\xa7QG1\\xde1:\\xb4\\xc6\\xcb\\x11i\\x16\\xc8\\xb0\\xd6a-\\xb0\\x1f\\x88\\xa1\\x82\\xa2\\xbb\\x9a\\x90i\\x84%)1\\xa1.\\xddJr\\x18\\x1d\\x10:O\\xff\\xd9', 2, 4, True, False)]"
+  },
+  {
     "id": 212,
-    "datetime": "2024-03-14 17:18:50.629501",
-    "class-name": "BackendBase",
-    "func_name": "format_datetime",
-    "func_input": "('', '00:00')",
-    "func_output": "time data ' 00:00' does not match format '%Y-%m-%d %H:%M'"
+    "datetime": "2024-03-23 00:57:48.265803",
+    "class-name": "UserBackend",
+    "func_name": "my_events",
+    "func_input": "(2, '$2b$12$GVLq3ljkbG/Db/2L3k7fjuidQhCuG38nS6wLnzPzyztzfIL1BYs/C')",
+    "func_output": "[(1, \"Elisheva's sweet 30'th\", 'Elishevas Birthday Party', 'Elishevas House', datetime.datetime(2023, 8, 1, 19, 0), None, 2, 17, True, False), (25, 'test', '', 'test', datetime.datetime(2024, 3, 21, 13, 47), None, 2, 3, True, False), (26, 'test', '', 'test', datetime.datetime(2024, 3, 13, 14, 2), b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01\\x00\\x01\\x00\\x00\\xff\\xdb\\x00\\x84\\x00\\x06\\x06\\x06\\x06\\x07\\x06\\x07\\x08\\x08\\x07\\n\\x0b\\n\\x0b\\n\\x0f\\x ... (576741 characters truncated) ... 06b\\r\\x97\\x12Q\\x19\\xc7yA\\xa7QG1\\xde1:\\xb4\\xc6\\xcb\\x11i\\x16\\xc8\\xb0\\xd6a-\\xb0\\x1f\\x88\\xa1\\x82\\xa2\\xbb\\x9a\\x90i\\x84%)1\\xa1.\\xddJr\\x18\\x1d\\x10:O\\xff\\xd9', 2, 4, True, False)]"
   },
   {
     "id": 213,
-    "datetime": "2024-03-14 17:18:50.643229",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_event_by_params",
-    "func_input": "{'event_id': '', 'title': '', 'organiser': 'Max Vol', 'date': None, 'location': 'Beit Shean', 'type': ''}",
+    "datetime": "2024-03-23 00:57:48.297272",
+    "class-name": "<class 'modules.feedback.Feedback'>",
+    "func_name": "get_registrations_by_event",
+    "func_input": "{'eventID': 26}",
     "func_output": "None Found"
   },
   {
     "id": 214,
-    "datetime": "2024-03-14 17:18:50.662555",
-    "class-name": "BackendBase",
-    "func_name": "get_event_by_params",
-    "func_input": "('', '', 'Max Vol', '', 'Beit Shean', '')",
-    "func_output": "none found"
+    "datetime": "2024-03-23 00:57:48.299421",
+    "class-name": "<class 'modules.feedback.Feedback'>",
+    "func_name": "get_registrations_by_event",
+    "func_input": "{'eventID': 26}",
+    "func_output": "None Found"
   },
   {
     "id": 215,
-    "datetime": "2024-03-14 17:20:17.104412",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-23 00:57:48.316010",
+    "class-name": "<class 'modules.feedback.Feedback'>",
+    "func_name": "get_registrations_by_event",
+    "func_input": "{'eventID': 26}",
+    "func_output": "None Found"
   },
   {
     "id": 216,
-    "datetime": "2024-03-14 17:20:17.118109",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-23 00:58:07.127335",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
   },
   {
     "id": 217,
-    "datetime": "2024-03-14 17:20:17.137101",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
+    "datetime": "2024-03-23 00:58:07.146560",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
   },
   {
     "id": 218,
-    "datetime": "2024-03-14 17:20:17.151869",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
-  },
-  {
-    "id": 219,
-    "datetime": "2024-03-14 17:20:20.097105",
-    "class-name": "BackendBase",
-    "func_name": "format_datetime",
-    "func_input": "('', '00:00')",
-    "func_output": "time data ' 00:00' does not match format '%Y-%m-%d %H:%M'"
-  },
-  {
-    "id": 220,
-    "datetime": "2024-03-14 17:20:20.509132",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_event_by_params",
-    "func_input": "{'event_id': '', 'title': '', 'organiser': 'Max Vol', 'date': None, 'location': '', 'type': ''}",
-    "func_output": "None Found"
-  },
-  {
-    "id": 221,
-    "datetime": "2024-03-14 17:20:20.524762",
-    "class-name": "BackendBase",
-    "func_name": "get_event_by_params",
-    "func_input": "('', '', 'Max Vol', '', '', '')",
-    "func_output": "none found"
-  },
-  {
-    "id": 222,
-    "datetime": "2024-03-14 17:20:23.489917",
-    "class-name": "BackendBase",
-    "func_name": "format_datetime",
-    "func_input": "('', '00:00')",
-    "func_output": "time data ' 00:00' does not match format '%Y-%m-%d %H:%M'"
-  },
-  {
-    "id": 223,
-    "datetime": "2024-03-14 17:20:23.529145",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_event_by_params",
-    "func_input": "{'event_id': '', 'title': '', 'organiser': 'Max Vol', 'date': None, 'location': 'Beit Shean', 'type': ''}",
-    "func_output": "None Found"
-  },
-  {
-    "id": 224,
-    "datetime": "2024-03-14 17:20:23.542410",
-    "class-name": "BackendBase",
-    "func_name": "get_event_by_params",
-    "func_input": "('', '', 'Max Vol', '', 'Beit Shean', '')",
-    "func_output": "none found"
-  },
-  {
-    "id": 225,
-    "datetime": "2024-03-14 17:20:56.647793",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
-  },
-  {
-    "id": 226,
-    "datetime": "2024-03-14 17:20:56.661125",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
-  },
-  {
-    "id": 227,
-    "datetime": "2024-03-14 17:20:56.679354",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
-  },
-  {
-    "id": 228,
-    "datetime": "2024-03-14 17:20:56.695386",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
-  },
-  {
-    "id": 229,
-    "datetime": "2024-03-14 17:21:00.369914",
-    "class-name": "BackendBase",
-    "func_name": "format_datetime",
-    "func_input": "('', '00:00')",
-    "func_output": "time data ' 00:00' does not match format '%Y-%m-%d %H:%M'"
-  },
-  {
-    "id": 230,
-    "datetime": "2024-03-14 17:21:00.400964",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_event_by_params",
-    "func_input": "{'event_id': '', 'title': '', 'organiser': 'Max Vol', 'date': None, 'location': '', 'type': ''}",
-    "func_output": "None Found"
-  },
-  {
-    "id": 231,
-    "datetime": "2024-03-14 17:21:00.410818",
-    "class-name": "BackendBase",
-    "func_name": "get_event_by_params",
-    "func_input": "('', '', 'Max Vol', '', '', '')",
-    "func_output": "none found"
-  },
-  {
-    "id": 232,
-    "datetime": "2024-03-14 17:21:02.656406",
-    "class-name": "BackendBase",
-    "func_name": "format_datetime",
-    "func_input": "('', '00:00')",
-    "func_output": "time data ' 00:00' does not match format '%Y-%m-%d %H:%M'"
-  },
-  {
-    "id": 233,
-    "datetime": "2024-03-14 17:21:02.678521",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_event_by_params",
-    "func_input": "{'event_id': '', 'title': '', 'organiser': 'Max Vol', 'date': None, 'location': 'Beit Shean', 'type': ''}",
-    "func_output": "None Found"
-  },
-  {
-    "id": 234,
-    "datetime": "2024-03-14 17:21:02.692195",
-    "class-name": "BackendBase",
-    "func_name": "get_event_by_params",
-    "func_input": "('', '', 'Max Vol', '', 'Beit Shean', '')",
-    "func_output": "none found"
-  },
-  {
-    "id": 235,
-    "datetime": "2024-03-14 17:23:28.105029",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
-  },
-  {
-    "id": 236,
-    "datetime": "2024-03-14 17:23:28.125081",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
-  },
-  {
-    "id": 237,
-    "datetime": "2024-03-14 17:23:28.146650",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
-  },
-  {
-    "id": 238,
-    "datetime": "2024-03-14 17:23:28.161152",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
-  },
-  {
-    "id": 239,
-    "datetime": "2024-03-14 17:23:31.639813",
-    "class-name": "BackendBase",
-    "func_name": "format_datetime",
-    "func_input": "('', '00:00')",
-    "func_output": "time data ' 00:00' does not match format '%Y-%m-%d %H:%M'"
-  },
-  {
-    "id": 240,
-    "datetime": "2024-03-14 17:23:31.664144",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_event_by_params",
-    "func_input": "{'event_id': '', 'title': '', 'organiser': 'Max Vol', 'date': None, 'location': 'Beit Shean', 'type': ''}",
-    "func_output": "None Found"
-  },
-  {
-    "id": 241,
-    "datetime": "2024-03-14 17:23:31.678523",
-    "class-name": "BackendBase",
-    "func_name": "get_event_by_params",
-    "func_input": "('', '', 'Max Vol', '', 'Beit Shean', '')",
-    "func_output": "none found"
-  },
-  {
-    "id": 242,
-    "datetime": "2024-03-14 17:25:51.671185",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
-  },
-  {
-    "id": 243,
-    "datetime": "2024-03-14 17:25:51.686627",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
-  },
-  {
-    "id": 244,
-    "datetime": "2024-03-14 17:25:51.707331",
-    "class-name": "<class 'modules.event_categories.EventCategories'>",
-    "func_name": "get_all",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
-  },
-  {
-    "id": 245,
-    "datetime": "2024-03-14 17:25:51.722329",
-    "class-name": "BackendBase",
-    "func_name": "get_all_event_categories",
-    "func_input": "None",
-    "func_output": "[<EventCategories 1>, <EventCategories 2>, <EventCategories 3>, <EventCategories 4>, <EventCategories 5>, <EventCategories 6>, <EventCategories 7>, <EventCategories 8>, <EventCategories 9>, <EventCategories 10>, <EventCategories 11>, <EventCategories 12>, <EventCategories 13>, <EventCategories 14>, <EventCategories 15>, <EventCategories 16>, <EventCategories 17>, <EventCategories 18>]"
-  },
-  {
-    "id": 246,
-    "datetime": "2024-03-14 17:25:55.077814",
-    "class-name": "BackendBase",
-    "func_name": "format_datetime",
-    "func_input": "('', '00:00')",
-    "func_output": "time data ' 00:00' does not match format '%Y-%m-%d %H:%M'"
-  },
-  {
-    "id": 247,
-    "datetime": "2024-03-14 17:25:55.115324",
-    "class-name": "<class 'modules.events.Events'>",
-    "func_name": "get_event_by_params",
-    "func_input": "{'event_id': '', 'title': '', 'organiser': 'Max Vol', 'date': None, 'location': 'Beit Shean', 'type': ''}",
-    "func_output": "None Found"
-  },
-  {
-    "id": 248,
-    "datetime": "2024-03-14 17:25:55.131024",
-    "class-name": "BackendBase",
-    "func_name": "get_event_by_params",
-    "func_input": "('', '', 'Max Vol', '', 'Beit Shean', '')",
-    "func_output": "none found"
-  },
-  {
-    "id": 249,
-    "datetime": "2024-03-14 19:23:58.471204",
-    "class-name": "<class 'modules.users.Users'>",
-    "func_name": "get_user_by_username",
-    "func_input": "{'username': 'elisheva1'}",
-    "func_output": "[(2, 'elisheva1', '$2b$12$H5.841uLPvq89a2OcqNQDOkzWrcJl.kgGZDKwt76MAlJkhJXqTNOq', 'elisheva@gmail.com', 'Elisheva Cohen', 'I realyyy like to party', datetime.datetime(2024, 2, 27, 23, 4, 30, 217000), True, True)]"
-  },
-  {
-    "id": 250,
-    "datetime": "2024-03-14 19:23:58.989639",
-    "class-name": "BackendBase",
-    "func_name": "_check_password",
-    "func_input": "$2b$12$H5.841uLPvq89a2OcqNQDOkzWrcJl.kgGZDKwt76MAlJkhJXqTNOq",
+    "datetime": "2024-03-23 00:58:16.516067",
+    "class-name": "UserBackend",
+    "func_name": "_get_authentication",
+    "func_input": "$2b$12$GVLq3ljkbG/Db/2L3k7fjuidQhCuG38nS6wLnzPzyztzfIL1BYs/C",
     "func_output": "True"
   },
   {
-    "id": 251,
-    "datetime": "2024-03-14 19:23:59.532179",
+    "id": 219,
+    "datetime": "2024-03-23 00:58:16.545338",
+    "class-name": "<class 'modules.events.Events'>",
+    "func_name": "get_all",
+    "func_input": "None",
+    "func_output": "[<Events 1>, <Events 2>, <Events 5>, <Events 6>, <Events 7>, <Events 8>, <Events 9>, <Events 10>, <Events 11>, <Events 12>, <Events 13>, <Events 14>, <Events 15>, <Events 16>, <Events 17>, <Events 18>, <Events 19>, <Events 25>, <Events 26>, <Events 27>, <Events 28>]"
+  },
+  {
+    "id": 220,
+    "datetime": "2024-03-23 00:58:16.560211",
+    "class-name": "UserBackend",
+    "func_name": "get_all_events",
+    "func_input": "(2, '$2b$12$GVLq3ljkbG/Db/2L3k7fjuidQhCuG38nS6wLnzPzyztzfIL1BYs/C')",
+    "func_output": "[<Events 1>, <Events 2>, <Events 5>, <Events 6>, <Events 7>, <Events 8>, <Events 9>, <Events 10>, <Events 11>, <Events 12>, <Events 13>, <Events 14>, <Events 15>, <Events 16>, <Events 17>, <Events 18>, <Events 19>, <Events 25>, <Events 26>, <Events 27>, <Events 28>]"
+  },
+  {
+    "id": 221,
+    "datetime": "2024-03-23 00:58:16.576944",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "17",
+    "func_output": "<EventCategories 17>"
+  },
+  {
+    "id": 222,
+    "datetime": "2024-03-23 00:58:16.579173",
     "class-name": "BackendBase",
-    "func_name": "login",
-    "func_input": "elisheva1",
-    "func_output": "logged in"
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 17>"
+  },
+  {
+    "id": 223,
+    "datetime": "2024-03-23 00:58:16.595389",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
+  },
+  {
+    "id": 224,
+    "datetime": "2024-03-23 00:58:16.616249",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
+  },
+  {
+    "id": 225,
+    "datetime": "2024-03-23 00:58:16.628504",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "12",
+    "func_output": "<EventCategories 12>"
+  },
+  {
+    "id": 226,
+    "datetime": "2024-03-23 00:58:16.645956",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 12>"
+  },
+  {
+    "id": 227,
+    "datetime": "2024-03-23 00:58:16.662106",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "3",
+    "func_output": "<Users 3>"
+  },
+  {
+    "id": 228,
+    "datetime": "2024-03-23 00:58:16.678762",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "3",
+    "func_output": "<Users 3>"
+  },
+  {
+    "id": 229,
+    "datetime": "2024-03-23 00:58:16.695507",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "1",
+    "func_output": "<EventCategories 1>"
+  },
+  {
+    "id": 230,
+    "datetime": "2024-03-23 00:58:16.710174",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 1>"
+  },
+  {
+    "id": 231,
+    "datetime": "2024-03-23 00:58:16.726976",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "4",
+    "func_output": "<Users 4>"
+  },
+  {
+    "id": 232,
+    "datetime": "2024-03-23 00:58:16.729191",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "4",
+    "func_output": "<Users 4>"
+  },
+  {
+    "id": 233,
+    "datetime": "2024-03-23 00:58:16.745510",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "4",
+    "func_output": "<EventCategories 4>"
+  },
+  {
+    "id": 234,
+    "datetime": "2024-03-23 00:58:16.761945",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 4>"
+  },
+  {
+    "id": 235,
+    "datetime": "2024-03-23 00:58:16.778596",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "30",
+    "func_output": "<Users 30>"
+  },
+  {
+    "id": 236,
+    "datetime": "2024-03-23 00:58:16.795818",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "30",
+    "func_output": "<Users 30>"
+  },
+  {
+    "id": 237,
+    "datetime": "2024-03-23 00:58:16.816537",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "6",
+    "func_output": "<EventCategories 6>"
+  },
+  {
+    "id": 238,
+    "datetime": "2024-03-23 00:58:16.829516",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 6>"
+  },
+  {
+    "id": 239,
+    "datetime": "2024-03-23 00:58:16.845760",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "31",
+    "func_output": "<Users 31>"
+  },
+  {
+    "id": 240,
+    "datetime": "2024-03-23 00:58:16.862111",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "31",
+    "func_output": "<Users 31>"
+  },
+  {
+    "id": 241,
+    "datetime": "2024-03-23 00:58:16.879181",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "15",
+    "func_output": "<EventCategories 15>"
+  },
+  {
+    "id": 242,
+    "datetime": "2024-03-23 00:58:16.893549",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 15>"
+  },
+  {
+    "id": 243,
+    "datetime": "2024-03-23 00:58:16.895292",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "32",
+    "func_output": "<Users 32>"
+  },
+  {
+    "id": 244,
+    "datetime": "2024-03-23 00:58:16.916531",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "32",
+    "func_output": "<Users 32>"
+  },
+  {
+    "id": 245,
+    "datetime": "2024-03-23 00:58:16.928400",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "18",
+    "func_output": "<EventCategories 18>"
+  },
+  {
+    "id": 246,
+    "datetime": "2024-03-23 00:58:16.945076",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 18>"
+  },
+  {
+    "id": 247,
+    "datetime": "2024-03-23 00:58:16.961913",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "33",
+    "func_output": "<Users 33>"
+  },
+  {
+    "id": 248,
+    "datetime": "2024-03-23 00:58:16.978378",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "33",
+    "func_output": "<Users 33>"
+  },
+  {
+    "id": 249,
+    "datetime": "2024-03-23 00:58:16.995050",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "18",
+    "func_output": "<EventCategories 18>"
+  },
+  {
+    "id": 250,
+    "datetime": "2024-03-23 00:58:17.016850",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 18>"
+  },
+  {
+    "id": 251,
+    "datetime": "2024-03-23 00:58:17.029085",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "33",
+    "func_output": "<Users 33>"
   },
   {
     "id": 252,
-    "datetime": "2024-03-14 19:24:08.227489",
+    "datetime": "2024-03-23 00:58:17.046092",
     "class-name": "BackendBase",
-    "func_name": "logout",
+    "func_name": "get_user_by_id",
+    "func_input": "33",
+    "func_output": "<Users 33>"
+  },
+  {
+    "id": 253,
+    "datetime": "2024-03-23 00:58:17.062626",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "18",
+    "func_output": "<EventCategories 18>"
+  },
+  {
+    "id": 254,
+    "datetime": "2024-03-23 00:58:17.079731",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
     "func_input": "None",
-    "func_output": "logout sucsess"
+    "func_output": "<EventCategories 18>"
+  },
+  {
+    "id": 255,
+    "datetime": "2024-03-23 00:58:17.096341",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "33",
+    "func_output": "<Users 33>"
+  },
+  {
+    "id": 256,
+    "datetime": "2024-03-23 00:58:17.112466",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "33",
+    "func_output": "<Users 33>"
+  },
+  {
+    "id": 257,
+    "datetime": "2024-03-23 00:58:17.128946",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "2",
+    "func_output": "<EventCategories 2>"
+  },
+  {
+    "id": 258,
+    "datetime": "2024-03-23 00:58:17.128946",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 2>"
+  },
+  {
+    "id": 259,
+    "datetime": "2024-03-23 00:58:17.161147",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
+  },
+  {
+    "id": 260,
+    "datetime": "2024-03-23 00:58:17.161902",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
+  },
+  {
+    "id": 261,
+    "datetime": "2024-03-23 00:58:17.178742",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "2",
+    "func_output": "<EventCategories 2>"
+  },
+  {
+    "id": 262,
+    "datetime": "2024-03-23 00:58:17.194893",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 2>"
+  },
+  {
+    "id": 263,
+    "datetime": "2024-03-23 00:58:17.216949",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
+  },
+  {
+    "id": 264,
+    "datetime": "2024-03-23 00:58:17.228522",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
+  },
+  {
+    "id": 265,
+    "datetime": "2024-03-23 00:58:17.245470",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "2",
+    "func_output": "<EventCategories 2>"
+  },
+  {
+    "id": 266,
+    "datetime": "2024-03-23 00:58:17.262031",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 2>"
+  },
+  {
+    "id": 267,
+    "datetime": "2024-03-23 00:58:17.277849",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
+  },
+  {
+    "id": 268,
+    "datetime": "2024-03-23 00:58:17.278718",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
+  },
+  {
+    "id": 269,
+    "datetime": "2024-03-23 00:58:17.295148",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "2",
+    "func_output": "<EventCategories 2>"
+  },
+  {
+    "id": 270,
+    "datetime": "2024-03-23 00:58:17.316931",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 2>"
+  },
+  {
+    "id": 271,
+    "datetime": "2024-03-23 00:58:17.328941",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
+  },
+  {
+    "id": 272,
+    "datetime": "2024-03-23 00:58:17.345864",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
+  },
+  {
+    "id": 273,
+    "datetime": "2024-03-23 00:58:17.363091",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "2",
+    "func_output": "<EventCategories 2>"
+  },
+  {
+    "id": 274,
+    "datetime": "2024-03-23 00:58:17.378751",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 2>"
+  },
+  {
+    "id": 275,
+    "datetime": "2024-03-23 00:58:17.396123",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
+  },
+  {
+    "id": 276,
+    "datetime": "2024-03-23 00:58:17.417180",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
+  },
+  {
+    "id": 277,
+    "datetime": "2024-03-23 00:58:17.429650",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "17",
+    "func_output": "<EventCategories 17>"
+  },
+  {
+    "id": 278,
+    "datetime": "2024-03-23 00:58:17.445389",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 17>"
+  },
+  {
+    "id": 279,
+    "datetime": "2024-03-23 00:58:17.462035",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
+  },
+  {
+    "id": 280,
+    "datetime": "2024-03-23 00:58:17.479214",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
+  },
+  {
+    "id": 281,
+    "datetime": "2024-03-23 00:58:17.496108",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "10",
+    "func_output": "<EventCategories 10>"
+  },
+  {
+    "id": 282,
+    "datetime": "2024-03-23 00:58:17.517358",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 10>"
+  },
+  {
+    "id": 283,
+    "datetime": "2024-03-23 00:58:17.528490",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "35",
+    "func_output": "<Users 35>"
+  },
+  {
+    "id": 284,
+    "datetime": "2024-03-23 00:58:17.545674",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "35",
+    "func_output": "<Users 35>"
+  },
+  {
+    "id": 285,
+    "datetime": "2024-03-23 00:58:17.562040",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "10",
+    "func_output": "<EventCategories 10>"
+  },
+  {
+    "id": 286,
+    "datetime": "2024-03-23 00:58:17.578435",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 10>"
+  },
+  {
+    "id": 287,
+    "datetime": "2024-03-23 00:58:17.594858",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "35",
+    "func_output": "<Users 35>"
+  },
+  {
+    "id": 288,
+    "datetime": "2024-03-23 00:58:17.617457",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "35",
+    "func_output": "<Users 35>"
+  },
+  {
+    "id": 289,
+    "datetime": "2024-03-23 00:58:17.628776",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "3",
+    "func_output": "<EventCategories 3>"
+  },
+  {
+    "id": 290,
+    "datetime": "2024-03-23 00:58:17.645175",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 3>"
+  },
+  {
+    "id": 291,
+    "datetime": "2024-03-23 00:58:17.678564",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
+  },
+  {
+    "id": 292,
+    "datetime": "2024-03-23 00:58:17.695209",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
+  },
+  {
+    "id": 293,
+    "datetime": "2024-03-23 00:58:17.712069",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "4",
+    "func_output": "<EventCategories 4>"
+  },
+  {
+    "id": 294,
+    "datetime": "2024-03-23 00:58:17.728867",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 4>"
+  },
+  {
+    "id": 295,
+    "datetime": "2024-03-23 00:58:17.752820",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
+  },
+  {
+    "id": 296,
+    "datetime": "2024-03-23 00:58:17.772133",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "2",
+    "func_output": "<Users 2>"
+  },
+  {
+    "id": 297,
+    "datetime": "2024-03-23 00:58:17.794852",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "8",
+    "func_output": "<EventCategories 8>"
+  },
+  {
+    "id": 298,
+    "datetime": "2024-03-23 00:58:17.811881",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 8>"
+  },
+  {
+    "id": 299,
+    "datetime": "2024-03-23 00:58:17.831335",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
+  },
+  {
+    "id": 300,
+    "datetime": "2024-03-23 00:58:17.851285",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
+  },
+  {
+    "id": 301,
+    "datetime": "2024-03-23 00:58:17.875237",
+    "class-name": "<class 'modules.event_categories.EventCategories'>",
+    "func_name": "get_by_id",
+    "func_input": "15",
+    "func_output": "<EventCategories 15>"
+  },
+  {
+    "id": 302,
+    "datetime": "2024-03-23 00:58:17.893523",
+    "class-name": "BackendBase",
+    "func_name": "get_category_by_id",
+    "func_input": "None",
+    "func_output": "<EventCategories 15>"
+  },
+  {
+    "id": 303,
+    "datetime": "2024-03-23 00:58:17.914257",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
+  },
+  {
+    "id": 304,
+    "datetime": "2024-03-23 00:58:17.931981",
+    "class-name": "BackendBase",
+    "func_name": "get_user_by_id",
+    "func_input": "34",
+    "func_output": "<Users 34>"
+  },
+  {
+    "id": 305,
+    "datetime": "2024-03-23 00:58:33.201432",
+    "class-name": "UserBackend",
+    "func_name": "_get_authentication",
+    "func_input": "$2b$12$GVLq3ljkbG/Db/2L3k7fjuidQhCuG38nS6wLnzPzyztzfIL1BYs/C",
+    "func_output": "True"
+  },
+  {
+    "id": 306,
+    "datetime": "2024-03-23 00:58:33.225524",
+    "class-name": "<class 'modules.users.Users'>",
+    "func_name": "get_all",
+    "func_input": "None",
+    "func_output": "[<Users 2>, <Users 3>, <Users 4>, <Users 8>, <Users 10>, <Users 13>, <Users 23>, <Users 30>, <Users 31>, <Users 32>, <Users 33>, <Users 34>, <Users 35>]"
+  },
+  {
+    "id": 307,
+    "datetime": "2024-03-23 00:58:33.242202",
+    "class-name": "UserBackend",
+    "func_name": "get_all_admins",
+    "func_input": "(2, '$2b$12$GVLq3ljkbG/Db/2L3k7fjuidQhCuG38nS6wLnzPzyztzfIL1BYs/C')",
+    "func_output": "[<Users 2>]"
   }
 ]

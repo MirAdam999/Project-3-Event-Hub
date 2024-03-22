@@ -5,7 +5,7 @@ import { useToken } from "./Token";
 const LoginPopUp = (props) => {
     const username = useRef();
     const password = useRef();
-    const { setToken, setName, setIsMasterPermission } = useToken();
+    const { setToken, setName, setIsMasterPermission, setId } = useToken();
     const [errorMessage, setErrorMessage] = useState('');
 
     function openSignUp() {
@@ -41,9 +41,11 @@ const LoginPopUp = (props) => {
             else {
                 const data = await result.json();
                 const receivedToken = data.front_end_token;
+                const receivedId = data.user_id;
                 const receivedName = data.users_name;
                 const recevedMasterPrem = data.is_master;
                 setToken(receivedToken);
+                setId(receivedId);
                 setName(receivedName);
                 setIsMasterPermission(recevedMasterPrem);
                 props.onClose();

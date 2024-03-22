@@ -147,20 +147,16 @@ class BackendBase:
     
     def get_event_by_params (self, *, event_id, title, organiser, date, location, type):
         try:
-            formatted_date= self.format_datetime(date,"00:00")
-            if event_id:
-                title, organiser, date, location,type = None
-            else:
-                params=(event_id, title, organiser, date, location, type)
-                params = [param if param else None for param in params]
-                print (params)
-                
-            events=self.events_repo.get_stored_procedure('get_event_by_params',{'event_id':event_id,
-                                                                                'title':title,
-                                                                                'organiser':organiser,
-                                                                                'date':formatted_date,
-                                                                                'location':location,
-                                                                                'type':type})
+            if date:
+                formatted_date= self.format_datetime(date,"00:00")
+            
+            if organiser:
+                organiser_data = self.users_repo.get_stored_procedure("get_user_by_fullname",{"full_name":organiser})
+                organiser_id =organiser_data[0][0]
+                   
+            events=self.events_repo.custom_search("Events",{"EventID":event_id,"Title":title,"OrganizerID":organiser_id if organiser else None,
+                                                            "EventDateTime":formatted_date if date else None, "Location":location,
+                                                            "CategoryID":type})
             if events:
                 self.logger.log(self.class_name,'get_event_by_params', (event_id,title, organiser, date, location, type), events)
                 return events
@@ -251,3 +247,4 @@ class BackendBase:
         except Exception as e:
             self.logger.log(self.class_name,'get_user_by_id', (user_id), str(e))
             return None 
+        

@@ -1,14 +1,21 @@
 
+import { useNavigate } from 'react-router-dom';
+
 const EventsFound = (props) => {
     const errorMessage = props.error;
     const events = props.events;
+    const navigate = useNavigate();
+
+    const handleNavigation = (path) => {
+        navigate(path);
+    };
 
     if (events) {
         return (
             <div className="events">
                 <div className="events-display">
                     {events.map(event => (
-                        <button className="open-event">
+                        <button className="open-event" onClick={() => handleNavigation(`/view_event/${event.event_id}`)}>
                             <div className="event-on-grid" key={event.event_id}>
                                 <img
                                     src={`data:image/png;base64,${event.image}`}
@@ -21,7 +28,6 @@ const EventsFound = (props) => {
                                 <p className="event-location">{event.location}</p>
                                 <p className="event-is_private">{event.is_private}</p>
                                 <p className="event-is_canceled">{event.is_canceled}</p>
-                                <button className="event-action"> Register </button>
                             </div>
                         </button>
                     ))}

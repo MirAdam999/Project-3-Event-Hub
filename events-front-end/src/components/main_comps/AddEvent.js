@@ -1,11 +1,11 @@
 
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from 'react-router-dom';
 import { useToken } from '../Token';
 import Spinner from "../Loading"
 
 const AddEvent = () => {
-    const { getToken } = useToken();
-    const token = getToken();
+    const { storedToken } = useToken();
     const [loading, setLoading] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
@@ -19,6 +19,12 @@ const AddEvent = () => {
     const [category, setCategory] = useState([]);
     const [selectedValue, setSelectedValue] = useState('');
     const [isPrivate, setIsPrivate] = useState(false);
+    const [previewURL, setPreviewURL] = useState(null);
+    const navigate = useNavigate();
+
+    const handleNavigation = (path) => {
+        navigate(path);
+    };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -62,6 +68,11 @@ const AddEvent = () => {
 
         const base64Image = await convertFileToBase64(file);
         setSelectedFile(base64Image);
+        const reader = new FileReader();
+        reader.onload = () => {
+            setPreviewURL(reader.result);
+        };
+        reader.readAsDataURL(file);
     }
 
     const convertFileToBase64 = (file) => {
@@ -76,6 +87,8 @@ const AddEvent = () => {
     const handleClearFile = () => {
         setSelectedFile(null);
         setFileError('');
+        document.getElementById("image").value = null;
+        setPreviewURL(null);
     };
 
     const handleSubmit = async (e) => {
@@ -83,7 +96,7 @@ const AddEvent = () => {
         setLoading(true)
         try {
             const formData = new FormData();
-            formData.append("token", token);
+            formData.append("token", storedToken);
             formData.append("title", title.current.value);
             formData.append("description", description.current.value);
             formData.append("location", location.current.value);
@@ -150,6 +163,7 @@ const AddEvent = () => {
                     <label for="image">Upload Image:</label>
                     <input type="file" id="image" accept=".jpg, .jpeg, .png, .gif" onChange={handleFileChange} /><br />
                     {fileError && <p className="error-message">{fileError}</p>}
+                    {previewURL && <img src={previewURL} alt="Preview" style={{ maxWidth: '100%', maxHeight: '200px' }} />}
                     <button onClick={handleClearFile}>Clear File</button>
 
                     <span>Is This a Private Event?</span><br />
@@ -176,7 +190,13 @@ const AddEvent = () => {
                 </form>
 
                 {loading && <Spinner />}
-                {isSuccess && <p>Adding success!</p>}
+                {isSuccess &&
+                    <div className="sucsess-message">
+                        <p>Event Created Sucsessfully!</p>
+                        <p> You can now view, edit or delete the Event under 'My Events'.</p>
+                        {isPrivate && <p>Approving or Declining Registrations can also be done through "My Events".</p>}
+                        <button onClick={() => handleNavigation('/my_events')}> Go To My Events</button>
+                    </div>}
                 {errorMessage && <p>{errorMessage}</p>}
             </div>
         )

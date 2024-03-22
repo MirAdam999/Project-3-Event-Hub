@@ -44,12 +44,14 @@ const LogOutPopUp = (props) => {
 
     return (
         <div className="popup">
-            <button className="close" onClick={props.onClose}>Close</button>
-            <div className="logout">
-                <p>Log Out?</p>
-                <button className="green-button" onClick={handleLogout}> Log Out </button>
-                <button className="cancel-button" onClick={props.onClose}> Cancel </button>
-                {errorMessage && <p className="error-message">{errorMessage}</p>}
+            <div className="popup-inner">
+                <button className="close" onClick={props.onClose}>Close</button>
+                <div className="logout">
+                    <p>Log Out?</p>
+                    <button className="green-button" onClick={handleLogout}> Log Out </button>
+                    <button className="cancel-button" onClick={props.onClose}> Cancel </button>
+                    {errorMessage && <p className="error-message">{errorMessage}</p>}
+                </div>
             </div>
         </div >
     )

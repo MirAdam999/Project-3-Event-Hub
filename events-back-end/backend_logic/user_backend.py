@@ -167,9 +167,7 @@ class UserBackend(BackendBase):
         try:
             ok = self._get_authentication(front_end_token)
             if ok:
-                print (date, time)
                 datetime=self.format_datetime(date,time)
-                print (datetime)
                 private = 1 if is_private else 0
                 new_event= self.events_repo.add(Events(Title=title,Description=description,
                                                        Location=location,EventDateTime=datetime,
@@ -197,11 +195,12 @@ class UserBackend(BackendBase):
             if ok:
                 event = self.events_repo.get_by_id(event_id)
                 if event and event.OrganizerID == self.id:
+                    private = 1 if is_private else 0
                     datetime=self.format_datetime(date,time)
                     updated_event= self.events_repo.update(event_id,{'Title':title,'Description':description,
                                                         'Location':location,'EventDateTime':datetime,
                                                         'EventImage':image,'OrganizerID':self.id,
-                                                        'CategoryID':cathegory_id,'IsPrivate':is_private})
+                                                        'CategoryID':cathegory_id,'IsPrivate':private})
                     if updated_event:
                         self.logger.log(self.class_name,'update_event', (front_end_token, event_id, title, description, 
                             location, date, time, image, cathegory_id, is_private), 'event updated')
@@ -413,7 +412,7 @@ class UserBackend(BackendBase):
                 current_datetime = datetime.now()
                 event_datetime = event.EventDateTime
                 if event_datetime < current_datetime and not event.IsCanceled:
-                    registrations = self.my_registrations(front_end_token)
+                    registrations = self.my_attended_events(front_end_token)
                     for registration in registrations:
                         if registration[1] == event_id and registration[4] == 'Approved':
                             feedback = self.feedback_repo.add(Feedback(RegistrationID= registration[0],
@@ -439,7 +438,7 @@ class UserBackend(BackendBase):
             ok = self._get_authentication(front_end_token)
             if ok:
                 feedback= self.feedback_repo.get_by_id(feedback_id)
-                my_registrations= self.my_registrations
+                my_registrations= self.my_attended_events(front_end_token)
                 for registration in my_registrations:
                     if registration[0] == feedback.RegistrationID:
                         current_datetime = datetime.now()
@@ -464,10 +463,17 @@ class UserBackend(BackendBase):
             ok = self._get_authentication(front_end_token)
             if ok:
                 feedback= self.feedback_repo.get_by_id(feedback_id)
-                my_registrations= self.my_registrations
+                my_registrations= self.my_attended_events(front_end_token)
+                print(feedback)
+                print(my_registrations)
                 for registration in my_registrations:
+                    print(registration)
+                    print(registration[0])
                     if registration[0] == feedback.RegistrationID:
+                        print(registration[0])
+                        print(feedback.RegistrationID)
                         delete_feedback = self.feedback_repo.remove(feedback_id)
+                        print(delete_feedback)
                         if delete_feedback:
                             self.logger.log(self.class_name,'delete_feedback', (self.id,front_end_token,feedback_id), 'removed')
                             return True
@@ -552,10 +558,106 @@ class UserBackend(BackendBase):
         except Exception as e:
             self.logger.log(self.class_name,'delete_image', (self.id,front_end_token), str(e))
             return False 
+       
         
-        
+    def check_affiliation_to_event(self, front_end_token, event_id):   
+        try:
+            ok = self._get_authentication(front_end_token)
+            if ok:
+                my_events = self.my_events(front_end_token)
+                if my_events:
+                    for event in my_events:
+                        if event[0] == event_id:
+                            self.logger.log(self.class_name,'check_affiliation_to_event', (front_end_token,event_id),'Organiser')
+                            return "Organiser"
+                
+                my_registrations = self.my_registrations(front_end_token)
+                if my_registrations:
+                    for event in my_registrations:
+                        if event[1] == event_id:
+                            self.logger.log(self.class_name,'check_affiliation_to_event', (front_end_token,event_id),'Registered')
+                            return "Registered"
+                        
+                attended = self.my_attended_events(front_end_token)
+                if attended:
+                    for event in attended:
+                        if event[1] == event_id:
+                            self.logger.log(self.class_name,'check_affiliation_to_event', (front_end_token,event_id),'Attended')
+                            return "Attended"
+
+                else:
+                    self.logger.log(self.class_name,'check_affiliation_to_event', (front_end_token,event_id),'None')
+                    return "None"
+                            
+            else:
+                self.logger.log(self.class_name,'check_affiliation_to_event', (front_end_token,event_id),'authentication fail')
+                return False
+            
+        except Exception as e:
+            self.logger.log(self.class_name,'check_affiliation_to_event', (front_end_token), str(e))
+            return False  
+         
+         
     # Master Functionality
-    
+
+    def get_all_users(self,front_end_token):
+        try:
+            ok = self._get_authentication(front_end_token)
+            if ok and self.is_master:
+                users = self.users_repo.get_all()
+                if users:
+                    self.logger.log(self.class_name,'get_all_users', (self.id,front_end_token), users)
+                    return users
+                
+            else:
+                self.logger.log(self.class_name,'get_all_users', (self.id,front_end_token), 'authentication fail/none found')
+                return False
+            
+        except Exception as e:
+            self.logger.log(self.class_name,'get_all_users', (self.id,front_end_token), str(e))
+            return False 
+        
+      
+    def get_user_by_params(self, *,front_end_token, user_id,username,
+                           email,name):      
+        try:
+            ok = self._get_authentication(front_end_token)
+            if ok and self.is_master:     
+                users=self.users_repo.custom_search("Users",{"UserID":user_id,"Username":username,"Email":email,
+                                                                "FullName":name})
+                if users:
+                    self.logger.log(self.class_name,'get_user_by_params', (front_end_token, user_id,username,
+                                                                        email,name), users)
+                    return users
+            else:
+                self.logger.log(self.class_name,'get_user_by_params', (self.id,front_end_token), 'authentication fail/none found')
+                return False
+            
+        except Exception as e:
+            self.logger.log(self.class_name,'get_user_by_params', (self.id,front_end_token), str(e))
+            return False 
+        
+        
+    def get_all_admins(self,front_end_token):
+        try:
+            ok = self._get_authentication(front_end_token)
+            if ok and self.is_master:
+                users = self.users_repo.get_all()
+                if users:
+                    admins= [user for user in users if user.IsMasterUser]
+                    if admins:
+                        self.logger.log(self.class_name,'get_all_admins', (self.id,front_end_token), admins)
+                        return admins
+                
+            else:
+                self.logger.log(self.class_name,'get_all_admins', (self.id,front_end_token), 'authentication fail/none found')
+                return False
+            
+        except Exception as e:
+            self.logger.log(self.class_name,'get_all_admins', (self.id,front_end_token), str(e))
+            return False     
+        
+            
     def add_master_user(self,front_end_token, user_id):
         try:
             ok = self._get_authentication(front_end_token)
@@ -646,7 +748,50 @@ class UserBackend(BackendBase):
             self.logger.log(self.class_name,'get_all_events', (self.id,front_end_token), str(e))
             return None 
         
-               
+
+    def get_all_categories_admin(self,front_end_token):
+        try:
+            ok = self._get_authentication(front_end_token)
+            if ok and self.is_master:
+                all_categories= self.categories_repo.get_all()
+                if all_categories:
+                    categories_and_count={}
+                    for cat in all_categories:
+                        count = self.categories_repo.get_stored_procedure('count_events_by_category',{'cat_id':cat.CategoryID})
+                        categories_and_count[cat]=count
+                        
+                    self.logger.log(self.class_name,'get_all_categories', (self.id,front_end_token), categories_and_count)
+                    return categories_and_count             
+            else:
+                self.logger.log(self.class_name,'get_all_categories', (self.id,front_end_token), 'authentication fail/none found')
+                return None
+            
+        except Exception as e:
+            self.logger.log(self.class_name,'get_all_categories', (self.id,front_end_token), str(e))
+            return None 
+        
+        
+    def get_events_by_category_admin(self,front_end_token,category_id):
+        try:
+            ok = self._get_authentication(front_end_token)
+            if ok and self.is_master:
+                events_by_category= self.categories_repo.get_stored_procedure('get_events_by_category',
+                                                                              {'cat_id':category_id})
+                
+                if events_by_category:   
+                    self.logger.log(self.class_name,'get_events_by_category_admin', 
+                                    (self.id,front_end_token,category_id), events_by_category)
+                    return events_by_category             
+            else:
+                self.logger.log(self.class_name,'get_events_by_category_admin', 
+                                (self.id,front_end_token,category_id), 'authentication fail/none found')
+                return None
+            
+        except Exception as e:
+            self.logger.log(self.class_name,'get_events_by_category_admin', (self.id,front_end_token), str(e))
+            return None 
+
+          
     def add_category(self, *, front_end_token, category, description):
         try:
             ok = self._get_authentication(front_end_token)

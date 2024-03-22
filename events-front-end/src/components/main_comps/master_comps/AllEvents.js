@@ -1,14 +1,19 @@
 
 import { useState, useEffect } from "react";
-import { useToken } from '../Token';
-import Spinner from "../Loading";
+import { useNavigate } from 'react-router-dom';
+import { useToken } from '../../Token';
+import Spinner from "../../Loading";
 
 const AllEvents = () => {
-    const { getToken } = useToken();
+    const { storedToken } = useToken();
     const [errorMessage, setErrorMessage] = useState('');
-    const token = getToken();
     const [events, setEvents] = useState([]);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
+
+    const handleNavigation = (path) => {
+        navigate(path);
+    };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -19,7 +24,7 @@ const AllEvents = () => {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
-                        token: token
+                        token: storedToken
                     })
                 });
 
@@ -63,9 +68,13 @@ const AllEvents = () => {
                 </div>
                 <div className="events-display">
                     {events.map(event => (
-                        <button>
+                        <button onClick={() => handleNavigation(`/view_event/${event.event_id}`)}>
                             <div className="event-on-grid" key={event.event_id}>
-                                <img src={event.image} />
+                                <img
+                                    src={`data:image/png;base64,${event.image}`}
+                                    alt={event.title}
+                                    className="event-image"
+                                />
                                 <p className="event-event_id">{event.event_id}</p>
                                 <p className="event-title">{event.title}</p>
                                 <p className="event-location">{event.location}</p>

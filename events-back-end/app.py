@@ -2,6 +2,7 @@ from flask import Flask
 from flask_migrate import Migrate
 from flask_bcrypt import Bcrypt
 from flask_cors import CORS
+import datetime
 
 from modules import db
 from modules.event_categories import EventCategories
@@ -35,7 +36,16 @@ if __name__ == "__main__":
         db.create_all()
     
         # are we gonna cry?
-        
+        """
+        from modules.repository import Repository
+        repo=Repository(Events)
+        result=repo.update(17,{'Title':'Max Celebrates 47th Birthday',
+                               'Description':"Let's Goooo!!!",
+                                'Location':'Forum Club Beer Sheva'
+                                ,'EventDateTime':datetime.datetime(2024, 10, 12, 23, 3),
+                                'EventImage':None,'OrganizerID':34,
+                                'CategoryID':8,'IsPrivate':0})
+        print(result)"""
         
     app.run(debug=app.config['DEBUG'], use_reloader=app.config['USE_RELOADER'], port=5000)
     
