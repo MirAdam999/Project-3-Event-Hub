@@ -222,7 +222,7 @@ class UserBackend(BackendBase):
             if ok:
                 event = self.events_repo.get_by_id(event_id)
                 if event and event.OrganizerID == self.id:
-                    cancel_event= self.events_repo.update(event_id,{'IsCanceled':True})
+                    cancel_event= self.events_repo.update(event_id,{'IsCanceled':1})
                     
                     if cancel_event:
                         self.logger.log(self.class_name,'cancel_event', (front_end_token, event_id), 'event canceled')
@@ -494,9 +494,9 @@ class UserBackend(BackendBase):
                 current_datetime = datetime.now()
                 event_datetime = event.EventDateTime
                 if event_datetime < current_datetime and not event.IsCanceled:
-                    registrations = self.my_registrations(front_end_token)
-                    for registration in registrations:
-                        if registration[1] == event_id and registration[4] == 'Approved':
+                    attended = self.my_attended_events(front_end_token)
+                    for event in attended:
+                        if event[1] == event_id and event[4] == 'Approved':
                             add_image = self.images_repo.add(EventImages(EventID=event_id,
                                                                          Image=image,UserID=self.id,
                                                                          SubmittionDateTime=current_datetime))

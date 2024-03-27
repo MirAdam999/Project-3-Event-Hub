@@ -2,6 +2,7 @@
 import { useToken } from '../../Token';
 import { useState } from 'react';
 import Spinner from "../../Loading";
+import '../../../style/Pop-Up.css';
 
 const CancelEvent = (props) => {
     const { storedToken } = useToken();
@@ -14,7 +15,7 @@ const CancelEvent = (props) => {
         setLoading(true)
         try {
             const result = await fetch(`http://127.0.0.1:5000/cancel_event/${props.event_id}`, {
-                method: 'POST',
+                method: 'PUT',
                 headers: {
                     "Content-Type": "application/json"
                 },

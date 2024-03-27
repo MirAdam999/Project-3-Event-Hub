@@ -2,6 +2,7 @@
 import { useRef, useState } from "react";
 import { useToken } from '../../Token';
 import Spinner from "../../Loading";
+import '../../../style/Window.css';
 
 const AddCategory = (props) => {
     const { storedToken } = useToken();

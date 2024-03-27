@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useToken } from '../../Token';
 import Spinner from "../../Loading";
+import '../../../style/Window.css';
 
 const CategoryDetails = (props) => {
     const { storedToken } = useToken();

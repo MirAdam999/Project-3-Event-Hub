@@ -44,7 +44,7 @@ if __name__ == "__main__":
                                 'Location':'Forum Club Beer Sheva'
                                 ,'EventDateTime':datetime.datetime(2024, 10, 12, 23, 3),
                                 'EventImage':None,'OrganizerID':34,
-                                'CategoryID':8,'IsPrivate':0})
+                                'CategoryID':17,'IsPrivate':1})
         print(result)"""
         
     app.run(debug=app.config['DEBUG'], use_reloader=app.config['USE_RELOADER'], port=5000)

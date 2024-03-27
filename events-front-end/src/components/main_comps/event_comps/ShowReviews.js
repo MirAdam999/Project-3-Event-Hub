@@ -1,9 +1,11 @@
 
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useToken } from '../../Token';
 import Spinner from "../../Loading";
 import DeleteReview from './DeleteReview';
 import UpdateReview from './UpdateReview';
+import '@fortawesome/fontawesome-free/css/all.css';
 
 const ShowReviews = (props) => {
     const event = props.event
@@ -13,6 +15,11 @@ const ShowReviews = (props) => {
     const [errorMessage, setErrorMessage] = useState('');
     const [deletePopUpOpen, setDeletePopUpOpen] = useState(false);
     const [updatePopUpOpen, setUpdatePopUpOpen] = useState(false);
+    const navigate = useNavigate();
+
+    const handleNavigation = (path) => {
+        navigate(path);
+    };
 
     function openDelete(review) {
         setDeletePopUpOpen(review);
@@ -62,30 +69,39 @@ const ShowReviews = (props) => {
         };
 
         fetchData();
-    }, [deletePopUpOpen]);
+    }, [deletePopUpOpen, updatePopUpOpen, props.flagRefreshReviews]);
 
 
-    if (reviews) {
+    if (loading) {
+        return (
+            <div className="events-loading">
+                <Spinner />
+            </div>
+        );
+    } else if (!reviews) {
+        return (
+            <div className="event-registrations">
+                <p> No Reviews Yet </p>
+            </div>
+        );
+    } else if (reviews) {
         return (
             <div className="event-reviews">
-                <table>
-                    <th> User </th>
-                    <th> Raiting </th>
-                    <th> Feedback </th>
-                    <th> Time </th>
-                    <tbody>
-                        {reviews.map(review => (
-                            <tr key={review.registeration_id}>
-                                <td><button onClick={() => handleNavigation(`/user/${review.user_id}`)}> {review.user} </button></td>
-                                <td> {review.raiting} </td>
-                                <td> {review.comment} </td>
-                                <td> {review.date} {review.time}</td>
-                                {usersId === review.user_id &&
-                                    <td><button onClick={() => openDelete(review)}> Delete Review </button>
-                                        <button onClick={() => openUpdate(review)}> Change Review </button></td>}
-                            </tr>))}
-                    </tbody>
-                </table>
+                {reviews.map(review => (
+                    <div className='review' key={review.registeration_id}>
+                        <p id='reviewer' onClick={() => handleNavigation(`/user/${review.user_id}`)}>By:  {review.user} </p>
+                        <p id='raiting'>Raiting: {review.raiting}/5 </p>
+                        <p id='brackets'><i class="fa-solid fa-quote-left"></i></p>
+                        <p id='review-comment'>{review.comment}</p>
+                        <p id='brackets-right'><i class="fa-solid fa-quote-right"></i></p>
+                        <p id='review-datetime'>Reviewed At: {review.date} {review.time}</p>
+                        {usersId === review.user_id &&
+                            <div>
+                                <button onClick={() => openDelete(review)}> Delete Review </button>
+                                <button onClick={() => openUpdate(review)}> Change Review </button>
+                            </div>}
+                    </div>))}
+
 
                 {deletePopUpOpen &&
                     <DeleteReview review={deletePopUpOpen} onClose={closeDelete} />}
@@ -105,12 +121,6 @@ const ShowReviews = (props) => {
                 }
             </div >
         )
-    } else if (!reviews) {
-        return (
-            <div className="event-registrations">
-                <p> No Reviews Yet </p>
-            </div>
-        );
     } else {
         return (
             <div className="events-err">

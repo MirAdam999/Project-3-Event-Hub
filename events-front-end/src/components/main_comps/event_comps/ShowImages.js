@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import Spinner from "../../Loading";
 import ViewImagePopUp from './ViewImage';
+import '../../../style/main/ViewEvent.css'
 
 const ShowImages = (props) => {
     const event = props.event
@@ -50,22 +51,33 @@ const ShowImages = (props) => {
         };
 
         fetchData();
-    }, [imageWIndowIsOpen]);
+    }, [imageWIndowIsOpen, props.flagRefreshImages]);
 
 
-    if (images) {
+    if (loading) {
+        return (
+            <div className="events-loading">
+                <Spinner />
+            </div>
+        );
+    } else if (!images) {
+        return (
+            <div className="event-registrations">
+                <p> No Images Yet </p>
+            </div>
+        );
+    } else if (images) {
         return (
             <div className="event-images">
                 {images.map(image => (
-                    <button onClick={() => openImage(image)}>
-                        <div className="images-on-grid" key={image.image_id}>
-                            <img
-                                src={`data:image/png;base64,${image.image}`}
-                                alt={image.image_id}
-                                className="event-uploaded-image"
-                            />
-                        </div>
-                    </button>
+                    <div className="images-on-grid" key={image.image_id}>
+                        <img
+                            src={`data:image/png;base64,${image.image}`}
+                            alt={image.image_id}
+                            className="event-uploaded-image"
+                            onClick={() => openImage(image)}
+                        />
+                    </div>
                 ))}
 
                 {imageWIndowIsOpen && <div className="window">
@@ -84,12 +96,6 @@ const ShowImages = (props) => {
                 }
             </div >
         )
-    } else if (!images) {
-        return (
-            <div className="event-registrations">
-                <p> No Images Yet </p>
-            </div>
-        );
     } else {
         return (
             <div className="events-err">

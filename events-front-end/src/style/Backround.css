@@ -1,0 +1,16 @@
+.backround {
+    background-color: #e5e5f7;
+    opacity: 1;
+    background:
+        linear-gradient(135deg, #0000 20.5%, #ffffff 0 29.5%, #0000 0) 0 19px,
+        linear-gradient(45deg, #0000 8%, #ffffff 0 17%, #0000 0 58%) 38px 0,
+        linear-gradient(135deg, #0000 8%, #ffffff 0 17%, #0000 0 58%, #ffffff 0 67%, #0000 0),
+        linear-gradient(45deg, #0000 8%, #ffffff 0 17%, #0000 0 58%, #ffffff 0 67%, #0000 0 83%, #ffffff 0 92%, #0000 0),
+        #ffa07a65;
+    background-size: 76px 76px;
+    z-index: -999;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

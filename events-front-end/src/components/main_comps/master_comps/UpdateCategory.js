@@ -1,4 +1,5 @@
 
+import '../../../style/Window.css';
 import { useState } from "react";
 import { useToken } from '../../Token';
 import Spinner from "../../Loading";

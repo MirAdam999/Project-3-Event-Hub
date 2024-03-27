@@ -1,7 +1,8 @@
 
 import { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css';
+import './style/App.css';
+import './style/Backround.css'
 import { TokenProvider } from './components/Token';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -65,6 +66,7 @@ function App() {
   return (
     <TokenProvider>
       <div className="App">
+        <div className="backround"></div>
 
         <Header onLogOut={openLogOut} onSignUp={openSignUp} onLogIn={openLogIn} openSidebar={openSidebar} />
 

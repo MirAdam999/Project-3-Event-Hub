@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { useToken } from "./Token";
+import '../style/Pop-Up.css';
 
 const LogOutPopUp = (props) => {
     const { setToken, setName, setIsMasterPermission } = useToken();
@@ -45,12 +46,12 @@ const LogOutPopUp = (props) => {
     return (
         <div className="popup">
             <div className="popup-inner">
-                <button className="close" onClick={props.onClose}>Close</button>
                 <div className="logout">
                     <p>Log Out?</p>
                     <button className="green-button" onClick={handleLogout}> Log Out </button>
                     <button className="cancel-button" onClick={props.onClose}> Cancel </button>
                     {errorMessage && <p className="error-message">{errorMessage}</p>}
+                    <div className="close"><button onClick={props.onClose}>X</button></div>
                 </div>
             </div>
         </div >

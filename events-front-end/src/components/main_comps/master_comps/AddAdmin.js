@@ -3,6 +3,7 @@ import SearchUser from "./SearchUser"
 import { useState } from "react";
 import { useToken } from '../../Token';
 import Spinner from "../../Loading";
+import '../../../style/Window.css';
 
 const AddAdmin = (props) => {
     const { storedToken } = useToken();

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useToken } from '../../Token';
 import Spinner from "../../Loading";
+import '../../../style/Window.css';
 
 const AddImage = (props) => {
     const { storedToken } = useToken();

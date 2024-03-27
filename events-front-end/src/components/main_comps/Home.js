@@ -1,4 +1,5 @@
 
+import '../../style/Home.css';
 
 const LandingPage = () => {
 

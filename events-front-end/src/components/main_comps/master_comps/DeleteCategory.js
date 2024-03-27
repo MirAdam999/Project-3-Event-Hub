@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useToken } from '../../Token';
 import Spinner from "../../Loading";
+import '../../../style/Pop-Up.css';
 
 const DeleteCategory = (props) => {
     const { storedToken } = useToken();

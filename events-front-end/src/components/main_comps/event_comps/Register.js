@@ -67,7 +67,7 @@ const Register = (props) => {
                 <div className="sucsess-message">
                     <p>Registration Sucsessful!</p>
                     <p> You can now view the Events or cancel registration under 'My Registrations'.</p>
-                    <button onClick={() => handleNavigation('/my_registrations')}> Go To My Registrations </button>
+                    <button id='go-to-my-registrations' onClick={() => handleNavigation('/my_registrations')}> Go To My Registrations </button>
                 </div>}
             {errorMessage &&
                 <div className="events-err">

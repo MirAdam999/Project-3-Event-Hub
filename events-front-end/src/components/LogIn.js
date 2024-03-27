@@ -1,6 +1,7 @@
 
 import { useRef, useState } from "react";
 import { useToken } from "./Token";
+import '../style/Pop-Up.css';
 
 const LoginPopUp = (props) => {
     const username = useRef();

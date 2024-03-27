@@ -233,18 +233,39 @@ class BackendBase:
             self.logger.log(self.class_name,'get_category_by_id', None, str(e))
             return None
         
-        
+     
     def get_user_by_id(self, user_id):
         try:
             user= self.users_repo.get_by_id(user_id)
             if user:
-                self.logger.log(self.class_name,'get_user_by_id', (user_id), user)
-                return user             
+                self.logger.log(self.class_name,'get_user_by_id', user_id, user)
+                return user
+
             else:
-                self.logger.log(self.class_name,'get_user_by_id', (user_id), 'none found')
+                self.logger.log(self.class_name,'get_user_by_id', user_id, 'no user by id')
                 return None
             
         except Exception as e:
-            self.logger.log(self.class_name,'get_user_by_id', (user_id), str(e))
+            self.logger.log(self.class_name,'get_user_by_id', user_id, str(e))
+            return None     
+     
+        
+    def get_user_profile_by_id(self, user_id):
+        try:
+            user= self.users_repo.get_by_id(user_id)
+            if user:
+                events = self.events_repo.get_stored_procedure('get_my_events',{'organiserID':user_id}) 
+                events_count = self.events_repo.get_stored_procedure('count_my_events',{'organiserID':user_id}) 
+                attended_count = self.events_repo.get_stored_procedure('count_my_attended',{'atendieeID':user_id}) 
+                self.logger.log(self.class_name,'get_user_profile_by_id',
+                                (user_id), (user, events, events_count, attended_count))
+                return user, events, events_count, attended_count           
+            else:
+                self.logger.log(self.class_name,'get_user_profile_by_id', (user_id), 'none found')
+                return None
+            
+        except Exception as e:
+            self.logger.log(self.class_name,'get_user_profile_by_id', (user_id), str(e))
             return None 
+        
         

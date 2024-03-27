@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useToken } from '../../Token';
 import Spinner from "../../Loading";
+import '../../../style/Window.css';
 
 const UpdateEvent = (props) => {
     const { storedToken } = useToken();
@@ -206,6 +207,7 @@ const UpdateEvent = (props) => {
                                 src={`data:image/png;base64,${selectedFile}`}
                                 alt='image'
                                 className="event-uploaded-image"
+                                style={{ maxWidth: '100%', maxHeight: '300px' }}
                             />
                             <button onClick={(e) => handleClearFile(e)}>Clear File</button></>}
 

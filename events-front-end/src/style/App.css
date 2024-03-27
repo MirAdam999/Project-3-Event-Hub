@@ -1,0 +1,39 @@
+:root {
+  --main-color: rgb(219, 162, 148);
+  --darker-color: rgb(197, 100, 67);
+  --shiny-color: #c54363;
+  --main-font: "Comfortaa", sans-serif;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+}
+
+.error-message {
+  color: red;
+  font-family: var(--main-font);
+}
+
+.App {
+  position: relative;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.update-data {
+  display: flex;
+  flex-direction: row;
+}
+
+#footer {
+  margin: 0;
+  background-color: white;
+  color: var(--main-color);
+  font: 1rem;
+  font-family: var(--main-font);
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

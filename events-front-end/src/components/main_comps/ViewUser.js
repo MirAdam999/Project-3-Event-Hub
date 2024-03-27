@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Spinner from "../Loading";
 import { useToken } from "../Token";
 
@@ -9,8 +10,15 @@ const ViewUser = () => {
     const { user_id } = useParams();
     const [errorMessage, setErrorMessage] = useState('');
     const [user, setUser] = useState([]);
+    const [usersEvents, setUsersEvents] = useState([]);
+    const [usersEventsCount, setUsersEventsCount] = useState('');
+    const [usersAttendedCount, setUsersAttendedCount] = useState('');
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
+    const handleNavigation = (path) => {
+        navigate(path);
+    };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -36,6 +44,9 @@ const ViewUser = () => {
                 } else {
                     const data = await result.json();
                     setUser(data.user);
+                    setUsersEvents(data.users_events);
+                    setUsersEventsCount(data.users_events_count.events_count);
+                    setUsersAttendedCount(data.users_attended_count.attended_count);
                 }
             } catch (error) {
                 console.error('Error during fetch:', error);
@@ -58,6 +69,7 @@ const ViewUser = () => {
     } else if (user) {
         return (
             <div className="user-page">
+
                 <div className="user-display">
                     <p>{user.user_id}</p>
                     <p>{user.username}</p>
@@ -68,6 +80,36 @@ const ViewUser = () => {
                     {user.is_master === 'Admin' && <p>{user.is_master}</p>}
                     {isMasterUser && <p>{user.email}</p>}
                 </div>
+
+                <div className="user-statistic">
+                    <p> Organised {usersEventsCount} Events</p>
+                    <p> Attended {usersAttendedCount} Events</p>
+                </div>
+
+                {usersEvents && <div className="users-events">
+                    <table>
+                        <tr>
+                            <th>Event ID</th>
+                            <th> Title</th>
+                            <th> Location </th>
+                            <th> Date </th>
+                            <th>Time</th>
+                            <th>Category</th>
+                            <th>Type</th>
+                        </tr>
+                        {usersEvents.map(event => (
+                            <tr onClick={() => handleNavigation(`/view_event/${event.event_id}`)} key={event.event_id}>
+                                <td>{event.event_id}</td>
+                                <td>{event.title}</td>
+                                <td>{event.location}</td>
+                                <td>{event.date}</td>
+                                <td>{event.time}</td>
+                                <td>{event.category}</td>
+                                <td>{event.is_private}</td>
+                            </tr>))}
+                    </table>
+                </div>}
+
             </div >
         )
     }

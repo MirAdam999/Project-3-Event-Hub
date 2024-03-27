@@ -1,5 +1,6 @@
 
 import { useNavigate } from 'react-router-dom';
+import '../../style/main/SearchEvent.css'
 
 const EventsFound = (props) => {
     const errorMessage = props.error;
@@ -17,17 +18,30 @@ const EventsFound = (props) => {
                     {events.map(event => (
                         <button className="open-event" onClick={() => handleNavigation(`/view_event/${event.event_id}`)}>
                             <div className="event-on-grid" key={event.event_id}>
-                                <img
-                                    src={`data:image/png;base64,${event.image}`}
-                                    alt={event.title}
-                                    className="event-image"
-                                />
-                                <p className="event-title">{event.title}</p>
-                                <p className="event-date">{event.date}</p>
-                                <p className="event-time">{event.time}</p>
-                                <p className="event-location">{event.location}</p>
-                                <p className="event-is_private">{event.is_private}</p>
-                                <p className="event-is_canceled">{event.is_canceled}</p>
+                                <div className="event-image-container">
+                                    <img
+                                        src={`data:image/png;base64,${event.image}`}
+                                        alt={event.title}
+                                        className="event-image"
+                                    />
+                                    {event.is_canceled === "Canceled" && <div className="event-is_canceled">CANCELED</div>}
+                                </div>
+                                <div className="event-on-grid-text">
+                                    <div className="event-on-grid-text-top">
+                                        <div className="event-on-grid-text-top-left">
+                                            <p className="event-title">{event.title}</p>
+                                            <p className="event-organiser">By: {event.organizer_name}</p>
+                                        </div>
+                                        <div className="event-on-grid-text-top-right">
+                                            <p className="event-date">{event.date}</p>
+                                            <p className="event-time">{event.time}</p>
+                                        </div>
+                                    </div>
+                                    <div className="event-on-grid-text-bottom">
+                                        <p className="event-location"> Location: {event.location}</p>
+                                        <p className="event-is_private">{event.is_private} Event</p>
+                                    </div>
+                                </div>
                             </div>
                         </button>
                     ))}

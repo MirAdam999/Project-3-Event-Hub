@@ -161,9 +161,9 @@ const AddEvent = () => {
                     <label htmlFor="time">Time:</label>
                     <input type="time" id="time" ref={time} required /><br />
                     <label for="image">Upload Image:</label>
-                    <input type="file" id="image" accept=".jpg, .jpeg, .png, .gif" onChange={handleFileChange} /><br />
+                    <input type="file" id="image" accept=".jpg, .jpeg, .png, .gif" onChange={handleFileChange} required /><br />
                     {fileError && <p className="error-message">{fileError}</p>}
-                    {previewURL && <img src={previewURL} alt="Preview" style={{ maxWidth: '100%', maxHeight: '200px' }} />}
+                    {previewURL && <img src={previewURL} alt="Preview" style={{ maxWidth: '100%', maxHeight: '300px' }} />}
                     <button onClick={handleClearFile}>Clear File</button>
 
                     <span>Is This a Private Event?</span><br />

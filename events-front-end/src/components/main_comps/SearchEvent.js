@@ -2,6 +2,9 @@
 import { useState, useEffect, useRef } from "react";
 import Spinner from "../Loading";
 import EventsFound from "./EventsFound";
+import '../../style/main/Searchbar.css'
+import '../../style/main/SearchEvent.css'
+import '@fortawesome/fontawesome-free/css/all.css';
 
 const SearchEvent = () => {
     const [errorMessage, setErrorMessage] = useState('');
@@ -17,6 +20,8 @@ const SearchEvent = () => {
     const [selectedValue, setSelectedValue] = useState('');
 
     useEffect(() => {
+        setSearched(true)
+        setLoading(true);
         const fetchData = async () => {
             try {
                 const response = await fetch('http://127.0.0.1:5000/get_categories');
@@ -60,8 +65,6 @@ const SearchEvent = () => {
                 formDataObject[key] = value;
             });
 
-            console.log(formDataObject)
-
             const result = await fetch("http://127.0.0.1:5000/search_event", {
                 method: 'POST',
                 headers: {
@@ -97,44 +100,57 @@ const SearchEvent = () => {
 
     return (
         <div className="search_event">
-
             <div className="searchbar">
                 <form onSubmit={handleSubmit}>
-
-                    <label htmlFor="event_id">Event ID:</label>
-                    <input type="number" id="event_id" ref={event_id} /><br />
-                    <label htmlFor="title">Title:</label>
-                    <input type="text" id="title" ref={title} maxLength='100' /><br />
-                    <label htmlFor="organiser">Organiser:</label>
-                    <input type="text" id="organiser" ref={organiser} maxLength='100' /><br />
-                    <label htmlFor="location">Location:</label>
-                    <input type="text" id="location" ref={location} maxLength='300' /><br />
-                    <label htmlFor="date">Date:</label>
-                    <input type="date" id="date" ref={date} /><br />
-                    <select value={selectedValue} onChange={handleSelectChange}>
-                        <option value="">- Event Category -</option>
-                        {Array.isArray(category) && category.map((categoryItem) => (
-                            <option key={categoryItem.category_id} value={categoryItem.category_id}>
-                                {categoryItem.category}: {categoryItem.description}
-                            </option>
-                        ))}
-                    </select><br />
-                    <button type="submit"> Search </button>
+                    <div className="label-input">
+                        <label htmlFor="event_id">Event ID:</label><br />
+                        <input type="number" id="event_id" ref={event_id} /><br />
+                    </div>
+                    <div className="label-input">
+                        <label htmlFor="title">Title:</label><br />
+                        <input type="text" id="title" ref={title} maxLength='100' /><br />
+                    </div>
+                    <div className="label-input">
+                        <label htmlFor="organiser">Organiser:</label><br />
+                        <input type="text" id="organiser" ref={organiser} maxLength='100' /><br />
+                    </div>
+                    <div className="label-input">
+                        <label htmlFor="location">Location:</label><br />
+                        <input type="text" id="location" ref={location} maxLength='300' /><br />
+                    </div>
+                    <div className="label-input">
+                        <label htmlFor="date">Date:</label><br />
+                        <input type="date" id="date" ref={date} /><br />
+                    </div>
+                    <div className="label-input" id="category-div">
+                        <label htmlFor="category">Category:</label><br />
+                        <select id="category" value={selectedValue} onChange={handleSelectChange}>
+                            <option value="">-Select-</option>
+                            {Array.isArray(category) && category.map((categoryItem) => (
+                                <option key={categoryItem.category_id} value={categoryItem.category_id}>
+                                    {categoryItem.category}
+                                </option>
+                            ))}
+                        </select><br />
+                    </div>
+                    <div className="search-button">
+                        <button type="submit"> Search <i class="fa-solid fa-magnifying-glass"></i> </button>
+                    </div>
                 </form>
             </div>
 
-            <div className="search-result">
-                {searched ? (
-                    loading ? (
-                        <div className="events-loading">
-                            <Spinner />
-                        </div>
-                    ) : (
-                        <EventsFound events={events} error={errorMessage} />
-                    )
-                ) : null}
-            </div>
-        </div >
+            {searched ? (<div className="search-result">
+                {loading ? (
+                    <div className="events-loading">
+                        <Spinner />
+                    </div>
+                ) : (
+                    <EventsFound events={events} error={errorMessage} />
+                )}
+            </div>) :
+                (<div className="popular-events"></div>)}
+
+        </div>
     );
 }
 

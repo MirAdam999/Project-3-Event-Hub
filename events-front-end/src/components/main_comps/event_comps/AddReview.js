@@ -2,6 +2,7 @@
 import { useState, useRef } from "react";
 import { useToken } from '../../Token';
 import Spinner from "../../Loading";
+import '../../../style/Window.css';
 
 const AddReview = (props) => {
     const { storedToken } = useToken();

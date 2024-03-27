@@ -131,11 +131,11 @@ const UsersMangment = () => {
                         </thead>
                         <tbody>
                             {users.map(user => (
-                                <tr key={user.user_id} className="table">
-                                    <td><button onClick={() => handleNavigation(`/user/${user.user_id}`)}>{user.user_id}</button></td>
-                                    <td><button onClick={() => handleNavigation(`/user/${user.user_id}`)}>{user.username}</button></td>
+                                <tr key={user.user_id} onClick={() => handleNavigation(`/user/${user.user_id}`)}>
+                                    <td>{user.user_id}</td>
+                                    <td>{user.username}</td>
                                     <td >{user.email}</td>
-                                    <td><button onClick={() => handleNavigation(`/user/${user.user_id}`)}>{user.name}</button></td>
+                                    <td>{user.name}</td>
                                     <td>{user.created}</td>
                                     <td>{user.is_active}</td>
                                     <td>{user.is_master}</td>

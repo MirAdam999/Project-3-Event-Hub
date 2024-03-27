@@ -1,4 +1,6 @@
+
 import Spinner from "../../Loading";
+import '../../../style/Pop-Up.css';
 
 const RevokeAdmin = (props) => {
     const user = props.user

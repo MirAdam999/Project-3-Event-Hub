@@ -26,7 +26,7 @@ class Routes(Blueprint):
         self.route('/add_image/<int:event_id>', methods=['POST'])(self.add_image)
         self.route('/my_events', methods=['POST'])(self.my_events)
         self.route('/add_event', methods=['POST'])(self.add_event)
-        self.route('/cancel_event/<int:event_id>', methods=['POST'])(self.cancel_event)
+        self.route('/cancel_event/<int:event_id>', methods=['PUT'])(self.cancel_event)
         self.route('/update_event/<int:event_id>', methods=['PUT'])(self.update_event)
         self.route('/approve_registration/<int:registeration_id>', methods=['PUT'])(self.approve_registration)
         self.route('/decline_registration/<int:registeration_id>', methods=['PUT'])(self.decline_registration)
@@ -34,7 +34,7 @@ class Routes(Blueprint):
         self.route('/attended', methods=['POST'])(self.attended_events)
         self.route('/get_categories', methods=['GET'])(self.get_categories)
         self.route('/get_user', methods=['POST'])(self.get_user)
-        self.route('/get_user_by_id/<int:user_id>', methods=['GET'])(self.get_user_by_id)
+        self.route('/get_user_by_id/<int:user_id>', methods=['GET'])(self.get_user_profile_by_id)
         self.route('/update_user', methods=['PUT'])(self.update_user)
         self.route('/change_password', methods=['PUT'])(self.change_password)
         self.route('/register/<int:event_id>', methods=['POST'])(self.register_to_event)
@@ -163,8 +163,8 @@ class Routes(Blueprint):
                         'title': event[1],
                         'description': event[2],
                         'location': event[3],
-                        'date': event[4].strftime('%Y-%m-%d') if event[4] is not None else None,
-                        'time': event[4].strftime('%H:%M:%S') if event[4] is not None else None,
+                        'date': event[4].strftime('%d-%m-%Y') if event[4] is not None else None,
+                        'time': event[4].strftime('%H:%M') if event[4] is not None else None,
                         'image':  base64.b64encode(image_data).decode('utf-8') if image_data is not None else None,
                         'organizer_id': event[6],
                         'organizer_name': organizer.FullName,
@@ -242,8 +242,8 @@ class Routes(Blueprint):
                     converted_registrations.append({
                         'registeration_id': registration[0],
                         'name': user.FullName,
-                        'date': registration[3].strftime('%Y-%m-%d') if registration[3] is not None else None,
-                        'time': registration[3].strftime('%H:%M:%S') if registration[3] is not None else None,
+                        'date': registration[3].strftime('%d-%m-%Y')  if registration[3] is not None else None,
+                        'time': registration[3].strftime('%H:%M') if registration[3] is not None else None,
                         'status': registration[4]
                     })  
                 
@@ -272,8 +272,8 @@ class Routes(Blueprint):
                         'user_id': review[1],
                         'raiting': review[4],
                         'comment': review[5],
-                        'date': review[6].strftime('%Y-%m-%d') if review[6] is not None else None,
-                        'time': review[6].strftime('%H:%M:%S') if review[6] is not None else None
+                        'date': review[6].strftime('%d-%m-%Y')  if review[6] is not None else None,
+                        'time': review[6].strftime('%H:%M') if review[6] is not None else None
                     })  
                     
                 return jsonify({'reviews':converted_reviews}), 201
@@ -299,8 +299,8 @@ class Routes(Blueprint):
                         'user': user.FullName,
                         'user_id': image[3],
                         'image':  base64.b64encode(image_data).decode('utf-8') if image_data is not None else None,
-                        'date': image[4].strftime('%Y-%m-%d') if image[4] is not None else None,
-                        'time': image[4].strftime('%H:%M:%S') if image[4] is not None else None
+                        'date': image[4].strftime('%d-%m-%Y')  if image[4] is not None else None,
+                        'time': image[4].strftime('%H:%M') if image[4] is not None else None
                     })  
                     
                 return jsonify({'images':converted_images}), 201
@@ -457,8 +457,8 @@ class Routes(Blueprint):
                         'title': event[1],
                         'description': event[2],
                         'location': event[3],
-                        'date': event[4].strftime('%Y-%m-%d') if event[4] is not None else None,
-                        'time': event[4].strftime('%H:%M:%S') if event[4] is not None else None,
+                        'date': event[4].strftime('%d-%m-%Y')  if event[4] is not None else None,
+                        'time': event[4].strftime('%H:%M') if event[4] is not None else None,
                         'image':  base64.b64encode(image_data).decode('utf-8') if image_data is not None else None,
                         'organizer': event[6],
                         'category': categoty_name.EventCategory,
@@ -531,7 +531,7 @@ class Routes(Blueprint):
                 return jsonify({'cancel_event':cancel}), 201
             
             else:
-                return jsonify({'error':'Authentication Error'}), 401
+                return jsonify({'error':'False'}), 400
 
         except Exception as e:
            return jsonify({'error':str(e)}), 500 
@@ -646,8 +646,8 @@ class Routes(Blueprint):
                         'title': event.Title,
                         'description': event.Description,
                         'location': event.Location,
-                        'date': event.EventDateTime.strftime('%Y-%m-%d') if event.EventDateTime is not None else None,
-                        'time': event.EventDateTime.strftime('%H:%M:%S') if event.EventDateTime is not None else None,
+                        'date': event.EventDateTime.strftime('%d-%m-%Y')  if event.EventDateTime is not None else None,
+                        'time': event.EventDateTime.strftime('%H:%M') if event.EventDateTime is not None else None,
                         'image':  base64.b64encode(image_data).decode('utf-8') if image_data is not None else None,
                         'organizer_name': organizer.FullName,
                         'category': categoty_name.EventCategory,
@@ -691,8 +691,8 @@ class Routes(Blueprint):
                         'title': event.Title,
                         'description': event.Description,
                         'location': event.Location,
-                        'date': event.EventDateTime.strftime('%Y-%m-%d') if event.EventDateTime is not None else None,
-                        'time': event.EventDateTime.strftime('%H:%M:%S') if event.EventDateTime is not None else None,
+                        'date': event.EventDateTime.strftime('%d-%m-%Y')  if event.EventDateTime is not None else None,
+                        'time': event.EventDateTime.strftime('%H:%M') if event.EventDateTime is not None else None,
                         'image':  base64.b64encode(image_data).decode('utf-8') if image_data is not None else None,
                         'organizer_name': organizer.FullName,
                         'category': categoty_name.EventCategory,
@@ -763,9 +763,9 @@ class Routes(Blueprint):
            return jsonify({'error':str(e)}), 500 
 
     
-    def get_user_by_id(self,user_id):
+    def get_user_profile_by_id(self,user_id):
         try:   
-            user = self.backend_base.get_user_by_id(user_id)
+            user, events, events_count, attended_count = self.backend_base.get_user_profile_by_id(user_id)
             if user: 
                 converted_user = {
                     'user_id': user.UserID,
@@ -776,9 +776,36 @@ class Routes(Blueprint):
                     'created': user.CreatedAt ,
                     'is_active': "Active" if user.IsActive else "Disactivated",
                     'is_master': "Admin" if user.IsMasterUser else "Regular"
-                } 
+                }
                 
-                return jsonify({'user':converted_user}), 201
+                if events:
+                    converted_events=[]
+                    for event in events:
+                        categoty_name = self.backend_base.get_category_by_id(event[7])
+                        converted_events.append({
+                            'event_id': event[0],
+                            'title': event[1],
+                            'location': event[3],
+                            'date': event[4].strftime('%d-%m-%Y')  if event[4] is not None else None,
+                            'time': event[4].strftime('%H:%M') if event[4] is not None else None,
+                            'category': categoty_name.EventCategory,
+                            'is_private': 'Private' if event[8] else 'Public',
+                            'is_canceled': 'Canceled' if event[9] else 'As Planned'
+                        })
+                        converted_events_count = {'events_count':events_count[0][0]}
+                else:
+                    converted_events=0
+                    converted_events_count=0
+                    
+                if attended_count:
+                    converted_attended_count = {'attended_count':attended_count[0][0]}
+                else:
+                    converted_attended_count = 0
+                
+                return jsonify({'user':converted_user,
+                                'users_events':converted_events,
+                                'users_events_count':converted_events_count,
+                                'users_attended_count':converted_attended_count}), 201
             
             else:
                 return jsonify({'error':False}), 400
@@ -910,8 +937,8 @@ class Routes(Blueprint):
                         'title': event.Title,
                         'description': event.Description,
                         'location': event.Location,
-                        'date': event.EventDateTime.strftime('%Y-%m-%d') if event.EventDateTime is not None else None,
-                        'time': event.EventDateTime.strftime('%H:%M:%S') if event.EventDateTime is not None else None,
+                        'date': event.EventDateTime.strftime('%d-%m-%Y')  if event.EventDateTime is not None else None,
+                        'time': event.EventDateTime.strftime('%H:%M') if event.EventDateTime is not None else None,
                         'image':  base64.b64encode(image_data).decode('utf-8') if image_data is not None else None,
                         'organizer_id': event.OrganizerID,
                         'organizer_name': organizer.FullName,
@@ -1005,8 +1032,8 @@ class Routes(Blueprint):
                         'title': event[1],
                         'description': event[2],
                         'location': event[3],
-                        'date': event[4].strftime('%Y-%m-%d') if event[4] is not None else None,
-                        'time': event[4].strftime('%H:%M:%S') if event[4] is not None else None,
+                        'date': event[4].strftime('%d-%m-%Y') if event[4] is not None else None,
+                        'time': event[4].strftime('%H:%M') if event[4] is not None else None,
                         'image':  base64.b64encode(image_data).decode('utf-8') if image_data is not None else None,
                         'organizer_id': event[6],
                         'organizer_name': organizer.FullName,

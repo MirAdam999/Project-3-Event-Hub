@@ -118,7 +118,7 @@ const ShowRegistrations = (props) => {
                 <table>
                     <th> ID </th>
                     <th> User </th>
-                    <th> Time </th>
+                    <th> Registered At </th>
                     {event.is_private === 'Private' && <>
                         <th> Status </th>
                         <th> Approve </th>
@@ -129,25 +129,30 @@ const ShowRegistrations = (props) => {
                             <tr key={register.registeration_id}>
                                 <td> {register.registeration_id} </td>
                                 <td> {register.name} </td>
-                                <td> {register.date} {register.time} </td>
+                                <td id='registration-datetime'> {register.date} {register.time} </td>
                                 {event.is_private === 'Private' && <>
-                                    <td> {register.status} </td>
+                                    <td style={{
+                                        color: register.status === 'Declined' ? 'red' :
+                                            (register.status === 'Approved' ? 'green' : 'black')
+                                    }}>
+                                        {register.status}
+                                    </td>
                                     {register.status === 'Approved' &&
-                                        <><td> <button disabled>Approve</button> </td>
-                                            <td> <button onClick={() => handleDecline(register.registeration_id)}>Decline</button> </td></>}
+                                        <><td> <button id='approve' disabled>Approve</button> </td>
+                                            <td> <button id='decline' onClick={() => handleDecline(register.registeration_id)}>Decline</button> </td></>}
                                     {register.status === 'Declined' &&
-                                        <><td> <button onClick={() => handleApprove(register.registeration_id)}>Approve</button> </td>
-                                            <td> <button disabled>Decline</button> </td></>}
+                                        <><td> <button id='approve' onClick={() => handleApprove(register.registeration_id)}>Approve</button> </td>
+                                            <td> <button id='decline' disabled>Decline</button> </td></>}
                                     {register.status === 'Pending Approval' &&
-                                        <><td> <button onClick={() => handleApprove(register.registeration_id)}> Approve</button> </td>
-                                            <td> <button onClick={() => handleDecline(register.registeration_id)}>Decline</button> </td></>}
+                                        <><td> <button id='approve' onClick={() => handleApprove(register.registeration_id)}> Approve</button> </td>
+                                            <td> <button id='decline' onClick={() => handleDecline(register.registeration_id)}>Decline</button> </td></>}
                                 </>}
                             </tr>))}
                     </tbody>
                 </table>
 
                 {loading &&
-                    <div className="events-loading">
+                    <div className="registrations-loading">
                         <Spinner />
                     </div>
                 }
