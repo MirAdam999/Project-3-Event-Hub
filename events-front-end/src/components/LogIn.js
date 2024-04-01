@@ -63,18 +63,18 @@ const LoginPopUp = (props) => {
             <div className="popup-inner">
                 <div className="login">
                     <form className="login-form" onSubmit={handleLogin}>
-                        <p>Login</p>
+                        <p id='log-header' >Login</p>
                         <label htmlFor="username">Username:</label>
                         <input type="text" id="username" ref={username} required />
                         <label htmlFor="password">Password:</label>
                         <input type="password" id="password" ref={password} required />
 
-                        <button className="green-button" type="submit"> Log In </button>
+                        <button className="login-button" type="submit"> Log In </button>
                     </form>
                     {errorMessage && <p className="error-message">{errorMessage}</p>}
                 </div>
                 <div className="signup">
-                    <p>New to EventHub?</p>
+                    <p id='log-header'>New to EventHub?</p>
                     <button className="go-to-signup-button" onClick={openSignUp}> Sign Up !</button>
                 </div>
                 <div className="close"><button onClick={props.onClose}>X</button></div>

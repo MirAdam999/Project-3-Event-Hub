@@ -96,9 +96,9 @@ const ShowReviews = (props) => {
                         <p id='brackets-right'><i class="fa-solid fa-quote-right"></i></p>
                         <p id='review-datetime'>Reviewed At: {review.date} {review.time}</p>
                         {usersId === review.user_id &&
-                            <div>
-                                <button onClick={() => openDelete(review)}> Delete Review </button>
-                                <button onClick={() => openUpdate(review)}> Change Review </button>
+                            <div id='reviewer-actions'>
+                                <button id='reviewer-actions-delete' onClick={() => openDelete(review)}> Delete Review </button>
+                                <button id='reviewer-actions-update' onClick={() => openUpdate(review)}> Change Review </button>
                             </div>}
                     </div>))}
 

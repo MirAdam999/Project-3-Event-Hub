@@ -1,14 +1,14 @@
 
 import { useEffect, useState } from "react";
 import { useToken } from "../../Token";
-import Spinner from "../../Loading";
 
 const AllUsers = (props) => {
     const { storedToken } = useToken();
-    const [loading, setLoading] = useState(true);
+    const { setLoading } = props;
 
     useEffect(() => {
         props.setSearched(false)
+        setLoading(true);
         const fetchData = async () => {
             try {
                 const result = await fetch("http://127.0.0.1:5000/users", {
@@ -47,15 +47,8 @@ const AllUsers = (props) => {
         fetchData();
     }, [props.showAll, props.userUpdate]);
 
-    if (loading) {
-        return (
-            <div className="events-loading">
-                <Spinner />
-            </div>
-        );
-    } else {
-        return (<></>)
-    }
+    return (<></>)
+
 }
-//props.showAll && props.userUpdate
+
 export default AllUsers

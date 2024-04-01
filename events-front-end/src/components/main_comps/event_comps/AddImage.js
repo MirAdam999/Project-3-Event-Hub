@@ -99,25 +99,31 @@ const AddImage = (props) => {
 
     return (
         <div className="window">
-            <div className="window-inner">
+            <div className="window-inner" id='window-inner-add-image'>
                 <div className="add-image-window">
-                    <div className="close"><button onClick={props.onClose}>X</button></div>
-                    <form onSubmit={handleSubmit}>
-                        <label for="image">Upload Photo:</label>
-                        <input type="file" id="image" accept=".jpg, .jpeg, .png, .gif" onChange={handleFileChange} /><br />
-                        {fileError && <p className="error-message">{fileError}</p>}
-                        {previewURL && <img src={previewURL} alt="Preview" style={{ maxWidth: '100%', maxHeight: '200px' }} />}
-                        <button onClick={(e) => handleClearFile(e)}>Clear File</button>
 
-                        <button type="submit">Upload Photo</button>
-                    </form >
-                    {loading && <Spinner />}
-                    {isSuccess &&
-                        <div className="sucsess-message">
-                            <p>Photo Uploaded Sucsessfully!</p>
-                        </div>
-                    }
-                    {errorMessage && <p>{errorMessage}</p>}
+                    <div className="add-image-after-event">
+                        <form onSubmit={handleSubmit}>
+                            <label id='image-label' htmlFor="image">
+                                <i class="fa-regular fa-image"></i> Select Image
+                            </label><br />
+                            <input type="file" id="image" accept=".jpg, .jpeg, .png, .gif" onChange={handleFileChange} /><br />
+                            {fileError && <p className="error-message">{fileError}</p>}
+                            {previewURL && <> <img id='img-preview' src={previewURL} alt="Preview" /> <br /></>}
+                            {selectedFile && <> <button id='img-remove' onClick={handleClearFile}>X  Clear File</button><br /></>}
+
+                            <button className='approve-button' type="submit">Upload Photo</button>
+                        </form >
+                        {loading && <Spinner />}
+                        {isSuccess &&
+                            <div className="sucsess-message">
+                                <p>Photo Uploaded Sucsessfully!</p>
+                            </div>
+                        }
+                        {errorMessage && <p>{errorMessage}</p>}
+                    </div>
+
+                    <div className="close"><button onClick={props.onClose}>X</button></div>
                 </div>
             </div >
         </div>

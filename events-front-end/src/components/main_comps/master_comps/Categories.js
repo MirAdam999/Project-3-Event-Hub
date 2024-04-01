@@ -6,6 +6,7 @@ import AddCategory from "./AddCategory";
 import CategoryDetails from "./CategoryDetails";
 import UpdateCategory from "./UpdateCategory";
 import DeleteCategory from "./DeleteCategory";
+import '../../../style/main/Admin.css'
 
 const CategoriesMangment = () => {
     const { storedToken } = useToken();
@@ -90,32 +91,34 @@ const CategoriesMangment = () => {
 
     if (loading) {
         return (
-            <div className="events-loading">
-                <Spinner />
+            <div className="categories">
+                <div className="categories-top">
+                    <button disabled id='categories-add-button-fake-button'> Fake </button>
+                    <p> All Event Categories </p>
+                    <button onClick={() => openAdd()}> Add Category + </button>
+                </div>
+                <div className="events-loading">
+                    <Spinner />
+                </div>
             </div>
         );
     } else if (categories.length > 0) {
         return (
             <div className="categories">
-                <div className="categories-header">
+                <div className="categories-top">
+                    <button disabled id='categories-add-button-fake-button'> Fake </button>
                     <p> All Event Categories </p>
-                </div>
-                <div className="categories-add-button">
                     <button onClick={() => openAdd()}> Add Category + </button>
                 </div>
-                <div className="usecategoriesrs-display">
+                <div className="categoriesrs-display">
                     <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Event Category</th>
-                                <th>Category Description</th>
-                                <th>Num. Of Events</th>
-                                <th>View Events</th>
-                                <th>Update</th>
-                                <th>Delete</th>
-                            </tr>
-                        </thead>
+                        <th>ID</th>
+                        <th>Event Category</th>
+                        <th>Category Description</th>
+                        <th>Event Num.</th>
+                        <th>View Events</th>
+                        <th>Update</th>
+                        <th>Delete</th>
                         <tbody>
                             {categories.map(category => (
                                 <tr key={category.category_id}>
@@ -123,13 +126,13 @@ const CategoriesMangment = () => {
                                     <td>{category.name}</td>
                                     <td>{category.description}</td>
                                     <td>{category.count}</td>
-                                    <td><button onClick={() => openCategory(category)}> View Events </button></td>
-                                    <td><button onClick={() => openUpdate(category)}> Update </button></td>
+                                    <td><button id='view-cat-events-button' onClick={() => openCategory(category)}> View Events </button></td>
+                                    <td><button id='update-cat-button' onClick={() => openUpdate(category)}> Update </button></td>
                                     <td>
                                         {category.count > 0 ? (
-                                            <button disabled>Delete</button>
+                                            <button id='red-button' disabled>Delete</button>
                                         ) : (
-                                            <button onClick={() => openDelete(category)}>Delete</button>
+                                            <button id='red-button' onClick={() => openDelete(category)}>Delete</button>
                                         )}
                                     </td>
                                 </tr>
@@ -159,15 +162,29 @@ const CategoriesMangment = () => {
     }
     else if (categories.length = 0) {
         return (
-            <div className="events-none">
-                <p> No Categories Found </p>
+            <div className="categories">
+                <div className="categories-top">
+                    <button disabled id='categories-add-button-fake-button'> Fake </button>
+                    <p> All Event Categories </p>
+                    <button onClick={() => openAdd()}> Add Category + </button>
+                </div>
+                <div className="events-none">
+                    <p> No Categories Found </p>
+                </div>
             </div>
         );
     }
     else {
         return (
-            <div className="events-err">
-                <p className="error-message">{errorMessage}</p>
+            <div className="categories">
+                <div className="categories-top">
+                    <button disabled id='categories-add-button-fake-button'> Fake </button>
+                    <p> All Event Categories </p>
+                    <button onClick={() => openAdd()}> Add Category + </button>
+                </div>
+                <div className="events-err">
+                    <p className="error-message">{errorMessage}</p>
+                </div>
             </div>
         );
     }

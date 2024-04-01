@@ -1,0 +1,249 @@
+.add-event {
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border-radius: 2vw;
+    padding-top: 1%;
+    padding-bottom: 2%;
+    padding-left: 5%;
+    padding-right: 3%;
+    width: 80%;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    margin-left: 11%;
+    text-align: center;
+    font-family: var(--main-font);
+}
+
+.add-event-header {
+    font-size: 2vw;
+    color: var(--darker-color);
+    font-family: var(--main-font);
+    margin: 2%;
+}
+
+.add-event-form {
+    text-align: left;
+    margin-left: 20%;
+}
+
+.add-event-form label {
+    font-size: 1vw;
+    color: var(--darker-color);
+    font-family: var(--main-font);
+}
+
+#title,
+#description,
+#location {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border: solid 2px var(--darker-color);
+    border-radius: 0.5vw;
+    background-color: rgba(219, 162, 148, 0.1);
+    width: 80%;
+    padding: 0.5%;
+}
+
+#add-event-datetime input {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border: solid 2px var(--darker-color);
+    border-radius: 0.5vw;
+    background-color: rgba(219, 162, 148, 0.1);
+    width: 20%;
+    padding: 0.5%;
+}
+
+#title,
+#location,
+#add-event-datetime input {
+    height: 1.5vw;
+    font-size: 1vw;
+    color: black;
+    font-family: var(--main-font);
+}
+
+#description {
+    font-size: 0.8vw;
+    color: black;
+    font-family: var(--main-font);
+}
+
+#add-event-datetime input {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+#image {
+    display: none;
+}
+
+.add-image {
+    margin-top: 3%;
+    margin-bottom: 5%;
+}
+
+#image-label {
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    color: var(--darker-color);
+    border: dashed 4px var(--shiny-color);
+    border-radius: 0.5vw;
+    font-family: var(--main-font);
+    font-size: 1.5vw;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 2%;
+    padding-bottom: 1%;
+    font-weight: 700;
+    margin-left: 25%;
+    white-space: nowrap;
+}
+
+#image-label:hover {
+    background-color: rgba(219, 162, 148, 0.1);
+}
+
+#image-label i {
+    font-size: 2vw;
+    color: var(--shiny-color);
+}
+
+#img-preview {
+    margin-top: 4%;
+    margin-left: 22.5%;
+    margin-bottom: 2%;
+    max-width: 100%;
+    max-height: 300px;
+    border: dashed 4px var(--shiny-color);
+}
+
+#img-remove {
+    border: dashed 2px var(--shiny-color);
+    border-radius: 0.5vw;
+    margin-left: 35%;
+    margin-bottom: 3%;
+    background-color: rgba(219, 162, 148, 0.1);
+    font-family: var(--main-font);
+    font-size: 1.2vw;
+    color: var(--shiny-color);
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+}
+
+#title:focus,
+#description:focus,
+#location:focus,
+#add-event-datetime input:focus {
+    outline: var(--darker-color);
+    transition: 0.2s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.select-privacy {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 1%;
+    color: var(--shiny-color);
+    font-weight: 700;
+}
+
+.select-privacy span {
+    font-size: 1vw;
+    font-weight: 700;
+}
+
+#check-privacy {
+    width: 20px;
+    height: 20px;
+}
+
+.select-category {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.select-category select {
+    margin-top: 1%;
+    color: black;
+    font-family: var(--main-font);
+    font-size: 1vw;
+    border-radius: 0.5vw;
+    border: solid var(--darker-color);
+    border-width: 2px;
+    background-color: rgb(219, 162, 148, 0.2);
+    text-align: center;
+    width: 80%;
+    padding: 0.5%;
+}
+
+.select-category select:focus {
+    outline: var(--darker-color);
+    background-color: rgb(219, 162, 148, 0.4);
+    transition: 0.1s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#create-event {
+    margin-left: 29%;
+    margin-bottom: 3%;
+}
+
+#create-event-button {
+    background-color: var(--shiny-color);
+    border: solid white;
+    border-radius: 1vw;
+    font-family: var(--main-font);
+    font-size: 1.3vw;
+    color: white;
+    padding: 2%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+#create-event-button:hover {
+    background-color: var(--main-color);
+    border: solid var(--shiny-color);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    color: white;
+    font-weight: 700;
+}
+
+#sucsess-message-top {
+    color: var(--shiny-color);
+    font-size: 1.5vw;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+#sucsess-message-bottom {
+    color: var(--darker-color);
+    font-size: 1vw;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+#go-to-my-events {
+    background-color: var(--main-color);
+    font-size: 1.1vw;
+    border: solid white;
+    border-radius: 1vw;
+    font-family: var(--main-font);
+    color: white;
+    padding: 1%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    margin-left: 2%;
+}
+
+#go-to-my-events:hover {
+    background-color: var(--main-color);
+    border: solid var(--shiny-color);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    color: white;
+    font-weight: 700;
+}

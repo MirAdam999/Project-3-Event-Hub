@@ -20,7 +20,7 @@ const Sidebar = (props) => {
     }, [storedToken]);
 
     return (
-        <div className="sidebar">
+        <div className='sidebar'>
             <div className="sidebar-inner">
                 {isLoggedIn ? (
                     <div>

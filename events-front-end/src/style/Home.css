@@ -1,14 +1,201 @@
-.landing-page-hero {
-    margin: 0;
-    background-image: url(./images/backround.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    background-size: cover;
-    width: 100%;
-    height: 40vw;
+.landing-page {
+    margin-bottom: 1.5%;
+    margin-top: 3.5%;
 }
 
-.landing-page-hero p {
-    margin: 0;
+.landing-page-hero {
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 0%;
+    padding-right: 3%;
+    background-image: url(./images/backround.jpg);
+    background-position: center;
+    background-size: cover;
+    width: 100vw;
+    height: 30vw;
+    font-family: var(--main-font);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    border-bottom: solid 3px var(--shiny-color);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+
+.landing-page-hero-txt {
+    width: 60%;
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+#hero-header {
+    color: var(--shiny-color);
+    font-size: 3vw;
+    font-weight: 700;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+#hero-text {
+    font-size: 1.2vw;
+    margin-bottom: 0%;
+}
+
+.landing-page-hero-btn {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+#hero-search {
+    color: white;
+    font-family: var(--main-font);
+    border: solid white 4px;
+    border-radius: 1vw;
+    font-size: 2.5vw;
+    background-color: var(--shiny-color);
+    padding: 3%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-bottom: 13%;
+    transition: transform 0.3s;
+}
+
+#hero-search:hover {
+    background-color: rgb(245, 222, 216);
+    border: solid var(--shiny-color);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    color: var(--shiny-color);
+    font-weight: 700;
+    transform: scale(1.1);
+    transition: transform 0.3s;
+}
+
+.landing-page-organiser {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0%;
+    margin-top: 3%;
+    margin-left: 5%;
+    margin-right: 3%;
+}
+
+.landing-page-organiser-img {
+    background-image: url(./images/organiser.jpg);
+    background-size: cover;
+    width: 20rem;
+    height: 20rem;
+    border: solid 20px white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transform: rotate(-13deg);
+}
+
+.landing-page-organiser-txt {
+    width: 50%;
+    font-family: var(--main-font);
+    background-color: white;
+    padding-top: 3%;
+    padding-bottom: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px 0px;
+    margin: 0%;
+    z-index: 0;
+    position: relative;
+}
+
+#for-organisers-call {
+    color: var(--shiny-color);
+    font-size: 3vw;
+    font-weight: 700;
+    margin: 1%;
+}
+
+#for-organisers-header {
+    color: var(--darker-color);
+    font-size: 1.5vw;
+}
+
+#for-organisers-text {
+    padding-bottom: 0;
+    margin-bottom: 3%;
+}
+
+#button-to-plan {
+    color: white;
+    font-family: var(--main-font);
+    border: solid white 3px;
+    border-radius: 1vw;
+    font-size: 2vw;
+    background-color: var(--shiny-color);
+    padding: 2%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-left: 40%;
+    transition: transform 0.3s;
+}
+
+#button-to-plan:hover {
+    background-color: var(--main-color);
+    border: solid var(--shiny-color);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    color: white;
+    font-weight: 700;
+    transform: scale(1.1);
+    transition: transform 0.3s;
+}
+
+.landing-page-about {
+    font-family: var(--main-font);
+    background-color: white;
+    z-index: 2;
+    position: relative;
+    padding-top: 2%;
+    padding-bottom: 1%;
+    padding-left: 5%;
+    padding-right: 5%;
+    border-top: solid 3px var(--shiny-color);
+    font-size: 0.9vw;
+}
+
+#about-header {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: var(--shiny-color);
+    font-size: 2vw;
+}
+
+#about-attendiees-header,
+#about-arganisers-header {
+    color: var(--darker-color);
+    font-size: 1.2vw;
+    white-space: nowrap;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#about-arganisers {
+    margin-bottom: 0;
+}
+
+.landing-page-contact {
+    background-color: white;
+    color: var(--shiny-color);
+    font-size: 2vw;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+    padding-bottom: 1%;
+}
+
+.landing-page-contact i {
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.landing-page-contact i:hover {
+    color: var(--darker-color);
 }

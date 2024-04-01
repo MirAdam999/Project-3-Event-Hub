@@ -12,18 +12,32 @@ from modules.feedback import Feedback
 from modules.registrations import Registrations
 from modules.users import Users
 
+# 25.02.24
+# Mir Shukhman
+# Defining class UserBackend wich will inherits from BackendBase class.
+# Every use of one of UserBackend's funcs will be logged in 'log.json' in format:
+#       id(Auto-generated), dattime(Auto-generated), class_name, func_name, func_input, func_output
+
 class UserBackend(BackendBase):
     def __init__(self, token_filepath):
-        # Inherts FacadeBase init, 
-        # LoginToken class instanse to acsess getter setter funcs from the class
+        # Inherts FacadeBase init
         super().__init__()
         self.class_name=self.__class__.__name__
+        # Instance of Authenticator class with recived token_filepath in init
         self.authenticator = Authenticator(token_filepath)
+        # Calling Authenticator class funcs to get and save in init user's data.
         self.name = self.authenticator.get_user_fullname()
         self.id = self.authenticator.get_user_id()
         self.is_master = self.authenticator.get_master_approval()
         
     def _get_authentication(self,front_end_token):
+        '''
+        Mir Shukhman
+        Inner func to get user authentication, calls authenticate_user func fron 
+        authenticator class, passes it inputed front_end_token, Returns True/False.
+        Input: front_end_token
+        Output: True/False
+        '''
         try:
             ok = self.authenticator.authenticate_user(front_end_token)
             if ok:
@@ -39,6 +53,13 @@ class UserBackend(BackendBase):
         
            
     def get_user(self, front_end_token):
+        '''
+        Mir Shukhman
+        Get current users info using self.id saved in init, gets ok from _get_authentication,
+        calls get_by_id func from users_repo.
+        Input: front_end_token
+        Output: user obj/None
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok:
@@ -57,6 +78,14 @@ class UserBackend(BackendBase):
         
         
     def change_password(self, * ,front_end_token, old_pass, new_pass):
+        '''
+        Mir Shukhman
+        Func to update password, gets ok from _get_authentication, calls get_user func,
+        retrives db_pass from recived user obj, hashes new pass using bcrypt.generate_password_hash,
+        returns (True, None). If err returns (False, err)
+        Input: front_end_token, old_pass, new_pass
+        Output: tupple (True/False,err_msg)
+        '''
         err_msg = None
         try:
             ok = self._get_authentication(front_end_token)
@@ -142,6 +171,13 @@ class UserBackend(BackendBase):
      
         
     def my_events(self, front_end_token):
+        '''
+        Mir Shukhman
+        Get current users events using self.id saved in init, gets ok from _get_authentication,
+        calls get_my_events db SP.
+        Input: front_end_token
+        Output: events (list of tupples)/ None
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok:
@@ -164,6 +200,14 @@ class UserBackend(BackendBase):
             
     def add_event(self, * ,front_end_token, title, description, 
                   location, date, time, image, cathegory_id, is_private):
+        '''
+        Mir Shukhman
+        Add event, gets ok from _get_authentication, calls format_datetime func,
+        calls add func from events_repo class.
+        Input: front_end_token, title, description, 
+                location, date, time, image, cathegory_id, is_private
+        Output: True/False
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok:
@@ -188,8 +232,18 @@ class UserBackend(BackendBase):
             return False 
         
         
-    def update_event(self,*, front_end_token,event_id, title, description, 
+    def update_event(self,*, front_end_token, event_id, title, description, 
                   location, date, time, image, cathegory_id, is_private):
+        '''
+        Mir Shukhman
+        Update event, gets ok from _get_authentication, calls get_by_id from events_repo class,
+        calls format_datetime func, calls update from events_repo class. If events privacy was changed
+        from what is saved in db, will call get_registrations_by_event func and for each registration will
+        change the Status accordingly ('Pending Approval' if changet to private, 'Approved' if changed to public).
+        Input: front_end_token, event_id, title, description, 
+                location, date, time, image, cathegory_id, is_private
+        Output: True/False
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok:
@@ -201,6 +255,18 @@ class UserBackend(BackendBase):
                                                         'Location':location,'EventDateTime':datetime,
                                                         'EventImage':image,'OrganizerID':self.id,
                                                         'CategoryID':cathegory_id,'IsPrivate':private})
+                    if is_private == True and event.IsPrivate==0:
+                        registrered = self.get_registrations_by_event(front_end_token,event_id)
+                        if registrered:
+                            for registration in registrered:
+                                self.registrations_repo.update(registration[0],{'Status':'Pending Approval'})
+                                
+                    if is_private == False and event.IsPrivate==1:
+                        registrered = self.get_registrations_by_event(front_end_token,event_id)
+                        if registrered:
+                            for registration in registrered:
+                                self.registrations_repo.update(registration[0],{'Status':'Approved'})
+                        
                     if updated_event:
                         self.logger.log(self.class_name,'update_event', (front_end_token, event_id, title, description, 
                             location, date, time, image, cathegory_id, is_private), 'event updated')
@@ -217,12 +283,25 @@ class UserBackend(BackendBase):
         
         
     def cancel_event(self, front_end_token,event_id):
+        '''
+        Mir Shukhman
+        Cancel event, gets ok from _get_authentication, calls get_by_id from events_repo class,
+        calls update from events_repo class and updates IsCanceled to True. Calls get_registrations_by_event func
+        and for each registration will change the Status to 'Event Canceled'.
+        Input: front_end_token, event_id
+        Output: True/False
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok:
                 event = self.events_repo.get_by_id(event_id)
                 if event and event.OrganizerID == self.id:
                     cancel_event= self.events_repo.update(event_id,{'IsCanceled':1})
+            
+                    registrered = self.get_registrations_by_event(front_end_token,event_id)
+                    if registrered:
+                        for registration in registrered:
+                            self.registrations_repo.update(registration[0],{'Status':'Event Canceled'})
                     
                     if cancel_event:
                         self.logger.log(self.class_name,'cancel_event', (front_end_token, event_id), 'event canceled')
@@ -239,6 +318,13 @@ class UserBackend(BackendBase):
                  
 
     def get_registrations_by_event (self, front_end_token, event_id):
+        '''
+        Mir Shukhman
+        Get registrations to certain event by event_id, for organiser use, gets ok from _get_authentication, calls my_events func,
+        checks that event with given event_id is in my_events, calls get_registrations_by_event db SP.
+        Input: front_end_token, event_id
+        Output: registrations(list of tupples)/None
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok:
@@ -260,6 +346,13 @@ class UserBackend(BackendBase):
         
     
     def my_registrations(self, front_end_token):
+        '''
+        Mir Shukhman
+        Get current users registrations using self.id saved in init, gets ok from _get_authentication,
+        calls get_my_registrations db SP.
+        Input: front_end_token
+        Output: registrations (list of tupples)/ None
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok:
@@ -282,6 +375,13 @@ class UserBackend(BackendBase):
             
             
     def my_attended_events(self, front_end_token):
+        '''
+        Mir Shukhman
+        Get current users attended events using self.id saved in init, gets ok from _get_authentication,
+        calls get_my_attended db SP.
+        Input: front_end_token
+        Output: attended (list of tupples)/ None
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok:
@@ -304,6 +404,14 @@ class UserBackend(BackendBase):
             
        
     def register_to_event(self, front_end_token,event_id):
+        '''
+        Mir Shukhman
+        Add registration to event, gets ok from _get_authentication, calls get_by_id from events_repo,
+        checkes event not canceled, calls check_if_registered db SP, sets Status to Approved if event is public
+        or to Pending Approval if event is private, calls add func from registrations_repo class.
+        Input: front_end_token, event_id
+        Output: tupple (status,err_msg)
+        '''
         err_msg= None
         try:
             ok = self._get_authentication(front_end_token)
@@ -344,6 +452,13 @@ class UserBackend(BackendBase):
         
         
     def cancel_registration_to_event(self, front_end_token, event_id):
+        '''
+        Mir Shukhman
+        Delete registration to event, gets ok from _get_authentication, calls my_registrations func, checks that there is 
+        a registration with inputed event_id in my_registrations, calls remove func from registrations_repo.
+        Input: front_end_token, event_id
+        Output: True/False
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok:
@@ -365,6 +480,14 @@ class UserBackend(BackendBase):
         
         
     def decline_registration(self,front_end_token, registration_id):
+        '''
+        Mir Shukhman
+        Decline registration to private event, gets ok from _get_authentication, calls get_by_id from 
+        registrations_repo class and get_by_id from events_repo, ensures organiserID matches self.id, 
+        and that event is set to private, calls update from registrations_repo and sets Status to Declined.
+        Input: front_end_token, registration_id
+        Output: True/False
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok:
@@ -385,6 +508,14 @@ class UserBackend(BackendBase):
         
         
     def approve_registration(self,front_end_token, registration_id):
+        '''
+        Mir Shukhman
+        Approve registration to private event, gets ok from _get_authentication, calls get_by_id from 
+        registrations_repo class and get_by_id from events_repo, ensures organiserID matches self.id, 
+        and that event is set to private, calls update from registrations_repo and sets Status to Approved.
+        Input: front_end_token, registration_id
+        Output: True/False
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok:
@@ -405,6 +536,15 @@ class UserBackend(BackendBase):
         
         
     def add_feedback(self, *,front_end_token, event_id, raiting, comment):
+        '''
+        Mir Shukhman
+        Add feedback for attendiee after event, gets ok from _get_authentication,
+        calls get_by_id func from events_repo, checks that event has passed and has not been canceled,
+        calls my_attended_events func and checks the event with event_id given is in my_attended_events
+        and that registration is Approved, calls add func from feedback_repo.
+        Input: front_end_token, event_id, raiting, comment
+        Output: True/False
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok:
@@ -434,6 +574,14 @@ class UserBackend(BackendBase):
         
         
     def update_feedback(self, *,front_end_token, feedback_id, raiting, comment):
+        '''
+        Mir Shukhman
+        Change feedback for attendiee after event, gets ok from _get_authentication,
+        calls get_by_id func from feedback_repo and my_attended_events func, checks 
+        there is a registration with id matching one in the feedback, calls update func from feedback_repo class.
+        Input: front_end_token, feedback_id, raiting, comment
+        Output: True/False
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok:
@@ -459,21 +607,24 @@ class UserBackend(BackendBase):
         
         
     def delete_feedback(self,front_end_token, feedback_id):
+        '''
+        Mir Shukhman
+        Delete feedback for attendiee after event, gets ok from _get_authentication,
+        calls get_by_id func from feedback_repo and my_attended_events func, checks 
+        there is a registration with id matching one in the feedback, calls remove func from feedback_repo class.
+        Input: front_end_token, feedback_id
+        Output: True/False
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok:
                 feedback= self.feedback_repo.get_by_id(feedback_id)
                 my_registrations= self.my_attended_events(front_end_token)
-                print(feedback)
-                print(my_registrations)
+                
                 for registration in my_registrations:
-                    print(registration)
-                    print(registration[0])
                     if registration[0] == feedback.RegistrationID:
-                        print(registration[0])
-                        print(feedback.RegistrationID)
                         delete_feedback = self.feedback_repo.remove(feedback_id)
-                        print(delete_feedback)
+
                         if delete_feedback:
                             self.logger.log(self.class_name,'delete_feedback', (self.id,front_end_token,feedback_id), 'removed')
                             return True
@@ -487,6 +638,15 @@ class UserBackend(BackendBase):
         
         
     def add_event_image_attendee(self, *,front_end_token, event_id, image):
+        '''
+        Mir Shukhman
+        Add event image for attendiee after event, gets ok from _get_authentication,
+        calls get_by_id func from events_repo, cheks event has passed and wasnt canceled, calls
+        my_attended_events and checks event with id given is in my_attended_events and registration
+        status is Approved, calls add func from images_repo.
+        Input: front_end_token, event_id, image
+        Output: True/False
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok:
@@ -516,6 +676,14 @@ class UserBackend(BackendBase):
         
         
     def add_event_image_organiser(self, *,front_end_token, event_id, image):
+        '''
+        Mir Shukhman
+        Add event image for organiser after event, gets ok from _get_authentication,
+        calls get_by_id func from events_repo, cheks event has passed and wasnt canceled and organiser ID matches
+        self.id, calls add func from images_repo.
+        Input: front_end_token, event_id, image
+        Output: True/False
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok:
@@ -542,6 +710,13 @@ class UserBackend(BackendBase):
         
         
     def delete_image(self,front_end_token, image_id):
+        '''
+        Mir Shukhman
+        Delete event image, gets ok from _get_authentication, calls get_by_id func from images_repo, 
+        checksuser ID matches self.id, calls remove func from images_repo.
+        Input: front_end_token, image_id
+        Output: True/False
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok:
@@ -560,7 +735,16 @@ class UserBackend(BackendBase):
             return False 
        
         
-    def check_affiliation_to_event(self, front_end_token, event_id):   
+    def check_affiliation_to_event(self, front_end_token, event_id):
+        '''
+        Mir Shukhman
+        Cheks if user has ary affiliation to the evnt with given id (regstrered, attended, organised). Gets ok from _get_authentication,
+        first calls my_events func and if the evnt with given id is in my_events and if so returns "Organiser", if not calls my_registrations func and if
+        the evnt with given id is in my_registrations and if so returns "Registered", if not calls my_attended_events func and if the evnt with given id is
+        in my_attended_events and if so returns "Registered", if not returns str "None".
+        Input: front_end_token, event_id
+        Output: str("Organiser","Registered","Attended","None")/None
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok:
@@ -601,6 +785,13 @@ class UserBackend(BackendBase):
     # Master Functionality
 
     def get_all_users(self,front_end_token):
+        '''
+        Mir Shukhman
+        Get all users, gets ok from _get_authentication and enshures self.is_master=True,
+        calls get_all from users_repo class.
+        Input: front_end_token
+        Output: users(list of user obj)/False
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok and self.is_master:
@@ -619,7 +810,14 @@ class UserBackend(BackendBase):
         
       
     def get_user_by_params(self, *,front_end_token, user_id,username,
-                           email,name):      
+                           email,name):
+        '''
+        Mir Shukhman
+        Get users by parameters, gets ok from _get_authentication and enshures self.is_master=True,
+        calls custom_search from repo class.
+        Input: front_end_token,user_id,username,email,name
+        Output: users(list of tuples)/False
+        '''      
         try:
             ok = self._get_authentication(front_end_token)
             if ok and self.is_master:     
@@ -639,6 +837,13 @@ class UserBackend(BackendBase):
         
         
     def get_all_admins(self,front_end_token):
+        '''
+        Mir Shukhman
+        Get all admins, gets ok from _get_authentication and enshures self.is_master=True,
+        calls get_all from users_repo class, filters users by IsMasterUser=True.
+        Input: front_end_token
+        Output: users(list of user objs)/False
+        '''      
         try:
             ok = self._get_authentication(front_end_token)
             if ok and self.is_master:
@@ -659,6 +864,13 @@ class UserBackend(BackendBase):
         
             
     def add_master_user(self,front_end_token, user_id):
+        '''
+        Mir Shukhman
+        Add admin, gets ok from _get_authentication and enshures self.is_master=True,
+        calls update func  from users_repo class, sets IsMasterUser to True.
+        Input: front_end_token
+        Output: True/False
+        '''   
         try:
             ok = self._get_authentication(front_end_token)
             if ok and self.is_master:
@@ -677,6 +889,13 @@ class UserBackend(BackendBase):
         
    
     def remove_master_user(self,front_end_token, user_id):
+        '''
+        Mir Shukhman
+        Add admin, gets ok from _get_authentication and enshures self.is_master=True,
+        calls update func  from users_repo class, sets IsMasterUser to False.
+        Input: front_end_token
+        Output: True/False
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok and self.is_master:
@@ -695,6 +914,14 @@ class UserBackend(BackendBase):
         
          
     def disactivate_user(self,front_end_token, user_id):
+        '''
+        Mir Shukhman
+        Add admin, gets ok from _get_authentication and enshures self.is_master=True and that the user being disacivated
+        id is not self.id (to prevent user from disactivatig oneself), calls update func  from users_repo class, 
+        sets IsActive to False.
+        Input: front_end_token
+        Output: True/False
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok and self.is_master and self.id != user_id:
@@ -714,6 +941,14 @@ class UserBackend(BackendBase):
    
         
     def reactivate_user(self,front_end_token, user_id):
+        '''
+        Mir Shukhman
+        Add admin, gets ok from _get_authentication and enshures self.is_master=True and that the user being disacivated
+        id is not self.id (to prevent user from reactivaing oneself), calls update func from users_repo class, 
+        sets IsActive to True.
+        Input: front_end_token
+        Output: True/False
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok and self.is_master and self.id != user_id:
@@ -733,6 +968,13 @@ class UserBackend(BackendBase):
         
           
     def get_all_events(self,front_end_token):
+        '''
+        Mir Shukhman
+        Get all users, gets ok from _get_authentication and enshures self.is_master=True,
+        calls get_all from events_repo class.
+        Input: front_end_token
+        Output: events(list of event obj)/None
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok and self.is_master:
@@ -750,6 +992,14 @@ class UserBackend(BackendBase):
         
 
     def get_all_categories_admin(self,front_end_token):
+        '''
+        Mir Shukhman
+        Get all categories and the amount to events for each cat, gets ok from _get_authentication and enshures 
+        self.is_master=True, calls get_all from categories_repo class, and for each category calls count_events_by_category
+        db SP, and creates a dict of category obj as keys and event count as vals : {'category obj': event count}.
+        Input: front_end_token
+        Output: dict of {'category obj': event count}/None
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok and self.is_master:
@@ -772,6 +1022,13 @@ class UserBackend(BackendBase):
         
         
     def get_events_by_category_admin(self,front_end_token,category_id):
+        '''
+        Mir Shukhman
+        Get all events of certain category, gets ok from _get_authentication and enshures self.is_master=True,
+        calls get_events_by_category db SP.
+        Input: front_end_token
+        Output: events_by_category(list of tupples)/None
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok and self.is_master:
@@ -793,6 +1050,13 @@ class UserBackend(BackendBase):
 
           
     def add_category(self, *, front_end_token, category, description):
+        '''
+        Mir Shukhman
+        Add event category, gets ok from _get_authentication and enshures self.is_master=True,
+        calls add func from categories_repo.
+        Input: front_end_token, category, description
+        Output: True/False
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok and self.is_master:
@@ -813,6 +1077,13 @@ class UserBackend(BackendBase):
         
         
     def update_category(self, *, front_end_token, category_id, category, description):
+        '''
+        Mir Shukhman
+        Update event category, gets ok from _get_authentication and enshures self.is_master=True,
+        calls update func from categories_repo.
+        Input: front_end_token, category_id, category, description
+        Output: True/False
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok and self.is_master:
@@ -833,14 +1104,30 @@ class UserBackend(BackendBase):
         
         
     def delete_category(self, front_end_token, category_id):
+        '''
+        Mir Shukhman
+        Delete event category, gets ok from _get_authentication and enshures self.is_master=True,
+        calls get_events_by_category_admin to enshure there are no events under the category, 
+        calls remove func from categories_repo.
+        ***Cannot remove category if there are events under the category!!!***
+        Input: front_end_token, category_id
+        Output: True/False
+        '''
         try:
             ok = self._get_authentication(front_end_token)
             if ok and self.is_master:
-                delete = self.categories_repo.remove(category_id)
-                if delete:
-                    self.logger.log(self.class_name,'delete_category',
-                        (self.id,front_end_token,category_id), 'deleted')
-                    return True
+                are_events = self.get_events_by_category_admin(front_end_token,category_id)
+                
+                if are_events:
+                    self.logger.log(self.class_name,'delete_category', (self.id,front_end_token,category_id), 'cannot delete cat-events under cat.')
+                    return False
+                
+                else:
+                    delete = self.categories_repo.remove(category_id)
+                    if delete:
+                        self.logger.log(self.class_name,'delete_category',
+                            (self.id,front_end_token,category_id), 'deleted')
+                        return True
                              
             else:
                 self.logger.log(self.class_name,'delete_category', (self.id,front_end_token,category_id), 'authentication/delete fail')

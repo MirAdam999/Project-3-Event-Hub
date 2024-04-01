@@ -56,19 +56,19 @@ const AddCategory = (props) => {
 
     return (
         <div className="window-inner">
+
             <div className="add-category">
-                <div className="close"><button onClick={props.onClose}>X</button></div>
                 <form onSubmit={handleSubmit}>
-                    <p> Create Ctagory </p>
-                    <label htmlFor="name">Category Name:</label>
-                    <input type="text" id="name" ref={name}
+                    <p id='cat-head'> Create Category </p>
+                    <label htmlFor="cat-name">Category Name:</label><br />
+                    <input type="text" id="cat-name" ref={name}
                         maxLength="100" required /><br />
 
                     <label htmlFor="description">Description:</label><br />
                     <textarea type="text" id="description" ref={description}
-                        maxLength="1000" /><br />
+                        maxLength="1000" cols="35" rows="10" /><br />
 
-                    <button type="submit" className="green-button"> Create </button>
+                    <button type="submit" className="approve-button"> Create </button>
                 </form>
 
                 {loading && <div className="events-loading">
@@ -80,6 +80,8 @@ const AddCategory = (props) => {
                         <p> Category Created Sucsessfully! </p>
                     </div>}
             </div>
+
+            <div className="close"><button onClick={props.onClose}>X</button></div>
         </div>
     )
 }

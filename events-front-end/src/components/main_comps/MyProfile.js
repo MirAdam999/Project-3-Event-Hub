@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useToken } from '../Token';
 import Spinner from "../Loading";
 import UpdatePassword from "./UpdatePassword";
+import '../../style/main/Profile.css'
 
 const MyProfile = () => {
     const { storedToken } = useToken();
@@ -15,7 +16,7 @@ const MyProfile = () => {
         email: '',
         name: '',
         description: '',
-        password: '',
+        password: ''
     });
 
     useEffect(() => {
@@ -56,6 +57,7 @@ const MyProfile = () => {
 
         fetchData();
     }, []);
+
 
     const handleInputChange = (e) => {
         setUserData({
@@ -109,8 +111,10 @@ const MyProfile = () => {
 
     if (loading) {
         return (
-            <div className="events-loading">
-                <Spinner />
+            <div className="update-data" >
+                <div className="events-loading">
+                    <Spinner />
+                </div>
             </div>
         )
     } else if (userData) {
@@ -118,34 +122,36 @@ const MyProfile = () => {
             <div className="update-data" >
                 <div className="update-profile">
                     <form onSubmit={handleSubmit}>
-                        <p> My Profile </p>
+                        <p id='update-header' >Update My Profile </p>
                         <label htmlFor="user_id">Your User ID:</label>
                         <input type="number" id="user_id" value={userData.user_id} disabled /><br />
-                        <label htmlFor="username">Username:</label>
+                        <label htmlFor="username">Username:</label><br />
                         <input type="text" id="username" value={userData.username} onChange={handleInputChange}
                             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,50}" required /><br />
-                        <p>Username must include: number, upper and lowercase letters</p>
-                        <label htmlFor="email">Email:</label>
+                        <p id='username-must-include'>Username must include: number, upper and lowercase letters</p>
+                        <label htmlFor="email">Email:</label><br />
                         <input type="email" id="email" value={userData.email}
                             maxLength='50' required onChange={handleInputChange} /><br />
-                        <label htmlFor="name">Full Name:</label>
+                        <label htmlFor="name">Full Name:</label><br />
                         <input type="text" id="name" value={userData.name}
                             maxLength='100' required onChange={handleInputChange} /><br />
-                        <label htmlFor="description">About Yourself:</label><br />
-                        <textarea type="text" id="description" value={userData.description}
-                            maxLength="1000" onChange={handleInputChange} /><br />
+
+                        <label htmlFor="profile-description">About Yourself:</label><br />
+                        <textarea type="text" id="profile-description" value={userData.description}
+                            onChange={handleInputChange}
+                            maxLength="1000" cols="68" rows="10" /><br />
 
                         <label htmlFor="password">To Update Profile, Enter Password:</label><br />
-                        <input type="password" id="password" value={userData.password} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,50}"
+                        <input type="password" id="password" value={userData.password}
                             required onChange={handleInputChange} /><br />
 
-                        <button type="submit" className="green-button"> Update Profile </button>
+                        <div className='update-profile-button-container'><button type="submit" className="update-profile-button"> Update Profile </button></div>
                     </form>
 
                     {errorMessage && <p className="error-message">{errorMessage}</p>}
                     {sucsess &&
-                        <div className="sucsess-message">
-                            <p> Profile Update Sucsessfully </p>
+                        <div className="update-sucsess-message">
+                            <p> Profile Updated Sucsessfully </p>
                         </div>}
                 </div>
 

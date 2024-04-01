@@ -49,6 +49,7 @@ class LoginToken:
         """
         self._token_data  = values
         
+        
     def _generate_jwt_token(self):
         """
         25.02.24

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useToken } from '../../Token';
 import Spinner from "../../Loading";
 import '../../../style/Pop-Up.css';
+import '@fortawesome/fontawesome-free/css/all.css';
 
 const DeleteReview = (props) => {
     const review = props.review
@@ -56,22 +57,26 @@ const DeleteReview = (props) => {
     return (
         <div className="popup">
             <div className="popup-inner">
-                <div className="close"><button onClick={props.onClose}>X</button></div>
-                <div className="delete-review">
-                    <p>Delte The Review?</p>
-                    <p>{review.raiting}</p>
-                    <p>{review.comment}</p>
-                    <button className="red-button" onClick={handleDelete}> Delete </button>
-                    <button className="cancel-button" onClick={props.onClose}> Cancel </button>
+
+                <div className="revoke-admin">
+                    <p className='revoke-haeder' id='dlete-review'>Delte The Review?</p>
+                    <p> Raiting: {review.raiting}/5</p>
+                    <p id='brackets'><i class="fa-solid fa-quote-left"></i></p>
+                    <p id='delete-comment'>{review.comment}</p>
+                    <p id='brackets-right'><i class="fa-solid fa-quote-right"></i></p>
+                    <div className="revoke-bottons">
+                        <button className="approve-button" onClick={handleDelete}> Delete </button>
+                        <button className="cancel-button" onClick={props.onClose}> Cancel </button>
+                    </div>
                     {loading && <div className="events-loading">
                         <Spinner />
                     </div>}
                     {sucsess &&
-                        <div className="sucsess-message">
-                            <p> Review Deleted Sucsessfully </p>
-                        </div>}
+                        <p className="sucsess-message"> Review Deleted Sucsessfully </p>
+                    }
                     {errorMessage && <p className="error-message">{errorMessage}</p>}
                 </div>
+                <div className="close"><button onClick={props.onClose}>X</button></div>
             </div>
         </div >
     )

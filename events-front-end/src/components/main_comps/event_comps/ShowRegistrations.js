@@ -7,7 +7,7 @@ const ShowRegistrations = (props) => {
     const event = props.event
     const { storedToken } = useToken();
     const [registrations, setRegistrations] = useState('')
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [errorMessage, setErrorMessage] = useState('');
     const [update, setUpdate] = useState(false);
 
@@ -112,7 +112,12 @@ const ShowRegistrations = (props) => {
         }
     }
 
-    if (registrations) {
+    if (loading) {
+        return (
+            <div className="registrations-loading">
+                <Spinner />
+            </div>)
+    } else if (registrations) {
         return (
             <div className="event-registrations">
                 <table>

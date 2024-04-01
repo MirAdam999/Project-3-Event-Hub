@@ -54,28 +54,29 @@ const AddReview = (props) => {
 
     return (
         <div className="window">
-            <div className="window-inner">
+            <div className="window-inner" id='window-inner-add-review'>
                 <div className="add-image-window">
+
+                    <div className="add-image-after-event">
+                        <form onSubmit={handleSubmit}>
+                            <p className='add-review-haeder'> Write A Review Of The Event:</p>
+                            <label htmlFor="raiting">Raiting, 1 to 5:</label>
+                            <input type="number" id="raiting" ref={raiting}
+                                min="1" max="5" /><br />
+
+                            <label htmlFor="comment">Comment:</label><br />
+                            <textarea type="text" id="comment" ref={comment}
+                                maxLength="1000" cols="35" rows="10" /><br />
+
+                            <button className='approve-button' type="submit">Submit Review</button>
+                        </form >
+                        {loading && <Spinner />}
+                        {isSuccess &&
+                            <p className="sucsess-message">Review Submitted Sucsessfully!</p>
+                        }
+                        {errorMessage && <p>{errorMessage}</p>}
+                    </div>
                     <div className="close"><button onClick={props.onClose}>X</button></div>
-                    <form onSubmit={handleSubmit}>
-                        <p> Write A Review Of The Event:</p>
-                        <label htmlFor="raiting">Raiting, 1 to 5:</label>
-                        <input type="number" id="raiting" ref={raiting}
-                            min="1" max="5" /><br />
-
-                        <label htmlFor="comment">Comment:</label><br />
-                        <textarea type="text" id="comment" ref={comment}
-                            maxLength="1000" /><br />
-
-                        <button type="submit">Submit Review</button>
-                    </form >
-                    {loading && <Spinner />}
-                    {isSuccess &&
-                        <div className="sucsess-message">
-                            <p>Review Submitted Sucsessfully!</p>
-                        </div>
-                    }
-                    {errorMessage && <p>{errorMessage}</p>}
                 </div>
             </div >
         </div>

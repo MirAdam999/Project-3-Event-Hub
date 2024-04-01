@@ -3,9 +3,11 @@ import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useToken } from '../Token';
 import Spinner from "../Loading";
+import '../../style/main/SearchEvent.css'
+import '../../style/main/Events.css'
 
 const MyRegistrations = () => {
-    const { storedToken } = useToken();
+    const { storedToken, usersName } = useToken();
     const [errorMessage, setErrorMessage] = useState('');
     const [eventsAndRegistrations, setEventsAndRegistrations] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -56,36 +58,53 @@ const MyRegistrations = () => {
 
     if (loading) {
         return (
-            <div className="events-loading">
-                <Spinner />
+            <div className="events">
+                <div className="events-header">
+                    <p> {usersName}'s Registrations </p>
+                </div>
+                <div className="events-loading">
+                    <Spinner />
+                </div>
             </div>
         );
     } else if (eventsAndRegistrations) {
         return (
             <div className="events">
                 <div className="events-header">
-                    <p> My Registrations </p>
+                    <p> {usersName}'s Registrations </p>
                 </div>
                 <div className="events-display">
                     {eventsAndRegistrations.map(event => (
-                        <button onClick={() => handleNavigation(`/view_event/${event.event_id}`)}>
+                        <button id='open-event-attended-registred' className="open-event" onClick={() => handleNavigation(`/view_event/${event.event_id}`)}>
                             <div className="event-on-grid" key={event.event_id}>
-                                <img
-                                    src={`data:image/png;base64,${event.image}`}
-                                    alt={event.title}
-                                    className="event-image"
-                                />
-                                <p className="event-event_id">{event.event_id}</p>
-                                <p className="event-title">{event.title}</p>
-                                <p className="event-location">{event.location}</p>
-                                <p className="event-date">{event.date}</p>
-                                <p className="event-time">{event.time}</p>
-                                <p className="event-organizer_name">{event.organizer_name}</p>
-                                <p className="event-category">{event.category}</p>
-                                <p className="event-is_canceled">{event.is_canceled}</p>
-                                <p className="registration_id">{event.registration_id}</p>
-                                <p className="registration_datetime">{event.registration_datetime}</p>
-                                <p className="registration_status">{event.registration_status}</p>
+                                <div className="event-image-container">
+                                    <img
+                                        src={`data:image/png;base64,${event.image}`}
+                                        alt={event.title}
+                                        className="event-image"
+                                    />
+                                    {event.is_canceled === "Canceled" && <div className="event-is_canceled">CANCELED</div>}
+                                </div>
+                                <div className="event-on-grid-text">
+                                    <div className="event-on-grid-text-top">
+                                        <div className="event-on-grid-text-top-left">
+                                            <p className="event-title">{event.title}</p>
+                                            <p className="event-organiser">By: {event.organizer_name}</p>
+                                        </div>
+                                        <div className="event-on-grid-text-top-right">
+                                            <p className="event-date">{event.date}</p>
+                                            <p className="event-time">{event.time}</p>
+                                        </div>
+                                    </div>
+                                    <div id='attended-event-bottom' className="event-on-grid-text-bottom">
+                                        <p id='attended-event-location' className="event-location"> Location: {event.location}</p>
+                                    </div>
+                                    <div className="registration-data">
+                                        <p id="registration_status">Registration Status: {event.registration_status}</p>
+                                        <p className="registration_id">Registration ID: {event.registration_id}</p>
+                                        <p className="registration_datetime">Registered At: {event.registration_datetime}</p>
+                                    </div>
+                                </div>
                             </div>
                         </button>
                     ))}
@@ -96,15 +115,21 @@ const MyRegistrations = () => {
     }
     else if (!eventsAndRegistrations) {
         return (
-            <div className="events-none">
-                <p> No Registrations Found </p>
+            <div className="events">
+                <div className="events-none">
+                    <p> No Registrations Yet for {usersName} </p>
+                    <p className="call-to-search"> Find an Event that fits Your Interests:</p>
+                    <button className="go-to-add-event" onClick={() => handleNavigation('/search_event')}> <i class="fa-solid fa-magnifying-glass"></i> Search Event </button>
+                </div>
             </div>
         );
     }
     else {
         return (
-            <div className="events-err">
-                <p className="error-message">{errorMessage}</p>
+            <div className="events">
+                <div className="events-err">
+                    <p className="error-message">{errorMessage}</p>
+                </div>
             </div>
         );
     }

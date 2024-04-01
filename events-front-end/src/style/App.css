@@ -21,11 +21,6 @@ body {
   height: 100vh;
 }
 
-.update-data {
-  display: flex;
-  flex-direction: row;
-}
-
 #footer {
   margin: 0;
   background-color: white;

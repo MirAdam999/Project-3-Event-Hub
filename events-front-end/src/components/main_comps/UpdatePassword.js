@@ -1,6 +1,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useToken } from '../Token';
+import '../../style/main/Profile.css'
 
 const UpdatePassword = () => {
     const { storedToken } = useToken();
@@ -61,25 +62,25 @@ const UpdatePassword = () => {
 
     return (
         <div className="update-password">
-            <p>Update Password</p>
+            <p id='update-header'>Update Password</p>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="password">Enter Old Password:</label><br />
                 <input type="password" id="password" ref={password} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,50}" required /><br />
 
                 <label htmlFor="new-password">New Password:</label><br />
                 <input type="password" id="new-password" ref={newPassword} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,50}" required /><br />
-                <p>Password must include: number, upper and lowercase letters</p>
+                <p id='pass-must-include'>Password must include: number, upper and lowercase letters</p>
                 <label htmlFor="repeat-new-password">Repeat New Password:</label><br />
                 <input type="password" id="repeat-new-password" ref={repeatNewPassword} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,50}" required /><br />
                 {!passwordsMatch && <p className="error-message">Passwords do not match</p>}
 
-                <button type="submit" className="green-button"> Change Password </button>
+                <div className='update-pass-button-container'><button className='update-pass-button' type="submit"> Change Password </button></div>
             </form>
 
             {errorMessage && <p className="error-message">{errorMessage}</p>}
             {sucsess &&
-                <div className="sucsess-message">
-                    <p> Password Update Sucsessfully </p>
+                <div className="update-sucsess-message">
+                    <p> Password Updated Sucsessfully </p>
                 </div>}
 
         </div>

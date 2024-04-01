@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import { useToken } from "../../Token";
 import '../../../style/main/Admin.css'
 
-const SearchUser = (props) => {
+const SearchForAdmin = (props) => {
     const { storedToken } = useToken();
     const { setLoading } = props;
     const user_id = useRef();
@@ -61,25 +61,25 @@ const SearchUser = (props) => {
 
 
     return (
-        <div className="search-user">
+        <div className="search-for-admin">
             <form onSubmit={handleSubmit}>
-                <div className="label-input" id='label-input-user'>
+                <div className="label-input" id='label-input-admin'>
                     <label htmlFor="user_id_search">User ID:</label>
                     <input type="number" id="user_id_search" ref={user_id} /><br />
                 </div>
-                <div className="label-input" id='label-input-user'>
+                <div className="label-input" id='label-input-admin'>
                     <label htmlFor="username">Username:</label>
                     <input type="text" id="username" ref={username} /><br />
                 </div>
-                <div className="label-input" id='label-input-user'>
+                <div className="label-input" id='label-input-admin'>
                     <label htmlFor="email">Email:</label>
                     <input type="text" id="email" ref={email} /><br />
                 </div>
-                <div className="label-input" id='label-input-user'>
+                <div className="label-input" id='label-input-admin'>
                     <label htmlFor="name">Full Name:</label>
                     <input type="text" id="name" ref={name} /><br />
                 </div>
-                <div className="search-button" id='search-button-user'>
+                <div className="search-button" id='search-button-admin'>
                     <button type="submit"> Search User </button>
                 </div>
             </form>
@@ -87,4 +87,4 @@ const SearchUser = (props) => {
     )
 
 }
-export default SearchUser
+export default SearchForAdmin

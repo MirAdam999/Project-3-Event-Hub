@@ -1,0 +1,116 @@
+.user-page {
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border-radius: 2vw;
+    padding-top: 1%;
+    padding-bottom: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
+    width: 80%;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    margin-left: 11%;
+    text-align: center;
+    font-family: var(--main-font);
+}
+
+.user-top {
+    text-align: left;
+    color: var(--darker-color);
+    font-size: 1vw;
+}
+
+#user-full-name {
+    color: var(--shiny-color);
+    font-weight: 700;
+    font-size: 2vw;
+}
+
+#user-about-title {
+    text-decoration: underline 2px var(--shiny-color);
+}
+
+.user-mid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--main-color);
+}
+
+.user-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--darker-color);
+}
+
+.user-admin-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--darker-color);
+}
+
+.user-statistic {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--shiny-color);
+}
+
+.user-mid p,
+.user-bottom p,
+.user-admin-display p,
+.user-statistic p {
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+    margin-left: 15%;
+    margin-right: 15%;
+    font-size: 1vw;
+}
+
+.users-events p {
+    color: var(--shiny-color);
+    font-weight: 700;
+    font-size: 1.5vw;
+}
+
+.users-events {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.users-events table {
+    width: 80%;
+    border-collapse: collapse;
+    white-space: nowrap;
+    margin-left: 10%;
+}
+
+.users-events th {
+    color: var(--darker-color);
+    width: auto;
+    font-size: 1vw;
+}
+
+.users-events tr {
+    border-top: solid var(--darker-color) 2px;
+}
+
+.users-events tr:hover {
+    background-color: rgb(219, 162, 148, 0.2);
+}
+
+.users-events td {
+    font-size: 0.9vw;
+    text-align: center;
+    width: auto;
+    padding-left: 0%;
+    padding-right: 0%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    white-space: nowrap;
+}

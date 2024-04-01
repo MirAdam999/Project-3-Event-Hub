@@ -65,22 +65,22 @@ const UpdateCategory = (props) => {
 
     return (
         <div className="window-inner">
-            <div className="update-category">
-                <div className="close"><button onClick={props.onClose}>X</button></div>
+
+            <div className="add-category">
                 <form onSubmit={handleSubmit}>
-                    <p> Update Category </p>
+                    <p id='cat-head'> Update Category </p>
                     <label htmlFor="category_id">Category ID:</label>
                     <input type="number" id="category_id" value={categoryData.category_id} disabled /><br />
 
-                    <label htmlFor="name">Category Name:</label>
-                    <input type="text" id="name" value={categoryData.name}
+                    <label htmlFor="cat-name">Category Name:</label>
+                    <input type="text" id="cat-name" value={categoryData.name}
                         maxLength="100" onChange={handleInputChange} required /><br />
 
                     <label htmlFor="description">Description:</label><br />
                     <textarea type="text" id="description" value={categoryData.description}
-                        maxLength="1000" onChange={handleInputChange} /><br />
+                        maxLength="1000" cols="35" rows="10" onChange={handleInputChange} /><br />
 
-                    <button type="submit" className="green-button"> Update </button>
+                    <button type="submit" className="approve-button"> Update </button>
                 </form>
 
                 {loading && <div className="events-loading">
@@ -92,6 +92,8 @@ const UpdateCategory = (props) => {
                         <p> Category Updated Sucsessfully </p>
                     </div>}
             </div>
+
+            <div className="close"><button onClick={props.onClose}>X</button></div>
         </div>
     )
 }

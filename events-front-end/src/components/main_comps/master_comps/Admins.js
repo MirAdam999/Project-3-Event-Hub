@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Spinner from "../../Loading";
 import RevokeAdmin from "./RevokeAdmin";
 import AddAdmin from "./AddAdmin";
+import '../../../style/main/Admin.css'
 
 const AdminsMangment = () => {
     const { storedToken, usersId } = useToken();
@@ -119,14 +120,22 @@ const AdminsMangment = () => {
 
     if (loading) {
         return (
-            <div className="events-loading">
-                <Spinner />
+            <div className="admins">
+                <div className="users-header">
+                    <button disabled id='categories-add-button-fake-button'> Fake </button>
+                    <p> All Admins </p>
+                    <button onClick={openAdd}>Add Admin + </button>
+                </div>
+                <div className="events-loading">
+                    <Spinner />
+                </div>
             </div>
         );
     } else if (admins.length > 0) {
         return (
-            <div className="users">
+            <div className="admins">
                 <div className="users-header">
+                    <button disabled id='categories-add-button-fake-button'> Fake </button>
                     <p> All Admins </p>
                     <button onClick={openAdd}>Add Admin + </button>
                 </div>
@@ -141,29 +150,29 @@ const AdminsMangment = () => {
 
                 <div className="users-display">
                     <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Username</th>
-                                <th>Email</th>
-                                <th>Full Name</th>
-                                <th>Created At</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Full Name</th>
+                        <th>Created At</th>
+                        <th>User Page</th>
+                        <th>Status</th>
+                        <th>Action</th>
                         <tbody>
                             {admins.map(user => (
-                                <tr key={user.user_id} onClick={() => handleNavigation(`/user/${user.user_id}`)}>
+                                <tr key={user.user_id}>
                                     <td>{user.user_id}</td>
                                     <td>{user.username}</td>
                                     <td >{user.email}</td>
                                     <td>{user.name}</td>
                                     <td>{user.created}</td>
-                                    <td>{user.is_active}</td>
+                                    <td id='go-to-users-page' onClick={() => handleNavigation(`/user/${user.user_id}`)}>User Page</td>
+                                    <td style={{ color: user.is_active === 'Active' ? 'green' : 'red' }}>
+                                        {user.is_active}
+                                    </td>
                                     <td>{user.user_id === usersId ?
-                                        (<button disabled> Revoke Admin </button>) :
-                                        (<button onClick={() => openRevoke(user)}> Revoke Admin</button>)}</td>
+                                        (<button disabled id='red-button'> Revoke Admin </button>) :
+                                        (<button id='red-button' onClick={() => openRevoke(user)}> Revoke Admin</button>)}</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -180,15 +189,29 @@ const AdminsMangment = () => {
     }
     else if (admins.length = 0) {
         return (
-            <div className="events-none">
-                <p> No Admins Found </p>
+            <div className="admins">
+                <div className="users-header">
+                    <button disabled id='categories-add-button-fake-button'> Fake </button>
+                    <p> All Admins </p>
+                    <button onClick={openAdd}>Add Admin + </button>
+                </div>
+                <div className="events-none">
+                    <p> No Admins Found </p>
+                </div>
             </div>
         );
     }
     else {
         return (
-            <div className="events-err">
-                <p className="error-message">{errorMessage}</p>
+            <div className="admins">
+                <div className="users-header">
+                    <button disabled id='categories-add-button-fake-button'> Fake </button>
+                    <p> All Admins </p>
+                    <button onClick={openAdd}>Add Admin + </button>
+                </div>
+                <div className="events-err">
+                    <p className="error-message">{errorMessage}</p>
+                </div>
             </div>
         );
     }

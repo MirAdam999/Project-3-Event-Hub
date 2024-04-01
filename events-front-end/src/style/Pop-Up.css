@@ -14,7 +14,7 @@
 .popup-inner {
     position: relative;
     margin-bottom: 5%;
-    padding: 0.5%;
+    padding: 1%;
     width: 100%;
     background-color: white;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
@@ -39,6 +39,16 @@
     color: white;
 }
 
+#log-header {
+    color: var(--shiny-color);
+    font-family: var(--main-font);
+    font-weight: 700;
+    font-size: 1.8vw;
+    margin-top: 15%;
+    margin-bottom: 13%;
+}
+
+/* login, signup */
 .login,
 .signup {
     padding-left: 1%;
@@ -49,9 +59,374 @@
     flex-direction: column;
 }
 
+.login {
+    margin-right: 3%;
+}
+
 .login-form {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.signup {
+    border-left: solid 3px var(--shiny-color);
+    padding-left: 2%;
+}
+
+.go-to-signup-button {
+    white-space: nowrap;
+    background-color: var(--shiny-color);
+    border: solid 2px white;
+    border-radius: 0.5vw;
+    font-family: var(--main-font);
+    font-size: 1.2vw;
+    color: white;
+    padding: 5%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    margin-right: 8%;
+
+}
+
+.go-to-signup-button:hover {
+    background-color: var(--main-color);
+    border: solid 2px var(--shiny-color);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    color: white;
+    font-weight: 700;
+}
+
+.login-form label {
+    font-family: var(--main-font);
+    color: var(--darker-color);
+    font-size: 1vw;
+}
+
+.login-form input {
+    font-size: 1vw;
+    font-family: var(--main-font);
+    margin-bottom: 2%;
+    border: solid 2px var(--darker-color);
+    border-radius: 0.5vw;
+    background-color: rgba(219, 162, 148, 0.1);
+    width: 100%;
+    padding: 1%;
+    height: 1.5vw;
+    margin-bottom: 6%;
+    text-align: center;
+}
+
+.login-form input:focus {
+    outline: var(--darker-color);
+    transition: 0.2s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.login-button {
+    white-space: nowrap;
+    background-color: var(--darker-color);
+    border: solid 2px white;
+    border-radius: 0.5vw;
+    font-family: var(--main-font);
+    font-size: 1.2vw;
+    color: white;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.login-button:hover {
+    background-color: var(--main-color);
+    border: solid 2px var(--shiny-color);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    color: white;
+    font-weight: 700;
+}
+
+/* logout */
+.logout {
+    padding-left: 3%;
+    padding-right: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logout-buttons {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.logout-button {
+    white-space: nowrap;
+    background-color: var(--shiny-color);
+    border: solid 2px white;
+    border-radius: 0.5vw;
+    font-family: var(--main-font);
+    font-size: 1.2vw;
+    color: white;
+    padding: 5%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    margin-right: 8%;
+}
+
+.logout-button:hover {
+    background-color: var(--main-color);
+    border: solid 2px var(--shiny-color);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    color: white;
+    font-weight: 700;
+}
+
+.cancel-button {
+    white-space: nowrap;
+    background-color: var(--main-color);
+    border: solid 2px white;
+    border-radius: 0.5vw;
+    font-family: var(--main-font);
+    font-size: 1.2vw;
+    color: white;
+    padding: 5%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+.cancel-button:hover {
+    background-color: var(--main-color);
+    border: solid 2px var(--shiny-color);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    color: white;
+    font-weight: 700;
+}
+
+/* sign-up form */
+.signup-form {
+    margin-right: 3%;
+}
+
+#signup-header {
+    color: var(--shiny-color);
+    font-family: var(--main-font);
+    font-weight: 700;
+    font-size: 1.8vw;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    white-space: nowrap;
+}
+
+.signup-form label {
+    font-family: var(--main-font);
+    color: var(--darker-color);
+    font-size: 1vw;
+}
+
+.signup-form input,
+#sign-up-description {
+    font-family: var(--main-font);
+    margin-bottom: 2%;
+    border: solid 2px var(--darker-color);
+    border-radius: 0.5vw;
+    background-color: rgba(219, 162, 148, 0.1);
+    width: 90%;
+    padding: 0.5%;
+    height: 1.8vw;
+    margin-bottom: 6%;
+}
+
+.signup-both #username-must-include,
+.signup-both #pass-must-include {
+    white-space: wrap;
+}
+
+.signup-form input:focus,
+#sign-up-description:focus {
+    outline: var(--darker-color);
+    transition: 0.2s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.signup-form #username {
+    margin-bottom: 1%;
+}
+
+.signup-form #password {
+    margin-bottom: 1%;
+}
+
+#sign-up-description {
+    margin-bottom: 2%;
+    border: solid 2px var(--darker-color);
+    border-radius: 0.5vw;
+    background-color: rgba(219, 162, 148, 0.1);
+    width: 80%;
+    padding: 1%;
+    height: 30%;
+}
+
+.signup-button {
+    white-space: nowrap;
+    background-color: var(--shiny-color);
+    border: solid 2px white;
+    border-radius: 0.5vw;
+    font-family: var(--main-font);
+    font-size: 1.2vw;
+    color: white;
+    padding: 2%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    margin-right: 8%;
+}
+
+.signup-button:hover {
+    background-color: var(--main-color);
+    border: solid 2px var(--shiny-color);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    color: white;
+    font-weight: 700;
+}
+
+.signup-both {
+    display: flex;
+}
+
+.signup-l {
+    margin-right: 5%;
+}
+
+.signup-r #name {
+    width: 81%;
+}
+
+.signup-sucsess {
+    font-family: var(--main-font);
+    color: var(--shiny-color);
+    font-size: 1vw;
+}
+
+.signup-sucsess p {
+    margin: 1%;
+}
+
+#signup-sucsess-top {
+    color: var(--darker-color);
+    font-size: 1.3vw;
+    margin-top: 2%;
+    margin-bottom: 1%;
+}
+
+.go-to-log-in-button {
+    white-space: nowrap;
+    background-color: var(--darker-color);
+    border: solid 2px white;
+    border-radius: 0.5vw;
+    font-family: var(--main-font);
+    font-size: 1vw;
+    color: white;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    margin-right: 8%;
+}
+
+.go-to-log-in-button:hover {
+    background-color: var(--main-color);
+    border: solid 2px var(--shiny-color);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    color: white;
+    font-weight: 700;
+}
+
+/*revoke admin*/
+.revoke-admin {
+    padding-left: 3%;
+    padding-right: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.revoke-haeder {
+    color: var(--shiny-color);
+    font-family: var(--main-font);
+    font-weight: 700;
+    font-size: 1.8vw;
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+.revoke-bottons {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.approve-button {
+    white-space: nowrap;
+    background-color: var(--shiny-color);
+    border: solid 2px white;
+    border-radius: 0.5vw;
+    font-family: var(--main-font);
+    font-size: 1.2vw;
+    color: white;
+    padding: 5%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    margin-right: 8%;
+}
+
+.approve-button:hover {
+    background-color: var(--main-color);
+    border: solid 2px var(--shiny-color);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    color: white;
+    font-weight: 700;
+}
+
+.cancel-button {
+    white-space: nowrap;
+    background-color: var(--main-color);
+    border: solid 2px white;
+    border-radius: 0.5vw;
+    font-family: var(--main-font);
+    font-size: 1.2vw;
+    color: white;
+    padding: 5%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+.cancel-button:hover {
+    background-color: var(--main-color);
+    border: solid 2px var(--shiny-color);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    color: white;
+    font-weight: 700;
+}
+
+.sucsess-message {
+    color: var(--shiny-color);
+    font-family: var(--main-font);
+    font-size: 1vw;
+}
+
+/*delete review*/
+#delete-comment {
+    width: 40%;
+}
+
+.revoke-admin #brackets-right,
+.revoke-admin #brackets {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#dlete-review {
+    margin-top: 3%;
+    margin-bottom: 0;
 }

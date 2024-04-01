@@ -53,11 +53,13 @@ const CancelRegistration = (props) => {
     return (
         <div className="popup">
             <div className="popup-inner">
-                <div className="close"><button onClick={props.onClose}>X</button></div>
-                <div className="cancel-registration">
-                    <p>Cancel Registration To {props.event_title}?</p>
-                    <button className="red-button" onClick={handleCancel}> Cancel Registration </button>
-                    <button className="cancel-button" onClick={props.onClose}> Exit </button>
+
+                <div className="revoke-admin">
+                    <p className='revoke-haeder' >Cancel Registration To {props.event_title}?</p>
+                    <div className="revoke-bottons">
+                        <button className="approve-button" onClick={handleCancel}> Cancel Registration </button>
+                        <button className="cancel-button" onClick={props.onClose}> Exit </button>
+                    </div>
                     {loading && <div className="events-loading">
                         <Spinner />
                     </div>}
@@ -67,6 +69,8 @@ const CancelRegistration = (props) => {
                         </div>}
                     {errorMessage && <p className="error-message">{errorMessage}</p>}
                 </div>
+
+                <div className="close"><button onClick={props.onClose}>X</button></div>
             </div>
         </div >
     )

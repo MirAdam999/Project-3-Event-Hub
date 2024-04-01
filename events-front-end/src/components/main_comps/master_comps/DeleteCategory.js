@@ -57,11 +57,14 @@ const DeleteCategory = (props) => {
     return (
         <div className="popup">
             <div className="popup-inner">
-                <div className="close"><button onClick={props.onClose}>X</button></div>
-                <div className="delete-category">
-                    <p>Delte Category {category.name}, ID {category.category_id}?</p>
-                    <button className="red-button" onClick={handleDelete}> Delete </button>
-                    <button className="cancel-button" onClick={props.onClose}> Cancel </button>
+
+                <div className="revoke-admin">
+                    <p className='revoke-haeder'>Delte Category {category.name}, ID {category.category_id}?</p>
+                    <div className="revoke-bottons">
+                        <button className="approve-button" onClick={handleDelete}> Delete </button>
+                        <button className="cancel-button" onClick={props.onClose}> Cancel </button>
+
+                    </div>
                     {loading && <div className="events-loading">
                         <Spinner />
                     </div>}
@@ -71,6 +74,9 @@ const DeleteCategory = (props) => {
                         </div>}
                     {errorMessage && <p className="error-message">{errorMessage}</p>}
                 </div>
+
+                <div className="close"><button onClick={props.onClose}>X</button></div>
+
             </div>
         </div >
     )

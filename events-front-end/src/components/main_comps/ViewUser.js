@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Spinner from "../Loading";
 import { useToken } from "../Token";
+import '../../style/main/UserPage.css'
 
 const ViewUser = () => {
     const { isMasterUser } = useToken()
@@ -62,23 +63,33 @@ const ViewUser = () => {
 
     if (loading) {
         return (
-            <div className="events-loading">
-                <Spinner />
+            <div className="user-page">
+                <div className="events-loading">
+                    <Spinner />
+                </div>
             </div>
         );
     } else if (user) {
         return (
             <div className="user-page">
-
                 <div className="user-display">
-                    <p>{user.user_id}</p>
-                    <p>{user.username}</p>
-                    <p>{user.name}</p>
-                    <p>{user.description}</p>
-                    <p>{user.created}</p>
-                    <p>{user.is_active}</p>
-                    {user.is_master === 'Admin' && <p>{user.is_master}</p>}
-                    {isMasterUser && <p>{user.email}</p>}
+                    <div className="user-top">
+                        <p id='user-full-name'>{user.name}</p>
+                        <p id='user-about-title'>About {user.name}:</p>
+                        <p>{user.description}</p>
+                    </div>
+                    <div className="user-mid">
+                        <p>User ID: {user.user_id}</p>
+                        <p>Username: {user.username}</p>
+                    </div>
+                    <div className="user-bottom">
+                        <p>Joined At: {user.created}</p>
+                        <p>Status: {user.is_active}</p>
+                    </div>
+                    <div className="user-admin-display">
+                        {user.is_master === 'Admin' && <p>{user.name} is an {user.is_master}</p>}
+                        {isMasterUser && <p>Email: {user.email}</p>}
+                    </div>
                 </div>
 
                 <div className="user-statistic">
@@ -86,17 +97,16 @@ const ViewUser = () => {
                     <p> Attended {usersAttendedCount} Events</p>
                 </div>
 
-                {usersEvents && <div className="users-events">
+                {usersEvents.length > 0 && <div className="users-events">
+                    <p>Events Organised By {user.name}</p>
                     <table>
-                        <tr>
-                            <th>Event ID</th>
-                            <th> Title</th>
-                            <th> Location </th>
-                            <th> Date </th>
-                            <th>Time</th>
-                            <th>Category</th>
-                            <th>Type</th>
-                        </tr>
+                        <th>Event ID</th>
+                        <th> Title</th>
+                        <th> Location </th>
+                        <th> Date </th>
+                        <th>Time</th>
+                        <th>Category</th>
+                        <th>Type</th>
                         {usersEvents.map(event => (
                             <tr onClick={() => handleNavigation(`/view_event/${event.event_id}`)} key={event.event_id}>
                                 <td>{event.event_id}</td>
@@ -115,15 +125,19 @@ const ViewUser = () => {
     }
     else if (!user) {
         return (
-            <div className="events-none">
-                <p> No User Found </p>
+            <div className="user-page">
+                <div className="events-none">
+                    <p> No User Found </p>
+                </div>
             </div>
         );
     }
     else {
         return (
-            <div className="events-err">
-                <p className="error-message">{errorMessage}</p>
+            <div className="user-page">
+                <div className="events-err">
+                    <p className="error-message">{errorMessage}</p>
+                </div>
             </div>
         );
     }

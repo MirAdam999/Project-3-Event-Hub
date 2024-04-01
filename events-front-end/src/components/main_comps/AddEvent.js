@@ -3,6 +3,8 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useToken } from '../Token';
 import Spinner from "../Loading"
+import '../../style/main/AddEvent.css'
+import '@fortawesome/fontawesome-free/css/all.css';
 
 const AddEvent = () => {
     const { storedToken } = useToken();
@@ -149,53 +151,66 @@ const AddEvent = () => {
     if (Array.isArray(category)) {
         return (
             <div className="add-event">
-                <form onSubmit={handleSubmit}>
-                    <label htmlFor="title">Title:</label>
+                <p className="add-event-header"> Create An Event </p>
+                <form onSubmit={handleSubmit} className="add-event-form">
+                    <label htmlFor="title">Title:</label><br />
                     <input type="text" id="title" ref={title} maxLength='100' required /><br />
                     <label htmlFor="description">Description:</label><br />
-                    <textarea type="text" id="description" ref={description} maxLength="1000" /><br />
-                    <label htmlFor="location">Location:</label>
+                    <textarea type="text" id="description" ref={description} maxLength="1000" cols="100" rows="10" /><br />
+                    <label htmlFor="location">Location:</label><br />
                     <input type="text" id="location" ref={location} maxLength='300' required /><br />
-                    <label htmlFor="date">Date:</label>
-                    <input type="date" id="date" ref={date} required /><br />
-                    <label htmlFor="time">Time:</label>
-                    <input type="time" id="time" ref={time} required /><br />
-                    <label for="image">Upload Image:</label>
-                    <input type="file" id="image" accept=".jpg, .jpeg, .png, .gif" onChange={handleFileChange} required /><br />
-                    {fileError && <p className="error-message">{fileError}</p>}
-                    {previewURL && <img src={previewURL} alt="Preview" style={{ maxWidth: '100%', maxHeight: '300px' }} />}
-                    <button onClick={handleClearFile}>Clear File</button>
+                    <div id='add-event-datetime'>
+                        <label htmlFor="date">Date:</label>
+                        <input type="date" id="date" ref={date} required />
+                        <label htmlFor="time">Time:</label>
+                        <input type="time" id="time" ref={time} required /><br />
+                    </div>
 
-                    <span>Is This a Private Event?</span><br />
-                    <span>If the event is marked private, each registration for the event will require your approval.</span><br />
-                    <label>
-                        The Event Is Private
-                        <input
-                            type="checkbox"
-                            checked={isPrivate}
-                            onChange={handleCheckboxChange}
-                        />
-                    </label><br />
+                    <div className="add-image">
+                        <label id='image-label' htmlFor="image">
+                            <i class="fa-regular fa-image"></i> Upload Image
+                        </label><br />
+                        <input type="file" id="image" accept=".jpg, .jpeg, .png, .gif" onChange={handleFileChange} required />
+                        {fileError && <p className="error-message">{fileError}</p>}
+                        {previewURL && <> <img id='img-preview' src={previewURL} alt="Preview" /> <br /></>}
+                        {selectedFile && <button id='img-remove' onClick={handleClearFile}>X  Clear File</button>}
+                    </div>
 
-                    <select value={selectedValue} onChange={handleSelectChange}>
-                        <option value="">Select Event Category</option>
-                        {Array.isArray(category) && category.map((categoryItem) => (
-                            <option key={categoryItem.category_id} value={categoryItem.category_id}>
-                                {categoryItem.category}: {categoryItem.description}
-                            </option>
-                        ))}
-                    </select><br />
+                    <div className="select-privacy">
+                        <span>Is This a Private Event?</span>
+                        <label>
+                            The Event Is Private
+                            <input id='check-privacy'
+                                type="checkbox"
+                                checked={isPrivate}
+                                onChange={handleCheckboxChange}
+                            />
+                        </label><br />
+                    </div>
+                    <span id="warning"><i class="fa-solid fa-circle-exclamation"></i>If the event is marked private, each registration for the event will require your approval.</span><br />
 
-                    <button type="submit">Create Event!</button>
+                    <div className="select-category">
+                        <label htmlFor="category">Event Category:</label><br />
+                        <select value={selectedValue} onChange={handleSelectChange}>
+                            <option value="">-Select Event Category-</option>
+                            {Array.isArray(category) && category.map((categoryItem) => (
+                                <option key={categoryItem.category_id} value={categoryItem.category_id}>
+                                    {categoryItem.category}: {categoryItem.description}
+                                </option>
+                            ))}
+                        </select><br />
+                    </div>
+
+                    <div id='create-event'><button id='create-event-button' type="submit">Create Event!</button></div>
                 </form>
 
                 {loading && <Spinner />}
                 {isSuccess &&
                     <div className="sucsess-message">
-                        <p>Event Created Sucsessfully!</p>
-                        <p> You can now view, edit or delete the Event under 'My Events'.</p>
-                        {isPrivate && <p>Approving or Declining Registrations can also be done through "My Events".</p>}
-                        <button onClick={() => handleNavigation('/my_events')}> Go To My Events</button>
+                        <p id="sucsess-message-top">Event Created Sucsessfully!</p>
+                        <p id="sucsess-message-bottom"> You can now view, edit or delete the Event under 'My Events'.</p>
+                        {isPrivate && <p id="sucsess-message-bottom">Approving or Declining Registrations can also be done through "My Events".</p>}
+                        <button id="go-to-my-events" onClick={() => handleNavigation('/my_events')}> Go To My Events</button>
                     </div>}
                 {errorMessage && <p>{errorMessage}</p>}
             </div>
@@ -204,7 +219,7 @@ const AddEvent = () => {
 
     else {
         return (
-            <div>
+            <div className="add-event">
                 {errorMessage && <p>{errorMessage}</p>}
             </div>
         )

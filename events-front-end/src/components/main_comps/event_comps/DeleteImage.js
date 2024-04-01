@@ -56,20 +56,23 @@ const DeleteImage = (props) => {
     return (
         <div className="popup">
             <div className="popup-inner">
-                <div className="close"><button onClick={props.onClose}>X</button></div>
-                <div className="delete-Image">
-                    <p>Delte The Image?</p>
-                    <button className="red-button" onClick={handleDelete}> Delete </button>
-                    <button className="cancel-button" onClick={props.onClose}> Cancel </button>
+
+                <div className="revoke-admin">
+                    <p className='revoke-haeder'>Delete The Image?</p>
+                    <div className="revoke-bottons">
+                        <button className="approve-button" onClick={handleDelete}> Delete </button>
+                        <button className="cancel-button" onClick={props.onClose}> Cancel </button>
+                    </div>
                     {loading && <div className="events-loading">
                         <Spinner />
                     </div>}
                     {sucsess &&
-                        <div className="sucsess-message">
-                            <p> Image Deleted Sucsessfully </p>
-                        </div>}
+                        <p className="sucsess-message"> Image Deleted Sucsessfully </p>
+                    }
                     {errorMessage && <p className="error-message">{errorMessage}</p>}
                 </div>
+
+                <div className="close"><button onClick={props.onClose}>X</button></div>
             </div>
         </div >
     )

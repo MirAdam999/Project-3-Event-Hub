@@ -46,9 +46,9 @@
 
 .header-buttons {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-direction: row;
-    padding-right: 2%;
+    padding-right: 10%;
     padding-left: 2%;
     height: 100%;
 }
@@ -72,7 +72,6 @@
 #sign-up-header {
     padding-right: 5%;
     padding-left: 5%;
-    border-right: solid white;
     white-space: nowrap;
 }
 
@@ -90,6 +89,7 @@
 
 #open-sidebar {
     margin-right: 3%;
+    border-left: solid white;
 }
 
 #open-sidebar i {

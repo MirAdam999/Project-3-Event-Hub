@@ -66,30 +66,26 @@ const CategoryDetails = (props) => {
         );
     } else if (events) {
         return (
-            <div className="window-inner">
+            <div className="window-inner" id='events-by-cat-window'>
                 <div className="events-by-cat">
-                    <div className="close"><button onClick={props.onClose}>X</button></div>
+
                     <div className="events-by-cat-header">
                         <h1> All Events Under "{category.name}" , ID {category.category_id}</h1>
-                        <p> Total: {category.count} events</p>
+                        <p id='events-by-cat-total'> Total: {category.count} events</p>
                         <p> Description: </p>
                         <p> {category.description} </p>
                     </div>
                     <div className="events-by-cat-display">
                         <table>
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Title</th>
-                                    <th>Location</th>
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                    <th>Organiser</th>
-                                    <th>Privacy</th>
-                                    <th>Status</th>
-                                    <th>View</th>
-                                </tr>
-                            </thead>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Location</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Organiser</th>
+                            <th>Privacy</th>
+                            <th>Status</th>
+                            <th>View</th>
                             <tbody>
                                 {events.map(event => (
                                     <tr key={event.event_id}>
@@ -98,17 +94,19 @@ const CategoryDetails = (props) => {
                                         <td>{event.location}</td>
                                         <td>{event.date}</td>
                                         <td>{event.time}</td>
-                                        <td><button onClick={() => handleNavigation(`/user/${event.organizer_id}`)}>{event.organizer_id}, ID:
-                                            {event.organizer_name}</button></td>
+                                        <td><button id='go-to' onClick={() => handleNavigation(`/user/${event.organizer_id}`)}>{event.organizer_name}, ID:
+                                            {event.organizer_id}</button></td>
                                         <td>{event.is_private}</td>
-                                        <td>{event.is_canceled}</td>
-                                        <td><button onClick={() => handleNavigation(`/view_event/${event.event_id}`)}> View Event </button></td>
+                                        <td style={{ color: event.is_canceled === 'Canceled' ? 'red' : 'green' }}>{event.is_canceled}</td>
+                                        <td><button id='go-to' onClick={() => handleNavigation(`/view_event/${event.event_id}`)}> View Event </button></td>
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
                     </div>
                 </div >
+
+                <div className="close"><button onClick={props.onClose}>X</button></div>
             </div>
         )
     }

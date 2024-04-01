@@ -9,7 +9,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 const SearchEvent = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const [events, setEvents] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [searched, setSearched] = useState(false);
     const event_id = useRef();
     const title = useRef();
@@ -20,8 +20,6 @@ const SearchEvent = () => {
     const [selectedValue, setSelectedValue] = useState('');
 
     useEffect(() => {
-        setSearched(true)
-        setLoading(true);
         const fetchData = async () => {
             try {
                 const response = await fetch('http://127.0.0.1:5000/get_categories');
@@ -36,8 +34,6 @@ const SearchEvent = () => {
             } catch (error) {
                 console.error('Error fetching data:', error);
 
-            } finally {
-                setLoading(false);
             }
         };
 
@@ -107,16 +103,16 @@ const SearchEvent = () => {
                         <input type="number" id="event_id" ref={event_id} /><br />
                     </div>
                     <div className="label-input">
-                        <label htmlFor="title">Title:</label><br />
-                        <input type="text" id="title" ref={title} maxLength='100' /><br />
+                        <label htmlFor="titlee">Title:</label><br />
+                        <input type="text" id="titlee" ref={title} maxLength='100' /><br />
                     </div>
                     <div className="label-input">
                         <label htmlFor="organiser">Organiser:</label><br />
                         <input type="text" id="organiser" ref={organiser} maxLength='100' /><br />
                     </div>
                     <div className="label-input">
-                        <label htmlFor="location">Location:</label><br />
-                        <input type="text" id="location" ref={location} maxLength='300' /><br />
+                        <label htmlFor="locationn">Location:</label><br />
+                        <input type="text" id="locationn" ref={location} maxLength='300' /><br />
                     </div>
                     <div className="label-input">
                         <label htmlFor="date">Date:</label><br />
@@ -139,7 +135,7 @@ const SearchEvent = () => {
                 </form>
             </div>
 
-            {searched ? (<div className="search-result">
+            {searched && <div className="search-result">
                 {loading ? (
                     <div className="events-loading">
                         <Spinner />
@@ -147,8 +143,7 @@ const SearchEvent = () => {
                 ) : (
                     <EventsFound events={events} error={errorMessage} />
                 )}
-            </div>) :
-                (<div className="popular-events"></div>)}
+            </div>}
 
         </div>
     );

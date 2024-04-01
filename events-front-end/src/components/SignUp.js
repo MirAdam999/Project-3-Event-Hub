@@ -66,33 +66,45 @@ const SignUpPopUp = (props) => {
     return (
         <div className="popup">
             <div className="popup-inner">
-                <p>Sign Up</p>
-                <form className="signup-form" onSubmit={handleSignUp}>
-                    <label htmlFor="username">Username:</label>
-                    <input type="text" id="username" ref={username} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,50}" required /><br />
-                    <p>Username must include: number, upper and lowercase letters</p>
-                    <label htmlFor="password">Password:</label>
-                    <input type="password" id="password" ref={password} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,50}" required /><br />
-                    <p>Password must include: number, upper and lowercase letters</p>
-                    <label htmlFor="repeat-password">Repeat Password:</label>
-                    <input type="password" id="repeat-password" ref={repeatPassword} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,50}" required /><br />
-                    {!passwordsMatch && <p className="error-message">Passwords do not match</p>}
-                    <label htmlFor="email">Email:</label>
-                    <input type="email" id="email" ref={email} maxLength="50" required /><br />
-                    <label htmlFor="name">Full Name:</label>
-                    <input type="text" id="name" ref={name} maxLength="100" required /><br />
-                    <label htmlFor="description">About Yourself:</label><br />
-                    <textarea type="text" id="description" ref={description} maxLength="1000" /><br />
+                <div className="signup-form" >
+                    <p id='signup-header'>Sign Up To EventHub</p>
+                    <form onSubmit={handleSignUp}>
+                        <div className="signup-both">
+                            <div className="signup-l">
+                                <label htmlFor="username">Username:</label><br />
+                                <input type="text" id="username" ref={username} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,50}" required /><br />
+                                <p id='pass-must-include' >Username must include: number, upper and lowercase letters</p>
+                                <label htmlFor="password">Password:</label><br />
+                                <input type="password" id="password" ref={password} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,50}" required /><br />
+                                <p id='username-must-include'>Password must include: number, upper and lowercase letters</p>
+                                <label htmlFor="repeat-password">Repeat Password:</label><br />
+                                <input type="password" id="repeat-password" ref={repeatPassword} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,50}" required /><br />
+                                {!passwordsMatch && <p className="error-message">Passwords do not match</p>}
+                                <label htmlFor="email">Email:</label><br />
+                                <input type="email" id="email" ref={email} maxLength="50" required /><br />
+                            </div>
 
-                    <button className="green-button" type="submit"> Sign Up</button>
-                </form>
-                {errorMessage && <p className="error-message">{errorMessage}</p>}
-                {sucsess &&
-                    <div className="signup-sucsess">
-                        <p>Welcome to EventHub!</p>
-                        <p>Your Sign Up has been sucsessful. Please proceed to Log In:</p>
-                        <button className="green-button" onClick={goToLogin}> Log In </button>
-                    </div>}
+                            <div className="signup-r">
+                                <label htmlFor="name">Full Name:</label><br />
+                                <input type="text" id="name" ref={name} maxLength="100" required /><br />
+                                <label htmlFor="sign-up-description">About Yourself:</label><br />
+                                <textarea type="text" id="sign-up-description" ref={description} maxLength="1000" cols="68" rows="10" /><br />
+
+                                <button className="signup-button" type="submit"> Sign Up</button>
+
+                                {errorMessage && <p className="error-message">{errorMessage}</p>}
+                                {sucsess &&
+                                    <div className="signup-sucsess">
+                                        <p id='signup-sucsess-top' >Welcome to EventHub!</p>
+                                        <p>Your Sign Up has been sucsessful. Please proceed to Log In:</p>
+                                        <button className="go-to-log-in-button" onClick={goToLogin}> Log In </button>
+                                    </div>}
+
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
                 <div className="close"><button onClick={props.onClose}>X</button></div>
             </div >
         </div>

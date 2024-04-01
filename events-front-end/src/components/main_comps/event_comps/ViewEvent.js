@@ -187,7 +187,7 @@ const ViewEvent = (props) => {
                         }
                         {user === 'Organiser' && hasEventPassed && event.is_canceled !== 'Canceled' &&
                             <div className='event-organiser-add-photo'>
-                                <button onClick={openAddImage}> Upload Photo From The Event </button>
+                                <button id='event-organiser-add-photo-button' onClick={openAddImage}> Upload Photo From The Event </button>
                                 {addImageIsOpen && <AddImage onClose={closeAddImage} event_id={event.event_id} role={'Organiser'} />}
                             </div>
                         }

@@ -64,31 +64,33 @@ const UpdateReview = (props) => {
 
     return (
         <div className="window">
-            <div className="window-inner">
-                <div className="update-review">
-                    <div className="close"><button onClick={props.onClose}>X</button></div>
-                    <form onSubmit={handleSubmit}>
-                        <p> Update Review </p>
+            <div className="window-inner" id='window-inner-add-review'>
+                <div className="add-image-window">
 
-                        <label htmlFor="raiting">Raiting, 1 to 5:</label>
-                        <input type="number" id="raiting" value={reviewData.raiting}
-                            min="1" max="5" onChange={handleInputChange} /><br />
+                    <div className="add-image-after-event">
+                        <form onSubmit={handleSubmit}>
+                            <p className='add-review-haeder'> Update Review </p>
+                            <label htmlFor="raiting">Raiting, 1 to 5:</label>
+                            <input type="number" id="raiting" value={reviewData.raiting}
+                                min="1" max="5" onChange={handleInputChange} /><br />
 
-                        <label htmlFor="comment">Comment:</label><br />
-                        <textarea type="text" id="comment" value={reviewData.comment}
-                            maxLength="1000" onChange={handleInputChange} /><br />
+                            <label htmlFor="comment">Comment:</label><br />
+                            <textarea type="text" id="comment" value={reviewData.comment}
+                                maxLength="1000" cols="35" rows="10" onChange={handleInputChange} /><br />
 
-                        <button type="submit" className="green-button"> Update </button>
-                    </form>
+                            <button type="submit" className='approve-button'> Update </button>
+                        </form>
 
-                    {loading && <div className="events-loading">
-                        <Spinner />
-                    </div>}
-                    {errorMessage && <p className="error-message">{errorMessage}</p>}
-                    {sucsess &&
-                        <div className="sucsess-message">
-                            <p> Review Updated Sucsessfully </p>
+                        {loading && <div className="events-loading">
+                            <Spinner />
                         </div>}
+                        {errorMessage && <p className="error-message">{errorMessage}</p>}
+                        {sucsess &&
+                            <p className="sucsess-message"> Review Updated Sucsessfully </p>
+                        }
+                    </div>
+
+                    <div className="close"><button onClick={props.onClose}>X</button></div>
                 </div>
             </div>
         </div>

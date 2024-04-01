@@ -1,0 +1,152 @@
+.update-data {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border-radius: 2vw;
+    padding-top: 1%;
+    padding-bottom: 2%;
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 80%;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    margin-left: 11%;
+    text-align: center;
+    font-family: var(--main-font);
+}
+
+.update-profile {
+    text-align: left;
+}
+
+.update-password {
+    text-align: left;
+    border-left: solid 3px var(--shiny-color);
+    padding-left: 6%;
+}
+
+#update-header {
+    color: var(--shiny-color);
+    font-size: 1.5vw;
+    font-weight: 700;
+}
+
+#username-must-include,
+#pass-must-include {
+    text-align: left;
+    margin-bottom: 2%;
+    margin-top: 0;
+    color: var(--shiny-color);
+    font-family: var(--main-font);
+}
+
+.update-profile label,
+.update-password label {
+    color: var(--darker-color);
+    font-size: 1vw;
+}
+
+.update-profile input,
+#profile-description {
+    margin-bottom: 2%;
+    border: solid 2px var(--darker-color);
+    border-radius: 0.5vw;
+    background-color: rgba(219, 162, 148, 0.1);
+    width: 80%;
+    padding: 0.5%;
+}
+
+.update-password input {
+    margin-bottom: 2%;
+    border: solid 2px var(--darker-color);
+    border-radius: 0.5vw;
+    background-color: rgba(219, 162, 148, 0.1);
+    width: 80%;
+    padding: 0.5%;
+    height: 1.2vw;
+}
+
+.update-profile input:focus,
+#profile-description:focus,
+.update-password input:focus {
+    outline: var(--darker-color);
+    transition: 0.2s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.update-profile input {
+    height: 1.5vw;
+    font-size: 1vw;
+    color: black;
+    font-family: var(--main-font);
+}
+
+#profile-description {
+    font-size: 0.8vw;
+    color: black;
+    font-family: var(--main-font);
+    padding: 1%;
+}
+
+#user_id {
+    border: solid 2px gray;
+    color: gray;
+    background-color: rgba(128, 128, 128, 0.295);
+}
+
+.update-profile-button-container {
+    margin-left: 25%;
+    margin-bottom: 3%;
+}
+
+.update-pass-button-container {
+    margin-left: 18%;
+    margin-bottom: 3%;
+}
+
+.update-profile-button {
+    background-color: var(--shiny-color);
+    border: solid white;
+    border-radius: 1vw;
+    font-family: var(--main-font);
+    font-size: 1.3vw;
+    color: white;
+    padding: 2.5%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+.update-profile-button:hover {
+    background-color: var(--main-color);
+    border: solid var(--shiny-color);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    color: white;
+    font-weight: 700;
+}
+
+.update-pass-button {
+    background-color: var(--darker-color);
+    border: solid white;
+    border-radius: 1vw;
+    font-family: var(--main-font);
+    font-size: 1.3vw;
+    color: white;
+    padding: 2.5%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+.update-pass-button:hover {
+    background-color: var(--main-color);
+    border: solid var(--shiny-color);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    color: white;
+    font-weight: 700;
+}
+
+.update-sucsess-message p {
+    margin-left: 20%;
+    color: var(--shiny-color);
+    font-size: 1vw;
+}

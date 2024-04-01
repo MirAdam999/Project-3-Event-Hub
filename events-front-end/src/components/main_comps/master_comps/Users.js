@@ -5,6 +5,8 @@ import { useToken } from '../../Token';
 import Spinner from "../../Loading";
 import SearchUser from "./SearchUser";
 import AllUsers from "./AllUser";
+import '../../../style/main/Admin.css'
+import '../../../style/main/Searchbar.css'
 
 const UsersMangment = () => {
     const { storedToken } = useToken();
@@ -14,6 +16,7 @@ const UsersMangment = () => {
     const [userUpdate, setUserUpdate] = useState(null)
     const [showAll, setShow] = useState(true)
     const [searched, setSearched] = useState(false)
+    const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
 
     const handleNavigation = (path) => {
@@ -99,63 +102,79 @@ const UsersMangment = () => {
 
     return (
         <div className="users">
-            < AllUsers setUsers={setUsers}
-                userUpdate={userUpdate}
-                setErrorMessage={setErrorMessage}
-                showAll={showAll} setShow={setShow}
-                setSearched={setSearched} />
-
             <div className="users-top">
-                < SearchUser setUsers={setUsers}
-                    setErrorMessage={setErrorMessage}
-                    setSearched={setSearched} />
-                <button onClick={() => setShow(true)}> Show All Users </button>
+                <div className="searchbar-users">
+                    < SearchUser setUsers={setUsers}
+                        setErrorMessage={setErrorMessage}
+                        setSearched={setSearched}
+                        setLoading={setLoading} />
+                    <div className="search-button" id='show-all-users'>
+                        <button onClick={() => setShow(true)}> Show All Users </button>
+                    </div>
+                </div>
+            </div>
+
+            <div className="users-bottom">
                 {userUpdate && <div className="users-message">
                     <p> User ID {userUpdate.user_id}, Name {userUpdate.name}, has been {userUpdate.action}</p>
-                </div>}</div>
-
-            {users &&
-                <div className="users-display">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Username</th>
-                                <th>Email</th>
-                                <th>Full Name</th>
-                                <th>Created At</th>
-                                <th>Status</th>
-                                <th>Permissions</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {users.map(user => (
-                                <tr key={user.user_id} onClick={() => handleNavigation(`/user/${user.user_id}`)}>
-                                    <td>{user.user_id}</td>
-                                    <td>{user.username}</td>
-                                    <td >{user.email}</td>
-                                    <td>{user.name}</td>
-                                    <td>{user.created}</td>
-                                    <td>{user.is_active}</td>
-                                    <td>{user.is_master}</td>
-                                    <td>{user.is_active === 'Active' ?
-                                        (user.user_id === usersId ? (<button disabled> Disactivate </button>)
-                                            : (<button onClick={() => disableUser(user)}> Disactivate </button>))
-                                        : (<button onClick={() => enableUser(user)}> Activate </button>)}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
                 </div>}
+                < AllUsers setUsers={setUsers}
+                    userUpdate={userUpdate}
+                    setErrorMessage={setErrorMessage}
+                    showAll={showAll} setShow={setShow}
+                    setSearched={setSearched}
+                    setLoading={setLoading} />
 
-            {searched && !users &&
-                <div className="none-found">
-                    No Users Meeting Search Found</div>}
+                {loading &&
+                    <div className="events-loading">
+                        <Spinner />
+                    </div>}
 
-            {errorMessage &&
-                <p className="error-message">{errorMessage}</p>}
+                {users.length > 0 &&
+                    <div className="users-display" id='all-users-display'>
+                        <table>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Full Name</th>
+                            <th>Created At</th>
+                            <th>User Page</th>
+                            <th>Status</th>
+                            <th>Permissions</th>
+                            <th>Action</th>
+                            <tbody>
+                                {users.map(user => (
+                                    <tr key={user.user_id}>
+                                        <td>{user.user_id}</td>
+                                        <td>{user.username}</td>
+                                        <td >{user.email}</td>
+                                        <td>{user.name}</td>
+                                        <td>{user.created}</td>
+                                        <td id='go-to-users-page' onClick={() => handleNavigation(`/user/${user.user_id}`)}>User Page</td>
+                                        <td style={{ color: user.is_active === 'Active' ? 'green' : 'red' }}>
+                                            {user.is_active}
+                                        </td>
+                                        <td style={{ color: user.is_master === 'Admin' ? '#c54363' : '' }}>
+                                            {user.is_master}
+                                        </td>
+                                        <td>{user.is_active === 'Active' ?
+                                            (user.user_id === usersId ? (<button id='red-button' disabled> Disactivate </button>)
+                                                : (<button id='red-button' onClick={() => disableUser(user)}> Disactivate </button>))
+                                            : (<button id='green-button' onClick={() => enableUser(user)}> Activate </button>)}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                }
 
+                {searched && !users &&
+                    <div className="none-found">
+                        No Users Meeting Search Found</div>}
+
+                {errorMessage &&
+                    <p className="error-message">{errorMessage}</p>}
+            </div>
         </div >
     )
 }

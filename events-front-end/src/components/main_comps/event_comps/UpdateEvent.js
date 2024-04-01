@@ -157,65 +157,79 @@ const UpdateEvent = (props) => {
 
     return (
         <div className="window">
-            <div className="window-inner">
+            <div className="window-inner" id='update-event-window'>
+
                 <div className="update-event">
-                    <div className="close"><button onClick={props.onClose}>X</button></div>
+                    <p className="add-event-header"> Update Event </p>
                     <form onSubmit={handleSubmit}>
+                        <div className="update-event-l">
+                            <label htmlFor="title">Title:</label><br />
+                            <input type="text" id="title" value={eventData.title}
+                                maxLength='100' required onChange={handleInputChange} /><br />
 
-                        <label htmlFor="title">Title:</label>
-                        <input type="text" id="title" value={eventData.title}
-                            maxLength='100' required onChange={handleInputChange} /><br />
+                            <label htmlFor="description">Description:</label><br />
+                            <textarea type="text" id="description" value={eventData.description}
+                                onChange={handleInputChange} maxLength="1000" rows="13" /><br />
 
-                        <label htmlFor="description">Description:</label><br />
-                        <textarea type="text" id="description" value={eventData.description}
-                            onChange={handleInputChange} maxLength="1000" /><br />
+                            <label htmlFor="location">Location:</label><br />
+                            <input type="text" id="location" value={eventData.location}
+                                onChange={handleInputChange} maxLength='300' required /><br />
 
-                        <label htmlFor="location">Location:</label>
-                        <input type="text" id="location" value={eventData.location}
-                            onChange={handleInputChange} maxLength='300' required /><br />
+                            <div id='add-event-datetime'>
+                                <label htmlFor="date">Date:</label>
+                                <input type="date" id="date" value={eventData.date}
+                                    onChange={handleInputChange} required />
+                                <label htmlFor="time">Time:</label>
+                                <input type="time" id="time" value={eventData.time}
+                                    onChange={handleInputChange} required /><br />
+                            </div>
+                        </div>
 
-                        <label htmlFor="date">Date:</label>
-                        <input type="date" id="date" value={eventData.date}
-                            onChange={handleInputChange} required /><br />
+                        <div className="update-event-r">
+                            <div className="select-privacy" id='select-privacy-update'>
+                                <span>Is This a Private Event?</span><br />
+                                <label>
+                                    The Event Is Private
+                                    <input id='check-privacy'
+                                        type="checkbox"
+                                        checked={isPrivate}
+                                        onChange={handleCheckboxChange}
+                                    />
+                                </label><br />
+                            </div>
+                            <span id="warning"><i class="fa-solid fa-circle-exclamation"></i>If the event is marked private, each registration for the event will require your approval.</span><br />
 
-                        <label htmlFor="time">Time:</label>
-                        <input type="time" id="time" value={eventData.time} onChange={handleInputChange}
-                            required /><br />
+                            <div className="select-category">
+                                <label htmlFor="category">Event Category:</label><br />
+                                <select value={selectedValue} onChange={handleSelectChange}>
+                                    <option value="">-Select Event Category-</option>
+                                    {Array.isArray(category) && category.map((categoryItem) => (
+                                        <option key={categoryItem.category_id} value={categoryItem.category_id}>
+                                            {categoryItem.category}: {categoryItem.description}
+                                        </option>
+                                    ))}
+                                </select><br />
+                            </div>
 
+                            {selectedFile &&
+                                <div className="update-event-img-div">
+                                    <img
+                                        src={`data:image/png;base64,${selectedFile}`}
+                                        alt='image'
+                                        className="event-uploaded-image"
+                                        style={{ maxWidth: '100%', maxHeight: '300px' }}
+                                    /><br />
+                                    <button id='img-remove' onClick={handleClearFile}>X  Clear File</button>
+                                </div>}
 
-                        <span>Is This a Private Event?</span><br />
-                        <span>If the event is marked private, each registration for the event will require your approval.</span><br />
-                        <label>
-                            The Event Is Private
-                            <input
-                                type="checkbox"
-                                checked={isPrivate}
-                                onChange={handleCheckboxChange}
-                            />
-                        </label><br />
+                            <label id='image-label' htmlFor="image">
+                                <i class="fa-regular fa-image"></i> Upload Other Image
+                            </label><br />
+                            <input type="file" id="image" accept=".jpg, .jpeg, .png, .gif" onChange={handleFileChange} /><br />
+                            {fileError && <p className="error-message">{fileError}</p>}
 
-                        <select value={selectedValue} onChange={handleSelectChange}>
-                            {Array.isArray(category) && category.map((categoryItem) => (
-                                <option key={categoryItem.category_id} value={categoryItem.category_id}>
-                                    {categoryItem.category}: {categoryItem.description}
-                                </option>
-                            ))}
-                        </select><br />
-
-                        {selectedFile && <>
-                            <img
-                                src={`data:image/png;base64,${selectedFile}`}
-                                alt='image'
-                                className="event-uploaded-image"
-                                style={{ maxWidth: '100%', maxHeight: '300px' }}
-                            />
-                            <button onClick={(e) => handleClearFile(e)}>Clear File</button></>}
-
-                        <label for="image">Upload Photo:</label>
-                        <input type="file" id="image" accept=".jpg, .jpeg, .png, .gif" onChange={handleFileChange} /><br />
-                        {fileError && <p className="error-message">{fileError}</p>}
-
-                        <button type="submit">Update Event!</button>
+                            <button className='approve-button' type="submit">Update Event!</button>
+                        </div>
                     </form>
 
                     {loading && <Spinner />}
@@ -225,8 +239,10 @@ const UpdateEvent = (props) => {
                         </div>}
                     {errorMessage && <p>{errorMessage}</p>}
                 </div>
+
+                <div className="close"><button onClick={props.onClose}>X</button></div>
             </div>
-        </div>
+        </div >
     )
 }
 

@@ -170,6 +170,15 @@
     white-space: nowrap;
 }
 
+.event-registrations th {
+    color: var(--darker-color);
+}
+
+
+.event-registrations tr:hover {
+    background-color: rgb(219, 162, 148, 0.2);
+}
+
 .event-registrations tr {
     border-top: solid var(--darker-color) 2px;
 }
@@ -239,6 +248,7 @@
 .registrations-loading {
     z-index: 900;
     position: absolute;
+    margin-left: 20%;
     bottom: -5%;
 }
 
@@ -294,6 +304,31 @@
 #event-cancel-registration-button:hover {
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
     background-color: var(--darker-color);
+}
+
+.event-organiser-add-photo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#event-organiser-add-photo-button {
+    background-color: var(--shiny-color);
+    border: solid white;
+    border-radius: 2vw;
+    font-family: var(--main-font);
+    font-size: 1vw;
+    color: white;
+    padding: 2%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+#event-organiser-add-photo-button:hover {
+    background-color: var(--main-color);
+    border: solid var(--shiny-color);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    color: white;
+    font-weight: 700;
 }
 
 .event-add-review {
@@ -455,6 +490,11 @@
     color: var(--darker-color);
 }
 
+#reviewer:hover {
+    text-decoration: underline;
+    color: var(--shiny-color);
+}
+
 #raiting {
     color: var(--shiny-color);
     font-weight: 700;
@@ -488,4 +528,46 @@
     color: var(--darker-color);
     font-weight: 700;
     font-size: 1.5vw;
+}
+
+#reviewer-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#reviewer-actions-delete {
+    font-family: var(--main-font);
+    font-size: 0.8vw;
+    font-weight: 700;
+    color: white;
+    background-color: rgb(175, 1, 1);
+    border: solid rgb(175, 1, 1) 2px;
+    border-radius: 0.8vw;
+    padding: 1%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+#reviewer-actions-delete:hover {
+    color: rgb(175, 1, 1);
+    background-color: rgba(255, 0, 0, 0.24);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+#reviewer-actions-update {
+    background-color: var(--darker-color);
+    border: solid 2px var(--darker-color);
+    font-family: var(--main-font);
+    font-size: 0.8vw;
+    color: white;
+    border-radius: 0.8vw;
+    padding: 1%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+#reviewer-actions-update:hover {
+    color: var(--darker-color);
+    background-color: rgb(197, 100, 67, 0.3);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    border: solid 2px var(--darker-color);
 }
