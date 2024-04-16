@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+
+  backend:
+    build: ./events-back-end
+    ports:
+      - "5000:5000"
+    depends_on:
+      - database
+
+  frontend:
+    build: ./events-front-end
+    ports:
+      - "3000:80"
+
+  database:
+    user: root
+    build: .
+    ports:
+      - "1433:1433"
