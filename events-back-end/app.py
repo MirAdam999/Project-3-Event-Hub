@@ -34,6 +34,6 @@ if __name__ == "__main__":
 
     with app.app_context():
         db.create_all()
-    
-    app.run(debug=app.config['DEBUG'], use_reloader=app.config['USE_RELOADER'])
+        
+    app.run(debug=app.config['DEBUG'], use_reloader=app.config['USE_RELOADER'], port=5000)
     
