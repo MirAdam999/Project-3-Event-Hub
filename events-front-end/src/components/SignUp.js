@@ -1,6 +1,7 @@
 
 import { useRef } from "react";
 import { useState } from "react";
+import { useURL } from "./URL";
 import '../style/Pop-Up.css';
 
 const SignUpPopUp = (props) => {
@@ -13,6 +14,7 @@ const SignUpPopUp = (props) => {
     const [passwordsMatch, setPasswordsMatch] = useState(true);
     const [errorMessage, setErrorMessage] = useState('');
     const [sucsess, setSucsess] = useState(false);
+    const { storedURL } = useURL();
 
     function goToLogin() {
         props.onClose();
@@ -28,7 +30,7 @@ const SignUpPopUp = (props) => {
         }
 
         try {
-            const result = await fetch("http://127.0.0.1:5000/signup", {
+            const result = await fetch(`${storedURL}/signup`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"

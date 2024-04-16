@@ -1,9 +1,7 @@
 import React, { createContext, useState, useContext } from 'react';
 
-// Create a context
 const TokenContext = createContext();
 
-// Provider component
 const TokenProvider = ({ children }) => {
     const [storedToken, setStoredToken] = useState(null);
     const [usersId, setUsersId] = useState('');
@@ -44,7 +42,6 @@ const TokenProvider = ({ children }) => {
     );
 };
 
-// Custom hooks to access the token context
 const useToken = () => useContext(TokenContext);
 
 export { TokenProvider, useToken };

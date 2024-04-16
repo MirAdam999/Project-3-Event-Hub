@@ -2,11 +2,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useToken } from '../Token';
+import { useURL } from "../URL";
 import Spinner from "../Loading";
 import '../../style/main/SearchEvent.css'
 import '../../style/main/Events.css'
 
 const MyRegistrations = () => {
+    const { storedURL } = useURL();
     const { storedToken, usersName } = useToken();
     const [errorMessage, setErrorMessage] = useState('');
     const [eventsAndRegistrations, setEventsAndRegistrations] = useState([]);
@@ -20,7 +22,7 @@ const MyRegistrations = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const result = await fetch("http://127.0.0.1:5000/my_registrations", {
+                const result = await fetch(`${storedURL}/my_registrations`, {
                     method: 'POST',
                     headers: {
                         "Content-Type": "application/json"

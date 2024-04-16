@@ -1,9 +1,11 @@
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useToken } from "../../Token";
+import { useURL } from "../../URL";
 
 const AllUsers = (props) => {
     const { storedToken } = useToken();
+    const { storedURL } = useURL();
     const { setLoading } = props;
 
     useEffect(() => {
@@ -11,7 +13,7 @@ const AllUsers = (props) => {
         setLoading(true);
         const fetchData = async () => {
             try {
-                const result = await fetch("http://127.0.0.1:5000/users", {
+                const result = await fetch(`${storedURL}/users`, {
                     method: 'POST',
                     headers: {
                         "Content-Type": "application/json"

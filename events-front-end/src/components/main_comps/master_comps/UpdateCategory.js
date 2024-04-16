@@ -2,10 +2,12 @@
 import '../../../style/Window.css';
 import { useState } from "react";
 import { useToken } from '../../Token';
+import { useURL } from "../../URL";
 import Spinner from "../../Loading";
 
 const UpdateCategory = (props) => {
     const { storedToken } = useToken();
+    const { storedURL } = useURL();
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [sucsess, setSucsess] = useState(false);
@@ -27,7 +29,7 @@ const UpdateCategory = (props) => {
         e.preventDefault();
         setLoading(true)
         try {
-            const result = await fetch(`http://127.0.0.1:5000/categories/${category.category_id}`, {
+            const result = await fetch(`${storedURL}/categories/${category.category_id}`, {
                 method: 'PUT',
                 headers: {
                     "Content-Type": "application/json"

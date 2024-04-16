@@ -1,11 +1,13 @@
 
 import { useRef, useState } from "react";
 import { useToken } from '../../Token';
+import { useURL } from "../../URL";
 import Spinner from "../../Loading";
 import '../../../style/Window.css';
 
 const AddCategory = (props) => {
     const { storedToken } = useToken();
+    const { storedURL } = useURL();
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [sucsess, setSucsess] = useState(false);
@@ -16,7 +18,7 @@ const AddCategory = (props) => {
         e.preventDefault();
         setLoading(true)
         try {
-            const result = await fetch(`http://127.0.0.1:5000/add_category`, {
+            const result = await fetch(`${storedURL}/add_category`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"

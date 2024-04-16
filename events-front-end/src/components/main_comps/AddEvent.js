@@ -2,12 +2,14 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useToken } from '../Token';
+import { useURL } from "../URL";
 import Spinner from "../Loading"
 import '../../style/main/AddEvent.css'
 import '@fortawesome/fontawesome-free/css/all.css';
 
 const AddEvent = () => {
     const { storedToken } = useToken();
+    const { storedURL } = useURL();
     const [loading, setLoading] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
@@ -31,7 +33,7 @@ const AddEvent = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://127.0.0.1:5000/get_categories');
+                const response = await fetch(`${storedURL}/get_categories`);
                 const result = await response.json();
 
                 if ('categories' in result) {
@@ -117,7 +119,7 @@ const AddEvent = () => {
                 formDataObject[key] = value;
             });
 
-            const result = await fetch("http://127.0.0.1:5000/add_event", {
+            const result = await fetch(`${storedURL}/add_event`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"

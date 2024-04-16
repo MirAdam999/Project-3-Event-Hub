@@ -1,9 +1,11 @@
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { useToken } from '../Token';
+import { useURL } from "../URL";
 import '../../style/main/Profile.css'
 
 const UpdatePassword = () => {
+    const { storedURL } = useURL();
     const { storedToken } = useToken();
     const [errorMessage, setErrorMessage] = useState('');
     const [sucsess, setSucsess] = useState(false);
@@ -31,7 +33,7 @@ const UpdatePassword = () => {
                 formDataObject[key] = value;
             });
 
-            const result = await fetch("http://127.0.0.1:5000/change_password", {
+            const result = await fetch(`${storedURL}/change_password`, {
                 method: 'PUT',
                 headers: {
                     "Content-Type": "application/json"

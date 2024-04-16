@@ -1,15 +1,17 @@
 
 import { useState } from "react";
 import { useToken } from "./Token";
+import { useURL } from "./URL";
 import '../style/Pop-Up.css';
 
 const LogOutPopUp = (props) => {
+    const { storedURL } = useURL();
     const { setToken, setName, setIsMasterPermission } = useToken();
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleLogout = async (e) => {
         try {
-            const result = await fetch("http://127.0.0.1:5000/logout", {
+            const result = await fetch(`${storedURL}/logout`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"

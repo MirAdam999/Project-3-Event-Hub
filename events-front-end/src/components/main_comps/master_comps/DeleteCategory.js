@@ -1,11 +1,13 @@
 
 import { useState } from "react";
 import { useToken } from '../../Token';
+import { useURL } from "../../URL";
 import Spinner from "../../Loading";
 import '../../../style/Pop-Up.css';
 
 const DeleteCategory = (props) => {
     const { storedToken } = useToken();
+    const { storedURL } = useURL();
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [sucsess, setSucsess] = useState(false);
@@ -14,7 +16,7 @@ const DeleteCategory = (props) => {
     const handleDelete = async (e) => {
         setLoading(true)
         try {
-            const result = await fetch(`http://127.0.0.1:5000/categories/${category.category_id}`, {
+            const result = await fetch(`${storedURL}/categories/${category.category_id}`, {
                 method: 'DELETE',
                 headers: {
                     "Content-Type": "application/json"

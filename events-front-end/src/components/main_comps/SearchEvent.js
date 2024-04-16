@@ -1,5 +1,6 @@
 
 import { useState, useEffect, useRef } from "react";
+import { useURL } from "../URL";
 import Spinner from "../Loading";
 import EventsFound from "./EventsFound";
 import '../../style/main/Searchbar.css'
@@ -7,6 +8,7 @@ import '../../style/main/SearchEvent.css'
 import '@fortawesome/fontawesome-free/css/all.css';
 
 const SearchEvent = () => {
+    const { storedURL } = useURL();
     const [errorMessage, setErrorMessage] = useState('');
     const [events, setEvents] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -22,7 +24,7 @@ const SearchEvent = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://127.0.0.1:5000/get_categories');
+                const response = await fetch(`${storedURL}/get_categories`);
                 const result = await response.json();
 
                 if ('categories' in result) {
@@ -61,7 +63,7 @@ const SearchEvent = () => {
                 formDataObject[key] = value;
             });
 
-            const result = await fetch("http://127.0.0.1:5000/search_event", {
+            const result = await fetch(`${storedURL}/search_event`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"

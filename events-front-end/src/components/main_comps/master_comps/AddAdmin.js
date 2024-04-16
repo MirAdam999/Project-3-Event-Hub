@@ -2,11 +2,13 @@
 import SearchForAdmin from "./SearchForAdmin";
 import { useState } from "react";
 import { useToken } from '../../Token';
+import { useURL } from "../../URL";
 import Spinner from "../../Loading";
 import '../../../style/Window.css';
 
 const AddAdmin = (props) => {
     const { storedToken } = useToken();
+    const { storedURL } = useURL();
     const [searched, setSearched] = useState(false)
     const [errorMessage, setErrorMessage] = useState('');
     const [users, setUsers] = useState([]);
@@ -16,7 +18,7 @@ const AddAdmin = (props) => {
     const makeAdmin = async (user) => {
         setLoading(true)
         try {
-            const result = await fetch(`http://127.0.0.1:5000/make_admin/${user.user_id}`, {
+            const result = await fetch(`${storedURL}/make_admin/${user.user_id}`, {
                 method: 'PUT',
                 headers: {
                     "Content-Type": "application/json"

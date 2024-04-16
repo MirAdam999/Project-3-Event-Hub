@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useToken } from '../../Token';
+import { useURL } from "../../URL";
 import Spinner from "../../Loading";
 import DeleteReview from './DeleteReview';
 import UpdateReview from './UpdateReview';
@@ -10,6 +11,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 const ShowReviews = (props) => {
     const event = props.event
     const { usersId } = useToken();
+    const { storedURL } = useURL();
     const [reviews, setReviews] = useState('')
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
@@ -41,7 +43,7 @@ const ShowReviews = (props) => {
         const fetchData = async () => {
             setLoading(true);
             try {
-                const result = await fetch(`http://127.0.0.1:5000/get_reviews/${event.event_id}`, {
+                const result = await fetch(`${storedURL}/get_reviews/${event.event_id}`, {
                     method: 'GET',
                     headers: {
                         "Content-Type": "application/json"

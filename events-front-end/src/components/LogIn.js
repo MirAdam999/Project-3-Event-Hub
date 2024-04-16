@@ -1,9 +1,11 @@
 
 import { useRef, useState } from "react";
 import { useToken } from "./Token";
+import { useURL } from "./URL";
 import '../style/Pop-Up.css';
 
 const LoginPopUp = (props) => {
+    const { storedURL } = useURL();
     const username = useRef();
     const password = useRef();
     const { setToken, setName, setIsMasterPermission, setId } = useToken();
@@ -17,7 +19,7 @@ const LoginPopUp = (props) => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const result = await fetch("http://127.0.0.1:5000/login", {
+            const result = await fetch(`${storedURL}/login`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"

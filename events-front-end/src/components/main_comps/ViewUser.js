@@ -4,9 +4,11 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Spinner from "../Loading";
 import { useToken } from "../Token";
+import { useURL } from "../URL";
 import '../../style/main/UserPage.css'
 
 const ViewUser = () => {
+    const { storedURL } = useURL();
     const { isMasterUser } = useToken()
     const { user_id } = useParams();
     const [errorMessage, setErrorMessage] = useState('');
@@ -25,7 +27,7 @@ const ViewUser = () => {
         const fetchData = async () => {
             setLoading(true)
             try {
-                const result = await fetch(`http://127.0.0.1:5000/get_user_by_id/${user_id}`, {
+                const result = await fetch(`${storedURL}/get_user_by_id/${user_id}`, {
                     method: 'GET',
                     headers: {
                         "Content-Type": "application/json"

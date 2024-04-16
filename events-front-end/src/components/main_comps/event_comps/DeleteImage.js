@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import { useToken } from '../../Token';
+import { useURL } from "../../URL";
 import Spinner from "../../Loading";
 import '../../../style/Pop-Up.css';
 
@@ -9,11 +10,12 @@ const DeleteImage = (props) => {
     const [errorMessage, setErrorMessage] = useState('');
     const [sucsess, setSucsess] = useState(false);
     const { storedToken } = useToken();
+    const { storedURL } = useURL();
 
     const handleDelete = async (e) => {
         setLoading(true)
         try {
-            const result = await fetch(`http://127.0.0.1:5000/delete_image/${props.image_id}`, {
+            const result = await fetch(`${storedURL}/delete_image/${props.image_id}`, {
                 method: 'DELETE',
                 headers: {
                     "Content-Type": "application/json"

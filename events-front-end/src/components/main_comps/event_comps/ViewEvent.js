@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useToken } from '../../Token';
+import { useURL } from "../../URL";
 import Register from './Register';
 import CancelRegistration from './CancelRegister';
 import ShowRegistrations from './ShowRegistrations';
-import UpdateEvent from './UpdateEvent';
 import CancelEvent from './CancelEvent';
 import ShowReviews from './ShowReviews';
 import AddReview from './AddReview';
@@ -19,8 +19,8 @@ import '../../../style/main/ViewEvent.css'
 
 const ViewEvent = (props) => {
     const { storedToken } = useToken();
+    const { storedURL } = useURL();
     const [cancelEventIsOpen, setCancelEventIsOpen] = useState(false);
-    const [updateEventIsOpen, setUpdateEventIsOpen] = useState(false);
     const [cancelRegistrationIsOpen, setCancelRegistrationIsOpen] = useState(false);
     const [reviewsIsOpen, setReviewsIsOpen] = useState(true);
     const [addImageIsOpen, setAddImageIsOpen] = useState(false);
@@ -73,14 +73,6 @@ const ViewEvent = (props) => {
         setCancelEventIsOpen(false);
     }
 
-    function openUpdateEvent() {
-        setUpdateEventIsOpen(true);
-    }
-
-    function closeUpdateEvent() {
-        setUpdateEventIsOpen(false);
-    }
-
     function openCancelRegistration() {
         setCancelRegistrationIsOpen(true);
     }
@@ -93,7 +85,7 @@ const ViewEvent = (props) => {
         const fetchData = async () => {
             setLoading(true);
             try {
-                const result = await fetch(`http://127.0.0.1:5000/get_event_by_id/${event_id}`, {
+                const result = await fetch(`${storedURL}/get_event_by_id/${event_id}`, {
                     method: 'POST',
                     headers: {
                         "Content-Type": "application/json"
@@ -174,8 +166,7 @@ const ViewEvent = (props) => {
                         {user === 'Organiser' && !hasEventPassed && event.is_canceled !== 'Canceled' &&
                             <div className='event-organiser-functions'>
                                 <div className='event-organiser-buttons'>
-                                    <button id='update-event' onClick={openUpdateEvent}> Update Event </button>
-                                    {updateEventIsOpen && <UpdateEvent onClose={closeUpdateEvent} event={event} />}
+                                    <button id='update-event' onClick={() => handleNavigation(`/update_event/${event_id}`)}> Update Event </button>
                                     <button id='cancel-event' onClick={openCancelEvent}> Cancel Event </button>
                                     {cancelEventIsOpen && <CancelEvent onClose={closeCancelEvent} event_id={event.event_id} event_title={event.title} />}
                                 </div>

@@ -1,11 +1,13 @@
 
 import { useState, useEffect } from "react";
 import { useToken } from '../Token';
+import { useURL } from "../URL";
 import Spinner from "../Loading";
 import UpdatePassword from "./UpdatePassword";
 import '../../style/main/Profile.css'
 
 const MyProfile = () => {
+    const { storedURL } = useURL();
     const { storedToken } = useToken();
     const [errorMessage, setErrorMessage] = useState('');
     const [loading, setLoading] = useState(true);
@@ -22,7 +24,7 @@ const MyProfile = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const result = await fetch('http://127.0.0.1:5000/get_user', {
+                const result = await fetch(`${storedURL}/get_user`, {
                     method: 'POST',
                     headers: {
                         "Content-Type": "application/json"
@@ -70,7 +72,7 @@ const MyProfile = () => {
         e.preventDefault();
         setLoading(true)
         try {
-            const result = await fetch("http://127.0.0.1:5000/update_user", {
+            const result = await fetch(`${storedURL}/update_user`, {
                 method: 'PUT',
                 headers: {
                     "Content-Type": "application/json"

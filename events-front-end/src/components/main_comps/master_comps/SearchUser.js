@@ -1,10 +1,12 @@
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useToken } from "../../Token";
+import { useURL } from "../../URL";
 import '../../../style/main/Admin.css'
 
 const SearchUser = (props) => {
     const { storedToken } = useToken();
+    const { storedURL } = useURL();
     const { setLoading } = props;
     const user_id = useRef();
     const username = useRef();
@@ -29,7 +31,7 @@ const SearchUser = (props) => {
 
             console.log(formDataObject)
 
-            const result = await fetch("http://127.0.0.1:5000/search_user", {
+            const result = await fetch(`${storedURL}/search_user`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"

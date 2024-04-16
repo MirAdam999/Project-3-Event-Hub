@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './style/App.css';
 import './style/Backround.css'
 import { TokenProvider } from './components/Token';
+import { URLProvider } from './components/URL';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar'
@@ -24,6 +25,7 @@ import MyProfile from "./components/main_comps/MyProfile";
 import UsersMangment from "./components/main_comps/master_comps/Users";
 import AdminsMangment from "./components/main_comps/master_comps/Admins";
 import CategoriesMangment from "./components/main_comps/master_comps/Categories";
+import UpdateEvent from './components/main_comps/event_comps/UpdateEvent';
 
 function App() {
   const [sidebarIsOpen, setSIdebarIsOpen] = useState(false);
@@ -64,44 +66,48 @@ function App() {
   }
 
   return (
-    <TokenProvider>
-      <div className="App">
-        <div className="backround"></div>
 
-        <Header onLogOut={openLogOut} onSignUp={openSignUp} onLogIn={openLogIn} openSidebar={openSidebar} />
+    <URLProvider>
+      <TokenProvider>
+        <div className="App">
+          <div className="backround"></div>
 
-        {sidebarIsOpen && <Sidebar onClose={closeSidebar} onLogOut={openLogOut} onSignUp={openSignUp} onLogIn={openLogIn} />}
-        {signUpPopUpIsOpen && <SignUpPopUp onClose={closeSignUp} onOpenLogin={openLogIn} />}
-        {logInIsOpen && <LoginPopUp onClose={closeLogIn} onClickSignUp={openSignUp} />}
-        {logOutIsOpen && <LogOutPopUp onClose={closeLogOut} />}
+          <Header onLogOut={openLogOut} onSignUp={openSignUp} onLogIn={openLogIn} openSidebar={openSidebar} />
 
-        <Main />
+          {sidebarIsOpen && <Sidebar onClose={closeSidebar} onLogOut={openLogOut} onSignUp={openSignUp} onLogIn={openLogIn} />}
+          {signUpPopUpIsOpen && <SignUpPopUp onClose={closeSignUp} onOpenLogin={openLogIn} />}
+          {logInIsOpen && <LoginPopUp onClose={closeLogIn} onClickSignUp={openSignUp} />}
+          {logOutIsOpen && <LogOutPopUp onClose={closeLogOut} />}
 
-        <Routes>
+          <Main />
 
-          {/* Unlogged */}
-          <Route exact path="/" element={<LandingPage onLogIn={openLogIn} />} />
-          <Route path="/search_event" element={<SearchEvent />} />
-          <Route path="/view_event/:event_id" element={<ViewEvent onLogIn={openLogIn} />} />
-          <Route path="/user/:user_id" element={<ViewUser />} />
-          {/* User */}
-          <Route path="/my_events" element={<MyEvents />} />
-          <Route path="/add_event" element={<AddEvent />} />
-          <Route path="/my_registrations" element={<MyRegistrations />} />
-          <Route path="/attended" element={<AttendedEvents />} />
-          <Route path="/my_profile" element={<MyProfile />} />
-          {/* Admin */}
-          <Route path="/all_events" element={<AllEvents />} />
-          <Route path="/categories" element={<CategoriesMangment />} />
-          <Route path="/users" element={<UsersMangment />} />
-          <Route path="/admins" element={<AdminsMangment />} />
+          <Routes>
 
-        </Routes>
+            {/* Unlogged */}
+            <Route exact path="/" element={<LandingPage onLogIn={openLogIn} />} />
+            <Route path="/search_event" element={<SearchEvent />} />
+            <Route path="/view_event/:event_id" element={<ViewEvent onLogIn={openLogIn} />} />
+            <Route path="/user/:user_id" element={<ViewUser />} />
+            {/* User */}
+            <Route path="/my_events" element={<MyEvents />} />
+            <Route path="/add_event" element={<AddEvent />} />
+            <Route path="/update_event/:event_id" element={<UpdateEvent />} />
+            <Route path="/my_registrations" element={<MyRegistrations />} />
+            <Route path="/attended" element={<AttendedEvents />} />
+            <Route path="/my_profile" element={<MyProfile />} />
+            {/* Admin */}
+            <Route path="/all_events" element={<AllEvents />} />
+            <Route path="/categories" element={<CategoriesMangment />} />
+            <Route path="/users" element={<UsersMangment />} />
+            <Route path="/admins" element={<AdminsMangment />} />
 
-        <Footer />
+          </Routes>
 
-      </div>
-    </TokenProvider>
+          <Footer />
+
+        </div>
+      </TokenProvider>
+    </URLProvider>
   );
 }
 

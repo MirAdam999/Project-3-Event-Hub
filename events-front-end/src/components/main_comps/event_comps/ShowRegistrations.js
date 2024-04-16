@@ -1,11 +1,13 @@
 
 import { useState, useEffect } from 'react';
 import { useToken } from '../../Token';
+import { useURL } from "../../URL";
 import Spinner from "../../Loading";
 
 const ShowRegistrations = (props) => {
     const event = props.event
     const { storedToken } = useToken();
+    const { storedURL } = useURL();
     const [registrations, setRegistrations] = useState('')
     const [loading, setLoading] = useState(true);
     const [errorMessage, setErrorMessage] = useState('');
@@ -15,7 +17,7 @@ const ShowRegistrations = (props) => {
         const fetchData = async () => {
             setLoading(true);
             try {
-                const result = await fetch(`http://127.0.0.1:5000/get_registrations/${event.event_id}`, {
+                const result = await fetch(`${storedURL}/get_registrations/${event.event_id}`, {
                     method: 'POST',
                     headers: {
                         "Content-Type": "application/json"
@@ -50,7 +52,7 @@ const ShowRegistrations = (props) => {
 
     const handleApprove = async (registeration_id) => {
         try {
-            const result = await fetch(`http://127.0.0.1:5000/approve_registration/${registeration_id}`, {
+            const result = await fetch(`${storedURL}/approve_registration/${registeration_id}`, {
                 method: 'PUT',
                 headers: {
                     "Content-Type": "application/json"
@@ -82,7 +84,7 @@ const ShowRegistrations = (props) => {
 
     const handleDecline = async (registeration_id) => {
         try {
-            const result = await fetch(`http://127.0.0.1:5000/decline_registration/${registeration_id}`, {
+            const result = await fetch(`${storedURL}/decline_registration/${registeration_id}`, {
                 method: 'PUT',
                 headers: {
                     "Content-Type": "application/json"

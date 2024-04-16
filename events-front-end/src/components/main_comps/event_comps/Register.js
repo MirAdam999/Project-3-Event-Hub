@@ -1,10 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import { useToken } from '../../Token';
+import { useURL } from "../../URL";
 import Spinner from "../../Loading";
 
 const Register = (props) => {
     const { storedToken } = useToken();
+    const { storedURL } = useURL();
     const [isSuccess, setIsSuccess] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [loading, setLoading] = useState(false);
@@ -19,7 +21,7 @@ const Register = (props) => {
             e.preventDefault();
             setLoading(true)
             try {
-                const result = await fetch(`http://127.0.0.1:5000/register/${props.event_id}`, {
+                const result = await fetch(`${storedURL}/register/${props.event_id}`, {
                     method: 'POST',
                     headers: {
                         "Content-Type": "application/json"

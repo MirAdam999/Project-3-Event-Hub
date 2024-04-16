@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useToken } from '../../Token';
+import { useURL } from "../../URL";
 import Spinner from "../../Loading";
 import SearchUser from "./SearchUser";
 import AllUsers from "./AllUser";
@@ -10,6 +11,7 @@ import '../../../style/main/Searchbar.css'
 
 const UsersMangment = () => {
     const { storedToken } = useToken();
+    const { storedURL } = useURL();
     const { usersId } = useToken();
     const [errorMessage, setErrorMessage] = useState('');
     const [users, setUsers] = useState([]);
@@ -28,7 +30,7 @@ const UsersMangment = () => {
 
     const disableUser = async (user) => {
         try {
-            const result = await fetch(`http://127.0.0.1:5000/disactivate_user/${user.user_id}`, {
+            const result = await fetch(`${storedURL}/disactivate_user/${user.user_id}`, {
                 method: 'PUT',
                 headers: {
                     "Content-Type": "application/json"
@@ -65,7 +67,7 @@ const UsersMangment = () => {
 
     const enableUser = async (user) => {
         try {
-            const result = await fetch(`http://127.0.0.1:5000/activate_user/${user.user_id}`, {
+            const result = await fetch(`${storedURL}/activate_user/${user.user_id}`, {
                 method: 'PUT',
                 headers: {
                     "Content-Type": "application/json"

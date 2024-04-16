@@ -2,11 +2,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useToken } from '../../Token';
+import { useURL } from "../../URL";
 import Spinner from "../../Loading";
 import '../../../style/Window.css';
 
 const CategoryDetails = (props) => {
     const { storedToken } = useToken();
+    const { storedURL } = useURL();
     const [errorMessage, setErrorMessage] = useState('');
     const [events, setEvents] = useState([]);
     const category = props.category
@@ -21,7 +23,7 @@ const CategoryDetails = (props) => {
         const fetchData = async () => {
             try {
                 const category_id = category.category_id
-                const result = await fetch(`http://127.0.0.1:5000/get_events_by_category/${category_id}`, {
+                const result = await fetch(`${storedURL}/get_events_by_category/${category_id}`, {
                     method: 'POST',
                     headers: {
                         "Content-Type": "application/json"

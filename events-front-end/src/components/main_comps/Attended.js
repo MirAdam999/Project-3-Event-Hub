@@ -2,10 +2,12 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useToken } from '../Token';
+import { useURL } from "../URL";
 import Spinner from "../Loading";
 
 const AttendedEvents = () => {
     const { storedToken, usersName } = useToken();
+    const { storedURL } = useURL();
     const [errorMessage, setErrorMessage] = useState('');
     const [eventsAndRegistrations, setEventsAndRegistrations] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -18,7 +20,7 @@ const AttendedEvents = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const result = await fetch("http://127.0.0.1:5000/attended", {
+                const result = await fetch(`${storedURL}/attended`, {
                     method: 'POST',
                     headers: {
                         "Content-Type": "application/json"

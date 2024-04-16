@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { useToken } from '../../Token';
+import { useURL } from "../../URL";
 import { useNavigate } from 'react-router-dom';
 import Spinner from "../../Loading";
 import RevokeAdmin from "./RevokeAdmin";
@@ -9,6 +10,7 @@ import '../../../style/main/Admin.css'
 
 const AdminsMangment = () => {
     const { storedToken, usersId } = useToken();
+    const { storedURL } = useURL();
     const [errorMessage, setErrorMessage] = useState('');
     const [admins, setAdmins] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -41,7 +43,7 @@ const AdminsMangment = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const result = await fetch("http://127.0.0.1:5000/admins", {
+                const result = await fetch(`${storedURL}/admins`, {
                     method: 'POST',
                     headers: {
                         "Content-Type": "application/json"
@@ -79,7 +81,7 @@ const AdminsMangment = () => {
 
     const revokeAdmin = async (user) => {
         try {
-            const result = await fetch(`http://127.0.0.1:5000/revoke_admin/${user.user_id}`, {
+            const result = await fetch(`${storedURL}/revoke_admin/${user.user_id}`, {
                 method: 'PUT',
                 headers: {
                     "Content-Type": "application/json"

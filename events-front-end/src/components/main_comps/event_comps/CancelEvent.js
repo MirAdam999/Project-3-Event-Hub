@@ -1,11 +1,13 @@
 
 import { useToken } from '../../Token';
+import { useURL } from "../../URL";
 import { useState } from 'react';
 import Spinner from "../../Loading";
 import '../../../style/Pop-Up.css';
 
 const CancelEvent = (props) => {
     const { storedToken } = useToken();
+    const { storedURL } = useURL();
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [isSuccess, setIsSuccess] = useState(false);
@@ -14,7 +16,7 @@ const CancelEvent = (props) => {
         e.preventDefault();
         setLoading(true)
         try {
-            const result = await fetch(`http://127.0.0.1:5000/cancel_event/${props.event_id}`, {
+            const result = await fetch(`${storedURL}/cancel_event/${props.event_id}`, {
                 method: 'PUT',
                 headers: {
                     "Content-Type": "application/json"

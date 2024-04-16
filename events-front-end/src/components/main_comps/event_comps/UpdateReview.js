@@ -1,11 +1,13 @@
 
 import { useState } from "react";
 import { useToken } from '../../Token';
+import { useURL } from "../../URL";
 import Spinner from "../../Loading";
 import '../../../style/Window.css';
 
 const UpdateReview = (props) => {
     const { storedToken } = useToken();
+    const { storedURL } = useURL();
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [sucsess, setSucsess] = useState(false);
@@ -27,7 +29,7 @@ const UpdateReview = (props) => {
         e.preventDefault();
         setLoading(true)
         try {
-            const result = await fetch(`http://127.0.0.1:5000/reviews/${review.review_id}`, {
+            const result = await fetch(`${storedURL}/reviews/${review.review_id}`, {
                 method: 'PUT',
                 headers: {
                     "Content-Type": "application/json"

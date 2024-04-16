@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { useToken } from '../../Token';
+import { useURL } from "../../URL";
 import Spinner from "../../Loading";
 import '../../../style/Pop-Up.css';
 
@@ -9,12 +10,13 @@ const CancelRegistration = (props) => {
     const [isSuccess, setIsSuccess] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [loading, setLoading] = useState(false);
+    const { storedURL } = useURL();
 
     const handleCancel = async (e) => {
         e.preventDefault();
         setLoading(true)
         try {
-            const result = await fetch(`http://127.0.0.1:5000/cancel_registeration/${props.event_id}`, {
+            const result = await fetch(`${storedURL}/cancel_registeration/${props.event_id}`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"

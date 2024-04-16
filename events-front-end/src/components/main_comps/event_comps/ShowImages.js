@@ -1,11 +1,13 @@
 
 import { useState, useEffect } from 'react';
+import { useURL } from "../../URL";
 import Spinner from "../../Loading";
 import ViewImagePopUp from './ViewImage';
 import '../../../style/main/ViewEvent.css'
 
 const ShowImages = (props) => {
     const event = props.event
+    const { storedURL } = useURL();
     const [images, setImages] = useState('')
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
@@ -23,7 +25,7 @@ const ShowImages = (props) => {
         const fetchData = async () => {
             setLoading(true);
             try {
-                const result = await fetch(`http://127.0.0.1:5000/get_images/${event.event_id}`, {
+                const result = await fetch(`${storedURL}/get_images/${event.event_id}`, {
                     method: 'GET',
                     headers: {
                         "Content-Type": "application/json"

@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { useToken } from '../../Token';
+import { useURL } from "../../URL";
 import Spinner from "../../Loading";
 import AddCategory from "./AddCategory";
 import CategoryDetails from "./CategoryDetails";
@@ -10,6 +11,7 @@ import '../../../style/main/Admin.css'
 
 const CategoriesMangment = () => {
     const { storedToken } = useToken();
+    const { storedURL } = useURL();
     const [errorMessage, setErrorMessage] = useState('');
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -53,7 +55,7 @@ const CategoriesMangment = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const result = await fetch("http://127.0.0.1:5000/categories", {
+                const result = await fetch(`${storedURL}/categories`, {
                     method: 'POST',
                     headers: {
                         "Content-Type": "application/json"
