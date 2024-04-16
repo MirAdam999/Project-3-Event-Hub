@@ -2,7 +2,6 @@ from flask import Flask
 from flask_migrate import Migrate
 from flask_bcrypt import Bcrypt
 from flask_cors import CORS
-import datetime
 
 from modules import db
 from modules.event_categories import EventCategories
@@ -35,5 +34,5 @@ if __name__ == "__main__":
     with app.app_context():
         db.create_all()
         
-    app.run(debug=app.config['DEBUG'], use_reloader=app.config['USE_RELOADER'], port=5000)
+    app.run(debug=app.config['DEBUG'], use_reloader=app.config['USE_RELOADER'], port=5000, host='0.0.0.0')
     

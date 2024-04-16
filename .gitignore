@@ -1,2 +1,3 @@
 Logistics/
 events-back-end/tests.py
+*.sql

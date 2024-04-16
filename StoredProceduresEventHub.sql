@@ -20,7 +20,7 @@ AS
     SELECT @count AS EventCount;
 
 GO
-ALTER PROCEDURE get_my_registrations
+CREATE PROCEDURE get_my_registrations
 @attendeeID bigint
 AS
     SELECT * 
@@ -30,7 +30,7 @@ AS
     AND e.EventDateTime >= GETDATE(); 
 
 GO
-ALTER PROCEDURE get_my_attended
+CREATE PROCEDURE get_my_attended
 @attendeeID bigint
 AS
     SELECT * 
@@ -63,7 +63,7 @@ AS
 	where EventID = @eventID 
 
 GO
-ALTER PROCEDURE get_feedback_by_event
+CREATE PROCEDURE get_feedback_by_event
 @eventID bigint
 AS
 	select r.EventID, r.UserID, f.* from Feedback f
@@ -102,55 +102,13 @@ AS
 	OR u.Email = @email
 
 GO
-ALTER PROCEDURE check_if_registered
+CREATE PROCEDURE check_if_registered
 @userID bigint,
 @eventID bigint
 AS
 	SELECT * FROM Registrations r
 	WHERE r.EventID = @eventID
 	AND r.UserID = @userID
-
-GO
-DROP TRIGGER Trigger_EventCancellation
-ON Events
-AFTER UPDATE
-AS
-BEGIN
-    IF UPDATE(IsCanceled) 
-    BEGIN
-        UPDATE Registrations
-        SET Status = 'Event Canceled'
-        WHERE EventID IN (SELECT EventID FROM inserted WHERE IsCanceled = 1)
-    END
-END;
-
-GO
-DROP TRIGGER Trigger_EventMarkedPrivate
-ON Events
-AFTER UPDATE
-AS
-BEGIN
-    IF UPDATE(IsPrivate) 
-    BEGIN
-        UPDATE Registrations
-        SET Status = 'Pending Approval'
-        WHERE EventID IN (SELECT EventID FROM inserted WHERE IsPrivate = 1)
-    END
-END;
-
-GO
-DROP TRIGGER Trigger_EventMarkedPublic
-ON Events
-AFTER UPDATE
-AS
-BEGIN
-    IF UPDATE(IsPrivate) 
-    BEGIN
-        UPDATE Registrations
-        SET Status = 'Approved'
-        WHERE EventID IN (SELECT EventID FROM inserted WHERE IsPrivate = 0)
-    END
-END;
 
 
 GO
