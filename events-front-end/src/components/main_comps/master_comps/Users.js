@@ -160,8 +160,8 @@ const UsersMangment = () => {
                                             {user.is_master}
                                         </td>
                                         <td>{user.is_active === 'Active' ?
-                                            (user.user_id === usersId ? (<button id='red-button' disabled> Disactivate </button>)
-                                                : (<button id='red-button' onClick={() => disableUser(user)}> Disactivate </button>))
+                                            (user.user_id === usersId ? (<button id='red-button' disabled> Deactivate </button>)
+                                                : (<button id='red-button' onClick={() => disableUser(user)}> Deactivate </button>))
                                             : (<button id='green-button' onClick={() => enableUser(user)}> Activate </button>)}</td>
                                     </tr>
                                 ))}
