@@ -84,22 +84,22 @@ function App() {
           <Routes>
 
             {/* Unlogged */}
-            <Route path="/Project-3-Event-Hub/" element={<LandingPage onLogIn={openLogIn} />} />
-            <Route path="Project-3-Event-Hub//search_event" element={<SearchEvent />} />
-            <Route path="Project-3-Event-Hub//view_event/:event_id" element={<ViewEvent onLogIn={openLogIn} />} />
-            <Route path="Project-3-Event-Hub//user/:user_id" element={<ViewUser />} />
+            <Route path="/Project-3-Event-Hub" element={<LandingPage onLogIn={openLogIn} />} />
+            <Route path="/Project-3-Event-Hub/search_event" element={<SearchEvent />} />
+            <Route path="/Project-3-Event-Hub/view_event/:event_id" element={<ViewEvent onLogIn={openLogIn} />} />
+            <Route path="/Project-3-Event-Hub/user/:user_id" element={<ViewUser />} />
             {/* User */}
-            <Route path="Project-3-Event-Hub//my_events" element={<MyEvents />} />
-            <Route path="Project-3-Event-Hub//add_event" element={<AddEvent />} />
-            <Route path="Project-3-Event-Hub//update_event/:event_id" element={<UpdateEvent />} />
-            <Route path="Project-3-Event-Hub//my_registrations" element={<MyRegistrations />} />
-            <Route path="Project-3-Event-Hub//attended" element={<AttendedEvents />} />
-            <Route path="Project-3-Event-Hub//my_profile" element={<MyProfile />} />
+            <Route path="/Project-3-Event-Hub/my_events" element={<MyEvents />} />
+            <Route path="/Project-3-Event-Hub/add_event" element={<AddEvent />} />
+            <Route path="/Project-3-Event-Hub/update_event/:event_id" element={<UpdateEvent />} />
+            <Route path="/Project-3-Event-Hub/my_registrations" element={<MyRegistrations />} />
+            <Route path="/Project-3-Event-Hub/attended" element={<AttendedEvents />} />
+            <Route path="/Project-3-Event-Hub/my_profile" element={<MyProfile />} />
             {/* Admin */}
-            <Route path="Project-3-Event-Hub//all_events" element={<AllEvents />} />
-            <Route path="Project-3-Event-Hub//categories" element={<CategoriesMangment />} />
-            <Route path="Project-3-Event-Hub//users" element={<UsersMangment />} />
-            <Route path="Project-3-Event-Hub//admins" element={<AdminsMangment />} />
+            <Route path="/Project-3-Event-Hub/all_events" element={<AllEvents />} />
+            <Route path="/Project-3-Event-Hub/categories" element={<CategoriesMangment />} />
+            <Route path="/Project-3-Event-Hub/users" element={<UsersMangment />} />
+            <Route path="/Project-3-Event-Hub/admins" element={<AdminsMangment />} />
 
           </Routes>
 
