@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Project-3-Event-Hub/static/css/main.15ec8af6.css",
-    "main.js": "/Project-3-Event-Hub/static/js/main.98a1ecf7.js",
+    "main.js": "/Project-3-Event-Hub/static/js/main.fb2bcd82.js",
     "static/media/fa-solid-900.ttf": "/Project-3-Event-Hub/static/media/fa-solid-900.45a265d0f07b31cde85f.ttf",
     "static/media/fa-brands-400.ttf": "/Project-3-Event-Hub/static/media/fa-brands-400.6205fd00fb1b573e9f0f.ttf",
     "static/media/fa-solid-900.woff2": "/Project-3-Event-Hub/static/media/fa-solid-900.fb8184add5a3101ad0a3.woff2",
@@ -14,10 +14,10 @@
     "static/media/fa-v4compatibility.woff2": "/Project-3-Event-Hub/static/media/fa-v4compatibility.b3049b13a93f07e026fc.woff2",
     "index.html": "/Project-3-Event-Hub/index.html",
     "main.15ec8af6.css.map": "/Project-3-Event-Hub/static/css/main.15ec8af6.css.map",
-    "main.98a1ecf7.js.map": "/Project-3-Event-Hub/static/js/main.98a1ecf7.js.map"
+    "main.fb2bcd82.js.map": "/Project-3-Event-Hub/static/js/main.fb2bcd82.js.map"
   },
   "entrypoints": [
     "static/css/main.15ec8af6.css",
-    "static/js/main.98a1ecf7.js"
+    "static/js/main.fb2bcd82.js"
   ]
 }
