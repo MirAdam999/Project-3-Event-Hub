@@ -78,7 +78,30 @@ const LoginPopUp = (props) => {
                 <div className="signup">
                     <p id='log-header'>New to EventHub?</p>
                     <button className="go-to-signup-button" onClick={openSignUp}> Sign Up !</button>
+                    <div id='demo-users'>
+                        <p >Demo Users:</p>
+                        <table>
+                            <thead>
+                                <th>Username</th>
+                                <th >Password</th>
+                                <th>User Type</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>User444</td>
+                                    <td id='border-eventhub'>password4</td>
+                                    <td>Admin</td>
+                                </tr>
+                                <tr>
+                                    <td>user9</td>
+                                    <td id='border-eventhub'>password9</td>
+                                    <td>Regular</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
+
                 <div className="close"><button onClick={props.onClose}>X</button></div>
             </div>
         </div >

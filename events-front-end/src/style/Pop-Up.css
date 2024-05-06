@@ -44,8 +44,8 @@
     font-family: var(--main-font);
     font-weight: 700;
     font-size: 1.8vw;
-    margin-top: 15%;
-    margin-bottom: 13%;
+    margin-top: 13%;
+    margin-bottom: 5%;
 }
 
 /* login, signup */
@@ -146,6 +146,40 @@
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
     color: white;
     font-weight: 700;
+}
+
+#demo-users {
+    text-align: center;
+    font-family: var(--main-font);
+}
+
+#demo-users p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: var(--darker-color);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+#demo-users table {
+    border-collapse: collapse;
+}
+
+#demo-users th {
+    color: var(--shiny-color);
+    border: solid var(--shiny-color) 1px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-block: 0.5rem;
+}
+
+#demo-users td {
+    border: solid var(--shiny-color) 1px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-block: 0.5rem;
 }
 
 /* logout */
