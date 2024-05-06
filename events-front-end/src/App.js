@@ -84,7 +84,7 @@ function App() {
           <Routes>
 
             {/* Unlogged */}
-            <Route path="/" element={<LandingPage onLogIn={openLogIn} />} />
+            <Route exact path="/" element={<LandingPage onLogIn={openLogIn} />} />
             <Route path="/search_event" element={<SearchEvent />} />
             <Route path="/view_event/:event_id" element={<ViewEvent onLogIn={openLogIn} />} />
             <Route path="/user/:user_id" element={<ViewUser />} />
