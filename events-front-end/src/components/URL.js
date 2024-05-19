@@ -3,7 +3,7 @@ import React, { createContext, useContext } from 'react';
 const URLContext = createContext();
 
 const URLProvider = ({ children }) => {
-    const storedURL = 'http://20.253.72.112:5000';
+    const storedURL = 'http://4.157.130.194:5000';
 
     return (
         <URLContext.Provider

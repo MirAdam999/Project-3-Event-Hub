@@ -4,10 +4,10 @@ from datetime import datetime
 
 # 24.02.24
 # Mir Shukhman
-#Defining the class Logger to create a running log of every func run from "Repository" class
+# Defining the class Logger to create a running log of every func run from "Repository" class
 class Logger(object):
     _instance = None
-    _log_file = 'log.json'
+    _log_file = './log.json'
     
     def __new__(cls):
         """
