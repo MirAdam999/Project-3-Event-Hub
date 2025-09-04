@@ -31,9 +31,9 @@
 
   <h2>Tech Stack</h2>
 
-* Database: SQL Server for robust data management.
-* Backend: Flask Rest Framework for a powerful API layer.
-* Frontend: React.js for a dynamic and responsive user interface.
+* **Database:** SQL Server for robust data management.
+* **Backend:** Flask Rest Framework for a powerful API layer.
+* **Frontend:** React.js for a dynamic and responsive user interface.
 
 <h2>Video Demo</h2>
 <h4>Avilable on my portfolio website:</h4>
