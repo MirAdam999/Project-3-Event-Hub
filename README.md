@@ -29,47 +29,57 @@
   <h2>Security</h2>
   <p>EventHub uses JWT tokens for secure authentication for both front and backend stored tokens, and hashes passwords before storing them in the database to ensure user security.</p>
 
-  
   <h2>Tech Stack</h2>
 
 * Database: SQL Server for robust data management.
 * Backend: Flask Rest Framework for a powerful API layer.
 * Frontend: React.js for a dynamic and responsive user interface.
 
-Security
+<h2>Video Demo</h2>
+<h4>Avilable on my portfolio website:</h4>
+<a href="https://resume-omega-pied.vercel.app/projects?project=1">Click here to view it</a>
 
-EventHub uses JWT tokens for secure authentication for both front and backend stored tokens, and hashes passwords before storing them in the database to ensure user security.
 
-Screenshots
+<h2>Screenshots</h2>
 
-Homepage I
+<h4>Homepage I</h4>
+
 ![HomepageI](/screenshots/homepage.jpg "Homepage I")
 
-Homepage II
+<h4>Homepage II</h4>
+
 ![HomepageII](/screenshots/homepage2.jpg "Homepage II")
 
-Search for Event
+<h4>Search for Event</h4>
+
 ![SearchEvent](/screenshots/search_event.jpg "Search for Event")
 
-My Events Page and Sidebar
+<h4>My Events Page and Sidebar</h4>
+
 ![MyEventsAndSidebar](/screenshots/my_events_and_sidebar.jpg "My Events Page and Sidebar")
 
-Passed Event Reviews
+<h4>Passed Event Reviews</h4>
+
 ![PassedEventReviews](/screenshots/event_reviews.jpg "Passed Event Reviews")
 
-Passed Event Images
+<h4>Passed Event Images</h4>
+
 ![PassedEventImages](/screenshots/event_images.jpg "Passed Event Images")
 
-Future Private Event: Organiser Views Registrations
+<h4>Future Private Event: Organiser Views Registrations</h4>
+
 ![PrivateEventRegistrations](/screenshots/organiser_registrations.jpg "Future Private Event: Organiser Views Registrations")
 
-Future Public Event: Organiser Views Registrations
+<h4>Future Public Event: Organiser Views Registrations</h4>
+
 ![PublicEventRegistrations](/screenshots/organiser_registrations_public.jpg "Future Public Event: Organiser Views Registrations")
 
-My Profile Page
+<h4>My Profile Page</h4>
+
 ![MyProfile](/screenshots/update_profile.jpg "My Profile Page")
 
-Admin User: Users Managment
+<h4>Admin User: Users Management</h4>
+
 ![UsersManagmentAdmin](/screenshots/users_mangment.jpg "Admin User: Users Managment")
 
 Admin User: Event Category Managment
